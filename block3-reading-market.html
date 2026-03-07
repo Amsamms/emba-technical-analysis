@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block 3 — Reading the Market | Technical Analysis</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">&larr; Back to Index</a></div>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Block Title -->
+      <section class="block-title">
+        <div class="block-number">Block 3</div>
+        <h1>Reading the Market</h1>
+        <p class="subtitle">Charts, Trends &amp; Support/Resistance</p>
+        <div style="margin-top:1.5em;">
+          <span class="tag tag-blue">Sections 4 &amp; 5</span>
+          <span class="tag tag-amber" style="margin-left:0.5em;">~7 minutes</span>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>This block covers the core visual tools of technical analysis</li>
+            <li>We move from chart types to trends to support/resistance</li>
+          </ul>
+          <strong>SAY:</strong> "Now that we understand the foundations, let's learn how to actually read the market using charts. This is where technical analysis becomes visual and practical."
+          <br><strong>TIMING:</strong> 20-30 seconds
+          <br><strong>TRANSITION:</strong> "Let's start with why charts matter in the first place."
+        </aside>
+      </section>
+
+      <!-- Slide 2: Why Charts Matter -->
+      <section>
+        <h2>Why Charts Matter</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.8em;">
+              <h3>Visual Data &gt; Raw Numbers</h3>
+              <ul>
+                <li>A chart <strong>compresses thousands of data points</strong> into one glance</li>
+                <li>Humans are wired for <strong>pattern recognition</strong> &mdash; charts leverage this</li>
+                <li>Faster decisions: spot trends in seconds vs. hours of spreadsheet analysis</li>
+              </ul>
+            </div>
+            <div class="card card-green">
+              <h3>What Charts Reveal</h3>
+              <ul>
+                <li><strong>Trend direction</strong> &mdash; up, down, or sideways</li>
+                <li><strong>Momentum</strong> &mdash; accelerating or slowing</li>
+                <li><strong>Key price levels</strong> &mdash; where buyers and sellers cluster</li>
+                <li><strong>Sentiment shifts</strong> &mdash; fear vs. greed in real time</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="highlight" style="text-align:center;padding:1.5em;">
+              <p style="font-size:1.2em;color:var(--ta-accent-light);font-weight:700;margin-bottom:0.5em;">"A picture is worth a thousand data points"</p>
+              <p style="font-size:0.7em;">Technical analysts believe that <strong>all information</strong> &mdash; fundamentals, news, sentiment &mdash; is already reflected in the price chart.</p>
+            </div>
+            <div class="card" style="margin-top:0.8em;">
+              <h3>3 Main Chart Types</h3>
+              <ol>
+                <li><strong>Line Chart</strong> &mdash; simplest, closing prices</li>
+                <li><strong>Bar / OHLC Chart</strong> &mdash; shows open, high, low, close</li>
+                <li><strong>Candlestick Chart</strong> &mdash; most popular, visually rich</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Charts compress complex data into visual patterns</li>
+            <li>Humans naturally excel at visual pattern recognition</li>
+            <li>Three main chart types, each adding more information</li>
+          </ul>
+          <strong>SAY:</strong> "Why do we bother with charts? Because a single chart can show you months of market behavior at a glance. Our brains are built for pattern recognition, and charts leverage that ability."
+          <br><strong>TIMING:</strong> 30-40 seconds
+          <br><strong>TRANSITION:</strong> "Let's look at the simplest chart type first: the line chart."
+        </aside>
+      </section>
+
+      <!-- Slide 3: Line Charts -->
+      <section data-slide-id="line-chart-slide">
+        <h2>Line Charts</h2>
+        <div class="grid-2-1">
+          <div class="chart-container chart-container-lg">
+            <div id="line-chart"></div>
+          </div>
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.8em;">
+              <h3>Characteristics</h3>
+              <ul>
+                <li>Connects <strong>closing prices</strong> only</li>
+                <li>Simplest and cleanest view</li>
+                <li>Great for <strong>identifying trends</strong> at a glance</li>
+                <li>Hides intraday volatility</li>
+              </ul>
+            </div>
+            <div class="card card-green">
+              <h3>Best For</h3>
+              <ul>
+                <li>Long-term trend analysis</li>
+                <li>Comparing multiple stocks</li>
+                <li>Presentations to non-traders</li>
+              </ul>
+            </div>
+            <div class="highlight-amber" style="margin-top:0.8em;padding:0.6em 1em;border-radius:8px;">
+              <p style="font-size:0.65em;"><strong>Limitation:</strong> Ignores open, high, and low &mdash; misses important intraday action</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Line charts show only closing prices connected by a line</li>
+            <li>Simple but lose information about intraday price action</li>
+            <li>Best for quick trend identification and long-term views</li>
+          </ul>
+          <strong>SAY:</strong> "The line chart is the simplest chart type. It just connects the closing prices of each day. It's clean and easy to read, but it hides what happened during the trading day."
+          <br><strong>TIMING:</strong> 30-40 seconds
+          <br><strong>TRANSITION:</strong> "To see more detail, we need bar charts that show OHLC data."
+        </aside>
+      </section>
+
+      <!-- Slide 4: Bar / OHLC Charts -->
+      <section data-slide-id="ohlc-chart-slide">
+        <h2>Bar / OHLC Charts</h2>
+        <div class="grid-2-1">
+          <div class="chart-container chart-container-lg">
+            <div id="ohlc-chart"></div>
+          </div>
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.8em;">
+              <h3>OHLC Anatomy</h3>
+              <ul>
+                <li><strong>O</strong>pen &mdash; left tick mark</li>
+                <li><strong>H</strong>igh &mdash; top of vertical line</li>
+                <li><strong>L</strong>ow &mdash; bottom of vertical line</li>
+                <li><strong>C</strong>lose &mdash; right tick mark</li>
+              </ul>
+            </div>
+            <div class="card card-green">
+              <h3>Advantages</h3>
+              <ul>
+                <li>Shows <strong>full price range</strong> per period</li>
+                <li>Reveals intraday volatility</li>
+                <li>Open vs. Close shows <strong>buyer/seller strength</strong></li>
+              </ul>
+            </div>
+            <div class="highlight" style="margin-top:0.8em;padding:0.6em 1em;border-radius:8px;">
+              <p style="font-size:0.65em;"><strong>Tip:</strong> If Close > Open, buyers won. If Close &lt; Open, sellers won.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>OHLC = Open, High, Low, Close in each bar</li>
+            <li>Each bar shows the full range of price action for the period</li>
+            <li>More information than line charts but can be harder to read</li>
+          </ul>
+          <strong>SAY:</strong> "Bar charts give us four data points per period. The vertical line spans from the high to the low, while the left tick is the open and the right tick is the close. This tells us much more about what happened during each trading day."
+          <br><strong>TIMING:</strong> 30-40 seconds
+          <br><strong>TRANSITION:</strong> "The most popular evolution of the bar chart is the candlestick chart."
+        </aside>
+      </section>
+
+      <!-- Slide 5: Candlestick Charts -->
+      <section data-slide-id="candle-chart-slide">
+        <h2>Candlestick Charts</h2>
+        <div class="split-panel">
+          <div class="chart-container">
+            <div id="candle-chart"></div>
+          </div>
+          <div>
+            <div class="diagram-container" id="candle-anatomy" style="margin-bottom:0.8em;"></div>
+            <div class="card card-accent">
+              <h3>Why Candlesticks Win</h3>
+              <ul>
+                <li><strong>Color-coded</strong> bodies make direction obvious</li>
+                <li><strong>Thick body</strong> highlights open-to-close range</li>
+                <li>Wicks (shadows) show <strong>rejection</strong> of prices</li>
+                <li>Invented in 1700s Japan for rice trading</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Candlesticks show the same OHLC data but with a filled body</li>
+            <li>Green/hollow = bullish (close > open), Red/filled = bearish (close < open)</li>
+            <li>The body and wicks tell a story about buyer/seller psychology</li>
+          </ul>
+          <strong>SAY:</strong> "Candlestick charts are the most popular chart type in modern trading. The thick body makes it immediately obvious whether buyers or sellers controlled the day. Green means the price went up, red means it went down. The thin lines — called wicks or shadows — show the extremes that were rejected."
+          <br><strong>TIMING:</strong> 40-50 seconds
+          <br><strong>TRANSITION:</strong> "Candlesticks become even more powerful when we learn to read specific patterns."
+        </aside>
+      </section>
+
+      <!-- Slide 6: Candlestick Patterns -->
+      <section data-slide-id="candle-patterns-slide">
+        <h2>Candlestick Patterns</h2>
+        <p>Single and multi-candle formations that signal potential reversals</p>
+        <div class="diagram-container" id="patterns-container" style="margin:0.5em 0;"></div>
+        <div class="grid-3" style="margin-top:0.5em;">
+          <div class="highlight">
+            <p style="font-size:0.6em;"><strong>Doji</strong> &mdash; Indecision. Neither buyers nor sellers are in control. Often precedes a reversal.</p>
+          </div>
+          <div class="highlight-green">
+            <p style="font-size:0.6em;"><strong>Hammer / Morning Star</strong> &mdash; Bullish reversal signals. Buyers stepped in after a decline.</p>
+          </div>
+          <div class="highlight-red">
+            <p style="font-size:0.6em;"><strong>Shooting Star / Engulfing</strong> &mdash; Bearish or bullish reversal depending on context and direction.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Doji = indecision, open equals close</li>
+            <li>Hammer = bullish reversal, long lower wick shows buyers stepped in</li>
+            <li>Shooting Star = bearish reversal, long upper wick shows sellers rejected higher prices</li>
+            <li>Engulfing = large candle completely engulfs the prior candle</li>
+            <li>Morning Star = 3-candle pattern signaling bottom reversal</li>
+          </ul>
+          <strong>SAY:</strong> "These are some of the most important candlestick patterns. A Doji looks like a cross — it means neither buyers nor sellers won. A Hammer has a long lower wick — it means buyers pushed back hard after a sell-off. Each pattern tells us a story about market psychology."
+          <br><strong>TIMING:</strong> 45-60 seconds
+          <br><strong>TRANSITION:</strong> "Before analyzing patterns further, let's understand how timeframes affect what we see."
+        </aside>
+      </section>
+
+      <!-- Slide 7: Timeframes -->
+      <section>
+        <h2>Timeframes Matter</h2>
+        <p>The same stock looks completely different at different zoom levels</p>
+        <div class="grid-3" style="margin-top:0.8em;">
+          <div class="card card-green">
+            <h3>Daily Chart</h3>
+            <div class="stat-box">
+              <div class="stat-value">1D</div>
+              <div class="stat-label">Each candle = 1 day</div>
+            </div>
+            <ul>
+              <li><strong>Short-term</strong> traders</li>
+              <li>Noisy, many signals</li>
+              <li>See every swing and pullback</li>
+              <li>Best for <strong>entry/exit timing</strong></li>
+            </ul>
+          </div>
+          <div class="card card-accent">
+            <h3>Weekly Chart</h3>
+            <div class="stat-box">
+              <div class="stat-value">1W</div>
+              <div class="stat-label">Each candle = 1 week</div>
+            </div>
+            <ul>
+              <li><strong>Swing traders</strong></li>
+              <li>Filters out daily noise</li>
+              <li>Clearer trend direction</li>
+              <li>Better support/resistance levels</li>
+            </ul>
+          </div>
+          <div class="card card-amber">
+            <h3>Monthly Chart</h3>
+            <div class="stat-box">
+              <div class="stat-value">1M</div>
+              <div class="stat-label">Each candle = 1 month</div>
+            </div>
+            <ul>
+              <li><strong>Investors</strong></li>
+              <li>Smoothest view</li>
+              <li>Major trends only</li>
+              <li>Ignores short-term volatility</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight-amber" style="margin-top:0.8em;padding:0.6em 1em;border-radius:8px;">
+          <p style="font-size:0.7em;text-align:center;"><strong>Key Insight:</strong> A stock can be in a <em>daily downtrend</em> while still in a <em>monthly uptrend</em>. Always check multiple timeframes!</p>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Same stock, different timeframes = different stories</li>
+            <li>Daily = noisy, Weekly = cleaner, Monthly = smoothest</li>
+            <li>Always check multiple timeframes before making a decision</li>
+          </ul>
+          <strong>SAY:</strong> "Here's something crucial: the same stock can look completely different depending on the timeframe you choose. On a daily chart, you might see a pullback. Zoom out to the monthly chart, and that pullback is just a tiny blip in a massive uptrend. Professional traders always check multiple timeframes."
+          <br><strong>TIMING:</strong> 30-40 seconds
+          <br><strong>TRANSITION:</strong> "Now let's talk about the most fundamental concept in TA: the trend."
+        </aside>
+      </section>
+
+      <!-- Slide 8: What is a Trend? -->
+      <section data-slide-id="trend-slide">
+        <h2>What is a Trend?</h2>
+        <div class="split-panel">
+          <div class="diagram-container" id="trend-container"></div>
+          <div>
+            <div class="card card-green" style="margin-bottom:0.8em;">
+              <h3>Uptrend</h3>
+              <ul>
+                <li>Series of <strong>Higher Highs (HH)</strong></li>
+                <li>Series of <strong>Higher Lows (HL)</strong></li>
+                <li>Buyers are in control</li>
+                <li><em>"Buy the dips"</em></li>
+              </ul>
+            </div>
+            <div class="card card-red" style="margin-bottom:0.8em;">
+              <h3>Downtrend</h3>
+              <ul>
+                <li>Series of <strong>Lower Highs (LH)</strong></li>
+                <li>Series of <strong>Lower Lows (LL)</strong></li>
+                <li>Sellers are in control</li>
+                <li><em>"Sell the rallies"</em></li>
+              </ul>
+            </div>
+            <div class="card card-amber">
+              <h3>Sideways / Range</h3>
+              <ul>
+                <li>No clear HH/HL or LH/LL</li>
+                <li>Price oscillates in a <strong>range</strong></li>
+                <li>Indecision &mdash; wait for breakout</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Uptrend = HH + HL, Downtrend = LH + LL, Sideways = no clear direction</li>
+            <li>The trend is the most important concept in TA: "The trend is your friend"</li>
+            <li>Most money is made by trading WITH the trend, not against it</li>
+          </ul>
+          <strong>SAY:</strong> "The trend is the single most important concept in technical analysis. An uptrend makes higher highs and higher lows — buyers keep pushing prices up. A downtrend is the opposite. The golden rule is: the trend is your friend. Trade with it, not against it."
+          <br><strong>TIMING:</strong> 40-50 seconds
+          <br><strong>TRANSITION:</strong> "How do we formally identify and track these trends? With trendlines."
+        </aside>
+      </section>
+
+      <!-- Slide 9: Drawing Trendlines -->
+      <section>
+        <h2>Drawing Trendlines</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-green" style="margin-bottom:0.8em;">
+              <h3>Uptrend Trendline</h3>
+              <ul>
+                <li>Draw a line connecting <strong>two or more lows</strong></li>
+                <li>The line acts as <strong>dynamic support</strong></li>
+                <li>Price bounces off the line during pullbacks</li>
+                <li>Break below = potential trend reversal</li>
+              </ul>
+            </div>
+            <div class="card card-red">
+              <h3>Downtrend Trendline</h3>
+              <ul>
+                <li>Draw a line connecting <strong>two or more highs</strong></li>
+                <li>The line acts as <strong>dynamic resistance</strong></li>
+                <li>Price rejects at the line during rallies</li>
+                <li>Break above = potential trend reversal</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.8em;">
+              <h3>Rules for Valid Trendlines</h3>
+              <ol>
+                <li><strong>Minimum 2 touches</strong> &mdash; 3+ is ideal</li>
+                <li><strong>More touches = stronger</strong> trendline</li>
+                <li><strong>Steepness matters</strong> &mdash; 45-degree angles are most sustainable</li>
+                <li><strong>Don't force it</strong> &mdash; if it doesn't fit naturally, it's not valid</li>
+              </ol>
+            </div>
+            <div class="highlight" style="padding:0.8em 1em;border-radius:8px;">
+              <p style="font-size:0.7em;text-align:center;"><strong>Pro Tip:</strong> Trendlines become <strong>more significant</strong> the longer they hold and the more times they are tested.</p>
+            </div>
+            <div class="highlight-amber" style="margin-top:0.8em;padding:0.6em 1em;border-radius:8px;">
+              <p style="font-size:0.65em;"><strong>Warning:</strong> A trendline break doesn't guarantee a reversal &mdash; always look for <strong>confirmation</strong> (volume, other indicators).</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Connect lows in uptrend, highs in downtrend</li>
+            <li>Need at least 2 touch points, 3+ is better</li>
+            <li>Trendline break is a warning signal, not a guarantee</li>
+          </ul>
+          <strong>SAY:</strong> "Drawing trendlines is one of the most basic but powerful skills. In an uptrend, connect the lows — that line becomes your guide. As long as price stays above it, the trend is intact. When it breaks below, it's a warning sign. But remember: always wait for confirmation."
+          <br><strong>TIMING:</strong> 35-45 seconds
+          <br><strong>TRANSITION:</strong> "Trendlines are dynamic. But there are also horizontal levels that matter — support and resistance."
+        </aside>
+      </section>
+
+      <!-- Slide 10: Support & Resistance -->
+      <section data-slide-id="sr-slide">
+        <h2>Support &amp; Resistance</h2>
+        <div class="split-panel">
+          <div class="diagram-container" id="sr-container"></div>
+          <div>
+            <div class="card card-green" style="margin-bottom:0.8em;">
+              <h3>Support (Floor)</h3>
+              <ul>
+                <li>Price level where <strong>buying pressure</strong> overcomes selling</li>
+                <li>Price tends to <strong>bounce up</strong> from support</li>
+                <li>Created by previous lows, round numbers, moving averages</li>
+                <li>More touches = <strong>stronger support</strong></li>
+              </ul>
+            </div>
+            <div class="card card-red">
+              <h3>Resistance (Ceiling)</h3>
+              <ul>
+                <li>Price level where <strong>selling pressure</strong> overcomes buying</li>
+                <li>Price tends to <strong>reverse down</strong> from resistance</li>
+                <li>Created by previous highs, psychological levels</li>
+                <li><strong>Role reversal:</strong> broken resistance becomes support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Support = floor (buyers), Resistance = ceiling (sellers)</li>
+            <li>These are not exact prices but zones</li>
+            <li>Key concept: when resistance breaks, it becomes support and vice versa</li>
+          </ul>
+          <strong>SAY:</strong> "Support and resistance are like floors and ceilings. Support is where buyers step in and stop the decline. Resistance is where sellers overwhelm buyers. Watch this diagram — price bounces between these levels like a ball in a room. And here's a key insight: when price breaks through resistance, that old resistance often becomes new support."
+          <br><strong>TIMING:</strong> 40-50 seconds
+          <br><strong>TRANSITION:</strong> "But what happens when price finally breaks through these levels?"
+        </aside>
+      </section>
+
+      <!-- Slide 11: Breakouts & Breakdowns -->
+      <section>
+        <h2>Breakouts &amp; Breakdowns</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-green" style="margin-bottom:0.8em;">
+              <h3>Breakout (Bullish)</h3>
+              <ul>
+                <li>Price breaks <strong>above resistance</strong></li>
+                <li>Signals potential <strong>new uptrend</strong></li>
+                <li>Look for <strong>high volume</strong> confirmation</li>
+                <li>Old resistance becomes new support</li>
+              </ul>
+            </div>
+            <div class="card card-red">
+              <h3>Breakdown (Bearish)</h3>
+              <ul>
+                <li>Price breaks <strong>below support</strong></li>
+                <li>Signals potential <strong>new downtrend</strong></li>
+                <li>Often accompanied by <strong>increased selling volume</strong></li>
+                <li>Old support becomes new resistance</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card card-amber" style="margin-bottom:0.8em;">
+              <h3>Volume Confirmation</h3>
+              <p style="font-size:0.7em;">A breakout on <strong>high volume</strong> is more reliable than one on low volume.</p>
+              <div class="grid-2" style="margin-top:0.5em;">
+                <div class="stat-box" style="background:var(--ta-bg-surface);border-radius:8px;">
+                  <div class="stat-value" style="color:var(--ta-green);">High Vol</div>
+                  <div class="stat-label">Strong signal</div>
+                </div>
+                <div class="stat-box" style="background:var(--ta-bg-surface);border-radius:8px;">
+                  <div class="stat-value" style="color:var(--ta-red);">Low Vol</div>
+                  <div class="stat-label">Suspect &mdash; watch for failure</div>
+                </div>
+              </div>
+            </div>
+            <div class="highlight-red" style="padding:0.8em 1em;border-radius:8px;">
+              <h3 style="color:var(--ta-red-light);font-size:0.8em;">False Breakouts</h3>
+              <ul style="font-size:0.85em;">
+                <li>Price breaks through S/R but <strong>quickly reverses</strong></li>
+                <li>Common trap for inexperienced traders</li>
+                <li><strong>Wait for confirmation:</strong> a close above/below the level on solid volume</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Breakout = price breaks above resistance on high volume</li>
+            <li>Breakdown = price breaks below support on high volume</li>
+            <li>Volume is the key confirmation tool</li>
+            <li>False breakouts are common — always wait for confirmation</li>
+          </ul>
+          <strong>SAY:</strong> "A breakout happens when price finally pushes through resistance with strong volume. But beware of false breakouts — where price briefly breaks through and then snaps back. The key confirmation is volume. High volume means conviction. Low volume means the breakout might fail."
+          <br><strong>TIMING:</strong> 40-50 seconds
+          <br><strong>TRANSITION:</strong> "Let's summarize what we've covered in this block."
+        </aside>
+      </section>
+
+      <!-- Slide 12: Summary + Transition -->
+      <section class="summary-slide">
+        <h2>Block 3 Summary</h2>
+        <div class="grid-2" style="margin-top:0.5em;">
+          <div>
+            <div class="key-takeaway">
+              <span class="icon-num">1</span>
+              <div><strong>Chart Types</strong> &mdash; Line (simple), OHLC (detailed), Candlestick (most popular &amp; visual)</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">2</span>
+              <div><strong>Candlestick Patterns</strong> &mdash; Doji, Hammer, Shooting Star, Engulfing, Morning Star signal reversals</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">3</span>
+              <div><strong>Timeframes</strong> &mdash; Same stock looks different at daily vs. weekly vs. monthly. Check multiple!</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">4</span>
+              <div><strong>Trends</strong> &mdash; Uptrend (HH/HL), Downtrend (LH/LL), Sideways. "The trend is your friend."</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">5</span>
+              <div><strong>Support &amp; Resistance</strong> &mdash; Price floors and ceilings where buyers/sellers concentrate</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">6</span>
+              <div><strong>Breakouts</strong> &mdash; Confirm with volume. Watch for false breakouts!</div>
+            </div>
+          </div>
+          <div>
+            <div class="highlight" style="padding:1em;text-align:center;">
+              <p style="font-size:1em;color:var(--ta-accent-light);font-weight:700;">Up Next</p>
+              <h3 style="font-size:1.1em;">Block 4: Patterns &amp; Indicators</h3>
+              <p style="font-size:0.7em;">Chart patterns (Head &amp; Shoulders, Triangles, Flags) and mathematical indicators (MA, RSI, MACD, Bollinger Bands)</p>
+            </div>
+          </div>
+        </div>
+        <div class="nav-footer">
+          <a href="block2-ta-foundations.html">&larr; Previous Block</a>
+          <a href="index.html">Home</a>
+          <a href="block4-patterns-indicators.html">Next Block &rarr;</a>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Recap all 6 key takeaways quickly</li>
+            <li>We covered the visual building blocks of TA</li>
+            <li>Next block adds pattern recognition and mathematical indicators</li>
+          </ul>
+          <strong>SAY:</strong> "To summarize: we learned three chart types, with candlesticks being the most popular. We explored patterns that signal reversals, the importance of timeframes, how to identify trends, and the critical concepts of support, resistance, and breakouts. Next up, we'll build on this foundation with chart patterns and technical indicators."
+          <br><strong>TIMING:</strong> 30-40 seconds
+          <br><strong>TRANSITION:</strong> "Let's move on to Block 4 — Patterns and Indicators."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/diagrams.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealNotes],
+      width: 1920,
+      height: 1080,
+      margin: 0,
+      transition: 'slide',
+      backgroundTransition: 'fade'
+    });
+
+    // Lazy chart/diagram initialization
+    const initialized = new Set();
+    function initSlide(slide) {
+      const id = slide.getAttribute('data-slide-id');
+      if (!id || initialized.has(id)) return;
+      initialized.add(id);
+      if (typeof window['init_' + id] === 'function') window['init_' + id]();
+    }
+    Reveal.on('ready', (event) => { initSlide(event.currentSlide); });
+    Reveal.on('slidechanged', (event) => { initSlide(event.currentSlide); });
+
+    // Init functions for each slide with charts/diagrams
+    window['init_line-chart-slide'] = function() {
+      createLineChart('#line-chart', { height: 380 });
+    };
+
+    window['init_ohlc-chart-slide'] = function() {
+      createOHLCChart('#ohlc-chart', { height: 380 });
+    };
+
+    window['init_candle-chart-slide'] = function() {
+      createCandlestickChart('#candle-chart', { height: 320 });
+      candlestickAnatomy('candle-anatomy');
+    };
+
+    window['init_candle-patterns-slide'] = function() {
+      candlestickPatterns('patterns-container');
+    };
+
+    window['init_trend-slide'] = function() {
+      uptrendHHHL('trend-container');
+    };
+
+    window['init_sr-slide'] = function() {
+      supportResistance('sr-container');
+    };
+  </script>
+</body>
+</html>

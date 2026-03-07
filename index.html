@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Analysis — EMBA Presentation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --bg-surface: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --border: #334155;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* === Header === */
+    .header {
+      text-align: center;
+      padding: 3.5rem 1.5rem 1.5rem;
+      max-width: 900px;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #60a5fa, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .header .badge {
+      display: inline-block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* === Cards Grid === */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 960px;
+      width: 100%;
+      padding: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--card-color);
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px color-mix(in srgb, var(--card-color) 25%, transparent);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .block-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--card-color);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .card-sections {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--card-color);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .card-link:hover {
+      opacity: 0.88;
+      transform: translateX(2px);
+    }
+
+    .card-shortcut {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      background: var(--bg-surface);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 500;
+      opacity: 0.7;
+    }
+
+    /* === Speaker Hint === */
+    .speaker-hint {
+      text-align: center;
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      max-width: 960px;
+    }
+
+    .speaker-hint kbd {
+      background: var(--bg-surface);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85em;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    /* === Group Members === */
+    .group-members {
+      text-align: center;
+      padding: 1.5rem;
+      max-width: 960px;
+    }
+
+    .group-members h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .members-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.5rem;
+    }
+
+    .member {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .member.lead {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .member.lead::after {
+      content: ' (Lead)';
+      font-size: 0.75rem;
+      color: #60a5fa;
+      font-weight: 500;
+    }
+
+    /* === Footer === */
+    .footer {
+      text-align: center;
+      padding: 2rem 1.5rem 2.5rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+      width: 100%;
+      max-width: 960px;
+      margin-top: auto;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .header .subtitle {
+        font-size: 0.95rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 2rem 1rem 1rem;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-meta {
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .members-list {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Technical Analysis</h1>
+    <p class="subtitle">EMBA Investment Course &mdash; Group Presentation</p>
+    <span class="badge">66 Slides &nbsp;|&nbsp; ~38 Minutes &nbsp;|&nbsp; 6 Blocks</span>
+  </header>
+
+  <!-- Block Cards -->
+  <main class="cards-grid">
+
+    <!-- Block 1 -->
+    <a href="block1-introduction.html" class="card" style="--card-color: #3b82f6;">
+      <span class="card-shortcut">Press 1</span>
+      <div class="card-header">
+        <div class="block-num">1</div>
+        <div class="card-title">Introduction</div>
+      </div>
+      <div class="card-sections">Section 1</div>
+      <div class="card-meta">
+        <span>8 slides</span>
+        <span>~5 min</span>
+      </div>
+      <span class="card-link">Start &rarr;</span>
+    </a>
+
+    <!-- Block 2 -->
+    <a href="block2-foundations.html" class="card" style="--card-color: #a78bfa;">
+      <span class="card-shortcut">Press 2</span>
+      <div class="card-header">
+        <div class="block-num">2</div>
+        <div class="card-title">TA Foundations</div>
+      </div>
+      <div class="card-sections">Sections 2-3</div>
+      <div class="card-meta">
+        <span>10 slides</span>
+        <span>~6 min</span>
+      </div>
+      <span class="card-link">Start &rarr;</span>
+    </a>
+
+    <!-- Block 3 -->
+    <a href="block3-reading-market.html" class="card" style="--card-color: #22d3ee;">
+      <span class="card-shortcut">Press 3</span>
+      <div class="card-header">
+        <div class="block-num">3</div>
+        <div class="card-title">Reading the Market</div>
+      </div>
+      <div class="card-sections">Sections 4-5</div>
+      <div class="card-meta">
+        <span>12 slides</span>
+        <span>~7 min</span>
+      </div>
+      <span class="card-link">Start &rarr;</span>
+    </a>
+
+    <!-- Block 4 -->
+    <a href="block4-patterns-indicators.html" class="card" style="--card-color: #f59e0b;">
+      <span class="card-shortcut">Press 4</span>
+      <div class="card-header">
+        <div class="block-num">4</div>
+        <div class="card-title">Patterns & Indicators</div>
+      </div>
+      <div class="card-sections">Sections 6-7</div>
+      <div class="card-meta">
+        <span>14 slides</span>
+        <span>~8 min</span>
+      </div>
+      <span class="card-link">Start &rarr;</span>
+    </a>
+
+    <!-- Block 5 -->
+    <a href="block5-debate-assessment.html" class="card" style="--card-color: #ef4444;">
+      <span class="card-shortcut">Press 5</span>
+      <div class="card-header">
+        <div class="block-num">5</div>
+        <div class="card-title">Debate & Assessment</div>
+      </div>
+      <div class="card-sections">Sections 8-10</div>
+      <div class="card-meta">
+        <span>12 slides</span>
+        <span>~7 min</span>
+      </div>
+      <span class="card-link">Start &rarr;</span>
+    </a>
+
+    <!-- Block 6 -->
+    <a href="block6-ai-future.html" class="card" style="--card-color: #22c55e;">
+      <span class="card-shortcut">Press 6</span>
+      <div class="card-header">
+        <div class="block-num">6</div>
+        <div class="card-title">AI/ML & Future</div>
+      </div>
+      <div class="card-sections">Section 11</div>
+      <div class="card-meta">
+        <span>10 slides</span>
+        <span>~5 min</span>
+      </div>
+      <span class="card-link">Start &rarr;</span>
+    </a>
+
+  </main>
+
+  <!-- Speaker Notes Hint -->
+  <p class="speaker-hint">
+    Tip: Press <kbd>S</kbd> during any presentation to open speaker notes view
+  </p>
+
+  <!-- Group Members -->
+  <section class="group-members">
+    <h3>Group Members</h3>
+    <div class="members-list">
+      <span class="member lead">Ahmed Sabri</span>
+      <span class="member">Tarek</span>
+      <span class="member">Mahmoud</span>
+      <span class="member">Ahmed Saleh</span>
+      <span class="member">Ahmed Awad</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    Technical Analysis &mdash; EMBA Investment Course, 2026
+  </footer>
+
+  <!-- Keyboard Shortcuts -->
+  <script>
+    document.addEventListener('keydown', (e) => {
+      const blocks = {
+        '1': 'block1-introduction.html',
+        '2': 'block2-foundations.html',
+        '3': 'block3-reading-market.html',
+        '4': 'block4-patterns-indicators.html',
+        '5': 'block5-debate-assessment.html',
+        '6': 'block6-ai-future.html'
+      };
+      if (blocks[e.key]) window.location.href = blocks[e.key];
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block 6 — AI, ML &amp; The Future | Technical Analysis</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">&larr; Back to Index</a></div>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============ SLIDE 1: Block Title ============ -->
+      <section class="block-title" data-slide-id="b6-title">
+        <div class="block-number">Block 6</div>
+        <h1>AI, ML &amp; The Future</h1>
+        <p class="subtitle">How Technology is Transforming Technical Analysis</p>
+        <div style="margin-top:1.2em;">
+          <span class="tag tag-purple">Machine Learning</span>
+          <span class="tag tag-cyan" style="background:rgba(34,211,238,0.2);color:#22d3ee;">Neural Networks</span>
+          <span class="tag tag-blue">Algorithmic Trading</span>
+          <span class="tag tag-amber">Live Demo</span>
+        </div>
+        <div class="badge">Presented by Ahmed Sabri (Lead)</div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>This is the final block -- where traditional TA meets cutting-edge AI</li>
+            <li>We'll cover algorithmic trading, ML approaches, and a live app demo</li>
+            <li>The future is not TA vs AI -- it's TA + AI</li>
+          </ul>
+          <strong>SAY:</strong> "Welcome to our final block. We've covered the foundations, the tools, the patterns, the indicators, and the debate. Now let's look at where Technical Analysis is heading -- and how AI and Machine Learning are transforming the field. This is where it gets really exciting."
+          <br><strong>TIMING:</strong> 25 seconds
+          <br><strong>TRANSITION:</strong> "Let's start with a timeline of how trading technology has evolved."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 2: Evolution of Trading ============ -->
+      <section data-slide-id="b6-evolution">
+        <h2>The Evolution of Trading</h2>
+        <div class="diagram-container" id="evolution-container" style="margin:0.8em 0;"></div>
+        <div class="grid-3" style="margin-top:0.8em;">
+          <div class="card card-amber">
+            <h3>Manual Era (1700s-1960s)</h3>
+            <p>Homma developed candlestick charts for rice trading in Japan. Charles Dow created the first stock market indices. All analysis was done by hand on paper charts.</p>
+          </div>
+          <div class="card card-accent">
+            <h3>Electronic Era (1960s-2010s)</h3>
+            <p>Computers enabled digital charting and backtesting. Online brokers democratized trading. Indicators could be calculated instantly for the first time.</p>
+          </div>
+          <div class="card card-green">
+            <h3>AI Era (2010s-Present)</h3>
+            <p>Machine learning algorithms now process millions of data points in milliseconds. Deep learning finds patterns invisible to human analysts. AI is the new frontier.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>300+ years of evolution from rice trading to AI</li>
+            <li>Each era dramatically increased speed and capability</li>
+            <li>The AI era is fundamentally different -- machines can see patterns humans cannot</li>
+            <li>But the core principles of TA remain the same</li>
+          </ul>
+          <strong>SAY:</strong> "Technical Analysis has evolved dramatically over 300 years. From Homma's hand-drawn candlestick charts in 18th century Japan, to Dow's indices in the 1890s, to the computer revolution of the 1960s, and now the AI era. Each leap made analysis faster and more powerful. But the current AI revolution is different in kind, not just degree -- because for the first time, machines can find patterns that human eyes simply cannot see."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "This revolution started with algorithmic trading. Let's look at the numbers."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 3: Algorithmic Trading ============ -->
+      <section data-slide-id="b6-algo">
+        <h2>Algorithmic Trading</h2>
+        <div class="grid-2">
+          <div>
+            <div class="grid-2" style="margin-bottom:0.8em;">
+              <div class="card" style="text-align:center;">
+                <div class="stat-box">
+                  <div class="stat-value" style="color:var(--ta-accent);">&gt;70%</div>
+                  <div class="stat-label">of US equity volume</div>
+                </div>
+              </div>
+              <div class="card" style="text-align:center;">
+                <div class="stat-box">
+                  <div class="stat-value" style="color:var(--ta-cyan);">&lt;1ms</div>
+                  <div class="stat-label">HFT execution time</div>
+                </div>
+              </div>
+            </div>
+            <div class="card card-accent">
+              <h3>What is Algorithmic Trading?</h3>
+              <p>Algorithms execute trades automatically based on predefined rules -- including TA signals like moving average crossovers, RSI thresholds, and pattern breakouts.</p>
+              <ul>
+                <li><strong>Speed:</strong> Execute in microseconds, faster than any human</li>
+                <li><strong>Consistency:</strong> No emotions, no fatigue, no hesitation</li>
+                <li><strong>Scale:</strong> Monitor thousands of stocks simultaneously</li>
+                <li><strong>Backtesting:</strong> Test strategies on decades of historical data</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="padding:1.2em;">
+              <h3>Algorithmic Trading Flow</h3>
+              <div style="display:flex;flex-direction:column;gap:0.5em;margin-top:0.6em;">
+                <div style="display:flex;align-items:center;gap:0.6em;">
+                  <span class="icon-num" style="background:var(--ta-blue);">1</span>
+                  <div class="highlight" style="flex:1;padding:0.4em 0.8em;">
+                    <strong>Market Data</strong> -- Real-time prices, volume, order book
+                  </div>
+                </div>
+                <div style="text-align:center;color:var(--ta-text-dim);font-size:0.6em;">&darr;</div>
+                <div style="display:flex;align-items:center;gap:0.6em;">
+                  <span class="icon-num" style="background:var(--ta-purple);">2</span>
+                  <div class="highlight" style="flex:1;padding:0.4em 0.8em;background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.3);">
+                    <strong>Algorithm</strong> -- TA rules, ML models, statistical analysis
+                  </div>
+                </div>
+                <div style="text-align:center;color:var(--ta-text-dim);font-size:0.6em;">&darr;</div>
+                <div style="display:flex;align-items:center;gap:0.6em;">
+                  <span class="icon-num" style="background:var(--ta-amber);">3</span>
+                  <div class="highlight highlight-amber" style="flex:1;padding:0.4em 0.8em;">
+                    <strong>Signal Generation</strong> -- Buy, Sell, or Hold decision
+                  </div>
+                </div>
+                <div style="text-align:center;color:var(--ta-text-dim);font-size:0.6em;">&darr;</div>
+                <div style="display:flex;align-items:center;gap:0.6em;">
+                  <span class="icon-num" style="background:var(--ta-green);">4</span>
+                  <div class="highlight highlight-green" style="flex:1;padding:0.4em 0.8em;">
+                    <strong>Execution</strong> -- Automatic order placement &amp; management
+                  </div>
+                </div>
+                <div style="text-align:center;color:var(--ta-text-dim);font-size:0.6em;">&darr;</div>
+                <div style="display:flex;align-items:center;gap:0.6em;">
+                  <span class="icon-num" style="background:var(--ta-cyan);">5</span>
+                  <div class="highlight" style="flex:1;padding:0.4em 0.8em;background:rgba(34,211,238,0.1);border-color:rgba(34,211,238,0.3);">
+                    <strong>Monitor &amp; Adapt</strong> -- Performance tracking &amp; model updates
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Over 70% of US equity trading volume is now algorithmic</li>
+            <li>HFT firms execute trades in microseconds -- thousands of times faster than humans</li>
+            <li>Algorithms can implement TA rules without emotion or hesitation</li>
+            <li>The flow: Data -> Algorithm -> Signal -> Execute -> Monitor</li>
+          </ul>
+          <strong>SAY:</strong> "Here's a staggering fact: over 70% of US stock market volume is now algorithmic. High-frequency trading firms execute in less than a millisecond. These algorithms implement the same TA rules we've discussed -- moving average crossovers, RSI thresholds, pattern breakouts -- but they do it thousands of times faster, without emotion, and across thousands of stocks simultaneously. The flow is simple: data in, algorithm processes it, signal generated, trade executed, results monitored."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "But algorithmic trading is just rule-based automation. The real revolution is Machine Learning."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 4: Machine Learning in TA ============ -->
+      <section data-slide-id="b6-ml">
+        <h2>Machine Learning in Technical Analysis</h2>
+        <p>Three key ML approaches are transforming how we analyze markets:</p>
+        <div class="grid-3">
+          <div class="card card-accent" style="padding:1em;">
+            <div style="text-align:center;margin-bottom:0.5em;">
+              <span class="tag tag-blue" style="font-size:0.7em;">Computer Vision</span>
+            </div>
+            <h3>Pattern Recognition</h3>
+            <p><strong>CNNs</strong> (Convolutional Neural Networks) analyze chart images directly, detecting patterns like Head &amp; Shoulders, triangles, and flags.</p>
+            <ul>
+              <li>Processes charts as images (pixels)</li>
+              <li>Identifies patterns humans miss</li>
+              <li>No subjectivity -- consistent detection</li>
+              <li>Can scan thousands of charts per second</li>
+            </ul>
+            <div class="highlight" style="margin-top:0.5em;text-align:center;">
+              <strong>Accuracy:</strong> 65-75% on known patterns
+            </div>
+          </div>
+          <div class="card card-green" style="padding:1em;">
+            <div style="text-align:center;margin-bottom:0.5em;">
+              <span class="tag tag-green" style="font-size:0.7em;">Natural Language Processing</span>
+            </div>
+            <h3>Sentiment Analysis</h3>
+            <p><strong>NLP models</strong> analyze news articles, social media, and earnings calls to gauge market sentiment in real time.</p>
+            <ul>
+              <li>Processes millions of tweets, articles daily</li>
+              <li>Detects fear/greed before price reacts</li>
+              <li>Adds a "sixth sense" to TA signals</li>
+              <li>Real-time sentiment scores per stock</li>
+            </ul>
+            <div class="highlight highlight-green" style="margin-top:0.5em;text-align:center;">
+              <strong>Edge:</strong> Sentiment leads price by hours
+            </div>
+          </div>
+          <div class="card card-amber" style="padding:1em;">
+            <div style="text-align:center;margin-bottom:0.5em;">
+              <span class="tag tag-amber" style="font-size:0.7em;">Deep Learning</span>
+            </div>
+            <h3>Price Prediction</h3>
+            <p><strong>LSTM/GRU</strong> recurrent neural networks learn temporal patterns in price sequences to forecast future movements.</p>
+            <ul>
+              <li>Processes sequential time-series data</li>
+              <li>Captures long-term dependencies</li>
+              <li>Adapts to changing market regimes</li>
+              <li>Combines multiple TA features as inputs</li>
+            </ul>
+            <div class="highlight highlight-amber" style="margin-top:0.5em;text-align:center;">
+              <strong>Use case:</strong> Directional forecasting
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Three main ML approaches: pattern recognition (CNN), sentiment (NLP), prediction (LSTM)</li>
+            <li>CNNs treat charts as images -- removing human subjectivity from pattern detection</li>
+            <li>NLP gives traders a "sixth sense" by processing sentiment before it affects prices</li>
+            <li>LSTMs learn temporal dependencies in price data -- the ML equivalent of trend analysis</li>
+          </ul>
+          <strong>SAY:</strong> "Machine Learning takes TA to another level. Three approaches stand out. First, Convolutional Neural Networks treat charts as images and detect patterns with zero subjectivity -- they scan thousands of charts per second. Second, Natural Language Processing analyzes millions of tweets and news articles to gauge market sentiment, often detecting fear or greed hours before the price reacts. Third, LSTM networks learn sequential patterns in price data, essentially doing what a technical analyst does but with far more data and speed."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "One particularly accessible tool for time series forecasting is Meta's Prophet library."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 5: Prophet & Time Series ============ -->
+      <section data-slide-id="b6-prophet">
+        <h2>Prophet &amp; Time Series Forecasting</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-accent">
+              <h3>What is Prophet?</h3>
+              <p><strong>Meta's Prophet</strong> is an open-source library for time series forecasting that decomposes data into interpretable components.</p>
+              <ul>
+                <li>Developed by Meta (Facebook) Data Science team</li>
+                <li>Designed for business-level forecasting</li>
+                <li>Works with daily data out of the box</li>
+                <li>Python and R implementations available</li>
+              </ul>
+            </div>
+            <div class="card card-green" style="margin-top:0.6em;">
+              <h3>Advantages for Financial Data</h3>
+              <ul>
+                <li><strong>Handles missing data</strong> -- weekends, holidays automatically</li>
+                <li><strong>Robust to outliers</strong> -- flash crashes don't break the model</li>
+                <li><strong>Changepoint detection</strong> -- automatically finds trend shifts</li>
+                <li><strong>Uncertainty intervals</strong> -- built-in confidence bands</li>
+                <li><strong>Easy to use</strong> -- just 3 lines of Python code</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="padding:1.2em;">
+              <h3>Decomposition Model</h3>
+              <p style="text-align:center;margin:0.3em 0;font-size:0.7em;color:var(--ta-text-dim);">y(t) = g(t) + s(t) + h(t) + e(t)</p>
+              <div style="display:flex;flex-direction:column;gap:0.6em;margin-top:0.8em;">
+                <div class="highlight" style="padding:0.5em 0.8em;">
+                  <strong style="color:var(--ta-primary-light);">g(t) -- Trend</strong>
+                  <p style="margin:0.2em 0 0;">Long-term direction of the stock. Linear or logistic growth with automatic changepoints.</p>
+                </div>
+                <div style="text-align:center;font-size:0.7em;color:var(--ta-text-dim);">+</div>
+                <div class="highlight highlight-green" style="padding:0.5em 0.8em;">
+                  <strong style="color:var(--ta-green-light);">s(t) -- Seasonality</strong>
+                  <p style="margin:0.2em 0 0;">Recurring patterns: day-of-week effects, monthly cycles, quarterly earnings patterns.</p>
+                </div>
+                <div style="text-align:center;font-size:0.7em;color:var(--ta-text-dim);">+</div>
+                <div class="highlight highlight-amber" style="padding:0.5em 0.8em;">
+                  <strong style="color:var(--ta-accent-light);">h(t) -- Holidays/Events</strong>
+                  <p style="margin:0.2em 0 0;">Impact of known events: earnings dates, Fed meetings, market holidays.</p>
+                </div>
+                <div style="text-align:center;font-size:0.7em;color:var(--ta-text-dim);">+</div>
+                <div class="highlight highlight-red" style="padding:0.5em 0.8em;">
+                  <strong style="color:var(--ta-red-light);">e(t) -- Residual</strong>
+                  <p style="margin:0.2em 0 0;">Random noise that cannot be explained by the model. The "unpredictable" part.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Prophet was developed by Meta's Data Science team for business forecasting</li>
+            <li>It decomposes time series into trend, seasonality, holidays, and noise</li>
+            <li>Key advantage for stocks: handles missing data (weekends) and outliers (flash crashes)</li>
+            <li>Changepoint detection is like automatic trend line drawing</li>
+          </ul>
+          <strong>SAY:</strong> "Prophet is an incredibly powerful yet accessible tool from Meta. It breaks down any time series into four components: the long-term trend, seasonal patterns, holiday effects, and random noise. For stock analysis, it's particularly useful because it handles missing weekend data automatically, it's robust to outlier events like flash crashes, and it detects trend changepoints -- which is essentially automated trend analysis. You can set it up in just three lines of Python."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "For more sophisticated analysis, we turn to neural networks."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 6: Neural Networks for Charts ============ -->
+      <section data-slide-id="b6-neural">
+        <h2>Neural Networks for Chart Analysis</h2>
+        <div class="diagram-container" style="margin:0.5em 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" style="max-width:100%;height:auto;">
+            <!-- Background -->
+            <rect x="0" y="0" width="900" height="400" fill="none"/>
+
+            <!-- Input Layer -->
+            <rect x="20" y="80" width="130" height="240" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+            <text x="85" y="60" fill="#f59e0b" font-size="14" font-family="Inter" font-weight="700" text-anchor="middle">INPUT</text>
+            <text x="85" y="110" fill="#f1f5f9" font-size="12" font-family="Inter" text-anchor="middle">OHLCV Data</text>
+            <rect x="35" y="125" width="100" height="20" rx="4" fill="#22c55e" opacity="0.3"/>
+            <text x="85" y="139" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">Open</text>
+            <rect x="35" y="150" width="100" height="20" rx="4" fill="#3b82f6" opacity="0.3"/>
+            <text x="85" y="164" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">High</text>
+            <rect x="35" y="175" width="100" height="20" rx="4" fill="#a78bfa" opacity="0.3"/>
+            <text x="85" y="189" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">Low</text>
+            <rect x="35" y="200" width="100" height="20" rx="4" fill="#ef4444" opacity="0.3"/>
+            <text x="85" y="214" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">Close</text>
+            <rect x="35" y="225" width="100" height="20" rx="4" fill="#22d3ee" opacity="0.3"/>
+            <text x="85" y="239" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">Volume</text>
+            <rect x="35" y="255" width="100" height="20" rx="4" fill="#f59e0b" opacity="0.3"/>
+            <text x="85" y="269" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">TA Indicators</text>
+            <rect x="35" y="280" width="100" height="20" rx="4" fill="#94a3b8" opacity="0.2"/>
+            <text x="85" y="294" fill="#94a3b8" font-size="10" font-family="Inter" text-anchor="middle">Sentiment</text>
+
+            <!-- Arrows from Input to LSTM -->
+            <line x1="150" y1="200" x2="205" y2="200" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- LSTM Layer 1 -->
+            <rect x="210" y="100" width="120" height="200" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+            <text x="270" y="80" fill="#3b82f6" font-size="14" font-family="Inter" font-weight="700" text-anchor="middle">LSTM Layer 1</text>
+            <circle cx="250" cy="150" r="14" fill="#3b82f6" opacity="0.4"/>
+            <circle cx="290" cy="150" r="14" fill="#3b82f6" opacity="0.4"/>
+            <circle cx="250" cy="200" r="14" fill="#3b82f6" opacity="0.5"/>
+            <circle cx="290" cy="200" r="14" fill="#3b82f6" opacity="0.5"/>
+            <circle cx="250" cy="250" r="14" fill="#3b82f6" opacity="0.3"/>
+            <circle cx="290" cy="250" r="14" fill="#3b82f6" opacity="0.3"/>
+            <text x="270" y="290" fill="#64748b" font-size="10" font-family="Inter" text-anchor="middle">128 units</text>
+
+            <!-- Arrow -->
+            <line x1="330" y1="200" x2="385" y2="200" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- LSTM Layer 2 -->
+            <rect x="390" y="120" width="120" height="160" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+            <text x="450" y="100" fill="#a78bfa" font-size="14" font-family="Inter" font-weight="700" text-anchor="middle">LSTM Layer 2</text>
+            <circle cx="430" cy="165" r="12" fill="#a78bfa" opacity="0.4"/>
+            <circle cx="470" cy="165" r="12" fill="#a78bfa" opacity="0.4"/>
+            <circle cx="430" cy="205" r="12" fill="#a78bfa" opacity="0.5"/>
+            <circle cx="470" cy="205" r="12" fill="#a78bfa" opacity="0.5"/>
+            <circle cx="430" cy="245" r="12" fill="#a78bfa" opacity="0.3"/>
+            <circle cx="470" cy="245" r="12" fill="#a78bfa" opacity="0.3"/>
+            <text x="450" y="270" fill="#64748b" font-size="10" font-family="Inter" text-anchor="middle">64 units</text>
+
+            <!-- Arrow -->
+            <line x1="510" y1="200" x2="565" y2="200" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Dense Layer -->
+            <rect x="570" y="140" width="110" height="120" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+            <text x="625" y="120" fill="#22d3ee" font-size="14" font-family="Inter" font-weight="700" text-anchor="middle">Dense Layers</text>
+            <circle cx="605" cy="180" r="10" fill="#22d3ee" opacity="0.5"/>
+            <circle cx="645" cy="180" r="10" fill="#22d3ee" opacity="0.5"/>
+            <circle cx="605" cy="220" r="10" fill="#22d3ee" opacity="0.4"/>
+            <circle cx="645" cy="220" r="10" fill="#22d3ee" opacity="0.4"/>
+            <text x="625" y="250" fill="#64748b" font-size="10" font-family="Inter" text-anchor="middle">32 units + Dropout</text>
+
+            <!-- Arrow -->
+            <line x1="680" y1="200" x2="735" y2="200" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Output Layer -->
+            <rect x="740" y="110" width="140" height="180" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+            <text x="810" y="90" fill="#22c55e" font-size="14" font-family="Inter" font-weight="700" text-anchor="middle">OUTPUT</text>
+            <rect x="760" y="130" width="100" height="36" rx="8" fill="#22c55e" opacity="0.3" stroke="#22c55e" stroke-width="1"/>
+            <text x="810" y="153" fill="#22c55e" font-size="14" font-family="Inter" font-weight="600" text-anchor="middle">BUY</text>
+            <rect x="760" y="180" width="100" height="36" rx="8" fill="#f59e0b" opacity="0.3" stroke="#f59e0b" stroke-width="1"/>
+            <text x="810" y="203" fill="#f59e0b" font-size="14" font-family="Inter" font-weight="600" text-anchor="middle">HOLD</text>
+            <rect x="760" y="230" width="100" height="36" rx="8" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="1"/>
+            <text x="810" y="253" fill="#ef4444" font-size="14" font-family="Inter" font-weight="600" text-anchor="middle">SELL</text>
+
+            <!-- Arrow marker definition -->
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+              </marker>
+            </defs>
+
+            <!-- Bottom label -->
+            <text x="450" y="380" fill="#64748b" font-size="13" font-family="Inter" text-anchor="middle">LSTM Neural Network Architecture for Stock Price Direction Prediction</text>
+            <text x="450" y="398" fill="#334155" font-size="11" font-family="Inter" text-anchor="middle">Sequential data flows through memory cells that learn temporal patterns in price movements</text>
+          </svg>
+        </div>
+        <div class="grid-2" style="margin-top:0.3em;">
+          <div class="highlight" style="padding:0.5em 0.8em;">
+            <strong>Why LSTM?</strong> Unlike traditional neural networks, LSTMs have "memory" -- they remember important patterns from weeks or months ago, making them ideal for financial time series where history matters.
+          </div>
+          <div class="highlight highlight-amber" style="padding:0.5em 0.8em;">
+            <strong>Performance:</strong> State-of-the-art LSTM models achieve 55-60% directional accuracy on stock prices. Even 55% accuracy can be highly profitable with proper risk management.
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>LSTM (Long Short-Term Memory) networks are designed for sequential data</li>
+            <li>They have "memory cells" that can remember important information from the past</li>
+            <li>Input includes OHLCV data, TA indicators, and sentiment scores</li>
+            <li>Output is a classification: Buy, Hold, or Sell</li>
+            <li>55-60% accuracy sounds low but is highly profitable with risk management</li>
+          </ul>
+          <strong>SAY:</strong> "Here's how a neural network analyzes charts. We feed it OHLCV price data, technical indicators, and sentiment scores. It passes through two LSTM layers -- these are special because they have memory. They can remember a pattern from three months ago and use it today. The output is simple: Buy, Hold, or Sell. You might think 55 to 60 percent accuracy sounds low, but in trading, even a small edge compounded over thousands of trades generates significant returns."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "Another exciting application is AI-powered chatbots for analysis."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 7: AI Chatbots for Analysis ============ -->
+      <section data-slide-id="b6-chatbot">
+        <h2>AI Chatbots for Technical Analysis</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-accent">
+              <h3>The AI Analyst Assistant</h3>
+              <p>Modern AI chatbots can analyze charts, interpret indicators, and provide natural-language explanations of market conditions -- making TA accessible to everyone.</p>
+              <ul>
+                <li><strong>Natural language queries:</strong> "What do the indicators say about AAPL?"</li>
+                <li><strong>Real-time analysis:</strong> Processes live market data on demand</li>
+                <li><strong>Educational:</strong> Explains the reasoning behind each signal</li>
+                <li><strong>Multi-indicator fusion:</strong> Combines RSI, MACD, MAs, and more</li>
+                <li><strong>Pattern narration:</strong> Describes chart patterns in plain English</li>
+              </ul>
+            </div>
+            <div class="highlight highlight-green" style="margin-top:0.6em;">
+              <strong>Impact:</strong> AI chatbots democratize TA -- you no longer need years of experience to interpret charts. The AI explains everything.
+            </div>
+          </div>
+          <div>
+            <div class="card" style="background:#0c1222;border-color:var(--ta-primary);padding:0;">
+              <!-- Chat mockup -->
+              <div style="background:var(--ta-primary-dark);padding:0.5em 0.8em;border-radius:12px 12px 0 0;">
+                <div style="display:flex;align-items:center;gap:0.5em;">
+                  <div style="width:30px;height:30px;border-radius:50%;background:var(--ta-primary);display:flex;align-items:center;justify-content:center;font-size:0.5em;font-weight:700;color:white;">AI</div>
+                  <div>
+                    <div style="font-size:0.6em;font-weight:600;color:var(--ta-text);">TA Assistant</div>
+                    <div style="font-size:0.45em;color:var(--ta-green-light);">Online</div>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:0.8em;display:flex;flex-direction:column;gap:0.5em;">
+                <!-- User message -->
+                <div style="align-self:flex-end;background:var(--ta-primary);padding:0.4em 0.7em;border-radius:12px 12px 0 12px;max-width:80%;font-size:0.55em;color:white;">
+                  What do the indicators say about AAPL right now?
+                </div>
+                <!-- AI response -->
+                <div style="align-self:flex-start;background:var(--ta-bg-card);padding:0.5em 0.7em;border-radius:12px 12px 12px 0;max-width:90%;font-size:0.52em;color:var(--ta-text-muted);line-height:1.5;">
+                  <div style="color:var(--ta-text);font-weight:600;margin-bottom:0.3em;">AAPL Analysis Summary:</div>
+                  <div><span style="color:var(--ta-green);">&#9679;</span> <strong>Trend:</strong> Bullish -- price above 20 &amp; 50-day SMA</div>
+                  <div><span style="color:var(--ta-amber);">&#9679;</span> <strong>RSI (14):</strong> 62.3 -- neutral, room to run</div>
+                  <div><span style="color:var(--ta-green);">&#9679;</span> <strong>MACD:</strong> Bullish crossover 3 days ago</div>
+                  <div><span style="color:var(--ta-cyan);">&#9679;</span> <strong>Volume:</strong> Above average, confirming move</div>
+                  <div style="margin-top:0.3em;padding-top:0.3em;border-top:1px solid var(--ta-border);">
+                    <strong style="color:var(--ta-green-light);">Recommendation:</strong> Moderately bullish. Consider entry on pullback to the 20-day SMA ($182). Stop-loss below $175.
+                  </div>
+                </div>
+                <!-- User follow-up -->
+                <div style="align-self:flex-end;background:var(--ta-primary);padding:0.4em 0.7em;border-radius:12px 12px 0 12px;max-width:80%;font-size:0.55em;color:white;">
+                  What's the risk/reward ratio?
+                </div>
+                <!-- AI response 2 -->
+                <div style="align-self:flex-start;background:var(--ta-bg-card);padding:0.5em 0.7em;border-radius:12px 12px 12px 0;max-width:90%;font-size:0.52em;color:var(--ta-text-muted);line-height:1.5;">
+                  With entry at $182, stop at $175 (risk: $7), and target at resistance $200 (reward: $18), your <strong style="color:var(--ta-green-light);">R:R ratio is 2.6:1</strong>. This meets the minimum 2:1 threshold. Position size: risk no more than 2% of portfolio on this trade.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>AI chatbots make TA accessible to non-experts through natural language</li>
+            <li>They can process multiple indicators simultaneously and explain the reasoning</li>
+            <li>The mockup shows a realistic interaction -- query, analysis, follow-up</li>
+            <li>This is what our demo app will include</li>
+          </ul>
+          <strong>SAY:</strong> "Imagine having a personal analyst available 24/7 who can look at any stock and tell you exactly what the indicators are saying. That's what AI chatbots for TA do. You ask a simple question -- 'What do the indicators say about Apple?' -- and you get a complete analysis: trend direction, RSI level, MACD signal, volume confirmation, and a specific recommendation with entry price and stop-loss. This democratizes TA -- you don't need years of experience anymore."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "And that's exactly what we've built for you."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 8: Live App Demo ============ -->
+      <section data-slide-id="b6-demo" style="text-align:center !important;">
+        <h2>Live App Demo</h2>
+        <p class="subtitle">Interactive Technical Analysis Application</p>
+        <div style="margin:1em auto;max-width:800px;">
+          <div class="card" style="padding:1.5em;text-align:center;">
+            <div style="margin-bottom:1em;">
+              <a href="#" style="display:inline-block;background:var(--ta-gradient-primary);color:white;font-size:0.9em;font-weight:700;padding:0.6em 2em;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(37,99,235,0.4);transition:transform 0.2s;">
+                Launch App &rarr;
+              </a>
+            </div>
+            <p style="color:var(--ta-text-dim);font-size:0.6em;">Click to open the interactive TA application</p>
+          </div>
+        </div>
+        <div class="grid-4" style="max-width:900px;margin:0.8em auto;">
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="font-size:1.4em;margin-bottom:0.2em;">&#128200;</div>
+            <h4 style="color:var(--ta-primary-light);font-size:0.65em;">Interactive Charts</h4>
+            <p style="font-size:0.5em;">Candlestick, line, OHLC with zoom &amp; pan</p>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="font-size:1.4em;margin-bottom:0.2em;">&#128202;</div>
+            <h4 style="color:var(--ta-green);font-size:0.65em;">5+ Indicators</h4>
+            <p style="font-size:0.5em;">SMA, EMA, RSI, MACD, Bollinger Bands</p>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="font-size:1.4em;margin-bottom:0.2em;">&#129302;</div>
+            <h4 style="color:var(--ta-purple);font-size:0.65em;">AI Predictions</h4>
+            <p style="font-size:0.5em;">Prophet-based price forecasting</p>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="font-size:1.4em;margin-bottom:0.2em;">&#128172;</div>
+            <h4 style="color:var(--ta-accent);font-size:0.65em;">AI Chatbot</h4>
+            <p style="font-size:0.5em;">Ask questions, get analysis</p>
+          </div>
+        </div>
+        <div class="highlight" style="max-width:700px;margin:0.6em auto;text-align:center;">
+          <strong>Built with:</strong> React/Next.js frontend &bull; FastAPI backend &bull; Prophet ML &bull; ApexCharts &bull; Deployed on AWS
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>This is our live application that demonstrates everything we've discussed</li>
+            <li>Interactive candlestick charts with real-time TA indicators</li>
+            <li>Prophet-based price predictions with confidence intervals</li>
+            <li>AI chatbot that answers TA questions in natural language</li>
+            <li>Built with modern web technologies and deployed on cloud</li>
+          </ul>
+          <strong>SAY:</strong> "And here's our live application. This brings everything together. You can interact with candlestick charts, overlay any of the indicators we've discussed -- SMA, RSI, MACD, Bollinger Bands -- see AI-powered price predictions using Prophet, and chat with an AI assistant about any stock. Let me show you a quick demo."
+          <br><strong>TIMING:</strong> 30 seconds + demo time
+          <br><strong>TRANSITION:</strong> "Now let's talk about what the future holds."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 9: The Future of TA ============ -->
+      <section data-slide-id="b6-future">
+        <h2>The Future of Technical Analysis</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.6em;">
+              <h3>Human + AI: The Best of Both Worlds</h3>
+              <p>The future is not AI <em>replacing</em> human analysts. It's AI <em>augmenting</em> them.</p>
+              <ul>
+                <li><strong>Humans bring:</strong> Intuition, context awareness, creative thinking, understanding of geopolitics</li>
+                <li><strong>AI brings:</strong> Speed, consistency, pattern detection at scale, processing millions of data points</li>
+                <li><strong>Together:</strong> Better decisions than either alone</li>
+              </ul>
+            </div>
+            <div class="card card-green">
+              <h3>Democratization of Analysis</h3>
+              <p>AI-powered tools are making sophisticated TA accessible to everyone:</p>
+              <ul>
+                <li>Retail investors get the same tools as hedge funds</li>
+                <li>Natural language interfaces remove the learning curve</li>
+                <li>Automated alerts mean you never miss a signal</li>
+                <li>Free and low-cost platforms level the playing field</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="card card-amber" style="margin-bottom:0.6em;">
+              <h3>Emerging Trends</h3>
+              <ul>
+                <li><strong>Transformer Models:</strong> GPT-style architectures applied to financial time series</li>
+                <li><strong>Alternative Data:</strong> Satellite imagery, credit card data, web traffic as TA inputs</li>
+                <li><strong>Quantum Computing:</strong> Could optimize portfolio strategies in seconds</li>
+                <li><strong>Decentralized Finance:</strong> TA adapting to 24/7 crypto markets</li>
+                <li><strong>Explainable AI:</strong> Models that explain <em>why</em> they recommend Buy or Sell</li>
+              </ul>
+            </div>
+            <div class="highlight" style="text-align:center;padding:0.8em;">
+              <h3 style="color:var(--ta-primary-light);margin-bottom:0.3em;">The Core Insight</h3>
+              <p style="font-size:0.8em;color:var(--ta-text);">The principles of TA -- trend following, support/resistance, pattern recognition -- remain valid. <strong>The tools are getting better, but the psychology driving markets hasn't changed.</strong></p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>The future is Human + AI, not AI alone</li>
+            <li>AI democratizes TA -- retail investors get institutional-grade tools</li>
+            <li>Emerging trends: transformers, alternative data, quantum computing</li>
+            <li>The core insight: human psychology hasn't changed, so TA principles remain valid</li>
+          </ul>
+          <strong>SAY:</strong> "What does the future look like? It's not about AI replacing human analysts. It's about augmentation. Humans bring intuition and context. AI brings speed and scale. Together, they make better decisions than either alone. The exciting part is democratization -- the same tools that hedge funds use are now available to individual investors through platforms and AI chatbots. And remember: no matter how sophisticated the technology gets, the human psychology that drives markets hasn't changed in 300 years. Fear, greed, and herding still create the patterns that TA exploits."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "And with that, we've completed our journey through Technical Analysis. Let's wrap up."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 10: Thank You & Q&A ============ -->
+      <section class="block-title" data-slide-id="b6-thankyou" style="text-align:center !important;">
+        <h1 style="font-size:2.8em;margin-bottom:0.3em;">Thank You!</h1>
+        <p class="subtitle" style="font-size:1em;margin-bottom:1em;">Technical Analysis: From Theory to AI-Powered Practice</p>
+
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.8em;max-width:1200px;margin:0 auto 1em;">
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="width:50px;height:50px;border-radius:50%;background:var(--ta-gradient-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 0.3em;font-size:0.6em;font-weight:700;color:white;">AS</div>
+            <div style="font-size:0.6em;font-weight:700;color:var(--ta-text);">Ahmed Sabri</div>
+            <div style="font-size:0.5em;color:var(--ta-accent);">Lead</div>
+            <div style="font-size:0.45em;color:var(--ta-text-dim);margin-top:0.2em;">Blocks 1 &amp; 6</div>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="width:50px;height:50px;border-radius:50%;background:var(--ta-gradient-green);display:flex;align-items:center;justify-content:center;margin:0 auto 0.3em;font-size:0.6em;font-weight:700;color:white;">T</div>
+            <div style="font-size:0.6em;font-weight:700;color:var(--ta-text);">Tarek</div>
+            <div style="font-size:0.5em;color:var(--ta-text-muted);">Member</div>
+            <div style="font-size:0.45em;color:var(--ta-text-dim);margin-top:0.2em;">Block 2</div>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="width:50px;height:50px;border-radius:50%;background:var(--ta-gradient-accent);display:flex;align-items:center;justify-content:center;margin:0 auto 0.3em;font-size:0.6em;font-weight:700;color:white;">M</div>
+            <div style="font-size:0.6em;font-weight:700;color:var(--ta-text);">Mahmoud</div>
+            <div style="font-size:0.5em;color:var(--ta-text-muted);">Member</div>
+            <div style="font-size:0.45em;color:var(--ta-text-dim);margin-top:0.2em;">Block 3</div>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#312e81,#a78bfa);display:flex;align-items:center;justify-content:center;margin:0 auto 0.3em;font-size:0.6em;font-weight:700;color:white;">AS</div>
+            <div style="font-size:0.6em;font-weight:700;color:var(--ta-text);">Ahmed Saleh</div>
+            <div style="font-size:0.5em;color:var(--ta-text-muted);">Member</div>
+            <div style="font-size:0.45em;color:var(--ta-text-dim);margin-top:0.2em;">Block 4</div>
+          </div>
+          <div class="card" style="text-align:center;padding:0.8em;">
+            <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#164e63,#22d3ee);display:flex;align-items:center;justify-content:center;margin:0 auto 0.3em;font-size:0.6em;font-weight:700;color:white;">AA</div>
+            <div style="font-size:0.6em;font-weight:700;color:var(--ta-text);">Ahmed Awad</div>
+            <div style="font-size:0.5em;color:var(--ta-text-muted);">Member</div>
+            <div style="font-size:0.45em;color:var(--ta-text-dim);margin-top:0.2em;">Block 5</div>
+          </div>
+        </div>
+
+        <div style="margin:0.8em auto;">
+          <h2 style="font-size:1.4em;color:var(--ta-accent);margin-bottom:0.2em;">Questions?</h2>
+          <p style="font-size:0.65em;color:var(--ta-text-dim);">We welcome your questions and discussion</p>
+        </div>
+
+        <div class="badge" style="font-size:0.5em;padding:0.3em 1.2em;">Investment Course &mdash; EMBA Program, 2026</div>
+
+        <div class="nav-footer">
+          <a href="block5-debate-assessment.html">&larr; Block 5: The Great Debate</a>
+          <span>Block 6 of 6</span>
+          <a href="index.html">Back to Start &rarr;</a>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Thank the audience and professor for their time</li>
+            <li>Acknowledge all group members and their contributions</li>
+            <li>Open the floor for questions</li>
+            <li>Reiterate the key message: TA is a valuable tool when used properly and combined with other approaches</li>
+          </ul>
+          <strong>SAY:</strong> "Thank you all for your attention throughout our presentation. We've taken you from the fundamentals of Technical Analysis through charts, patterns, indicators, the academic debate, and all the way to AI-powered trading. The key message is this: Technical Analysis is not a crystal ball, but it's a powerful decision-making framework that, when combined with fundamental analysis and modern AI tools, gives investors a real edge. We'd love to take your questions now."
+          <br><strong>TIMING:</strong> 30 seconds + Q&A
+          <br><strong>TRANSITION:</strong> "Thank you! Feel free to explore our interactive app after the session."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/diagrams.js"></script>
+  <script>
+    Reveal.initialize({ hash: true, plugins: [RevealNotes], width: 1920, height: 1080, margin: 0, transition: 'slide', backgroundTransition: 'fade' });
+
+    const initialized = new Set();
+    function initSlide(slide) {
+      const id = slide.getAttribute('data-slide-id');
+      if (!id || initialized.has(id)) return;
+      initialized.add(id);
+      if (typeof window['init_' + id] === 'function') window['init_' + id]();
+    }
+
+    // Slide init functions
+    window['init_b6-evolution'] = function() {
+      tradingTimeline('evolution-container');
+    };
+
+    Reveal.on('ready', (event) => { initSlide(event.currentSlide); });
+    Reveal.on('slidechanged', (event) => { initSlide(event.currentSlide); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block 2 — TA Foundations | Technical Analysis</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">&larr; Back to Index</a></div>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============ SLIDE 1: Block Title ============ -->
+      <section class="block-title">
+        <div class="block-number">Block 2</div>
+        <h1>TA Foundations</h1>
+        <p class="subtitle" style="font-size:0.85em; color:var(--ta-text-muted);">TA vs Fundamental Analysis &amp; The Three Core Principles</p>
+        <div class="badge">Sections 2 &amp; 3</div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Block 2 covers the theoretical foundations of TA</li>
+            <li>Two main topics: TA vs FA comparison, and the 3 core principles</li>
+          </ul>
+          <strong>SAY:</strong> "Welcome to Block 2, where we lay the theoretical foundations. We will first compare Technical Analysis with Fundamental Analysis — two very different but complementary approaches. Then we will cover the three core principles that underpin all of TA."
+          <br><strong>TIMING:</strong> 20 seconds
+          <br><strong>TRANSITION:</strong> "Let's start by understanding the two main schools of market analysis."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 2: Two Schools of Thought ============ -->
+      <section>
+        <h2>Two Schools of Thought</h2>
+        <div class="grid-2">
+          <div class="card card-accent" style="text-align:center;">
+            <h3 style="color:var(--ta-primary-light); font-size:1.2em;">Fundamental Analysis</h3>
+            <p style="font-size:0.85em; color:var(--ta-text);">"What is this asset <em>worth</em>?"</p>
+            <div style="margin:0.5em 0;">
+              <span class="tag tag-blue">Value Investing</span>
+              <span class="tag tag-blue">Long-Term</span>
+            </div>
+            <p>Studies financial statements, earnings, economic indicators, and management quality to determine <strong>intrinsic value</strong>.</p>
+            <p style="color:var(--ta-text-dim); font-size:0.65em;">Champions: Warren Buffett, Benjamin Graham</p>
+          </div>
+          <div class="card card-green" style="text-align:center;">
+            <h3 style="color:var(--ta-green-light); font-size:1.2em;">Technical Analysis</h3>
+            <p style="font-size:0.85em; color:var(--ta-text);">"When should I <em>act</em>?"</p>
+            <div style="margin:0.5em 0;">
+              <span class="tag tag-green">Price Action</span>
+              <span class="tag tag-green">Timing</span>
+            </div>
+            <p>Studies price charts, volume, patterns, and indicators to identify <strong>optimal entry/exit points</strong>.</p>
+            <p style="color:var(--ta-text-dim); font-size:0.65em;">Champions: Charles Dow, John Murphy, Martin Pring</p>
+          </div>
+        </div>
+        <div class="highlight" style="margin-top:0.8em; text-align:center;">
+          <p style="margin:0;"><strong>Both are valid approaches.</strong> The debate is not which is "right" — it is which is more useful for your specific goal.</p>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>FA asks "what is this worth?" — TA asks "when should I act?"</li>
+            <li>FA focuses on intrinsic value, TA on price action and timing</li>
+            <li>Both approaches are valid — the right choice depends on your goal</li>
+          </ul>
+          <strong>SAY:</strong> "There are two main schools of thought in market analysis. Fundamental Analysis, championed by Buffett and Graham, asks what an asset is truly worth by studying financials and earnings. Technical Analysis, rooted in the work of Charles Dow, asks when you should act by studying price and volume. Neither is inherently right or wrong — they serve different purposes."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "Let's compare the specific data sources each approach relies on."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 3: TA vs FA Data Sources ============ -->
+      <section>
+        <h2>TA vs FA: Data Sources</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width:25%;">Dimension</th>
+              <th style="width:37.5%;">Fundamental Analysis</th>
+              <th style="width:37.5%;">Technical Analysis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Data</strong></td>
+              <td>Financial statements, earnings reports, balance sheets</td>
+              <td>Price charts, volume data, candlestick patterns</td>
+            </tr>
+            <tr>
+              <td><strong>Economic Data</strong></td>
+              <td>GDP, interest rates, inflation, unemployment</td>
+              <td>Not directly used — assumed to be "in the price"</td>
+            </tr>
+            <tr>
+              <td><strong>Company Info</strong></td>
+              <td>Management quality, competitive advantage, moat</td>
+              <td>Not considered — price tells the story</td>
+            </tr>
+            <tr>
+              <td><strong>Market Data</strong></td>
+              <td>P/E ratios, book value, dividend yield</td>
+              <td>Moving averages, RSI, MACD, Bollinger Bands</td>
+            </tr>
+            <tr>
+              <td><strong>Sentiment</strong></td>
+              <td>Analyst reports, news, industry trends</td>
+              <td>Volume spikes, price patterns, momentum indicators</td>
+            </tr>
+            <tr>
+              <td><strong>Output</strong></td>
+              <td>Intrinsic value estimate (fair price)</td>
+              <td>Buy/sell signals (entry/exit timing)</td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>FA uses financial statements, economic data, company information</li>
+            <li>TA uses price charts, volume data, and mathematical indicators</li>
+            <li>FA outputs a fair value estimate; TA outputs buy/sell signals</li>
+            <li>TA assumes all fundamental data is already reflected in the price</li>
+          </ul>
+          <strong>SAY:</strong> "This table shows the data sources each approach relies on. Notice how FA dives deep into company financials and economic indicators, while TA focuses entirely on what the market is telling us through price and volume. A key TA assumption is that all fundamental data is already reflected in the price — so why study the inputs when you can read the output directly?"
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "Another major difference is their time horizons."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 4: TA vs FA Time Horizons ============ -->
+      <section>
+        <h2>TA vs FA: Time Horizons</h2>
+        <div style="max-width:1200px; margin:0 auto;">
+          <!-- Visual timeline bar -->
+          <div class="card" style="padding:1.5em 2em; margin-bottom:1em;">
+            <div style="display:flex; align-items:center; margin-bottom:0.8em;">
+              <span style="font-size:0.65em; color:var(--ta-text-dim); width:120px;">Seconds</span>
+              <div style="flex:1; height:40px; position:relative; border-radius:8px; overflow:hidden;">
+                <div style="position:absolute; left:0; top:0; width:8%; height:100%; background:var(--ta-green); opacity:0.3;"></div>
+                <div style="position:absolute; left:0; top:0; width:35%; height:100%; background:var(--ta-green); opacity:0.2;"></div>
+                <div style="position:absolute; left:20%; top:0; width:60%; height:100%; background:var(--ta-blue); opacity:0.2;"></div>
+                <div style="position:absolute; left:50%; top:0; width:50%; height:100%; background:var(--ta-purple); opacity:0.2;"></div>
+              </div>
+              <span style="font-size:0.65em; color:var(--ta-text-dim); width:120px; text-align:right;">Decades</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.6em; color:var(--ta-text-dim);">
+              <span>Intraday</span>
+              <span>Days</span>
+              <span>Weeks</span>
+              <span>Months</span>
+              <span>Years</span>
+              <span>Decades</span>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div class="card card-green">
+              <h3 style="color:var(--ta-green-light);">TA Sweet Spot</h3>
+              <p><strong>Minutes to Months</strong></p>
+              <ul>
+                <li>Scalping (seconds-minutes)</li>
+                <li>Day trading (intraday)</li>
+                <li>Swing trading (days-weeks)</li>
+                <li>Position trading (weeks-months)</li>
+              </ul>
+            </div>
+            <div class="card card-accent">
+              <h3 style="color:var(--ta-accent-light);">Overlap Zone</h3>
+              <p><strong>Weeks to Months</strong></p>
+              <ul>
+                <li>Both FA and TA are useful here</li>
+                <li>FA identifies the opportunity</li>
+                <li>TA optimizes the entry point</li>
+                <li>Best results when combined</li>
+              </ul>
+            </div>
+            <div class="card" style="border-left:4px solid var(--ta-purple);">
+              <h3 style="color:var(--ta-purple);">FA Sweet Spot</h3>
+              <p><strong>Months to Decades</strong></p>
+              <ul>
+                <li>Value investing (months-years)</li>
+                <li>Growth investing (years)</li>
+                <li>Buy and hold (decades)</li>
+                <li>Warren Buffett's approach</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>TA excels in short to medium term (minutes to months)</li>
+            <li>FA excels in medium to long term (months to decades)</li>
+            <li>There is an overlap zone where both approaches are valuable</li>
+            <li>The best traders often combine both in the overlap zone</li>
+          </ul>
+          <strong>SAY:</strong> "Time horizon is where FA and TA really diverge. TA thrives in the short term — from scalping trades lasting seconds to position trades lasting months. FA is the go-to for long-term investing measured in years and decades. But notice the overlap zone in the middle — weeks to months — where both approaches are valuable. Smart investors use FA to find the right stock and TA to find the right moment to buy it."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "But when does each approach really shine? Let's look at market conditions."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 5: When Each Wins ============ -->
+      <section>
+        <h2>TA vs FA: When Each Wins</h2>
+        <div style="max-width:1100px; margin:0 auto;">
+          <!-- 2x2 Matrix -->
+          <table class="comparison-table" style="font-size:0.6em;">
+            <thead>
+              <tr>
+                <th style="width:20%;"></th>
+                <th style="width:40%; text-align:center;">Short-Term (Days — Months)</th>
+                <th style="width:40%; text-align:center;">Long-Term (Months — Years)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:700; color:var(--ta-green);">Trending Market</td>
+                <td style="text-align:center;">
+                  <span class="tag tag-green" style="font-size:1.1em;">TA Wins</span>
+                  <p style="margin-top:0.4em;">Trend-following indicators (MA, MACD) excel. Clear entry/exit signals.</p>
+                </td>
+                <td style="text-align:center;">
+                  <span class="tag tag-amber" style="font-size:1.1em;">Both Work</span>
+                  <p style="margin-top:0.4em;">FA identifies trend drivers; TA confirms with price action.</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight:700; color:var(--ta-amber);">Ranging / Sideways</td>
+                <td style="text-align:center;">
+                  <span class="tag tag-green" style="font-size:1.1em;">TA Wins</span>
+                  <p style="margin-top:0.4em;">Support/resistance, RSI overbought/oversold levels guide trades.</p>
+                </td>
+                <td style="text-align:center;">
+                  <span class="tag tag-blue" style="font-size:1.1em;">FA Wins</span>
+                  <p style="margin-top:0.4em;">Fundamentals reveal if range will break up or down.</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight:700; color:var(--ta-red);">Crisis / Black Swan</td>
+                <td style="text-align:center;">
+                  <span class="tag tag-red" style="font-size:1.1em;">Neither Wins</span>
+                  <p style="margin-top:0.4em;">Panic overrides all signals. Risk management is key.</p>
+                </td>
+                <td style="text-align:center;">
+                  <span class="tag tag-blue" style="font-size:1.1em;">FA Wins</span>
+                  <p style="margin-top:0.4em;">Fundamentals identify recovery candidates at bargain prices.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="highlight" style="margin-top:0.8em; text-align:center;">
+            <p style="margin:0;"><strong>Key Insight:</strong> TA dominates short-term trading in all market conditions. FA dominates long-term value discovery. The smart approach uses both.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>TA wins in short-term trending and ranging markets</li>
+            <li>FA wins in long-term ranging markets and crisis recovery</li>
+            <li>In crisis/black swan events, neither approach works well short-term</li>
+            <li>The best approach combines both based on market conditions</li>
+          </ul>
+          <strong>SAY:</strong> "This 2x2 matrix shows when each approach shines. TA dominates short-term trading in both trending and ranging markets — indicators like moving averages and RSI give clear signals. FA wins in the long term, especially during crises when it helps identify bargain-priced recovery candidates. Notice the crisis row — in the short term, neither works well because panic overrides everything. The takeaway? Use the right tool for the right situation."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "So can these two approaches actually work together? Absolutely."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 6: Can They Work Together? ============ -->
+      <section data-slide-id="venn">
+        <h2>Can They Work Together?</h2>
+        <div class="grid-2">
+          <div class="diagram-container" id="venn-container"></div>
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.8em;">
+              <h3>The Combined Approach</h3>
+              <ol>
+                <li><strong>FA Screen:</strong> Find fundamentally strong companies (good earnings, low debt, competitive moat)</li>
+                <li><strong>TA Timing:</strong> Wait for a technical buy signal (breakout, support bounce, bullish pattern)</li>
+                <li><strong>TA Exit:</strong> Use stop-losses and resistance levels to manage the trade</li>
+              </ol>
+            </div>
+            <div class="highlight-green">
+              <p style="margin:0;"><strong>Example:</strong> FA tells you Apple is undervalued at $170. TA tells you to buy when it bounces off the 200-day moving average with rising volume. FA says WHAT, TA says WHEN.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>FA and TA overlap in areas like volume analysis, risk management, and trend identification</li>
+            <li>The combined approach: FA screens for opportunities, TA times the entry</li>
+            <li>Many successful professional traders use both approaches</li>
+          </ul>
+          <strong>SAY:</strong> "The Venn diagram shows that FA and TA are not mutually exclusive — they overlap in areas like volume analysis and risk management. The most effective approach combines both: use FA to find fundamentally strong companies, then use TA to time your entry and exit. For example, FA might tell you Apple is undervalued, but TA tells you to wait for a bounce off the 200-day moving average before buying."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "Now let's move to the three core principles that form the foundation of all Technical Analysis."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 7: Principle 1 ============ -->
+      <section data-slide-id="funnel">
+        <h2>Principle 1: Market Discounts Everything</h2>
+        <div class="grid-2">
+          <div class="diagram-container" id="funnel-container"></div>
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.8em;">
+              <h3>What This Means</h3>
+              <p>Every piece of information — economic data, company earnings, news, even insider knowledge — is <strong>already reflected</strong> in the current market price.</p>
+            </div>
+            <div class="card card-green" style="margin-bottom:0.8em;">
+              <h3>Implication for Traders</h3>
+              <p>You do not need to study financials or wait for news. The price <strong>IS</strong> the news. Just read the chart.</p>
+            </div>
+            <div class="card card-amber">
+              <h3>Academic Connection</h3>
+              <p>This mirrors the <strong>semi-strong form of EMH</strong> — but TA practitioners add: "and price patterns reveal where the market is heading next."</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>All information flows into the market and is reflected in the price</li>
+            <li>Economic data, financials, news, sentiment — all are "priced in"</li>
+            <li>This is why TA practitioners focus only on price and volume</li>
+            <li>Ironically, this principle aligns with semi-strong EMH</li>
+          </ul>
+          <strong>SAY:</strong> "The first principle is that the market discounts everything. Think of the price as a funnel — all information flows in from the top: economic data, company financials, news, even insider activity. By the time it reaches the market, it is all reflected in one number: the price. This is why technical analysts focus solely on price and volume — they believe the chart already contains all the information you need."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "The second principle tells us how prices actually move."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 8: Principle 2 ============ -->
+      <section data-slide-id="uptrend">
+        <h2>Principle 2: Prices Move in Trends</h2>
+        <div class="grid-2">
+          <div class="diagram-container" id="uptrend-container"></div>
+          <div>
+            <div class="card card-green" style="margin-bottom:0.8em;">
+              <h3>The Trend is Your Friend</h3>
+              <p>Prices do not move randomly. They form <strong>trends</strong> — sustained directional movements driven by supply and demand imbalances.</p>
+            </div>
+            <div class="card" style="margin-bottom:0.8em;">
+              <h3>Three Types of Trends</h3>
+              <ul>
+                <li><strong style="color:var(--ta-green);">Uptrend:</strong> Higher Highs (HH) + Higher Lows (HL)</li>
+                <li><strong style="color:var(--ta-red);">Downtrend:</strong> Lower Highs (LH) + Lower Lows (LL)</li>
+                <li><strong style="color:var(--ta-amber);">Sideways:</strong> Price oscillates between support and resistance</li>
+              </ul>
+            </div>
+            <div class="highlight">
+              <p style="margin:0;"><strong>Newton's First Law of Markets:</strong> A trend in motion tends to stay in motion until acted upon by an external force (reversal signal).</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Prices move in trends, not randomly</li>
+            <li>Uptrend = Higher Highs + Higher Lows</li>
+            <li>Downtrend = Lower Highs + Lower Lows</li>
+            <li>"The trend is your friend" — one of the most famous trading maxims</li>
+            <li>Trends persist until a clear reversal signal appears</li>
+          </ul>
+          <strong>SAY:</strong> "The second principle is that prices move in trends. Look at this uptrend diagram — you can see a clear pattern of Higher Highs and Higher Lows. This is not random movement; it reflects a sustained buying pressure. There is a famous saying in trading: the trend is your friend. The idea is simple — once a trend is established, it tends to continue until something forces a reversal. Think of it as Newton's first law applied to markets."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "And the third principle explains why patterns keep appearing in markets."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 9: Principle 3 ============ -->
+      <section data-slide-id="cycle">
+        <h2>Principle 3: History Repeats Itself</h2>
+        <div class="diagram-container" id="cycle-container" style="margin:0.5em 0;"></div>
+        <div class="grid-3">
+          <div class="card card-green">
+            <h3>Why It Repeats</h3>
+            <p><strong>Human psychology</strong> does not change. Fear, greed, hope, and panic drive the same patterns generation after generation.</p>
+          </div>
+          <div class="card card-accent">
+            <h3>The Evidence</h3>
+            <p>The same candlestick patterns Homma identified in the <strong>1700s</strong> still work in today's AI-driven crypto markets. Same emotions, same patterns.</p>
+          </div>
+          <div class="card card-amber">
+            <h3>Behavioral Finance Link</h3>
+            <p>Chapter 12 of our course explains this: <strong>cognitive biases</strong> (anchoring, herding, loss aversion) create predictable, repeating price patterns.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Market patterns repeat because human psychology does not change</li>
+            <li>Fear, greed, and herding behavior create the same patterns over centuries</li>
+            <li>This connects to Behavioral Finance (Chapter 12) — cognitive biases drive market cycles</li>
+            <li>The cycle: Optimism → Euphoria → Panic → Recovery → repeat</li>
+          </ul>
+          <strong>SAY:</strong> "The third principle is that history repeats itself — and this is perhaps the most powerful idea in TA. Look at this market cycle: optimism leads to euphoria, which leads to panic, then recovery, and the cycle starts again. Why? Because human psychology does not change. The same fear and greed that drove Japanese rice traders in the 1700s drives crypto traders today. This connects directly to our Chapter 12 on Behavioral Finance — cognitive biases like herding and loss aversion create these predictable patterns."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "Let me now summarize what we have covered in Block 2."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 10: Summary + Transition ============ -->
+      <section class="summary-slide">
+        <h2>Block 2 — Key Takeaways</h2>
+        <div style="max-width:900px;">
+          <div class="key-takeaway">
+            <span class="icon-num">1</span>
+            <div>
+              <strong>FA and TA are complementary, not competing.</strong>
+              <p>FA answers WHAT to buy (intrinsic value), TA answers WHEN to buy (timing). The best approach often combines both.</p>
+            </div>
+          </div>
+          <div class="key-takeaway">
+            <span class="icon-num">2</span>
+            <div>
+              <strong>Three principles form the foundation of all TA:</strong>
+              <p>Market discounts everything (price contains all info), prices move in trends (not randomly), and history repeats (psychology is constant).</p>
+            </div>
+          </div>
+          <div class="key-takeaway">
+            <span class="icon-num">3</span>
+            <div>
+              <strong>TA excels in short-to-medium term trading across all market conditions.</strong>
+              <p>Whether markets are trending, ranging, or volatile, TA provides actionable signals for timing entries and exits.</p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight" style="margin-top:1em; text-align:center;">
+          <p style="font-size:0.85em; margin:0;"><strong>Next: Block 3 — Reading the Market</strong><br>Chart Types, Candlesticks, Trends &amp; Support/Resistance</p>
+        </div>
+        <div class="nav-footer">
+          <a href="block1-introduction.html">&larr; Previous Block</a>
+          <a href="index.html">Home</a>
+          <a href="block3-reading-market.html">Next Block &rarr;</a>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Recap the 3 main takeaways from Block 2</li>
+            <li>Set up anticipation for Block 3</li>
+          </ul>
+          <strong>SAY:</strong> "To wrap up Block 2: First, FA and TA are complementary — FA picks the stocks, TA picks the timing. Second, all of TA rests on three principles: the market discounts everything, prices move in trends, and history repeats because human psychology is constant. Third, TA is especially powerful for short-to-medium term trading. Next up in Block 3, we will get hands-on with actual charts — learning how to read candlesticks, identify trends, and spot support and resistance levels."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "I will now hand over to our next presenter for Block 3 — Reading the Market."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/diagrams.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealNotes],
+      width: 1920,
+      height: 1080,
+      margin: 0,
+      transition: 'slide',
+      backgroundTransition: 'fade'
+    });
+
+    const initialized = new Set();
+    function initSlide(slide) {
+      const id = slide.getAttribute('data-slide-id');
+      if (!id || initialized.has(id)) return;
+      initialized.add(id);
+      if (typeof window['init_' + id] === 'function') window['init_' + id]();
+    }
+
+    Reveal.on('ready', (event) => { initSlide(event.currentSlide); });
+    Reveal.on('slidechanged', (event) => { initSlide(event.currentSlide); });
+
+    function init_venn() {
+      vennFATA('venn-container');
+    }
+
+    function init_funnel() {
+      funnelDiagram('funnel-container');
+    }
+
+    function init_uptrend() {
+      uptrendHHHL('uptrend-container');
+    }
+
+    function init_cycle() {
+      cycleDiagram('cycle-container');
+    }
+  </script>
+</body>
+</html>

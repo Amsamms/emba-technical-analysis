@@ -1,0 +1,568 @@
+/* ============================================================
+   Technical Analysis — Shared Reveal.js Theme
+   Dark professional theme for projection (1920x1080)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* === CSS Custom Properties === */
+:root {
+  --ta-bg: #0f172a;
+  --ta-bg-card: #1e293b;
+  --ta-bg-card-alt: #1a2332;
+  --ta-bg-surface: #334155;
+  --ta-primary: #3b82f6;
+  --ta-primary-light: #60a5fa;
+  --ta-primary-dark: #2563eb;
+  --ta-accent: #f59e0b;
+  --ta-accent-light: #fbbf24;
+  --ta-green: #22c55e;
+  --ta-green-light: #4ade80;
+  --ta-red: #ef4444;
+  --ta-red-light: #f87171;
+  --ta-purple: #a78bfa;
+  --ta-cyan: #22d3ee;
+  --ta-text: #f1f5f9;
+  --ta-text-muted: #94a3b8;
+  --ta-text-dim: #64748b;
+  --ta-border: #334155;
+  --ta-border-light: #475569;
+  --ta-gradient-primary: linear-gradient(135deg, #1e3a5f, #2563eb);
+  --ta-gradient-green: linear-gradient(135deg, #065f46, #22c55e);
+  --ta-gradient-red: linear-gradient(135deg, #7f1d1d, #ef4444);
+  --ta-gradient-accent: linear-gradient(135deg, #78350f, #f59e0b);
+  --ta-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --ta-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --ta-radius: 12px;
+  --ta-radius-sm: 8px;
+  --ta-radius-lg: 16px;
+}
+
+/* === Reveal.js Overrides === */
+.reveal {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 32px;
+  color: var(--ta-text);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 40px 60px;
+}
+
+/* === Typography === */
+.reveal h1 {
+  font-size: 2.4em;
+  font-weight: 800;
+  color: var(--ta-text);
+  line-height: 1.15;
+  margin-bottom: 0.4em;
+  letter-spacing: -0.02em;
+}
+
+.reveal h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--ta-primary-light);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  letter-spacing: -0.01em;
+}
+
+.reveal h3 {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--ta-accent);
+  margin-bottom: 0.4em;
+}
+
+.reveal h4 {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--ta-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3em;
+}
+
+.reveal p {
+  font-size: 0.75em;
+  line-height: 1.65;
+  color: var(--ta-text-muted);
+  margin-bottom: 0.6em;
+}
+
+.reveal li {
+  font-size: 0.72em;
+  line-height: 1.5;
+  color: var(--ta-text-muted);
+  margin-bottom: 0.35em;
+}
+
+.reveal ul, .reveal ol {
+  margin-left: 0.8em;
+}
+
+.reveal strong {
+  color: var(--ta-text);
+  font-weight: 600;
+}
+
+.reveal em {
+  color: var(--ta-accent-light);
+  font-style: italic;
+}
+
+.reveal code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: var(--ta-bg-card);
+  color: var(--ta-cyan);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+.reveal blockquote {
+  background: var(--ta-bg-card);
+  border-left: 4px solid var(--ta-primary);
+  padding: 0.8em 1.2em;
+  border-radius: 0 var(--ta-radius-sm) var(--ta-radius-sm) 0;
+  margin: 0.5em 0;
+  font-style: italic;
+  color: var(--ta-text-muted);
+  font-size: 0.8em;
+}
+
+.reveal blockquote cite {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  color: var(--ta-text-dim);
+  font-style: normal;
+}
+
+/* === Title Slides === */
+.title-slide {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-slide h1 {
+  background: linear-gradient(135deg, var(--ta-primary-light), var(--ta-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-slide .subtitle {
+  font-size: 0.9em;
+  color: var(--ta-text-muted);
+  margin-top: -0.2em;
+}
+
+.title-slide .badge {
+  display: inline-block;
+  background: var(--ta-bg-card);
+  border: 1px solid var(--ta-border);
+  padding: 0.2em 0.8em;
+  border-radius: 20px;
+  font-size: 0.55em;
+  color: var(--ta-text-dim);
+  margin-top: 0.8em;
+}
+
+/* Block title slides */
+.block-title {
+  text-align: center !important;
+}
+
+.block-title .block-number {
+  display: inline-block;
+  font-size: 0.55em;
+  font-weight: 700;
+  color: var(--ta-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.3em;
+}
+
+/* === Cards & Containers === */
+.card {
+  background: var(--ta-bg-card);
+  border: 1px solid var(--ta-border);
+  border-radius: var(--ta-radius);
+  padding: 1em 1.2em;
+  box-shadow: var(--ta-shadow-sm);
+}
+
+.card-accent {
+  border-left: 4px solid var(--ta-primary);
+}
+
+.card-green {
+  border-left: 4px solid var(--ta-green);
+}
+
+.card-red {
+  border-left: 4px solid var(--ta-red);
+}
+
+.card-amber {
+  border-left: 4px solid var(--ta-accent);
+}
+
+/* === Grid Layouts === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.8em;
+}
+
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1em;
+}
+
+.grid-1-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1em;
+}
+
+/* === Comparison Tables === */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.65em;
+  border-radius: var(--ta-radius-sm);
+  overflow: hidden;
+}
+
+.comparison-table th {
+  background: var(--ta-primary-dark);
+  color: white;
+  padding: 0.6em 1em;
+  text-align: left;
+  font-weight: 600;
+}
+
+.comparison-table td {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid var(--ta-border);
+  color: var(--ta-text-muted);
+}
+
+.comparison-table tr:nth-child(even) td {
+  background: var(--ta-bg-card-alt);
+}
+
+.comparison-table tr:nth-child(odd) td {
+  background: var(--ta-bg-card);
+}
+
+/* === Tags & Badges === */
+.tag {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 12px;
+  font-size: 0.6em;
+  font-weight: 600;
+}
+
+.tag-blue { background: rgba(59,130,246,0.2); color: var(--ta-primary-light); }
+.tag-green { background: rgba(34,197,94,0.2); color: var(--ta-green-light); }
+.tag-red { background: rgba(239,68,68,0.2); color: var(--ta-red-light); }
+.tag-amber { background: rgba(245,158,11,0.2); color: var(--ta-accent-light); }
+.tag-purple { background: rgba(167,139,250,0.2); color: var(--ta-purple); }
+
+/* === Icon Numbers === */
+.icon-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--ta-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 0.7em;
+  flex-shrink: 0;
+}
+
+/* === Chart Containers === */
+.chart-container {
+  background: var(--ta-bg-card);
+  border: 1px solid var(--ta-border);
+  border-radius: var(--ta-radius);
+  padding: 0.8em;
+  margin: 0.5em 0;
+  min-height: 300px;
+}
+
+.chart-container-lg {
+  min-height: 420px;
+}
+
+/* === SVG Diagrams === */
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+.diagram-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === Highlight Boxes === */
+.highlight {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: var(--ta-radius-sm);
+  padding: 0.6em 1em;
+  font-size: 0.72em;
+  color: var(--ta-text);
+}
+
+.highlight-green {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.highlight-red {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.highlight-amber {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* === Stat Boxes === */
+.stat-box {
+  text-align: center;
+  padding: 0.8em;
+}
+
+.stat-box .stat-value {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: var(--ta-primary-light);
+  line-height: 1;
+}
+
+.stat-box .stat-label {
+  font-size: 0.55em;
+  color: var(--ta-text-dim);
+  margin-top: 0.3em;
+}
+
+/* === Timeline === */
+.timeline {
+  position: relative;
+  padding-left: 2em;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5em;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--ta-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1em;
+  font-size: 0.7em;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.65em;
+  top: 0.3em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ta-primary);
+  border: 2px solid var(--ta-bg);
+}
+
+.timeline-item .year {
+  font-weight: 700;
+  color: var(--ta-accent);
+}
+
+/* === Progress Bar === */
+.progress-bar {
+  height: 6px;
+  background: var(--ta-bg-surface);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.3em 0;
+}
+
+.progress-bar .fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--ta-gradient-primary);
+  transition: width 0.5s ease;
+}
+
+/* === Navigation Footer === */
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  font-size: 0.5em;
+  color: var(--ta-text-dim);
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  right: 60px;
+}
+
+.nav-footer a {
+  color: var(--ta-primary-light);
+  text-decoration: none;
+  padding: 0.3em 0.8em;
+  border: 1px solid var(--ta-border);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-footer a:hover {
+  background: var(--ta-bg-card);
+  border-color: var(--ta-primary);
+}
+
+/* === Slide Transitions === */
+.reveal .slides section .fragment.fade-up {
+  transform: translateY(20px);
+}
+
+/* === Two-panel layout === */
+.split-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  align-items: start;
+}
+
+/* === Venn Diagram === */
+.venn-container {
+  display: flex;
+  justify-content: center;
+  margin: 0.5em 0;
+}
+
+/* === Pyramid === */
+.pyramid-container {
+  display: flex;
+  justify-content: center;
+  margin: 0.5em 0;
+}
+
+/* === Responsive adjustments for speaker notes view === */
+@media print {
+  .reveal .slides section {
+    padding: 20px 30px;
+  }
+}
+
+/* === Candle anatomy colors === */
+.candle-green { fill: var(--ta-green); stroke: var(--ta-green); }
+.candle-red { fill: var(--ta-red); stroke: var(--ta-red); }
+.candle-green-hollow { fill: none; stroke: var(--ta-green); stroke-width: 2; }
+.candle-red-hollow { fill: none; stroke: var(--ta-red); stroke-width: 2; }
+
+/* === Slide-specific: Summary slides === */
+.summary-slide .key-takeaway {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  margin-bottom: 0.6em;
+  font-size: 0.72em;
+}
+
+.summary-slide .key-takeaway .icon-num {
+  margin-top: 0.1em;
+}
+
+/* === Back to index link === */
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 0.45em;
+  z-index: 100;
+}
+
+.back-link a {
+  color: var(--ta-text-dim);
+  text-decoration: none;
+  padding: 0.3em 0.6em;
+  border: 1px solid var(--ta-border);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.back-link a:hover {
+  color: var(--ta-primary-light);
+  border-color: var(--ta-primary);
+}
+
+/* === Apexcharts dark mode overrides === */
+.apexcharts-tooltip {
+  background: var(--ta-bg-card) !important;
+  border-color: var(--ta-border) !important;
+  color: var(--ta-text) !important;
+}
+
+.apexcharts-tooltip .apexcharts-tooltip-title {
+  background: var(--ta-bg-surface) !important;
+  border-color: var(--ta-border) !important;
+  color: var(--ta-text) !important;
+}
+
+.apexcharts-xaxistooltip, .apexcharts-yaxistooltip {
+  background: var(--ta-bg-card) !important;
+  border-color: var(--ta-border) !important;
+  color: var(--ta-text) !important;
+}
+
+.apexcharts-menu {
+  background: var(--ta-bg-card) !important;
+  border-color: var(--ta-border) !important;
+}
+
+.apexcharts-menu-item:hover {
+  background: var(--ta-bg-surface) !important;
+}

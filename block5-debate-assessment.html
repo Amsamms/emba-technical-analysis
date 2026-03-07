@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block 5 — The Great Debate | Technical Analysis</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">&larr; Back to Index</a></div>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============ SLIDE 1: Block Title ============ -->
+      <section class="block-title" data-slide-id="b5-title">
+        <div class="block-number">Block 5</div>
+        <h1>The Great Debate</h1>
+        <p class="subtitle">EMH vs Technical Analysis &amp; Real-World Assessment</p>
+        <div style="margin-top:1.2em;">
+          <span class="tag tag-red">EMH Challenge</span>
+          <span class="tag tag-green">Behavioral Finance</span>
+          <span class="tag tag-blue">Case Study</span>
+          <span class="tag tag-amber">Assessment</span>
+        </div>
+        <div class="badge">Presented by Ahmed Awad</div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>This block tackles the biggest criticism of TA: the Efficient Market Hypothesis</li>
+            <li>We will look at academic evidence on both sides, then do a real case study</li>
+            <li>Connects directly to course chapters 9 and 12</li>
+          </ul>
+          <strong>SAY:</strong> "Now we enter the most intellectually stimulating part of our presentation. Does Technical Analysis actually work? The academic world has had a fierce debate about this for decades. Let's explore both sides."
+          <br><strong>TIMING:</strong> 30 seconds
+          <br><strong>TRANSITION:</strong> "Let's start with the theory that challenges TA at its core -- the Efficient Market Hypothesis."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 2: EMH Challenge ============ -->
+      <section data-slide-id="b5-emh">
+        <h2>The EMH Challenge to Technical Analysis</h2>
+        <div class="grid-2">
+          <div>
+            <div class="diagram-container pyramid-container" id="emh-pyramid"></div>
+          </div>
+          <div>
+            <div class="card card-accent" style="margin-bottom:0.6em;">
+              <h3>What is EMH?</h3>
+              <p>The <strong>Efficient Market Hypothesis</strong> (Eugene Fama, 1970) states that asset prices fully reflect all available information, making it impossible to consistently "beat the market."</p>
+            </div>
+            <div class="card card-amber">
+              <h3>Three Forms</h3>
+              <ul>
+                <li><strong>Weak Form:</strong> Prices reflect all past trading data &rarr; TA is useless</li>
+                <li><strong>Semi-Strong:</strong> Prices reflect all public info &rarr; FA is also useless</li>
+                <li><strong>Strong:</strong> Prices reflect everything, even insider info &rarr; nobody can beat the market</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>EMH was formalized by Eugene Fama in 1970 -- Nobel Prize winner</li>
+            <li>The pyramid shows increasing levels of market efficiency</li>
+            <li>Each form has different implications for different types of analysis</li>
+            <li>The weak form is the most relevant to our discussion of TA</li>
+          </ul>
+          <strong>SAY:</strong> "The Efficient Market Hypothesis is the strongest academic argument against Technical Analysis. It comes in three forms, shown in this pyramid. The weak form -- the base -- is the one that directly challenges TA, because it says that all past price information is already baked into the current price."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "Let's zoom in on the weak form and understand why it's the key battleground."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 3: Weak Form EMH vs TA ============ -->
+      <section data-slide-id="b5-weak-emh">
+        <h2>Weak Form EMH vs Technical Analysis</h2>
+        <div class="grid-2">
+          <div class="card card-red">
+            <h3>The Weak Form Argument</h3>
+            <ul>
+              <li><strong>Random Walk Theory:</strong> Price changes are random and independent -- tomorrow's price cannot be predicted from today's</li>
+              <li>Past prices, volume, and trading data are already reflected in current prices</li>
+              <li>Any patterns found in historical data are coincidental, not predictive</li>
+              <li>If patterns worked, arbitrageurs would exploit them until they disappear</li>
+            </ul>
+            <blockquote>"A blindfolded monkey throwing darts at a newspaper's financial pages could select a portfolio that would do just as well as one carefully selected by experts."
+              <cite>-- Burton Malkiel, A Random Walk Down Wall Street (1973)</cite>
+            </blockquote>
+          </div>
+          <div class="card card-green">
+            <h3>The TA Counter-Argument</h3>
+            <ul>
+              <li><strong>Markets are NOT perfectly efficient</strong> -- information takes time to disseminate and process</li>
+              <li><strong>Human behavior is not random</strong> -- fear, greed, and herding create repeatable patterns</li>
+              <li><strong>Self-fulfilling prophecy:</strong> When millions of traders watch the same levels, those levels matter</li>
+              <li><strong>Institutional order flow</strong> creates detectable price impact patterns</li>
+              <li><strong>Empirical evidence:</strong> Some TA strategies show statistically significant returns</li>
+            </ul>
+            <div class="highlight highlight-green" style="margin-top:0.5em;">
+              <strong>Key insight:</strong> Markets can be "mostly efficient" while still leaving exploitable inefficiencies
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>The random walk theory is the mathematical foundation of weak-form EMH</li>
+            <li>Malkiel's monkey quote is one of the most famous in finance</li>
+            <li>TA practitioners argue markets are efficient but not perfectly so</li>
+            <li>The self-fulfilling prophecy argument is particularly interesting</li>
+          </ul>
+          <strong>SAY:</strong> "The weak form of EMH says that since all past price data is already in the current price, looking at charts is pointless -- prices follow a random walk. But TA practitioners fight back. They argue that markets are not perfectly efficient, that human psychology creates repeatable patterns, and that when enough traders watch the same support level, that level becomes real."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "So who's right? Let's look at what the academic research actually says."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 4: Academic Evidence ============ -->
+      <section data-slide-id="b5-academic">
+        <h2>Academic Evidence: Pro vs Anti TA</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width:10%;">Position</th>
+              <th style="width:25%;">Study</th>
+              <th style="width:15%;">Year</th>
+              <th style="width:50%;">Key Finding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-green">PRO TA</span></td>
+              <td><strong>Brock, Lakonishok &amp; LeBaron</strong></td>
+              <td>1992</td>
+              <td>Moving average and trading range breakout rules generated significant returns on the DJIA over 90 years</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">PRO TA</span></td>
+              <td><strong>Lo, Mamaysky &amp; Wang</strong></td>
+              <td>2000</td>
+              <td>Automated pattern recognition found that Head &amp; Shoulders and other patterns have genuine predictive value</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-green">PRO TA</span></td>
+              <td><strong>Neely, Rapach, Tu &amp; Zhou</strong></td>
+              <td>2009</td>
+              <td>TA indicators are economically and statistically significant in forecasting the equity premium</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-red">ANTI TA</span></td>
+              <td><strong>Eugene Fama</strong></td>
+              <td>1970</td>
+              <td>Foundational EMH paper -- markets are efficient, past data cannot predict future prices</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-red">ANTI TA</span></td>
+              <td><strong>Burton Malkiel</strong></td>
+              <td>2003</td>
+              <td>Updated random walk analysis -- TA strategies don't outperform after accounting for transaction costs</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-red">ANTI TA</span></td>
+              <td><strong>Park &amp; Irwin</strong></td>
+              <td>2007</td>
+              <td>Meta-analysis of 95 studies: mixed results, profitability of TA has declined over time as markets became more efficient</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight highlight-amber" style="margin-top:0.8em;">
+          <strong>Verdict:</strong> The evidence is genuinely mixed. TA may have worked better in less efficient markets. Modern AI/ML techniques may be reviving TA's edge by finding patterns humans cannot see.
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Brock et al. (1992) is one of the most cited pro-TA studies -- 90 years of DJIA data</li>
+            <li>Lo et al. (2000) used computer algorithms to detect patterns, adding scientific rigor</li>
+            <li>Park & Irwin's meta-analysis is crucial -- they found profitability declining over time</li>
+            <li>The truth is somewhere in the middle -- TA is a tool, not a guarantee</li>
+          </ul>
+          <strong>SAY:</strong> "Here's a fair summary of the academic literature. On the pro side, Brock and colleagues found that simple moving average rules beat buy-and-hold over 90 years. On the anti side, Fama's EMH and Malkiel's random walk remain powerful. The most telling study is Park and Irwin's meta-analysis: TA works sometimes, but its profitability is declining as markets become more efficient."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "If EMH is right and markets are efficient, why do we still see patterns? Behavioral finance has the answer."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 5: Behavioral Finance Response ============ -->
+      <section data-slide-id="b5-behavioral">
+        <h2>Behavioral Finance: Why TA Works Despite EMH</h2>
+        <p>Behavioral finance explains market inefficiencies through <strong>systematic cognitive biases</strong> that create exploitable patterns.</p>
+        <div class="grid-3">
+          <div class="card card-accent">
+            <h3>Cognitive Biases</h3>
+            <ul>
+              <li><strong>Anchoring:</strong> Traders fixate on round numbers and past prices (support/resistance)</li>
+              <li><strong>Overconfidence:</strong> Traders overreact to new information, creating overshooting</li>
+              <li><strong>Confirmation Bias:</strong> Seeing patterns that confirm existing beliefs</li>
+            </ul>
+          </div>
+          <div class="card card-green">
+            <h3>Herd Behavior</h3>
+            <ul>
+              <li><strong>Herding:</strong> Traders follow the crowd, amplifying trends and creating momentum</li>
+              <li><strong>FOMO:</strong> Fear of missing out drives buying at peaks</li>
+              <li><strong>Panic Selling:</strong> Fear drives selling at bottoms -- exactly when TA signals "oversold"</li>
+            </ul>
+          </div>
+          <div class="card card-amber">
+            <h3>Market Structure</h3>
+            <ul>
+              <li><strong>Self-Fulfilling Prophecy:</strong> If enough traders act on the same signal, it becomes real</li>
+              <li><strong>Information Asymmetry:</strong> Not everyone gets information at the same time</li>
+              <li><strong>Limits to Arbitrage:</strong> Even when mispricings exist, correcting them is costly and risky</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight" style="margin-top:0.8em;">
+          <strong>Prospect Theory (Kahneman &amp; Tversky, 1979):</strong> People feel losses ~2x more than equivalent gains. This asymmetry creates predictable behaviors at support/resistance levels -- exactly what TA exploits.
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Behavioral finance bridges the gap between EMH and TA</li>
+            <li>Kahneman won the Nobel Prize for Prospect Theory -- losses hurt 2x more than gains feel good</li>
+            <li>The self-fulfilling prophecy is the strongest argument: if millions watch the 200-day MA, it matters</li>
+            <li>EMH assumes rational actors, but humans are not rational</li>
+          </ul>
+          <strong>SAY:</strong> "Behavioral finance is TA's best defense against EMH. EMH assumes rational investors, but we know from Kahneman and Tversky that humans are systematically irrational. We anchor on round numbers -- that's why support and resistance work. We herd -- that's why trends persist. And when enough people watch the same moving average, it becomes a self-fulfilling prophecy. TA doesn't predict the future -- it predicts human behavior."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "This connects directly to what we've studied in our Investment course. Let me show you."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 6: Connection to Course ============ -->
+      <section data-slide-id="b5-course">
+        <h2>Connection to Our Investment Course</h2>
+        <div class="grid-2">
+          <div class="card card-accent">
+            <h3>Chapter 9: Market Efficiency</h3>
+            <ul>
+              <li>Defines the <strong>three forms of EMH</strong> we just discussed</li>
+              <li>Presents evidence for and against market efficiency</li>
+              <li>Discusses <strong>anomalies</strong> that challenge EMH: January effect, momentum, value premium</li>
+              <li>Introduces behavioral finance as a competing framework</li>
+            </ul>
+            <div class="highlight" style="margin-top:0.5em;">
+              <strong>Key takeaway from Ch9:</strong> Markets are efficient enough that most active managers underperform index funds -- but anomalies exist.
+            </div>
+          </div>
+          <div class="card card-green">
+            <h3>Chapter 12: Market Efficiency Evidence</h3>
+            <ul>
+              <li>Reviews empirical tests of the <strong>random walk hypothesis</strong></li>
+              <li>Examines <strong>serial correlation</strong> in stock returns (relevant to TA momentum)</li>
+              <li>Discusses <strong>event studies</strong> and semi-strong form tests</li>
+              <li>Covers mutual fund performance -- evidence that active management rarely beats passive</li>
+            </ul>
+            <div class="highlight highlight-green" style="margin-top:0.5em;">
+              <strong>Key takeaway from Ch12:</strong> Short-term momentum exists (supporting TA), but long-term predictability is limited.
+            </div>
+          </div>
+        </div>
+        <div class="card card-amber" style="margin-top:0.6em;">
+          <h3>Our Presentation as a Practical Counterpoint</h3>
+          <p>The course teaches us <em>why markets should be efficient</em>. Our presentation shows <em>why they sometimes aren't</em> -- and how practitioners exploit those inefficiencies using Technical Analysis. Both perspectives are valuable for a complete understanding of financial markets.</p>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Directly reference the textbook chapters the audience has studied</li>
+            <li>Ch9 covers EMH theory, Ch12 covers the empirical evidence</li>
+            <li>Our presentation is the practical complement to the academic theory</li>
+            <li>Short-term momentum is the academic concept closest to TA trend-following</li>
+          </ul>
+          <strong>SAY:</strong> "As you remember from Chapter 9, we studied the three forms of EMH and the anomalies that challenge it. Chapter 12 gave us the empirical evidence -- and interestingly, one finding supports TA: short-term momentum in stock returns is real and statistically significant. Our presentation today is the practical side of what the textbook teaches theoretically."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "Now let's put theory into practice with a real case study. Let's look at Apple."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 7: Case Study Introduction ============ -->
+      <section data-slide-id="b5-case-intro">
+        <h2>Case Study: Apple Inc. (AAPL)</h2>
+        <div class="grid-2-1">
+          <div>
+            <div class="card card-accent">
+              <h3>Why Apple?</h3>
+              <ul>
+                <li><strong>Most traded stock</strong> in the world by volume -- high liquidity means TA signals are reliable</li>
+                <li><strong>Large institutional following</strong> -- many traders watch the same levels</li>
+                <li><strong>Clear trend behavior</strong> -- Apple exhibits well-defined trends, pullbacks, and consolidations</li>
+                <li><strong>Everyone knows it</strong> -- the audience can relate to the stock</li>
+              </ul>
+            </div>
+            <div class="card card-green" style="margin-top:0.6em;">
+              <h3>The Scenario</h3>
+              <p>We'll analyze a <strong>6-month period</strong> using the TA tools we've learned: candlestick patterns, support/resistance, moving averages, RSI, and volume analysis.</p>
+              <p>Goal: Identify <strong>actionable entry and exit points</strong> that a technical analyst would spot.</p>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="text-align:center;">
+              <div class="stat-box">
+                <div class="stat-value" style="font-size:2.2em;">AAPL</div>
+                <div class="stat-label">Apple Inc.</div>
+              </div>
+              <div style="margin-top:0.5em;">
+                <div class="stat-box">
+                  <div class="stat-value" style="color:var(--ta-green);">$3.7T</div>
+                  <div class="stat-label">Market Cap</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" style="color:var(--ta-accent);">~60M</div>
+                  <div class="stat-label">Avg. Daily Volume</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-value" style="color:var(--ta-cyan);">S&amp;P 500</div>
+                  <div class="stat-label">Index Member</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Apple is the ideal case study -- everyone knows it, highly liquid, well-behaved charts</li>
+            <li>High liquidity means TA works better -- signals are more reliable</li>
+            <li>We'll use simulated data that mimics real AAPL behavior</li>
+            <li>The goal is to show how TA provides actionable trading decisions</li>
+          </ul>
+          <strong>SAY:</strong> "Let's make this concrete with a case study. We're using Apple -- the most traded stock in the world. With 60 million shares traded daily, there's enough liquidity for TA signals to be meaningful. We'll analyze a 6-month period and identify the signals a technical analyst would use to make buy and sell decisions."
+          <br><strong>TIMING:</strong> 35 seconds
+          <br><strong>TRANSITION:</strong> "Let's look at the chart and see what the signals tell us."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 8: Case Study TA Signals ============ -->
+      <section data-slide-id="b5-case-signals">
+        <h2>Case Study: Identifying TA Signals</h2>
+        <div class="chart-container chart-container-lg" id="case-chart" style="min-height:380px;"></div>
+        <div class="grid-3" style="margin-top:0.5em;">
+          <div class="highlight highlight-green">
+            <strong>Signal 1 -- Support Bounce:</strong> Price touches the support level and bounces with increased volume &rarr; bullish signal
+          </div>
+          <div class="highlight">
+            <strong>Signal 2 -- MA Crossover:</strong> 20-day SMA crosses above 50-day SMA (Golden Cross) &rarr; trend confirmation
+          </div>
+          <div class="highlight highlight-amber">
+            <strong>Signal 3 -- RSI Oversold:</strong> RSI drops below 30 during pullback &rarr; potential reversal entry point
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>The candlestick chart shows a clear pattern of uptrend, pullback, and recovery</li>
+            <li>Signal 1: Support bounce with volume confirmation is a classic TA entry signal</li>
+            <li>Signal 2: The golden cross (short MA crossing above long MA) confirms trend direction</li>
+            <li>Signal 3: RSI below 30 means the stock is oversold -- good time to buy the dip</li>
+          </ul>
+          <strong>SAY:</strong> "Here's our chart. Let me walk you through three key signals. First, watch when the price touches support and bounces -- notice the volume spike confirming buyers stepped in. Second, the golden cross -- the 20-day moving average crossing above the 50-day -- confirms the uptrend. Third, during the pullback, RSI dropped below 30, signaling the stock was oversold. A technical analyst seeing all three signals would have high confidence in a buy decision."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "So what happened after these signals? Let's see the outcome."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 9: Case Study Outcome ============ -->
+      <section data-slide-id="b5-case-outcome">
+        <h2>Case Study: The Outcome</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-green">
+              <h3>What Happened After the Signals</h3>
+              <ul>
+                <li><strong>Support Bounce Entry (~$150):</strong> Price rallied from support, confirming the bounce signal</li>
+                <li><strong>Golden Cross Confirmation:</strong> The uptrend continued for several weeks after the MA crossover</li>
+                <li><strong>RSI Recovery:</strong> RSI moved from oversold (below 30) back above 50, confirming renewed buying pressure</li>
+                <li><strong>Price Target Hit:</strong> The rally reached the resistance zone, where a technical analyst would consider taking profits</li>
+              </ul>
+            </div>
+            <div class="highlight highlight-green" style="margin-top:0.5em;">
+              <strong>Result:</strong> TA provided clear entry points (support bounce + oversold RSI) and exit points (resistance + overbought RSI), enabling disciplined risk management.
+            </div>
+          </div>
+          <div>
+            <div class="card" style="text-align:center;">
+              <h3>Performance Summary</h3>
+              <div class="stat-box">
+                <div class="stat-value" style="color:var(--ta-green);">+15-20%</div>
+                <div class="stat-label">Estimated Gain (Entry to Exit)</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" style="color:var(--ta-accent);">3:1</div>
+                <div class="stat-label">Risk/Reward Ratio</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" style="color:var(--ta-cyan);">~6 weeks</div>
+                <div class="stat-label">Holding Period</div>
+              </div>
+            </div>
+            <div class="card card-amber" style="margin-top:0.6em;">
+              <h3>Key Lesson</h3>
+              <p>TA didn't predict Apple's future. It provided a <strong>framework for decision-making</strong>: when to enter, where to place a stop-loss, and when to take profits. That's the real value of Technical Analysis.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>The signals worked -- the support bounce led to a rally, the golden cross confirmed trend</li>
+            <li>TA provided both entry AND exit signals -- complete trade management</li>
+            <li>The risk/reward ratio of 3:1 means the potential profit was 3x the risk</li>
+            <li>The key lesson: TA is a decision framework, not a crystal ball</li>
+          </ul>
+          <strong>SAY:</strong> "The signals worked. The support bounce entry and RSI oversold signal gave us an entry around $150. The golden cross confirmed we were on the right side of the trend. When the price reached resistance, we had our exit signal. The result? About a 15 to 20 percent gain with a 3-to-1 risk-reward ratio. But the real lesson is this: TA didn't predict the future. It gave us a disciplined framework for making decisions."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "Now let's step back and assess TA honestly. What are its real advantages?"
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 10: Advantages of TA ============ -->
+      <section data-slide-id="b5-advantages">
+        <h2>Advantages of Technical Analysis</h2>
+        <div class="grid-3">
+          <div class="highlight highlight-green" style="padding:0.8em;">
+            <h3 style="color:var(--ta-green-light);">Visual &amp; Intuitive</h3>
+            <p>Charts tell a story at a glance. Even beginners can spot basic trends and patterns without deep financial expertise.</p>
+          </div>
+          <div class="highlight highlight-green" style="padding:0.8em;">
+            <h3 style="color:var(--ta-green-light);">Any Timeframe</h3>
+            <p>Works on 1-minute charts for day traders and monthly charts for long-term investors. Same principles, any scale.</p>
+          </div>
+          <div class="highlight highlight-green" style="padding:0.8em;">
+            <h3 style="color:var(--ta-green-light);">Universal Application</h3>
+            <p>Applies to stocks, forex, commodities, crypto, bonds -- any market with price and volume data.</p>
+          </div>
+          <div class="highlight highlight-green" style="padding:0.8em;">
+            <h3 style="color:var(--ta-green-light);">Entry &amp; Exit Points</h3>
+            <p>Provides specific, actionable levels for when to buy, sell, and place stop-losses. Removes emotional guessing.</p>
+          </div>
+          <div class="highlight highlight-green" style="padding:0.8em;">
+            <h3 style="color:var(--ta-green-light);">Risk Management</h3>
+            <p>Stop-loss levels, position sizing, and risk/reward ratios are built into TA methodology. Protects capital systematically.</p>
+          </div>
+          <div class="highlight highlight-green" style="padding:0.8em;">
+            <h3 style="color:var(--ta-green-light);">Complements FA</h3>
+            <p>FA tells you <em>what</em> to buy (undervalued stocks). TA tells you <em>when</em> to buy (optimal entry timing). Use both.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>TA is visual -- you can see the story in the chart without reading financial statements</li>
+            <li>Works on any timeframe and any market -- truly universal</li>
+            <li>Provides specific, actionable trading levels -- not vague advice</li>
+            <li>The best approach combines FA (what to buy) with TA (when to buy)</li>
+          </ul>
+          <strong>SAY:</strong> "Let's be fair about TA's strengths. It's visual and intuitive -- you can literally see what the market is doing. It works on any timeframe and any market. But perhaps most importantly, it gives you specific levels: buy here, stop-loss there, take profit at this point. And the smartest investors don't choose between FA and TA -- they use both. FA tells you what to buy, TA tells you when."
+          <br><strong>TIMING:</strong> 35 seconds
+          <br><strong>TRANSITION:</strong> "But we need to be honest about the limitations too."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 11: Limitations of TA ============ -->
+      <section data-slide-id="b5-limitations">
+        <h2>Limitations of Technical Analysis</h2>
+        <div class="grid-3">
+          <div class="highlight highlight-red" style="padding:0.8em;">
+            <h3 style="color:var(--ta-red-light);">Subjective Interpretation</h3>
+            <p>Two analysts can look at the same chart and draw different conclusions. Pattern identification is more art than science.</p>
+          </div>
+          <div class="highlight highlight-red" style="padding:0.8em;">
+            <h3 style="color:var(--ta-red-light);">Self-Fulfilling Prophecy</h3>
+            <p>Signals may work only because everyone acts on them -- not because they reflect true market dynamics. Circular reasoning risk.</p>
+          </div>
+          <div class="highlight highlight-red" style="padding:0.8em;">
+            <h3 style="color:var(--ta-red-light);">No Guaranteed Profits</h3>
+            <p>No TA strategy works 100% of the time. Even the best signals fail regularly. TA is about probabilities, not certainties.</p>
+          </div>
+          <div class="highlight highlight-red" style="padding:0.8em;">
+            <h3 style="color:var(--ta-red-light);">Ignores Fundamentals</h3>
+            <p>Pure TA ignores earnings, revenue, management quality, and industry dynamics. A "bullish chart" can belong to a bankrupt company.</p>
+          </div>
+          <div class="highlight highlight-red" style="padding:0.8em;">
+            <h3 style="color:var(--ta-red-light);">Requires Experience</h3>
+            <p>Effective TA requires years of practice. Beginners often misidentify patterns, leading to costly mistakes and overconfidence.</p>
+          </div>
+          <div class="highlight highlight-red" style="padding:0.8em;">
+            <h3 style="color:var(--ta-red-light);">Past &ne; Future</h3>
+            <p>Historical patterns may not repeat. Black swan events (pandemics, wars, regulatory changes) can invalidate all technical signals instantly.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Subjectivity is TA's biggest weakness -- it's more art than science</li>
+            <li>The self-fulfilling prophecy cuts both ways -- is it real analysis or crowd behavior?</li>
+            <li>TA works in probabilities, not certainties -- even the best signals fail 30-40% of the time</li>
+            <li>Black swan events can wipe out all technical signals</li>
+          </ul>
+          <strong>SAY:</strong> "We must be honest about TA's limitations. It's subjective -- two people can see different things in the same chart. It ignores fundamentals entirely, so a beautiful bullish chart could belong to a company about to go bankrupt. And most importantly, past patterns do not guarantee future results. Black swan events like COVID-19 or the 2008 financial crisis made every chart worthless overnight."
+          <br><strong>TIMING:</strong> 35 seconds
+          <br><strong>TRANSITION:</strong> "So where does this leave us? Let me summarize."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 12: Summary + Transition ============ -->
+      <section class="summary-slide" data-slide-id="b5-summary">
+        <h2>Block 5 Summary: A Balanced View</h2>
+        <div class="grid-2">
+          <div>
+            <div class="key-takeaway">
+              <span class="icon-num">1</span>
+              <div><strong>EMH challenges TA</strong> -- but markets are not perfectly efficient. Behavioral biases create exploitable patterns.</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">2</span>
+              <div><strong>Academic evidence is mixed</strong> -- some studies support TA, others don't. TA profitability may be declining in traditional forms.</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">3</span>
+              <div><strong>TA is a decision framework</strong> -- it doesn't predict the future, but it provides structure for managing risk and timing entries/exits.</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">4</span>
+              <div><strong>Best used with FA</strong> -- fundamental analysis picks the stock, technical analysis picks the timing. Together they're more powerful.</div>
+            </div>
+            <div class="key-takeaway">
+              <span class="icon-num">5</span>
+              <div><strong>The future is AI/ML</strong> -- machine learning may be reviving TA by finding patterns humans cannot see. That's where we're headed next.</div>
+            </div>
+          </div>
+          <div>
+            <div class="card card-accent" style="text-align:center;">
+              <h3>The Practitioner's View</h3>
+              <blockquote style="border-left-color:var(--ta-accent);font-size:0.9em;">
+                "In theory, there is no difference between theory and practice. In practice, there is."
+                <cite>-- Yogi Berra</cite>
+              </blockquote>
+              <p style="margin-top:0.6em;">Markets may be efficient in theory, but traders profit from TA in practice -- because <strong>humans are not rational</strong>.</p>
+            </div>
+            <div class="highlight highlight-amber" style="margin-top:0.8em;text-align:center;">
+              <strong>Next: Block 6 &mdash; AI, ML &amp; The Future</strong>
+              <p>How technology is transforming Technical Analysis and what it means for the future of investing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nav-footer">
+          <a href="block4-indicators-oscillators.html">&larr; Block 4: Indicators</a>
+          <span>Block 5 of 6</span>
+          <a href="block6-ai-future.html">Block 6: AI &amp; Future &rarr;</a>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Summarize the balanced view: EMH has merit, but so does TA</li>
+            <li>TA is best as a decision framework, not a prediction tool</li>
+            <li>Combining FA and TA is the best approach for most investors</li>
+            <li>AI and ML are the next frontier -- transitioning to Block 6</li>
+          </ul>
+          <strong>SAY:</strong> "So here's the balanced view. EMH is a powerful theory, but markets aren't perfectly efficient because humans aren't perfectly rational. Technical Analysis won't make you rich by itself, but it provides a structured framework for making trading decisions. The smartest approach? Combine it with fundamental analysis. And as we'll see in Block 6, AI and machine learning are taking TA to a whole new level. Let me hand it over for our final block."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "Now let's look at the future. Ahmed Sabri will take us into Block 6: AI, Machine Learning, and the Future of Technical Analysis."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/diagrams.js"></script>
+  <script>
+    Reveal.initialize({ hash: true, plugins: [RevealNotes], width: 1920, height: 1080, margin: 0, transition: 'slide', backgroundTransition: 'fade' });
+
+    const initialized = new Set();
+    function initSlide(slide) {
+      const id = slide.getAttribute('data-slide-id');
+      if (!id || initialized.has(id)) return;
+      initialized.add(id);
+      if (typeof window['init_' + id] === 'function') window['init_' + id]();
+    }
+
+    // Slide init functions
+    window['init_b5-emh'] = function() {
+      emhPyramid('emh-pyramid');
+    };
+
+    window['init_b5-case-signals'] = function() {
+      createCandlestickChart('#case-chart', { height: 370 });
+    };
+
+    Reveal.on('ready', (event) => { initSlide(event.currentSlide); });
+    Reveal.on('slidechanged', (event) => { initSlide(event.currentSlide); });
+  </script>
+</body>
+</html>

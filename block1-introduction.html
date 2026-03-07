@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block 1 — Introduction | Technical Analysis</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">&larr; Back to Index</a></div>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============ SLIDE 1: Title ============ -->
+      <section class="title-slide">
+        <h1>Technical Analysis</h1>
+        <p class="subtitle">Understanding Market Movements Through Price &amp; Volume</p>
+        <p style="font-size:0.65em; color:var(--ta-text-muted); margin-top:0.6em;">Group 5 Presentation</p>
+        <div class="badge">Investment Course &mdash; EMBA Program</div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Welcome everyone to the Technical Analysis presentation</li>
+            <li>This is a group effort covering TA from fundamentals to AI applications</li>
+          </ul>
+          <strong>SAY:</strong> "Good evening everyone. Today our group will take you on a journey through Technical Analysis — one of the most widely used approaches to understanding and predicting market movements. We will cover everything from the basics to how AI is transforming this field."
+          <br><strong>TIMING:</strong> 30 seconds
+          <br><strong>TRANSITION:</strong> "Let me start by giving you a roadmap of what we will cover today."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 2: Agenda ============ -->
+      <section>
+        <h2>Agenda — Our Roadmap</h2>
+        <div class="grid-3">
+          <div class="card card-accent">
+            <h3>Block 1</h3>
+            <p><strong>Introduction</strong></p>
+            <p>What is TA? History, relevance, and the core question it answers.</p>
+            <span class="tag tag-blue">Ahmed Sabri</span>
+          </div>
+          <div class="card card-accent">
+            <h3>Block 2</h3>
+            <p><strong>TA Foundations</strong></p>
+            <p>TA vs FA, the three core principles that drive all technical analysis.</p>
+            <span class="tag tag-green">TBD</span>
+          </div>
+          <div class="card card-accent">
+            <h3>Block 3</h3>
+            <p><strong>Reading the Market</strong></p>
+            <p>Chart types, candlesticks, trends, support &amp; resistance levels.</p>
+            <span class="tag tag-amber">TBD</span>
+          </div>
+          <div class="card card-accent">
+            <h3>Block 4</h3>
+            <p><strong>Patterns &amp; Indicators</strong></p>
+            <p>Chart patterns, moving averages, RSI, MACD, Bollinger Bands.</p>
+            <span class="tag tag-purple">TBD</span>
+          </div>
+          <div class="card card-accent">
+            <h3>Block 5</h3>
+            <p><strong>Debate &amp; Assessment</strong></p>
+            <p>EMH challenge, real-world case study, TA limitations.</p>
+            <span class="tag tag-red">TBD</span>
+          </div>
+          <div class="card card-accent">
+            <h3>Block 6</h3>
+            <p><strong>AI/ML &amp; Future</strong></p>
+            <p>AI in trading, live app demo, course integration, Q&amp;A.</p>
+            <span class="tag tag-blue">Ahmed Sabri</span>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>6 blocks covering the full spectrum of Technical Analysis</li>
+            <li>We start with foundations and build up to advanced AI applications</li>
+            <li>Each block has a dedicated presenter</li>
+          </ul>
+          <strong>SAY:</strong> "Here is our roadmap. We have organized the presentation into 6 blocks. We start with an introduction and foundations, move into reading charts and identifying patterns, then we address the academic debate around TA, and finally we explore how AI and machine learning are revolutionizing this field."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "So let's begin with the fundamental question — what exactly is Technical Analysis?"
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 3: What is Technical Analysis? ============ -->
+      <section>
+        <h2>What is Technical Analysis?</h2>
+        <div class="grid-2">
+          <div>
+            <div class="highlight" style="margin-bottom:0.8em;">
+              <p style="font-size:0.8em; color:var(--ta-text);"><strong>Technical Analysis</strong> is the study of past market data — primarily <em>price</em> and <em>volume</em> — to forecast future price movements.</p>
+            </div>
+            <h3>Who Uses It?</h3>
+            <ul>
+              <li><strong>Day Traders</strong> — short-term momentum plays</li>
+              <li><strong>Hedge Funds</strong> — quantitative strategies</li>
+              <li><strong>Retail Investors</strong> — entry/exit timing</li>
+              <li><strong>Algorithmic Systems</strong> — automated pattern detection</li>
+              <li><strong>Investment Banks</strong> — risk management &amp; positioning</li>
+            </ul>
+          </div>
+          <div>
+            <blockquote>
+              "The market is a barometer, not a thermometer. It tells you what is going to happen, not what has already happened."
+              <cite>&mdash; Charles Dow, founder of Dow Jones &amp; Co.</cite>
+            </blockquote>
+            <div class="card" style="margin-top:0.8em;">
+              <h3>Key Distinction</h3>
+              <p>TA focuses on <em>what</em> the market is doing (price action), not <em>why</em> it is doing it (fundamentals).</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>TA is the study of price and volume data to forecast future movements</li>
+            <li>Used by everyone from retail traders to billion-dollar hedge funds</li>
+            <li>Charles Dow — the father of modern TA — saw the market as forward-looking</li>
+          </ul>
+          <strong>SAY:</strong> "Technical Analysis is essentially about reading the market's own story through price and volume. Unlike Fundamental Analysis, which digs into financial statements and earnings, TA looks at what the market is actually doing. And as Charles Dow said, the market acts as a barometer — it is forward-looking."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "But where did this approach come from? Let's look at its fascinating history."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 4: Brief History ============ -->
+      <section data-slide-id="timeline">
+        <h2>A Brief History of Technical Analysis</h2>
+        <div class="diagram-container" id="timeline-container" style="margin:1em 0;"></div>
+        <div class="grid-3" style="margin-top:0.5em;">
+          <div class="card card-amber">
+            <p><strong>Munehisa Homma (1700s)</strong></p>
+            <p>Japanese rice trader who invented candlestick charts — still the most popular chart type today.</p>
+          </div>
+          <div class="card card-accent">
+            <p><strong>Charles Dow (1890s)</strong></p>
+            <p>Created the Dow Jones Industrial Average and laid the groundwork for modern TA with Dow Theory.</p>
+          </div>
+          <div class="card card-green">
+            <p><strong>Edwards &amp; Magee (1948)</strong></p>
+            <p>Published "Technical Analysis of Stock Trends" — the definitive textbook still in use.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>TA has roots going back 300+ years to Japanese rice trading</li>
+            <li>Homma's candlestick charts are still the gold standard</li>
+            <li>Charles Dow formalized TA theory in the 1890s</li>
+            <li>Computers in the 1960s, online trading in the 1990s, and AI in the 2020s each transformed the field</li>
+          </ul>
+          <strong>SAY:</strong> "Technical Analysis has a rich history spanning over 300 years. It began with Munehisa Homma, a Japanese rice trader who developed candlestick charts in the 1700s — and remarkably, these are still the most popular chart type today. Then Charles Dow formalized the theory in the 1890s. The real acceleration came with computers in the 1960s, online trading in the 1990s, and now AI is taking it to a whole new level."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "So with all this history, what is the fundamental question that TA tries to answer?"
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 5: The Core Question ============ -->
+      <section style="text-align:center;">
+        <h4 style="margin-bottom:0.3em;">The Core Question</h4>
+        <h1 style="font-size:2.8em; margin-bottom:0.3em;">"Where is the price<br>going next?"</h1>
+        <div style="max-width:800px; margin:0 auto;">
+          <div class="grid-2" style="margin-top:1.2em;">
+            <div class="card card-green">
+              <h3>TA Answers: WHEN</h3>
+              <p>When to <strong>buy</strong> or <strong>sell</strong>.<br>Timing entries and exits based on price signals.</p>
+            </div>
+            <div class="card card-red">
+              <h3>TA Does NOT Answer: WHAT</h3>
+              <p>What to buy based on value.<br>That is the domain of <strong>Fundamental Analysis</strong>.</p>
+            </div>
+          </div>
+          <div class="highlight-amber" style="margin-top:1em; padding:0.6em 1em; border-radius:8px;">
+            <p style="font-size:0.75em; color:var(--ta-accent-light); margin:0;"><strong>Think of it this way:</strong> FA tells you which stocks are undervalued. TA tells you the right moment to act on that information.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>TA is fundamentally about predicting future price direction</li>
+            <li>It answers WHEN to buy/sell, not WHAT to buy</li>
+            <li>FA and TA serve complementary purposes</li>
+          </ul>
+          <strong>SAY:</strong> "At its heart, Technical Analysis asks one simple question: where is the price going next? But here is the crucial distinction — TA tells you WHEN to act. It does not tell you WHAT to buy based on a company's intrinsic value. That is why many professional traders use both approaches together. FA picks the stocks, TA picks the timing."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "Now let's look at how big TA is in today's markets."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 6: TA in Today's Markets ============ -->
+      <section>
+        <h2>TA in Today's Markets</h2>
+        <div class="grid-3" style="margin-bottom:1em;">
+          <div class="card stat-box">
+            <div class="stat-value" style="color:var(--ta-primary-light);">70%+</div>
+            <div class="stat-label">of all trading volume is algorithmic<br>(using TA-based signals)</div>
+          </div>
+          <div class="card stat-box">
+            <div class="stat-value" style="color:var(--ta-green-light);">$10T+</div>
+            <div class="stat-label">daily forex market volume<br>(heavily driven by TA)</div>
+          </div>
+          <div class="card stat-box">
+            <div class="stat-value" style="color:var(--ta-accent-light);">100M+</div>
+            <div class="stat-label">retail traders worldwide<br>using TA tools daily</div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Why TA Dominates Short-Term Trading</h3>
+            <ul>
+              <li>Instant analysis — no waiting for earnings reports</li>
+              <li>Works across all asset classes (stocks, forex, crypto, commodities)</li>
+              <li>Easily automated — the backbone of algo trading</li>
+              <li>Self-fulfilling prophecy effect — millions watch the same levels</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Industry Adoption</h3>
+            <ul>
+              <li><strong>Bloomberg Terminal</strong> — built-in TA tools</li>
+              <li><strong>TradingView</strong> — 60M+ users charting daily</li>
+              <li><strong>Renaissance Technologies</strong> — $130B fund built on quant TA</li>
+              <li><strong>Crypto markets</strong> — TA is the primary analysis method</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Over 70% of trading is now algorithmic, most using TA signals</li>
+            <li>The forex market alone sees $10 trillion+ daily volume</li>
+            <li>Over 100 million retail traders use TA tools</li>
+            <li>Major platforms like Bloomberg and TradingView have TA built in</li>
+          </ul>
+          <strong>SAY:</strong> "Let me put TA's importance in perspective with some numbers. Over 70% of all trading volume today is algorithmic — and the vast majority of these algorithms use TA-based signals. The forex market alone trades over 10 trillion dollars daily, heavily driven by technical indicators. And over 100 million retail traders worldwide use TA tools every day. From Bloomberg terminals to TradingView with its 60 million users, TA is everywhere."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "So how does this connect to what we are studying in our Investment course?"
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 7: Connection to Our Course ============ -->
+      <section>
+        <h2>Connection to Our Course</h2>
+        <div class="grid-2">
+          <div>
+            <div class="card card-red" style="margin-bottom:0.8em;">
+              <h3>The EMH Challenge</h3>
+              <p>The <strong>Efficient Market Hypothesis</strong> (Chapter 9) argues that all available information is already reflected in stock prices — making it impossible to consistently beat the market using TA.</p>
+              <p><strong>Weak-form EMH:</strong> Past prices contain no useful predictive information.</p>
+            </div>
+            <div class="card card-green">
+              <h3>The Practitioner's Response</h3>
+              <p>Yet <strong>billions of dollars</strong> in trading profits are generated annually by TA-based strategies. Are markets truly efficient, or do behavioral biases create exploitable patterns?</p>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="margin-bottom:0.8em;">
+              <h3>Course Context</h3>
+              <ul>
+                <li><strong>Chapter 9:</strong> Efficient Market Hypothesis — the academic case against TA</li>
+                <li><strong>Chapter 12:</strong> Behavioral Finance — why markets may NOT be efficient</li>
+                <li><strong>Our presentation:</strong> The practitioner's view — does TA work despite EMH?</li>
+              </ul>
+            </div>
+            <div class="highlight" style="margin-top:0.5em;">
+              <p style="margin:0;"><strong>Our Goal:</strong> Present TA objectively — its tools, evidence, and limitations — so you can form your own judgment on whether markets are truly efficient.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>EMH (Chapter 9) says TA should not work — prices already reflect all info</li>
+            <li>Behavioral Finance (Chapter 12) explains why markets may have exploitable patterns</li>
+            <li>Our presentation frames TA as the practitioner's counter-argument to EMH</li>
+          </ul>
+          <strong>SAY:</strong> "This ties directly to our Investment course. Chapter 9 covers the Efficient Market Hypothesis, which essentially says TA should not work because all information is already in the price. But Chapter 12 on Behavioral Finance shows us that human biases create predictable patterns. Our presentation sits right at this intersection — we are presenting the practitioner's perspective on whether TA can work despite what EMH suggests."
+          <br><strong>TIMING:</strong> 45 seconds
+          <br><strong>TRANSITION:</strong> "Let me quickly recap what we have covered in this introduction before we move to Block 2."
+        </aside>
+      </section>
+
+      <!-- ============ SLIDE 8: Summary + Transition ============ -->
+      <section class="summary-slide">
+        <h2>Block 1 — Key Takeaways</h2>
+        <div style="max-width:900px;">
+          <div class="key-takeaway">
+            <span class="icon-num">1</span>
+            <div>
+              <strong>Technical Analysis studies price and volume data to predict future price movements.</strong>
+              <p>It answers WHEN to trade, not WHAT to trade. Used by traders, hedge funds, algorithms, and retail investors worldwide.</p>
+            </div>
+          </div>
+          <div class="key-takeaway">
+            <span class="icon-num">2</span>
+            <div>
+              <strong>TA has a 300+ year history and dominates modern trading.</strong>
+              <p>From Homma's candlesticks in the 1700s to AI-powered algorithms today, TA has evolved but its core principles remain.</p>
+            </div>
+          </div>
+          <div class="key-takeaway">
+            <span class="icon-num">3</span>
+            <div>
+              <strong>The academic debate is real — EMH vs. practitioner evidence.</strong>
+              <p>Our course material challenges TA's validity through EMH, yet billions in profits suggest patterns do exist. We will explore both sides.</p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight" style="margin-top:1em; text-align:center;">
+          <p style="font-size:0.85em; margin:0;"><strong>Next: Block 2 — TA Foundations</strong><br>TA vs Fundamental Analysis &amp; The Three Core Principles</p>
+        </div>
+        <div class="nav-footer">
+          <span></span>
+          <a href="index.html">Home</a>
+          <a href="block2-foundations.html">Next Block &rarr;</a>
+        </div>
+        <aside class="notes">
+          <strong>KEY POINTS:</strong>
+          <ul>
+            <li>Recap the 3 main takeaways from Block 1</li>
+            <li>Set up anticipation for Block 2</li>
+          </ul>
+          <strong>SAY:</strong> "To summarize Block 1: First, TA is the study of price and volume to predict where prices go next — it answers WHEN to trade. Second, it has a rich 300-year history and dominates modern markets with over 70% algorithmic trading. Third, there is a genuine academic debate — EMH says it should not work, but trillions of dollars suggest otherwise. Now let's dive into the foundations of TA, starting with how it compares to Fundamental Analysis."
+          <br><strong>TIMING:</strong> 40 seconds
+          <br><strong>TRANSITION:</strong> "I will now hand over to our next presenter for Block 2 — TA Foundations."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="assets/charts.js"></script>
+  <script src="assets/diagrams.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealNotes],
+      width: 1920,
+      height: 1080,
+      margin: 0,
+      transition: 'slide',
+      backgroundTransition: 'fade'
+    });
+
+    const initialized = new Set();
+    function initSlide(slide) {
+      const id = slide.getAttribute('data-slide-id');
+      if (!id || initialized.has(id)) return;
+      initialized.add(id);
+      if (typeof window['init_' + id] === 'function') window['init_' + id]();
+    }
+
+    Reveal.on('ready', (event) => { initSlide(event.currentSlide); });
+    Reveal.on('slidechanged', (event) => { initSlide(event.currentSlide); });
+
+    function init_timeline() {
+      tradingTimeline('timeline-container');
+    }
+  </script>
+</body>
+</html>
