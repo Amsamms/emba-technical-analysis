@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Analysis — Introduction | EMBA 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       TECHNICAL ANALYSIS — EPIC INTRODUCTION PRESENTATION
+       Aesthetic: Financial Noir Cinema
+       Fonts: Cormorant Garamond (display) · Outfit (body) · Space Mono (data)
+       ============================================================ */
+
+    /* === CUSTOM PROPERTIES === */
+    :root {
+      --bg: #08090d;
+      --bg-surface: #0f1118;
+      --bg-card: rgba(255,255,255,0.035);
+      --bg-card-hover: rgba(255,255,255,0.06);
+      --gold: #c8a951;
+      --gold-dim: #9a7d3a;
+      --gold-glow: rgba(200,169,81,0.15);
+      --teal: #4ecdc4;
+      --teal-dim: #2a8a83;
+      --bull: #51cf66;
+      --bear: #ff6b6b;
+      --text: #e8e4df;
+      --text-muted: #8a8682;
+      --text-dim: #5a5652;
+      --border: rgba(255,255,255,0.08);
+      --border-gold: rgba(200,169,81,0.25);
+      --glass-blur: 20px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-slide: 700ms;
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      -webkit-font-smoothing: antialiased;
+      cursor: default;
+    }
+
+    /* === NOISE TEXTURE OVERLAY === */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background: repeating-conic-gradient(#fff 0.00015%, transparent 0.0005%) 50% 50%/2500px 2500px;
+      pointer-events: none;
+      z-index: 10000;
+    }
+
+    /* === BACKGROUND LAYERS === */
+    #bgCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+      top: -150px; right: -100px;
+      animation: orbDrift 25s ease-in-out infinite;
+    }
+    .bg-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(78,205,196,0.08), transparent 70%);
+      bottom: -100px; left: -80px;
+      animation: orbDrift 30s ease-in-out infinite reverse;
+    }
+
+    /* === PROGRESS BAR === */
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--teal));
+      z-index: 9999;
+      transition: width 0.5s var(--ease-out);
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* === NAVIGATION DOTS === */
+    .nav-dots {
+      position: fixed;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 9998;
+    }
+    .nav-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      border: none;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-out);
+      padding: 0;
+      position: relative;
+    }
+    .nav-dot:hover { background: var(--text-muted); transform: scale(1.4); }
+    .nav-dot.active {
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold-glow);
+      transform: scale(1.5);
+    }
+    .nav-dot .dot-label {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      font-family: 'Outfit', sans-serif;
+    }
+    .nav-dot:hover .dot-label { opacity: 1; }
+
+    /* === NAV ARROWS === */
+    .nav-arrows {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      z-index: 9998;
+    }
+    .nav-arrow {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s var(--ease-out);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-arrow:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+      background: var(--gold-glow);
+      transform: scale(1.1);
+    }
+    .nav-arrow:disabled { opacity: 0.2; pointer-events: none; }
+
+    /* === SLIDE COUNTER === */
+    .slide-counter {
+      position: fixed;
+      bottom: 40px;
+      left: 32px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      z-index: 9998;
+      letter-spacing: 0.05em;
+    }
+    .slide-counter .current-num { color: var(--gold); font-weight: 700; }
+
+    /* === SLIDE BASE === */
+    .deck {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px 90px;
+      opacity: 0;
+      transform: translateX(80px);
+      transition: opacity var(--transition-slide) ease,
+                  transform var(--transition-slide) var(--ease-out);
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: none;
+      pointer-events: all;
+    }
+
+    /* === TYPOGRAPHY === */
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    h2 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.3em;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.4em;
+    }
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .slide-subtitle {
+      font-size: 1rem;
+      color: var(--text-dim);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5em;
+    }
+    .chapter-marker {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chapter-marker::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-gold), transparent);
+      max-width: 200px;
+    }
+    em { color: var(--gold); font-style: italic; }
+    strong { color: var(--text); font-weight: 600; }
+    blockquote {
+      border-left: 2px solid var(--gold-dim);
+      padding: 1em 1.4em;
+      background: var(--bg-card);
+      border-radius: 0 12px 12px 0;
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 0.6em;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-style: normal;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    /* === GLASS CARDS === */
+    .glass {
+      background: var(--bg-card);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4em 1.6em;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .glass:hover {
+      border-color: var(--border-gold);
+      background: var(--bg-card-hover);
+    }
+    .glass-gold { border-color: var(--border-gold); }
+    .glass-sm { padding: 1em 1.2em; border-radius: 12px; }
+    ul { list-style: none; padding: 0; }
+    .glass ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 1.2em;
+      position: relative;
+      margin-bottom: 0.3em;
+    }
+    .glass ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    ol { padding-left: 0; counter-reset: tenet; list-style: none; }
+    .glass ol li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 2em;
+      position: relative;
+      margin-bottom: 0.5em;
+      counter-increment: tenet;
+    }
+    .glass ol li::before {
+      content: counter(tenet);
+      position: absolute;
+      left: 0;
+      width: 1.5em; height: 1.5em;
+      border-radius: 50%;
+      background: var(--gold-glow);
+      border: 1px solid var(--border-gold);
+      color: var(--gold);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0.15em;
+    }
+
+    /* === LAYOUT === */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5em; }
+    .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.2em; }
+
+    /* === TAGS === */
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.5em; }
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.35em 0.9em;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* === STATS === */
+    .stat-card {
+      text-align: center;
+      padding: 2em 1.5em;
+    }
+    .stat-value {
+      font-family: 'Space Mono', monospace;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.2em;
+    }
+    .stat-value.gold { color: var(--gold); }
+    .stat-value.teal { color: var(--teal); }
+    .stat-value.bull { color: var(--bull); }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* === INSIGHT CALLOUT === */
+    .insight {
+      background: linear-gradient(135deg, rgba(200,169,81,0.06), rgba(200,169,81,0.02));
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 1em 1.4em;
+      margin-top: 1.5em;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .insight-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4em;
+    }
+
+    /* === AVATAR BADGES (for historical figures) === */
+    .avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--bg);
+      flex-shrink: 0;
+      margin-bottom: 0.8em;
+    }
+    .avatar-gold { background: linear-gradient(135deg, var(--gold), #dfc06e); }
+    .avatar-teal { background: linear-gradient(135deg, var(--teal), #7eddd6); }
+    .avatar-bull { background: linear-gradient(135deg, var(--bull), #8ae99a); }
+    .avatar-bear { background: linear-gradient(135deg, var(--bear), #ff9e9e); }
+
+    /* === REVEAL ANIMATION === */
+    .rv {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.65s ease, transform 0.65s var(--ease-out);
+      transition-delay: calc(var(--d, 0) * 80ms);
+    }
+    .slide.active .rv {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* === TITLE SLIDE SPECIFICS === */
+    #s0 {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-chart {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
+      opacity: 0.12;
+      z-index: 0;
+    }
+    .hero-chart .candle {
+      opacity: 0;
+      transform-origin: center bottom;
+      transform: scaleY(0);
+      animation: candleRise 0.5s var(--ease-spring) forwards;
+      animation-delay: calc(var(--i, 0) * 80ms + 800ms);
+    }
+    .hero-chart .ma-line {
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      animation: drawLine 2.5s ease forwards 1.5s;
+    }
+    .main-title {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0.1em;
+    }
+    .title-outline {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      -webkit-text-stroke: 1px var(--text-dim);
+      color: transparent;
+      line-height: 1;
+    }
+    .title-solid {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      background: linear-gradient(135deg, var(--gold), #e8d48a, var(--gold));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 6s ease infinite;
+      line-height: 1;
+    }
+    .title-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin: 1em 0 0.5em;
+      z-index: 2;
+      position: relative;
+    }
+    .title-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.5em 1.5em;
+      border-radius: 30px;
+      z-index: 2;
+      position: relative;
+    }
+    .title-hint {
+      position: absolute;
+      bottom: 40px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      z-index: 2;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+    .title-hint kbd {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.15em 0.5em;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+    }
+
+    /* === DEFINITION CARD GLOW === */
+    .def-card {
+      border-color: var(--border-gold);
+      position: relative;
+    }
+    .def-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, var(--gold-glow), transparent, var(--gold-glow));
+      z-index: -1;
+      opacity: 0.5;
+    }
+    .def-card p {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* === YEAR BADGE === */
+    .year-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      background: var(--gold-glow);
+      border: 1px solid var(--border-gold);
+      padding: 0.2em 0.7em;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.8em;
+    }
+
+    /* === ROADMAP CARDS === */
+    .roadmap-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .roadmap-card .card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      position: absolute;
+      top: -5px;
+      right: 10px;
+      opacity: 0.06;
+      color: var(--text);
+      line-height: 1;
+    }
+    .roadmap-card.active-block {
+      border-color: var(--gold-dim);
+      background: rgba(200,169,81,0.05);
+    }
+    .roadmap-card.active-block::after {
+      content: 'YOU ARE HERE';
+      font-family: 'Space Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+    .roadmap-card.finale-block {
+      border-color: var(--teal-dim);
+      background: rgba(78,205,196,0.04);
+    }
+    .roadmap-card.finale-block::after {
+      content: 'FINALE';
+      font-family: 'Space Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+    .roadmap-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3em;
+    }
+    .roadmap-desc {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* === TRANSITION SLIDE === */
+    #s9 {
+      text-align: center;
+      align-items: center;
+    }
+    .journey-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .journey-text em {
+      font-weight: 700;
+      font-style: italic;
+      color: var(--gold);
+    }
+    .pulse-arrow {
+      font-size: 2rem;
+      color: var(--gold);
+      animation: pulseDown 2s ease-in-out infinite;
+      margin-top: 1em;
+    }
+
+    /* === KEYFRAMES === */
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes candleRise {
+      to { opacity: 1; transform: scaleY(1); }
+    }
+    @keyframes drawLine {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes orbDrift {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(30px, -20px); }
+      66% { transform: translate(-20px, 15px); }
+    }
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes pulseDown {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(10px); opacity: 1; }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* === ERA TIMELINE === */
+    .era-timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+      position: relative;
+      margin: 1em 0;
+    }
+    .era-timeline::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--teal));
+    }
+    .era-node {
+      text-align: center;
+      position: relative;
+      padding-top: 50px;
+    }
+    .era-node::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--gold);
+      z-index: 2;
+    }
+    .era-node:last-child::before { border-color: var(--teal); }
+    .era-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5em;
+    }
+    .era-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4em;
+    }
+    .era-desc {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      padding: 0 0.5em;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1200px) {
+      .slide { padding: 50px 60px; }
+      .title-outline, .title-solid { font-size: 5rem; }
+      h2 { font-size: 2.4rem; }
+      .stat-value { font-size: 2.8rem; }
+    }
+    @media (max-width: 768px) {
+      .slide { padding: 40px 30px; }
+      .title-outline, .title-solid { font-size: 3.2rem; }
+      h2 { font-size: 1.8rem; }
+      .two-col, .three-col { grid-template-columns: 1fr; }
+      .four-col { grid-template-columns: 1fr 1fr; }
+      .era-timeline { grid-template-columns: 1fr 1fr; gap: 1em; }
+      .era-timeline::before { display: none; }
+      .nav-dots { display: none; }
+      .stat-value { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background layers -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <!-- UI Chrome -->
+  <div class="progress" id="progress"></div>
+  <nav class="nav-dots" id="navDots"></nav>
+  <div class="nav-arrows">
+    <button class="nav-arrow" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+    <button class="nav-arrow" id="nextBtn" aria-label="Next slide">&#8594;</button>
+  </div>
+  <div class="slide-counter"><span class="current-num" id="counterCur">01</span> / <span id="counterTotal">10</span></div>
+
+  <!-- ============================================================ -->
+  <!-- SLIDES                                                        -->
+  <!-- ============================================================ -->
+  <div class="deck" id="deck">
+
+    <!-- =============== SLIDE 0: TITLE =============== -->
+    <section class="slide" id="s0">
+      <svg class="hero-chart" id="heroChart" viewBox="0 0 960 350" preserveAspectRatio="xMidYMax meet"></svg>
+      <div class="main-title rv" style="--d:2">
+        <span class="title-outline">TECHNICAL</span>
+        <span class="title-solid">ANALYSIS</span>
+      </div>
+      <p class="title-sub rv" style="--d:5">Understanding Market Movements Through Price &amp; Volume</p>
+      <div class="title-badge rv" style="--d:7">EMBA INVESTMENT COURSE &middot; 2026</div>
+      <div class="title-hint rv" style="--d:12">Press <kbd>&rarr;</kbd> or <kbd>Space</kbd> to begin</div>
+    </section>
+
+    <!-- =============== SLIDE 1: DEFINITION =============== -->
+    <section class="slide" id="s1">
+      <div class="chapter-marker rv" style="--d:0">Introduction</div>
+      <h2 class="rv" style="--d:1">What is Technical Analysis?</h2>
+      <div class="two-col">
+        <div>
+          <div class="glass def-card rv" style="--d:2">
+            <p><strong>Technical Analysis</strong> is the study of past market data &mdash; primarily <em>price</em> and <em>volume</em> &mdash; to forecast future price movements.</p>
+          </div>
+          <h3 class="rv" style="--d:4" style="margin-top:1.2em;">Who Uses It?</h3>
+          <div class="tag-row rv" style="--d:5">
+            <span class="tag">Day Traders</span>
+            <span class="tag">Hedge Funds</span>
+            <span class="tag">Retail Investors</span>
+            <span class="tag">Algorithmic Systems</span>
+            <span class="tag">Investment Banks</span>
+          </div>
+          <div class="glass glass-sm rv" style="--d:7; margin-top:1.2em;">
+            <h3>The Key Distinction</h3>
+            <p>TA answers <strong>WHEN</strong> to trade &mdash; timing entries and exits.<br>
+            FA answers <strong>WHAT</strong> to trade &mdash; finding undervalued assets.<br>
+            <em>The best traders use both together.</em></p>
+          </div>
+        </div>
+        <div>
+          <blockquote class="rv" style="--d:3">
+            &ldquo;The market is a barometer, not a thermometer. It tells you what is going to happen, not what has already happened.&rdquo;
+            <cite>&mdash; Charles Dow, founder of Dow Jones &amp; Co.</cite>
+          </blockquote>
+          <div class="glass rv" style="--d:6; margin-top:1.5em;">
+            <h3>Why It Matters</h3>
+            <ul>
+              <li>Works across <strong>all asset classes</strong> &mdash; stocks, forex, crypto, commodities</li>
+              <li>Provides <strong>objective signals</strong> in emotional markets</li>
+              <li>The backbone of <strong>algorithmic trading</strong> (70%+ of volume)</li>
+              <li><strong>Self-fulfilling</strong> &mdash; millions watch the same levels</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 2: ANCIENT ROOTS =============== -->
+    <section class="slide" id="s2">
+      <div class="chapter-marker rv" style="--d:0">Chapter I &middot; Origins</div>
+      <h2 class="rv" style="--d:1">The Ancient Roots</h2>
+      <p class="slide-subtitle rv" style="--d:2">Before charts existed, humans were already reading markets</p>
+      <div class="three-col">
+        <div class="glass rv" style="--d:3">
+          <span class="year-badge">~2000 BC</span>
+          <div class="avatar avatar-gold">B</div>
+          <h3>Babylonian Traders</h3>
+          <p>Clay tablets from ancient Mesopotamia record <strong>commodity prices</strong> for grain, wool, and sesame over time. Merchants tracked fluctuations to time their trades &mdash; the earliest known market data analysis.</p>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.6em;"><em>4,000 years before computers, traders were already looking for patterns.</em></p>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <span class="year-badge">1636&ndash;37</span>
+          <div class="avatar avatar-bear">T</div>
+          <h3>Dutch Tulip Mania</h3>
+          <p>The first documented <strong>speculative bubble</strong>. Tulip bulb prices rose <strong>20&times;</strong> in months, then crashed <strong>99%</strong>. The classic pattern emerged: euphoria &rarr; mania &rarr; panic &rarr; crash.</p>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.6em;"><em>The boom-bust cycle that would repeat throughout all of financial history.</em></p>
+        </div>
+        <div class="glass rv" style="--d:7">
+          <span class="year-badge">1688</span>
+          <div class="avatar avatar-teal">V</div>
+          <h3>Joseph de la Vega</h3>
+          <p>Wrote <strong>&ldquo;Confusion de Confusiones&rdquo;</strong> &mdash; the first book describing stock exchange mechanics at the Amsterdam Exchange. Documented <strong>manipulation, speculation</strong>, and emotional price cycles.</p>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.6em;"><em>The first written analysis of market psychology.</em></p>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:9">
+        <div class="insight-label">Key Insight</div>
+        Long before any formal theory, humans understood that markets move in patterns driven by psychology &mdash; greed, fear, and herd behavior. This is the foundation that all of Technical Analysis is built upon.
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 3: HOMMA & CANDLESTICKS =============== -->
+    <section class="slide" id="s3">
+      <div class="chapter-marker rv" style="--d:0">Chapter II &middot; The Father of TA</div>
+      <h2 class="rv" style="--d:1">Munehisa Homma &amp; The Birth of Candlesticks</h2>
+      <p class="slide-subtitle rv" style="--d:2">Dojima Rice Exchange, Osaka, Japan &mdash; 1700s</p>
+      <div class="two-col">
+        <div>
+          <div class="glass glass-gold rv" style="--d:3">
+            <h3>The &ldquo;God of Markets&rdquo;</h3>
+            <p><strong>Munehisa Homma</strong> (1724&ndash;1803) was a rice trader from Sakata who amassed a fortune equivalent to <strong style="color:var(--gold);">$10 billion</strong> in today&rsquo;s money. He didn't just trade &mdash; he <em>invented a visual language</em> for reading markets.</p>
+            <p>His candlestick charts encode <strong>four data points</strong> (open, high, low, close) into a single visual element, making price action instantly readable.</p>
+          </div>
+          <div class="glass rv" style="--d:6; margin-top:1em;">
+            <h3>Sakata&rsquo;s Five Methods</h3>
+            <ul>
+              <li><strong>San-zan</strong> (Three Mountains) &mdash; triple top reversal</li>
+              <li><strong>San-sen</strong> (Three Rivers) &mdash; triple bottom reversal</li>
+              <li><strong>San-ku</strong> (Three Gaps) &mdash; exhaustion signals</li>
+              <li><strong>San-pei</strong> (Three Soldiers) &mdash; continuation strength</li>
+              <li><strong>San-pou</strong> (Three Methods) &mdash; rest, then continuation</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <blockquote class="rv" style="--d:4">
+            &ldquo;When all are bearish, there is cause for prices to rise. When all are bullish, there is cause for prices to fall.&rdquo;
+            <cite>&mdash; Munehisa Homma, &ldquo;The Fountain of Gold&rdquo; (c. 1755)</cite>
+          </blockquote>
+          <div class="glass rv" style="--d:7; margin-top:1em;">
+            <h3>250 Years Later &mdash; Still #1</h3>
+            <ul>
+              <li><strong>Visual clarity</strong> &mdash; instantly shows bullish vs bearish sentiment</li>
+              <li><strong>Psychology encoded</strong> &mdash; each candle tells a buyer/seller battle</li>
+              <li><strong>Universal</strong> &mdash; stocks, forex, crypto, commodities</li>
+              <li><strong>Patterns persist</strong> &mdash; Doji, Hammer, Engulfing, Morning Star</li>
+            </ul>
+          </div>
+          <div class="insight rv" style="--d:9">
+            <div class="insight-label">Did You Know?</div>
+            Homma&rsquo;s candlestick method remained a <strong>Japanese secret for nearly 200 years</strong> until Steve Nison introduced it to the Western world in 1991.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 4: CHARLES DOW =============== -->
+    <section class="slide" id="s4">
+      <div class="chapter-marker rv" style="--d:0">Chapter III &middot; The Architect</div>
+      <h2 class="rv" style="--d:1">Charles Dow &amp; Modern Technical Analysis</h2>
+      <p class="slide-subtitle rv" style="--d:2">Wall Street, 1880s&ndash;1900s &mdash; The framework that built an industry</p>
+      <div class="two-col">
+        <div>
+          <div class="glass rv" style="--d:3">
+            <h3>The Man Behind the Index</h3>
+            <p><strong>Charles Henry Dow</strong> (1851&ndash;1902) co-founded <strong>Dow Jones &amp; Company</strong> (1882), launched the <strong>Wall Street Journal</strong>, and created the <strong>Dow Jones Industrial Average</strong> (1896) &mdash; originally just 12 stocks.</p>
+            <p>Remarkably, Dow <em>never wrote a book</em>. His entire theory comes from <strong>255 editorials</strong> in the WSJ. After his death, William Hamilton and Robert Rhea compiled these into <strong>Dow Theory</strong>.</p>
+          </div>
+          <blockquote class="rv" style="--d:6; margin-top:1em;">
+            &ldquo;The market is a barometer, not a thermometer.&rdquo;
+            <cite>&mdash; Charles Dow, Wall Street Journal editorial</cite>
+          </blockquote>
+        </div>
+        <div>
+          <div class="glass glass-gold rv" style="--d:4">
+            <h3>The Six Tenets of Dow Theory</h3>
+            <ol>
+              <li><strong>The market discounts everything</strong> &mdash; all known information is already in the price</li>
+              <li><strong>Three types of trends</strong> &mdash; primary (months&ndash;years), secondary (weeks&ndash;months), minor (days)</li>
+              <li><strong>Primary trends have three phases</strong> &mdash; accumulation, public participation, distribution</li>
+              <li><strong>Indices must confirm each other</strong> &mdash; Industrial and Transport must agree</li>
+              <li><strong>Volume confirms the trend</strong> &mdash; volume rises in the trend&rsquo;s direction</li>
+              <li><strong>Trends persist until clear reversal</strong> &mdash; the trend is your friend</li>
+            </ol>
+          </div>
+          <div class="insight rv" style="--d:8">
+            <div class="insight-label">Legacy</div>
+            Every modern TA concept &mdash; trend following, support/resistance, volume analysis, market phases &mdash; traces back to these six tenets. Dow Theory is the <strong>DNA of Technical Analysis</strong>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 5: THE PIONEERS =============== -->
+    <section class="slide" id="s5">
+      <div class="chapter-marker rv" style="--d:0">Chapter IV &middot; The Visionaries</div>
+      <h2 class="rv" style="--d:1">The Early Pioneers</h2>
+      <p class="slide-subtitle rv" style="--d:2">1900s&ndash;1940s &mdash; Three men who shaped how we read markets</p>
+      <div class="three-col">
+        <div class="glass rv" style="--d:3">
+          <div class="avatar avatar-teal">W</div>
+          <h3 style="color:var(--teal);">Richard Wyckoff</h3>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:0.6em;">1873&ndash;1934 &middot; The Tape Reader</p>
+          <p>Started as a stock runner at age 15 on Wall Street. Created the <strong>Wyckoff Method</strong> — a systematic approach to reading market structure.</p>
+          <ul>
+            <li>Introduced the <strong>&ldquo;Composite Operator&rdquo;</strong> concept &mdash; smart money that moves markets</li>
+            <li>Pioneered <strong>volume spread analysis</strong></li>
+            <li>4 market phases: accumulation, markup, distribution, markdown</li>
+          </ul>
+          <p style="font-size:0.78rem; color:var(--teal); margin-top:0.6em;"><em>Still taught in CMT exams and used by institutions today.</em></p>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <div class="avatar avatar-gold">G</div>
+          <h3>W.D. Gann</h3>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:0.6em;">1878&ndash;1955 &middot; The Geometric Mystic</p>
+          <p>The most controversial figure in TA. Believed markets follow <strong>geometric and mathematical laws</strong> rooted in natural cycles.</p>
+          <ul>
+            <li><strong>Gann Angles</strong> &mdash; geometric trendlines for support/resistance</li>
+            <li><strong>Square of Nine</strong> &mdash; mathematical price/time projections</li>
+            <li>Reportedly turned <strong>$130 into $12,000</strong> in 30 days (verified 1909)</li>
+          </ul>
+          <p style="font-size:0.78rem; color:var(--gold); margin-top:0.6em;"><em>Methods mix geometry and numerology. Debated but still followed.</em></p>
+        </div>
+        <div class="glass rv" style="--d:7">
+          <div class="avatar avatar-bull">E</div>
+          <h3 style="color:var(--bull);">R.N. Elliott</h3>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:0.6em;">1871&ndash;1948 &middot; The Wave Theorist</p>
+          <p>A retired accountant who studied 75 years of market data and discovered <strong>repetitive wave patterns</strong>.</p>
+          <ul>
+            <li>Published <strong>&ldquo;The Wave Principle&rdquo;</strong> (1938)</li>
+            <li>Markets move in <strong>5 impulse + 3 corrective waves</strong></li>
+            <li>Waves follow <strong>Fibonacci ratios</strong> (1.618, 0.618)</li>
+            <li>Theory is <strong>fractal</strong> &mdash; applies across all timeframes</li>
+          </ul>
+          <p style="font-size:0.78rem; color:var(--bull); margin-top:0.6em;"><em>Fibonacci retracements are standard on every trading platform.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 6: FORMALIZATION TO AI =============== -->
+    <section class="slide" id="s6">
+      <div class="chapter-marker rv" style="--d:0">Chapter V &middot; The Evolution</div>
+      <h2 class="rv" style="--d:1">From Textbook to Artificial Intelligence</h2>
+      <p class="slide-subtitle rv" style="--d:2">1948 &ndash; Present &mdash; Four eras that transformed TA forever</p>
+      <div class="era-timeline rv" style="--d:3">
+        <div class="era-node">
+          <div class="era-year">1948</div>
+          <div class="era-title">The Bible</div>
+          <div class="era-desc">Edwards &amp; Magee publish <strong>&ldquo;Technical Analysis of Stock Trends&rdquo;</strong> &mdash; the definitive textbook, now in its 11th edition after 76 years.</div>
+        </div>
+        <div class="era-node">
+          <div class="era-year">1970s&ndash;80s</div>
+          <div class="era-title">Computer Revolution</div>
+          <div class="era-desc"><strong>Wilder</strong> invents RSI, ATR, ADX in one book (1978). <strong>Appel</strong> creates MACD (1979). <strong>Bollinger</strong> develops Bollinger Bands (1983).</div>
+        </div>
+        <div class="era-node">
+          <div class="era-year">1990s</div>
+          <div class="era-title">Democratization</div>
+          <div class="era-desc"><strong>Steve Nison</strong> (1991) brings Japanese candlesticks to the West. Online brokers open markets to <strong>millions of retail traders</strong>.</div>
+        </div>
+        <div class="era-node">
+          <div class="era-year">2020s</div>
+          <div class="era-title">The AI Era</div>
+          <div class="era-desc"><strong>70%+ of trading</strong> is algorithmic. Machine learning finds patterns beyond human capability. <strong>60M+ users</strong> on TradingView.</div>
+        </div>
+      </div>
+      <div class="two-col rv" style="--d:6">
+        <div class="glass glass-sm">
+          <h3>The Formalization Milestone</h3>
+          <ul>
+            <li><strong>1969</strong> &mdash; Market Technicians Association (MTA) founded</li>
+            <li><strong>1970s</strong> &mdash; Chartered Market Technician (CMT) designation created</li>
+            <li><strong>1965</strong> &mdash; Fama publishes EMH &mdash; the academic challenge begins</li>
+          </ul>
+        </div>
+        <div class="glass glass-sm">
+          <h3>One Man, Four Indicators</h3>
+          <p>In 1978, <strong>J. Welles Wilder Jr.</strong> published <em>&ldquo;New Concepts in Technical Trading Systems&rdquo;</em> &mdash; a single book that introduced <strong>RSI, ATR, Parabolic SAR, and ADX</strong>. Four of the most-used indicators in history, from one mind.</p>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:8">
+        <div class="insight-label">Full Circle</div>
+        From Homma hand-drawing candles on rice paper in 1750s Japan &rarr; to AI processing millions of candlesticks per second in 2026. The tools changed beyond recognition, but the premise remains: <strong>price patterns driven by human psychology repeat.</strong>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 7: WHY TA MATTERS =============== -->
+    <section class="slide" id="s7">
+      <div class="chapter-marker rv" style="--d:0">The Present</div>
+      <h2 class="rv" style="--d:1">Why Technical Analysis Matters Today</h2>
+      <p class="slide-subtitle rv" style="--d:2">The numbers tell the story</p>
+      <div class="three-col" style="margin-bottom:1.5em;">
+        <div class="glass stat-card rv" style="--d:3">
+          <div class="stat-value gold" data-target="70" data-suffix="%+">0</div>
+          <div class="stat-label">of all trading volume is<br><strong>algorithmic</strong>, most using TA signals</div>
+        </div>
+        <div class="glass stat-card rv" style="--d:5">
+          <div class="stat-value teal" data-target="10" data-prefix="$" data-suffix="T+">0</div>
+          <div class="stat-label"><strong>daily forex volume</strong><br>heavily driven by technical indicators</div>
+        </div>
+        <div class="glass stat-card rv" style="--d:7">
+          <div class="stat-value bull" data-target="100" data-suffix="M+">0</div>
+          <div class="stat-label"><strong>retail traders worldwide</strong><br>using TA tools every day</div>
+        </div>
+      </div>
+      <div class="two-col rv" style="--d:9">
+        <div class="glass glass-sm">
+          <h3>Why TA Dominates Short-Term Trading</h3>
+          <ul>
+            <li><strong>Instant analysis</strong> &mdash; no waiting for earnings reports</li>
+            <li>Works across <strong>all asset classes</strong> simultaneously</li>
+            <li>Easily <strong>automated</strong> &mdash; the backbone of algo trading</li>
+            <li><strong>Self-fulfilling prophecy</strong> &mdash; millions watch the same levels</li>
+          </ul>
+        </div>
+        <div class="glass glass-sm">
+          <h3>Industry Adoption</h3>
+          <ul>
+            <li><strong>Bloomberg Terminal</strong> &mdash; built-in TA across all screens</li>
+            <li><strong>TradingView</strong> &mdash; 60M+ users charting daily</li>
+            <li><strong>Renaissance Technologies</strong> &mdash; $130B fund built on quant TA</li>
+            <li><strong>Crypto markets</strong> &mdash; TA is the primary analysis method</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 8: ROADMAP =============== -->
+    <section class="slide" id="s8">
+      <div class="chapter-marker rv" style="--d:0">The Journey Ahead</div>
+      <h2 class="rv" style="--d:1">What We Will Cover Today</h2>
+      <p class="slide-subtitle rv" style="--d:2">A complete journey from foundations to the future of trading</p>
+      <div class="three-col" style="margin-bottom:1em;">
+        <div class="glass glass-sm roadmap-card active-block rv" style="--d:3">
+          <span class="card-num">01</span>
+          <div class="roadmap-title">Introduction &amp; History</div>
+          <div class="roadmap-desc">The story of TA from ancient Babylon to AI &mdash; how we got here and why it matters.</div>
+        </div>
+        <div class="glass glass-sm roadmap-card rv" style="--d:4">
+          <span class="card-num">02</span>
+          <div class="roadmap-title">TA vs Fundamental Analysis</div>
+          <div class="roadmap-desc">Core principles, key differences, and the three axioms that drive all technical analysis.</div>
+        </div>
+        <div class="glass glass-sm roadmap-card rv" style="--d:5">
+          <span class="card-num">03</span>
+          <div class="roadmap-title">Reading the Market</div>
+          <div class="roadmap-desc">Chart types, candlestick patterns, trend analysis, support &amp; resistance levels.</div>
+        </div>
+        <div class="glass glass-sm roadmap-card rv" style="--d:6">
+          <span class="card-num">04</span>
+          <div class="roadmap-title">Patterns &amp; Indicators</div>
+          <div class="roadmap-desc">Head &amp; shoulders, double tops, RSI, MACD, Bollinger Bands, moving averages.</div>
+        </div>
+        <div class="glass glass-sm roadmap-card rv" style="--d:7">
+          <span class="card-num">05</span>
+          <div class="roadmap-title">The Great Debate</div>
+          <div class="roadmap-desc">EMH vs practitioners, real-world case studies, limitations and honest assessment.</div>
+        </div>
+        <div class="glass glass-sm roadmap-card finale-block rv" style="--d:8">
+          <span class="card-num">06</span>
+          <div class="roadmap-title">AI, ML &amp; Live App Demo</div>
+          <div class="roadmap-desc">How AI is transforming TA &mdash; with a live interactive application demonstration.</div>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:10">
+        <div class="insight-label">The Big Question</div>
+        The <strong>Efficient Market Hypothesis</strong> says TA shouldn&rsquo;t work &mdash; yet billions in profits suggest patterns do exist. We will explore both sides and let you decide.
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 9: TRANSITION =============== -->
+    <section class="slide" id="s9">
+      <div class="journey-text rv" style="--d:2">
+        The journey through<br><em>Technical Analysis</em><br>begins now.
+      </div>
+      <div class="pulse-arrow rv" style="--d:6">&#x25BC;</div>
+      <p class="rv" style="--d:8; font-size:1rem; color:var(--text-dim); margin-top:2em;">
+        Next &rarr; TA vs Fundamental Analysis &amp; Core Principles
+      </p>
+    </section>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT                                                     -->
+  <!-- ============================================================ -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ======== PARTICLE CONSTELLATION ======== */
+    class Particles {
+      constructor(canvas) {
+        this.c = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.pts = [];
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        for (let i = 0; i < 65; i++) {
+          this.pts.push({
+            x: Math.random() * this.c.width,
+            y: Math.random() * this.c.height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: Math.random() * 1.5 + 0.5
+          });
+        }
+        this.loop();
+      }
+      resize() {
+        this.c.width = innerWidth;
+        this.c.height = innerHeight;
+      }
+      loop() {
+        const { ctx, pts, c } = this;
+        ctx.clearRect(0, 0, c.width, c.height);
+        for (const p of pts) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = c.width;
+          if (p.x > c.width) p.x = 0;
+          if (p.y < 0) p.y = c.height;
+          if (p.y > c.height) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(200,169,81,0.2)';
+          ctx.fill();
+        }
+        for (let i = 0; i < pts.length; i++) {
+          for (let j = i + 1; j < pts.length; j++) {
+            const dx = pts[i].x - pts[j].x;
+            const dy = pts[i].y - pts[j].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 130) {
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.strokeStyle = `rgba(200,169,81,${0.07 * (1 - d / 130)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(() => this.loop());
+      }
+    }
+
+    /* ======== HERO CANDLESTICK CHART ======== */
+    function buildHeroChart() {
+      const svg = document.getElementById('heroChart');
+      if (!svg) return;
+      const ns = 'http://www.w3.org/2000/svg';
+      // Candle data: [openY, closeY, highY, lowY] (SVG coords, lower = higher price)
+      const data = [
+        [280, 240, 220, 300], [240, 210, 190, 260], [210, 250, 200, 270],
+        [250, 200, 180, 270], [200, 180, 155, 225], [180, 215, 170, 235],
+        [215, 255, 205, 275], [255, 285, 240, 305], [285, 245, 225, 305],
+        [245, 195, 175, 265], [195, 155, 135, 215], [155, 125, 105, 180],
+        [125, 95, 75, 150],   [95, 115, 80, 135],   [115, 80, 55, 135],
+        [80, 65, 45, 100]
+      ];
+      const w = 32, gap = 58;
+
+      // Grid lines
+      for (let y = 80; y <= 300; y += 55) {
+        const line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', '0'); line.setAttribute('y1', y);
+        line.setAttribute('x2', '960'); line.setAttribute('y2', y);
+        line.setAttribute('stroke', 'rgba(200,169,81,0.04)');
+        line.setAttribute('stroke-width', '1');
+        svg.appendChild(line);
+      }
+
+      // Moving average path
+      const closes = data.map(d => d[1]);
+      const maVals = closes.map((_, i) => {
+        const s = Math.max(0, i - 3);
+        const sl = closes.slice(s, i + 1);
+        return sl.reduce((a, b) => a + b, 0) / sl.length;
+      });
+      let pathD = `M ${30 + 0 * gap},${maVals[0]}`;
+      for (let i = 1; i < maVals.length; i++) {
+        const x = 30 + i * gap;
+        const px = 30 + (i - 1) * gap;
+        const cpx = (px + x) / 2;
+        pathD += ` C ${cpx},${maVals[i-1]} ${cpx},${maVals[i]} ${x},${maVals[i]}`;
+      }
+      const maPath = document.createElementNS(ns, 'path');
+      maPath.setAttribute('d', pathD);
+      maPath.setAttribute('fill', 'none');
+      maPath.setAttribute('stroke', 'rgba(78,205,196,0.3)');
+      maPath.setAttribute('stroke-width', '2');
+      maPath.classList.add('ma-line');
+      svg.appendChild(maPath);
+      // Set dasharray after it's in the DOM
+      const len = maPath.getTotalLength ? maPath.getTotalLength() : 1400;
+      maPath.style.strokeDasharray = len;
+      maPath.style.strokeDashoffset = len;
+      maPath.style.animation = `drawLine 2.5s ease forwards 1.5s`;
+
+      // Candles
+      data.forEach((d, i) => {
+        const [o, c, h, l] = d;
+        const x = 30 + i * gap;
+        const bull = c < o;
+        const color = bull ? '#51cf66' : '#ff6b6b';
+        const bodyTop = Math.min(o, c);
+        const bodyH = Math.max(Math.abs(o - c), 4);
+
+        const g = document.createElementNS(ns, 'g');
+        g.classList.add('candle');
+        g.style.setProperty('--i', i);
+
+        const wick = document.createElementNS(ns, 'line');
+        wick.setAttribute('x1', x); wick.setAttribute('y1', h);
+        wick.setAttribute('x2', x); wick.setAttribute('y2', l);
+        wick.setAttribute('stroke', color); wick.setAttribute('stroke-width', '2');
+
+        const body = document.createElementNS(ns, 'rect');
+        body.setAttribute('x', x - w / 2); body.setAttribute('y', bodyTop);
+        body.setAttribute('width', w); body.setAttribute('height', bodyH);
+        body.setAttribute('rx', '3'); body.setAttribute('fill', color);
+
+        g.appendChild(wick);
+        g.appendChild(body);
+        svg.appendChild(g);
+      });
+    }
+
+    /* ======== COUNTER ANIMATION ======== */
+    function animateCounters(slide) {
+      slide.querySelectorAll('.stat-value').forEach(el => {
+        const target = parseInt(el.dataset.target) || 0;
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const duration = 2000;
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = prefix + Math.floor(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+
+    /* ======== SLIDE DECK ENGINE ======== */
+    class Deck {
+      constructor() {
+        this.slides = [...document.querySelectorAll('.slide')];
+        this.total = this.slides.length;
+        this.cur = 0;
+        this.locked = false;
+        this.init();
+      }
+
+      init() {
+        // Build nav dots
+        const dotsContainer = document.getElementById('navDots');
+        const labels = ['Title','Definition','Ancient Roots','Candlesticks','Charles Dow','Pioneers','Evolution','TA Today','Roadmap','Begin'];
+        this.slides.forEach((_, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.innerHTML = `<span class="dot-label">${labels[i] || ''}</span>`;
+          btn.addEventListener('click', () => this.goto(i));
+          dotsContainer.appendChild(btn);
+        });
+        this.dots = [...dotsContainer.querySelectorAll('.nav-dot')];
+
+        // Activate first slide
+        this.slides[0].classList.add('active');
+        this.updateChrome();
+        buildHeroChart();
+
+        // Keyboard
+        document.addEventListener('keydown', e => {
+          if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+            e.preventDefault(); this.next();
+          }
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault(); this.prev();
+          }
+          // Number keys for direct jump
+          const num = parseInt(e.key);
+          if (!isNaN(num) && num >= 0 && num < this.total) this.goto(num);
+        });
+
+        // Buttons
+        document.getElementById('prevBtn').addEventListener('click', () => this.prev());
+        document.getElementById('nextBtn').addEventListener('click', () => this.next());
+
+        // Touch swipe
+        let sx = 0;
+        document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+        document.addEventListener('touchend', e => {
+          const dx = e.changedTouches[0].clientX - sx;
+          if (Math.abs(dx) > 50) dx > 0 ? this.prev() : this.next();
+        });
+      }
+
+      goto(n) {
+        if (this.locked || n === this.cur || n < 0 || n >= this.total) return;
+        this.locked = true;
+        const fwd = n > this.cur;
+        const leaving = this.slides[this.cur];
+        const entering = this.slides[n];
+
+        // Position entering slide off-screen
+        entering.style.transition = 'none';
+        entering.style.transform = `translateX(${fwd ? 80 : -80}px)`;
+        entering.style.opacity = '0';
+        entering.classList.add('active');
+        entering.offsetHeight; // reflow
+
+        // Animate
+        entering.style.transition = '';
+        entering.style.transform = '';
+        entering.style.opacity = '';
+
+        leaving.style.transform = `translateX(${fwd ? -80 : 80}px)`;
+        leaving.style.opacity = '0';
+
+        setTimeout(() => {
+          leaving.classList.remove('active');
+          leaving.style.transition = 'none';
+          leaving.style.transform = '';
+          leaving.style.opacity = '';
+          leaving.offsetHeight;
+          leaving.style.transition = '';
+
+          this.cur = n;
+          this.locked = false;
+          this.updateChrome();
+          this.onEnter(n);
+        }, 700);
+      }
+
+      next() { this.goto(this.cur + 1); }
+      prev() { this.goto(this.cur - 1); }
+
+      updateChrome() {
+        // Progress bar
+        document.getElementById('progress').style.width =
+          ((this.cur / (this.total - 1)) * 100) + '%';
+        // Counter
+        document.getElementById('counterCur').textContent =
+          String(this.cur + 1).padStart(2, '0');
+        // Dots
+        this.dots.forEach((d, i) => d.classList.toggle('active', i === this.cur));
+        // Arrows
+        document.getElementById('prevBtn').disabled = this.cur === 0;
+        document.getElementById('nextBtn').disabled = this.cur === this.total - 1;
+      }
+
+      onEnter(n) {
+        // Trigger counter animations on the stats slide
+        if (this.slides[n].id === 's7') {
+          animateCounters(this.slides[n]);
+        }
+      }
+    }
+
+    /* ======== INIT ======== */
+    new Particles(document.getElementById('bgCanvas'));
+    new Deck();
+
+  })();
+  </script>
+</body>
+</html>
