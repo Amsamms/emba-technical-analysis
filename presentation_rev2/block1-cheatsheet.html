@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Block 1 — Arabic Cheat Sheet (Ahmed Sabri)</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+    color: #111;
+    background: #fff;
+    margin: 0;
+    padding: 18px 22px;
+    line-height: 1.55;
+  }
+  h1.title {
+    font-size: 22px;
+    border-bottom: 3px solid #111;
+    padding-bottom: 6px;
+    margin: 0 0 4px;
+  }
+  .subtitle { font-size: 13px; color:#555; margin: 0 0 18px; }
+  .slide {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1.5px solid #222;
+    border-radius: 8px;
+    padding: 10px 14px 12px;
+    margin-bottom: 14px;
+    background: #fafafa;
+  }
+  .slide + .slide { }
+  .slide-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dashed #999;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+  .slide-num {
+    font-weight: 800;
+    font-size: 14px;
+    background:#111;
+    color:#fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    direction: ltr;
+  }
+  .slide-title-en {
+    font-size: 15px;
+    font-weight: 700;
+    direction: ltr;
+    unicode-bidi: embed;
+  }
+  .anchor {
+    background:#fff3c4;
+    border-right: 4px solid #d4a017;
+    padding: 6px 10px;
+    margin: 6px 0 8px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .anchor::before {
+    content: "افتتاح الشريحة: ";
+    color:#8a6d0b;
+    font-weight: 800;
+    font-size: 12px;
+  }
+  ul.bullets {
+    margin: 4px 20px 4px 0;
+    padding: 0;
+    font-size: 13.5px;
+  }
+  ul.bullets li { margin-bottom: 4px; }
+  .en { direction: ltr; unicode-bidi: embed; font-weight: 700; }
+  .note {
+    font-size: 12px;
+    color: #444;
+    font-style: italic;
+    border-top: 1px dotted #bbb;
+    margin-top: 6px;
+    padding-top: 4px;
+  }
+  .note::before { content: "ملاحظة: "; font-style: normal; font-weight: 700; color:#333; }
+  .quote {
+    font-size: 12.5px;
+    color: #333;
+    background: #eef4ff;
+    border-right: 3px solid #3a6ea5;
+    padding: 4px 10px;
+    margin: 6px 0;
+    direction: ltr;
+    unicode-bidi: embed;
+    font-style: italic;
+  }
+  .pagebreak { page-break-before: always; }
+  .topbar {
+    display:flex; justify-content:space-between; font-size:11px; color:#666; margin-bottom:6px;
+  }
+  @media print {
+    body { padding: 0; }
+    .slide { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>EMBA Investment · Technical Analysis · Ahmed Sabri</span>
+  <span>Block 1 — Introduction &amp; History</span>
+</div>
+
+<h1 class="title">Block 1 — ورقة مساعدة للتقديم بالعربي</h1>
+<p class="subtitle">كل شريحة فيها: الافتتاح + نقط مختصرة. اتكلم بطبيعتك، ما تقراش حرفيًا.</p>
+
+<!-- ============ SLIDE 0 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 0</span>
+    <span class="slide-title-en">TECHNICAL ANALYSIS — Title Slide</span>
+  </div>
+  <div class="anchor">السلام عليكم، أنا أحمد صبري، ومعايا النهارده موضوع مهم جدًا لأي حد بيفكر يستثمر: <span class="en">Technical Analysis</span>.</div>
+  <ul class="bullets">
+    <li>قدّم نفسك والفريق بسرعة (٥ أعضاء).</li>
+    <li>اتكلم إن الموضوع ده بيتعامل مع <span class="en">price</span> و <span class="en">volume</span> عشان نتوقع حركة السوق.</li>
+    <li>إحنا هنمشي من البداية: إيه هو؟ مين عمله؟ ليه مهم؟ وفي الآخر هنشوف تطبيق حي.</li>
+  </ul>
+</div>
+
+<!-- ============ SLIDE 1 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 1</span>
+    <span class="slide-title-en">What is Technical Analysis?</span>
+  </div>
+  <div class="anchor">ببساطة كده، <span class="en">Technical Analysis</span> هو إنك تدرس حركة السعر والـ <span class="en">volume</span> اللي فاتت عشان تتوقع اللي جاي.</div>
+  <ul class="bullets">
+    <li>بيعتمد على حاجتين بس: <span class="en">price</span> و <span class="en">volume</span> — مش بيانات الشركة.</li>
+    <li>مين بيستخدمه؟ <span class="en">Day Traders</span>، <span class="en">Hedge Funds</span> (صناديق التحوط)، بنوك الاستثمار، والـ <span class="en">algo trading systems</span>.</li>
+    <li>الفرق الجوهري: <span class="en">TA</span> بيجاوبك على سؤال "<span class="en">WHEN</span>" — إمتى أدخل وإمتى أخرج. <span class="en">FA</span> بيجاوب "<span class="en">WHAT</span>" — أشتري إيه.</li>
+    <li>أفضل الـ <span class="en">traders</span> بيستخدموا الاتنين مع بعض.</li>
+    <li>ليه مهم؟ بيشتغل على أي <span class="en">asset</span>: أسهم، <span class="en">forex</span>، <span class="en">crypto</span>، سلع. وبيدي إشارات واضحة وسط عواطف السوق.</li>
+  </ul>
+  <div class="quote">"The market is a barometer, not a thermometer." — Charles Dow</div>
+  <div class="note">أكتر من ٧٠٪ من حجم التداول بقى <span class="en">algorithmic</span> — وأغلبه بيستخدم إشارات <span class="en">TA</span>.</div>
+</div>
+
+<!-- ============ SLIDE 2 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 2</span>
+    <span class="slide-title-en">The Ancient Roots</span>
+  </div>
+  <div class="anchor">الموضوع ده مش جديد خالص، هو قديم قِدم التجارة نفسها.</div>
+  <ul class="bullets">
+    <li><b>٢٠٠٠ قبل الميلاد — بابل:</b> التجار كانوا بيكتبوا أسعار القمح والصوف على ألواح طينية — أقدم تحليل <span class="en">price data</span> في التاريخ.</li>
+    <li><b>١٦٣٦–١٦٣٧ — هولندا (<span class="en">Tulip Mania</span>):</b> أول فقاعة مضاربة موثّقة. السعر طلع <span class="en">20x</span> في شهور ونزل <span class="en">99%</span>.</li>
+    <li><b>١٦٨٨ — <span class="en">Joseph de la Vega</span>:</b> كتب أول كتاب يشرح ميكانيكا البورصة والتلاعب وسيكولوجية السوق.</li>
+    <li><b>الخلاصة:</b> البشر قبل ما يبقى فيه شارتات، كانوا فاهمين إن السوق بيتحرك بـ greed, fear, herd behavior — ده أساس الـ <span class="en">TA</span> كلها.</li>
+  </ul>
+</div>
+
+<!-- ============ SLIDE 3 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 3</span>
+    <span class="slide-title-en">Munehisa Homma &amp; The Birth of Candlesticks</span>
+  </div>
+  <div class="anchor">دلوقتي ندخل على الأب الحقيقي للـ Technical Analysis — راجل ياباني اسمه <span class="en">Munehisa Homma</span>.</div>
+  <ul class="bullets">
+    <li>ياباني، تاجر أرز في <span class="en">Dojima Rice Exchange</span>، القرن الـ ١٨.</li>
+    <li>جمع ثروة تعادل <b>١٠ مليار دولار</b> بأسعار النهارده — من تجارة الأرز!</li>
+    <li>هو اللي اخترع الـ <span class="en">candlestick chart</span> — كل شمعة فيها ٤ معلومات: <span class="en">open, high, low, close</span>.</li>
+    <li>وضع <span class="en">Sakata's Five Methods</span>: <span class="en">Three Mountains</span> (قمة ثلاثية), <span class="en">Three Rivers</span> (قاع ثلاثي), وغيرهم.</li>
+    <li>الطريقة دي فضلت سر ياباني لمدة ٢٠٠ سنة لحد ما <span class="en">Steve Nison</span> نقلها للغرب سنة ١٩٩١.</li>
+    <li>لحد النهارده، الـ <span class="en">candlesticks</span> هي الأداة رقم ١ في العالم كله.</li>
+  </ul>
+  <div class="quote">"When all are bearish, there is cause for prices to rise. When all are bullish, there is cause for prices to fall." — Homma</div>
+</div>
+
+<!-- ============ SLIDE 4 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 4</span>
+    <span class="slide-title-en">Charles Dow &amp; Modern Technical Analysis</span>
+  </div>
+  <div class="anchor">ننتقل لأمريكا، <span class="en">Wall Street</span> أواخر القرن الـ ١٩ — <span class="en">Charles Dow</span>، اللي بنى الإطار النظري الحديث.</div>
+  <ul class="bullets">
+    <li>أسس شركة <span class="en">Dow Jones &amp; Co</span> سنة ١٨٨٢، وجريدة <span class="en">Wall Street Journal</span>.</li>
+    <li>عمل أول مؤشر: <span class="en">Dow Jones Industrial Average</span> سنة ١٨٩٦ — كان بس ١٢ سهم.</li>
+    <li>الطريف: <b>مكتبش كتاب واحد!</b> كل نظريته اتجمعت من ٢٥٥ مقال في الجورنال بعد وفاته.</li>
+    <li><b>الست مبادئ الأساسية (<span class="en">Dow Theory</span>):</b>
+      <ol style="margin:3px 20px 3px 0; padding:0;">
+        <li>السوق بيعكس كل المعلومات المتاحة.</li>
+        <li>٣ أنواع <span class="en">trends</span>: <span class="en">primary</span>, <span class="en">secondary</span>, <span class="en">minor</span>.</li>
+        <li>كل <span class="en">trend</span> ليه ٣ مراحل: <span class="en">accumulation</span>, <span class="en">participation</span>, <span class="en">distribution</span>.</li>
+        <li>المؤشرات لازم تأكد بعض (<span class="en">Industrial</span> و <span class="en">Transport</span>).</li>
+        <li>الـ <span class="en">volume</span> بيأكد الـ <span class="en">trend</span>.</li>
+        <li>الـ <span class="en">trend</span> مستمر لحد ما يبان إشارة عكسية.</li>
+      </ol>
+    </li>
+    <li>كل مفهوم حديث في <span class="en">TA</span> جذوره عند <span class="en">Dow</span>. ده الـ <span class="en">DNA</span>.</li>
+  </ul>
+</div>
+
+<!-- ============ SLIDE 5 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 5</span>
+    <span class="slide-title-en">The Early Pioneers</span>
+  </div>
+  <div class="anchor">بعد <span class="en">Dow</span>، جه تلات رواد كل واحد فيهم غيّر طريقة قراءة السوق.</div>
+  <ul class="bullets">
+    <li><b><span class="en">Richard Wyckoff</span> (1873–1934):</b> بدأ يشتغل في <span class="en">Wall Street</span> وهو عنده ١٥ سنة. عمل <span class="en">Wyckoff Method</span> وفكرة الـ <span class="en">"Composite Operator"</span> — الفلوس الذكية اللي بتحرك السوق. لسه بيتدرّس في امتحان الـ <span class="en">CMT</span>.</li>
+    <li><b><span class="en">W.D. Gann</span> (1878–1955):</b> أكتر شخصية مثيرة للجدل في <span class="en">TA</span>. بيقول السوق بيتحرك بقوانين هندسية ورياضية. عمل <span class="en">Gann Angles</span> و <span class="en">Square of Nine</span>. حوّل ١٣٠ دولار لـ ١٢ ألف في ٣٠ يوم (تم التحقق منها سنة ١٩٠٩).</li>
+    <li><b><span class="en">R.N. Elliott</span> (1871–1948):</b> محاسب متقاعد، درس ٧٥ سنة من بيانات السوق. اكتشف إن السوق بيتحرك في <b>٥ موجات صاعدة + ٣ تصحيحية</b>، وبتتبع نِسَب <span class="en">Fibonacci</span>. النظرية <span class="en">fractal</span> — شغالة على أي <span class="en">timeframe</span>.</li>
+  </ul>
+</div>
+
+<!-- ============ SLIDE 6 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 6</span>
+    <span class="slide-title-en">From Textbook to Artificial Intelligence</span>
+  </div>
+  <div class="anchor">من سنة ١٩٤٨ لحد النهارده، مرّينا بـ ٤ مراحل بدّلت <span class="en">TA</span> تمامًا.</div>
+  <ul class="bullets">
+    <li><b>١٩٤٨ — الكتاب المقدس:</b> <span class="en">Edwards &amp; Magee</span> نشروا "<span class="en">Technical Analysis of Stock Trends</span>" — لسه في الطبعة الـ ١١.</li>
+    <li><b>السبعينات والثمانينات — ثورة الكمبيوتر:</b> <span class="en">Wilder</span> اخترع <span class="en">RSI, ATR, ADX</span> في كتاب واحد سنة ١٩٧٨. <span class="en">Appel</span> عمل <span class="en">MACD</span> سنة ١٩٧٩. <span class="en">Bollinger</span> عمل <span class="en">Bollinger Bands</span> سنة ١٩٨٣.</li>
+    <li><b>التسعينات — الديمقراطية:</b> <span class="en">Steve Nison</span> نقل الـ <span class="en">candlesticks</span> للغرب. الـ <span class="en">online brokers</span> فتحت السوق لملايين الـ <span class="en">retail traders</span>.</li>
+    <li><b>٢٠٢٠s — عصر الـ AI:</b> أكتر من ٧٠٪ من التداول <span class="en">algorithmic</span>. الـ <span class="en">Machine Learning</span> بيلاقي <span class="en">patterns</span> البشر مش قادرين يشوفوها. ٦٠ مليون مستخدم على <span class="en">TradingView</span>.</li>
+  </ul>
+  <div class="note">من <span class="en">Homma</span> بيرسم شموع على ورق أرز في ١٧٥٠ — للـ AI بيعالج ملايين الشموع في الثانية. الأدوات اتغيرت، لكن الفكرة واحدة: <b>الـ patterns بتتكرر عشان نفسية البشر بتتكرر.</b></div>
+</div>
+
+<!-- ============ SLIDE 7 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 7</span>
+    <span class="slide-title-en">Why Technical Analysis Matters Today</span>
+  </div>
+  <div class="anchor">طب ليه المفروض نهتم بالموضوع ده النهارده؟ الأرقام بتتكلم.</div>
+  <ul class="bullets">
+    <li><b>٧٠٪+</b> من حجم التداول الكلي <span class="en">algorithmic</span> — أغلبه <span class="en">TA-based</span>.</li>
+    <li><b>١٠ تريليون دولار</b> حجم تداول <span class="en">forex</span> يومي، مدفوع بإشارات <span class="en">TA</span>.</li>
+    <li><b>١٠٠ مليون <span class="en">retail trader</span></b> حول العالم بيستخدموا أدوات <span class="en">TA</span> يوميًا.</li>
+    <li><b>ليه بيسيطر على التداول قصير المدى؟</b> تحليل فوري، بيشتغل على كل الأسواق، بيتأتمت بسهولة، <span class="en">self-fulfilling prophecy</span>.</li>
+    <li><b>مين بيستخدمه على مستوى المؤسسات؟</b> <span class="en">Bloomberg Terminal</span>، <span class="en">TradingView</span> (٦٠ مليون <span class="en">user</span>)، <span class="en">Renaissance Technologies</span> (صندوق ١٣٠ مليار دولار)، وسوق الـ <span class="en">crypto</span> كله.</li>
+  </ul>
+</div>
+
+<!-- ============ SLIDE 8 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 8</span>
+    <span class="slide-title-en">What We Will Cover Today</span>
+  </div>
+  <div class="anchor">النهارده هنعمل رحلة كاملة من الأساسيات للمستقبل.</div>
+  <ul class="bullets">
+    <li><b>01 — Introduction &amp; History:</b> اللي بنعمله دلوقتي (أحمد صبري).</li>
+    <li><b>02 — TA vs Fundamental Analysis:</b> المبادئ الأساسية والـ axioms الثلاثة.</li>
+    <li><b>03 — Reading the Market:</b> أنواع الشارتات، الـ <span class="en">trends</span>، الـ <span class="en">support</span> والـ <span class="en">resistance</span>.</li>
+    <li><b>04 — Patterns &amp; Indicators:</b> <span class="en">Head &amp; Shoulders</span>، <span class="en">Double Top</span>، <span class="en">RSI</span>، <span class="en">MACD</span>، <span class="en">Bollinger Bands</span>.</li>
+    <li><b>05 — The Great Debate:</b> الـ <span class="en">EMH</span> ضد الواقع — حالات دراسية وحدود <span class="en">TA</span>.</li>
+    <li><b>06 — AI, ML &amp; Live App Demo:</b> هنا هرجع تاني نعرض تطبيق شغال بالـ AI (أحمد صبري).</li>
+  </ul>
+  <div class="note">السؤال الكبير: الـ <span class="en">Efficient Market Hypothesis</span> بيقول <span class="en">TA</span> المفروض مايشتغلش — لكن المليارات اللي بتتكسب من السوق بتقول غير كده. هنشوف الاتنين وتقرر إنت.</div>
+</div>
+
+<!-- ============ SLIDE 9 ============ -->
+<div class="slide">
+  <div class="slide-head">
+    <span class="slide-num">Slide 9</span>
+    <span class="slide-title-en">Transition — The Journey Begins</span>
+  </div>
+  <div class="anchor">كده كل اللي محتاجين نعرفه عن خلفية <span class="en">TA</span>، بسلّم الكلام للزميل [اسم الزميل] يكمل معانا.</div>
+  <ul class="bullets">
+    <li>اختم بلمسة إنسانية: "بنشوف كل ما يتعلّق بالـ <span class="en">TA</span>، لكن في الآخر السوق بشر وبيعكس نفسيتهم."</li>
+    <li>اتطلع على الحضور وابتسم قبل ما تسلّم.</li>
+    <li>اذكر إن في الآخر هيكون فيه عرض لتطبيق شغال بالـ AI.</li>
+  </ul>
+</div>
+
+<!-- ============ CLOSER TIPS ============ -->
+<div class="slide" style="background:#fff7ed; border-color:#c2590a;">
+  <div class="slide-head">
+    <span class="slide-num" style="background:#c2590a;">Tips</span>
+    <span class="slide-title-en">Delivery Cheats</span>
+  </div>
+  <ul class="bullets">
+    <li>لو نسيت الرقم بالظبط، قول "<b>أكتر من</b>" أو "<b>حوالي</b>" — مش محتاج دقة.</li>
+    <li>لو السؤال صعب من د/ الدكتور — قول: "سؤال ممتاز، هنغطيه في <span class="en">Block</span> بعدين" أو سلّم للزميل.</li>
+    <li>اتكلم بإيدك، اتحرك شمال ويمين، مش وقفة جامدة.</li>
+    <li>لما تقول رقم مهم (زي 70%) — خُد ثانيتين صمت بعده عشان يعلق.</li>
+    <li>كل <span class="en">slide</span> مدتها ~٤٥ ثانية — ١٠ شرائح × ٤٥ = ٧.٥ دقيقة.</li>
+  </ul>
+</div>
+
+</body>
+</html>

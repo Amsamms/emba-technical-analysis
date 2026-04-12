@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>DALIL Demo Script — Block 6 (Ahmed Sabri)</title>
+<style>
+  @page { size: A4; margin: 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+    color: #111;
+    background: #fff;
+    margin: 0;
+    padding: 18px 22px;
+    line-height: 1.55;
+  }
+  .topbar { display:flex; justify-content:space-between; font-size:11px; color:#666; margin-bottom:6px; }
+  h1.title {
+    font-size: 22px;
+    border-bottom: 3px solid #0f5132;
+    padding-bottom: 6px;
+    margin: 0 0 4px;
+    color: #0f5132;
+  }
+  .subtitle { font-size: 13px; color:#555; margin: 0 0 16px; }
+  .step {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1.5px solid #0f5132;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: #fafafa;
+  }
+  .step-head {
+    background:#0f5132;
+    color:#fff;
+    padding: 6px 12px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .step-num {
+    font-weight: 800;
+    font-size: 14px;
+    background: #ffd166;
+    color:#0f5132;
+    padding: 2px 8px;
+    border-radius: 4px;
+    direction: ltr;
+  }
+  .step-title { font-weight: 700; font-size: 14px; }
+  .step-body { padding: 8px 14px 10px; }
+  .say {
+    background: #e6f4ea;
+    border-right: 4px solid #0f5132;
+    padding: 6px 10px;
+    margin: 4px 0 6px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .say::before { content:"تقول لـ DALIL: "; color:#0f5132; font-weight:800; font-size:12px; display:block; margin-bottom:2px; }
+  .expect {
+    background: #fff4e6;
+    border-right: 4px solid #c2590a;
+    padding: 6px 10px;
+    margin: 4px 0 6px;
+    font-size: 13px;
+  }
+  .expect::before { content:"المفروض يحصل: "; color:#c2590a; font-weight:800; font-size:12px; display:block; margin-bottom:2px; }
+  .narrate {
+    background: #eef4ff;
+    border-right: 4px solid #3a6ea5;
+    padding: 6px 10px;
+    margin: 4px 0 6px;
+    font-size: 13.5px;
+  }
+  .narrate::before { content:"إنت تشرح للجمهور: "; color:#3a6ea5; font-weight:800; font-size:12px; display:block; margin-bottom:2px; }
+  .fallback {
+    background: #fff0f0;
+    border-right: 4px solid #c0392b;
+    padding: 6px 10px;
+    margin: 4px 0 6px;
+    font-size: 13px;
+  }
+  .fallback::before { content:"لو حصلت مشكلة: "; color:#c0392b; font-weight:800; font-size:12px; display:block; margin-bottom:2px; }
+  .en { direction: ltr; unicode-bidi: embed; font-weight: 700; }
+  .pre-flight {
+    border: 2px dashed #0f5132;
+    background: #f7fbf9;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  .pre-flight h2 { margin: 0 0 6px; font-size:16px; color:#0f5132; }
+  code {
+    background:#111; color:#fff; padding:1px 6px; border-radius:3px; font-size:12.5px; direction:ltr; unicode-bidi: embed;
+  }
+  .recovery {
+    margin-top: 18px;
+    border: 2px solid #c0392b;
+    background: #fff5f5;
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
+  .recovery h2 { margin:0 0 6px; font-size:16px; color:#c0392b; }
+  .recovery ul { margin: 4px 18px 0 0; padding:0; font-size:13.5px; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>EMBA Investment · Technical Analysis · Ahmed Sabri</span>
+  <span>Block 6 — DALIL Live Demo Script</span>
+</div>
+
+<h1 class="title">DALIL Demo — سيناريو مُجرَّب للعرض الحي</h1>
+<p class="subtitle">الترتيب محسوب عشان يبني <b>wow effect</b>: تبدأ بسيط، تعقّد بتدرج، تختم بالتوقع.</p>
+
+<!-- ============ PRE-FLIGHT ============ -->
+<div class="pre-flight">
+  <h2>قبل ما تبدأ العرض — Pre-Flight Checklist</h2>
+  <ul style="margin:0 18px 0 0; padding:0; font-size:13.5px;">
+    <li>افتح الـ terminal وشغّل: <br><code>cd ~/projects/EMBA/technical_analysis/dalil &amp;&amp; source venv/bin/activate &amp;&amp; uvicorn api.index:app --host 0.0.0.0 --port 8000 --reload</code></li>
+    <li>افتح <code>http://localhost:8000</code> في المتصفح — Chrome مفضّل.</li>
+    <li>اتأكد إن الميكروفون شغال (كلمة صغيرة "<span class="en">test</span>" وشوف هل بيلتقط).</li>
+    <li>اقفل أي برامج صوتية تانية (Zoom, Teams) — مش تاخد الميكروفون.</li>
+    <li>عندك إنترنت شغال؟ (التطبيق بيكلّم <span class="en">Claude API</span> و <span class="en">yfinance</span>).</li>
+    <li>جرب <span class="en">load_stock</span> واحد قبل ما تبدأ كمحاولة إحماء — تضمن الـ API شغالة.</li>
+    <li>ارفع <span class="en">volume</span> اللابتوب لأعلى وحجم الخط في المتصفح (<span class="en">Ctrl + +</span> مرتين).</li>
+  </ul>
+</div>
+
+<!-- ============ STEP 1 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 1</span>
+    <span class="step-title">افتتاح — تعريف الجمهور بـ DALIL</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"النهارده هوريكم تطبيق بنيناه اسمه <span class="en">DALIL</span> — بالعربي دليل. ده <span class="en">AI assistant</span> بيتكلم معاك بالمصري، بيرسم شارتات، بيكتشف <span class="en">patterns</span>، وبيديك توقعات. هنجرب سوا."</div>
+    <div class="say">يا دليل، قدّر نفسك للناس وقولهم إنت بتعمل إيه</div>
+    <div class="expect">DALIL يرد بالعامية المصرية ويشرح إمكانياته باختصار.</div>
+    <div class="fallback">لو مردش — بدل الصوت، اكتب نفس الجملة في خانة الـ <span class="en">text input</span>.</div>
+  </div>
+</div>
+
+<!-- ============ STEP 2 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 2</span>
+    <span class="step-title">تحميل سهم مصري — AMOC (أموك)</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"نشوف سهم مصري يعرفه الناس — <span class="en">AMOC</span>، الإسكندرية للبترول. هو بيعرف يتعامل مع التيكر المصري من غير ما أكتب <span class="en">.CA</span>."</div>
+    <div class="say">هاتلي سهم أموك</div>
+    <div class="expect">الشارت يتحمل فورًا (~ثانية)، DALIL يقول السعر الحالي واتجاه الترند في سطر أو اتنين، ويسأل: "عايز تشوف indicators؟ patterns؟ توقعات؟"</div>
+    <div class="fallback">بديل: قول "<b>ورّيلي AMOC</b>" أو "<b>عايز شارت أموك</b>". لو مش لاقي السهم — قول "<b>هاتلي سهم إتصالات مصر</b>" (<span class="en">ETEL</span>).</div>
+  </div>
+</div>
+
+<!-- ============ STEP 3 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 3</span>
+    <span class="step-title">إظهار الـ RSI — أول indicator</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"أول حاجة هنطلبها منه الـ <span class="en">RSI</span> — الـ <span class="en">Relative Strength Index</span>، بيقيس هل السهم <span class="en">overbought</span> ولا <span class="en">oversold</span>."</div>
+    <div class="say">ورّيلي الـ RSI</div>
+    <div class="expect">بانل الـ RSI يظهر تحت الشارت. DALIL يشرح القيمة الحالية والمعنى (فوق 70 overbought، تحت 30 oversold).</div>
+    <div class="fallback">بديل: "<b>عايز أشوف RSI</b>" أو "<b>إيه قيمة الـ RSI دلوقتي</b>".</div>
+  </div>
+</div>
+
+<!-- ============ STEP 4 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 4</span>
+    <span class="step-title">إظهار MACD + Bollinger Bands دفعة واحدة</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"نضيف الـ <span class="en">MACD</span> والـ <span class="en">Bollinger Bands</span> مع بعض — نشوف هل السهم في زخم صاعد ولا لأ، وفين الحدود السعرية."</div>
+    <div class="say">ورّيلي كل الـ indicators</div>
+    <div class="expect">الـ RSI, MACD, Bollinger Bands كلهم يتظهروا سوا. الشارت يبقى فيه 3 طبقات مختلفة. DALIL يلخص القراءة.</div>
+    <div class="fallback">لو ما فهمش الجملة — قول بدلها: "<b>ورّيلي MACD</b>" الأول، وبعدها: "<b>ورّيلي Bollinger</b>".</div>
+  </div>
+</div>
+
+<!-- ============ STEP 5 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 5</span>
+    <span class="step-title">اكتشاف الـ Patterns — لحظة الـ wow</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"دي اللحظة اللي فيها الـ <span class="en">AI</span> بيبين قوته — هيفحص السهم كله ويلاقي الـ <span class="en">patterns</span> بشكل آلي. من غير ما أنا أحدد ولا حاجة."</div>
+    <div class="say">إيه الـ patterns اللي موجودة في السهم ده؟</div>
+    <div class="expect">DALIL يرد بقائمة مرقمة من الـ patterns: ①, ②, ③ ... كل واحدة فيها النوع والتاريخ.</div>
+    <div class="fallback">بديل: "<b>عندنا أنهي patterns؟</b>" أو "<b>ورّيني الباترنز</b>".</div>
+  </div>
+</div>
+
+<!-- ============ STEP 6 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 6</span>
+    <span class="step-title">رسم pattern محدد على الشارت</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"هنختار واحد ونقوله يرسمه لنا على الشارت — بحيث الجمهور يشوف مكانه وشكله بالظبط."</div>
+    <div class="say">ورّيني النمط رقم واحد على الشارت</div>
+    <div class="expect">الشارت يتمسح ويترسم عليه الـ pattern المحدد (خطوط، نقط، labels). DALIL يشرح يعني إيه الـ pattern ده وإيه اللي توقعه.</div>
+    <div class="fallback">بدائل: "<b>ارسملي الأول</b>" / "<b>عايز أشوف نمبر تو</b>" / "<b>ورّيني Double Bottom</b>" (لو كان في القائمة).</div>
+  </div>
+</div>
+
+<!-- ============ STEP 7 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 7</span>
+    <span class="step-title">Zoom — تكبير فترة معينة</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"الشارت <span class="en">interactive</span> — أقدر أطلب منه يقربني على فترة معينة عشان الجمهور يشوف التفاصيل."</div>
+    <div class="say">قرّبلي على آخر شهرين</div>
+    <div class="expect">الشارت يعمل zoom تلقائي على آخر شهرين.</div>
+    <div class="fallback">بدائل: "<b>ورّيني آخر ٣٠ يوم</b>" / "<b>zoom على شهر مارس</b>". لو الأمر فشل: "<b>صغّر تاني</b>" أو "<b>ورّي كل البيانات</b>" للرجوع.</div>
+  </div>
+</div>
+
+<!-- ============ STEP 8 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 8</span>
+    <span class="step-title">التوقع — الختام الأقوى</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"آخر حاجة، وده السؤال اللي كل <span class="en">investor</span> بيسأله: السعر رايح فين؟"</div>
+    <div class="say">برأيك، السهم ده هيطلع ولا هينزل؟</div>
+    <div class="expect">DALIL يدي توقع مبني على الـ indicators والـ patterns، مع تحذير إن ده مش نصيحة استثمارية.</div>
+    <div class="fallback">بدائل: "<b>أشتري ولا أبيع؟</b>" / "<b>إيه توقعك للسهم ده؟</b>" / "<b>السعر هيوصل لكام؟</b>".</div>
+  </div>
+</div>
+
+<!-- ============ STEP 9 ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 9</span>
+    <span class="step-title">Bonus — تبديل لسهم عالمي (Apple)</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"عشان أثبت إنه شغال على الأسواق كلها مش مصر بس — نجرب <span class="en">Apple</span>."</div>
+    <div class="say">هاتلي سهم Apple</div>
+    <div class="expect">الشارت يتبدل لـ AAPL فورًا. DALIL يدي intro سريع.</div>
+    <div class="fallback">بدائل: "<b>ورّيلي AAPL</b>" / "<b>عايز آبل</b>". لو الوقت ضيق — اتخطى الـ step ده.</div>
+  </div>
+</div>
+
+<!-- ============ STEP 10 — CLOSE ============ -->
+<div class="step">
+  <div class="step-head">
+    <span class="step-num">STEP 10</span>
+    <span class="step-title">الختام — ربط بالعرض</span>
+  </div>
+  <div class="step-body">
+    <div class="narrate">"اللي شُفتوه ده تطبيق بسيط <span class="en">prototype</span>، بس بيوضح فكرة: الـ <span class="en">AI</span> هيبقى جزء أساسي من الـ <span class="en">Technical Analysis</span> في السنين الجاية. من رسم <span class="en">Homma</span> على ورق أرز في ١٧٥٠ — للصوت بيتكلم والـ <span class="en">AI</span> بيرد في ٢٠٢٦."</div>
+    <div class="narrate">"شكرًا لحضرتكم، جاهز لأي سؤال."</div>
+  </div>
+</div>
+
+<!-- ============ RECOVERY ============ -->
+<div class="recovery">
+  <h2>خطة إنقاذ — لو حصل أي مشكلة في المنتصف</h2>
+  <ul>
+    <li><b>DALIL مش بيرد:</b> قول للجمهور: "<i>حصل lag بسيط، خلّينا نجرب تاني</i>" — اكتب الأمر بدل ما تقوله صوت.</li>
+    <li><b>الميكروفون مش شغال:</b> "<i>الميكروفون عمل مشكلة، هكتب بدل ما أتكلم — نفس الفكرة</i>" — اكمل بالـ text input.</li>
+    <li><b>السهم مش بيتحمل:</b> جرب سهم مختلف فورًا — AAPL أو MSFT عمرهم ما يفشلوا (yfinance مضمون).</li>
+    <li><b>الإنترنت وقع:</b> "<i>شكل الإنترنت بيلعب، هعرض الـ screenshots اللي محضرينها</i>" — عندك screenshots محفوظة في الـ project folder (dalil-test-*.png).</li>
+    <li><b>الـ Claude API overloaded:</b> استنى ٣ ثواني وعيد الأمر. لو فشل، خش على text input.</li>
+    <li><b>الشارت اتقفل/باظ:</b> اعمل refresh (F5) — الحالة بتترجع في ثانيتين.</li>
+    <li><b>القاعدة الذهبية:</b> <b>ماتتوترش.</b> الجمهور مش متخصص — هيحبوا الفكرة حتى لو حاجة صغيرة مشيتش صح. لو ضحكت على الموقف هيضحكوا معاك.</li>
+  </ul>
+</div>
+
+<div style="margin-top:18px; font-size:11px; color:#666; text-align:center;">
+  إجمالي مدة الـ demo المتوقعة: ٥–٧ دقائق · ١٠ خطوات · كل خطوة ~٣٠–٤٥ ثانية
+</div>
+
+</body>
+</html>
