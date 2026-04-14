@@ -16,22 +16,22 @@
 
     /* === CUSTOM PROPERTIES === */
     :root {
-      --bg: #08090d;
-      --bg-surface: #0f1118;
-      --bg-card: rgba(255,255,255,0.035);
-      --bg-card-hover: rgba(255,255,255,0.06);
-      --gold: #c8a951;
-      --gold-dim: #9a7d3a;
-      --gold-glow: rgba(200,169,81,0.15);
-      --teal: #4ecdc4;
-      --teal-dim: #2a8a83;
-      --bull: #51cf66;
-      --bear: #ff6b6b;
-      --text: #e8e4df;
-      --text-muted: #8a8682;
-      --text-dim: #5a5652;
-      --border: rgba(255,255,255,0.08);
-      --border-gold: rgba(200,169,81,0.25);
+      --bg: #fafaf7;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(15,20,25,0.035);
+      --bg-card-hover: rgba(15,20,25,0.06);
+      --gold: #b8892b;
+      --gold-dim: #8c6822;
+      --gold-glow: rgba(184,137,43,0.15);
+      --teal: #0f766e;
+      --teal-dim: #0b5852;
+      --bull: #16a34a;
+      --bear: #dc2626;
+      --text: #0a0d12;
+      --text-muted: #1f2937;
+      --text-dim: #374151;
+      --border: rgba(15,20,25,0.16);
+      --border-gold: rgba(184,137,43,0.55);
       --glass-blur: 20px;
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -40,7 +40,7 @@
 
     /* === RESET === */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 16px; }
+    html { font-size: 19px; }
     body {
       font-family: 'Outfit', sans-serif;
       background: var(--bg);
@@ -58,7 +58,7 @@
       position: fixed;
       inset: 0;
       opacity: 0.025;
-      background: repeating-conic-gradient(#fff 0.00015%, transparent 0.0005%) 50% 50%/2500px 2500px;
+      background: repeating-conic-gradient(#000 0.00015%, transparent 0.0005%) 50% 50%/2500px 2500px;
       pointer-events: none;
       z-index: 10000;
     }
@@ -85,7 +85,7 @@
     }
     .bg-orb-2 {
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(78,205,196,0.08), transparent 70%);
+      background: radial-gradient(circle, rgba(15,118,110,0.08), transparent 70%);
       bottom: -100px; left: -80px;
       animation: orbDrift 30s ease-in-out infinite reverse;
     }
@@ -157,7 +157,7 @@
       width: 48px; height: 48px;
       border-radius: 50%;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
+      background: rgba(15,20,25,0.03);
       color: var(--text-muted);
       font-size: 1.2rem;
       cursor: pointer;
@@ -201,13 +201,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 70px 90px;
+      padding: 60px 80px;
       opacity: 0;
       transform: translateX(80px);
       transition: opacity var(--transition-slide) ease,
                   transform var(--transition-slide) var(--ease-out);
       pointer-events: none;
-      overflow: hidden;
+      overflow: auto;
     }
     .slide.active {
       opacity: 1;
@@ -218,30 +218,30 @@
     /* === TYPOGRAPHY === */
     h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
     h2 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 600;
       color: var(--text);
       line-height: 1.15;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.35em;
       letter-spacing: -0.01em;
     }
     h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--gold);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold-dim);
       margin-bottom: 0.4em;
     }
     p {
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      color: var(--text-muted);
+      color: var(--text);
     }
     .slide-subtitle {
-      font-size: 1rem;
-      color: var(--text-dim);
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      margin-bottom: 1.5em;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.3em;
     }
     .chapter-marker {
       font-family: 'Space Mono', monospace;
@@ -288,28 +288,28 @@
 
     /* === GLASS CARDS === */
     .glass {
-      background: var(--bg-card);
-      backdrop-filter: blur(var(--glass-blur));
-      -webkit-backdrop-filter: blur(var(--glass-blur));
+      background: #ffffff;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 1.4em 1.6em;
-      transition: border-color 0.3s, background 0.3s;
+      box-shadow: 0 6px 24px rgba(15,20,25,0.07), 0 2px 4px rgba(15,20,25,0.04);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     }
     .glass:hover {
       border-color: var(--border-gold);
-      background: var(--bg-card-hover);
+      box-shadow: 0 8px 32px rgba(15,20,25,0.08), 0 2px 6px rgba(15,20,25,0.04);
+      transform: translateY(-1px);
     }
     .glass-gold { border-color: var(--border-gold); }
     .glass-sm { padding: 1em 1.2em; border-radius: 12px; }
     ul { list-style: none; padding: 0; }
     .glass ul li {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      padding-left: 1.2em;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.65;
+      padding-left: 1.3em;
       position: relative;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.45em;
     }
     .glass ul li::before {
       content: '›';
@@ -320,12 +320,12 @@
     }
     ol { padding-left: 0; counter-reset: tenet; list-style: none; }
     .glass ol li {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.65;
       padding-left: 2em;
       position: relative;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.6em;
       counter-increment: tenet;
     }
     .glass ol li::before {
@@ -379,19 +379,19 @@
     .stat-value.teal { color: var(--teal); }
     .stat-value.bull { color: var(--bull); }
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.92rem;
       color: var(--text-dim);
       line-height: 1.5;
     }
 
     /* === INSIGHT CALLOUT === */
     .insight {
-      background: linear-gradient(135deg, rgba(200,169,81,0.06), rgba(200,169,81,0.02));
+      background: linear-gradient(135deg, rgba(184,137,43,0.06), rgba(184,137,43,0.02));
       border: 1px solid var(--border-gold);
       border-radius: 12px;
       padding: 1em 1.4em;
       margin-top: 1.5em;
-      font-size: 0.88rem;
+      font-size: 1rem;
       color: var(--text);
       line-height: 1.6;
     }
@@ -418,10 +418,10 @@
       flex-shrink: 0;
       margin-bottom: 0.8em;
     }
-    .avatar-gold { background: linear-gradient(135deg, var(--gold), #dfc06e); }
-    .avatar-teal { background: linear-gradient(135deg, var(--teal), #7eddd6); }
-    .avatar-bull { background: linear-gradient(135deg, var(--bull), #8ae99a); }
-    .avatar-bear { background: linear-gradient(135deg, var(--bear), #ff9e9e); }
+    .avatar-gold { background: linear-gradient(135deg, var(--gold), #d5a43d); }
+    .avatar-teal { background: linear-gradient(135deg, var(--teal), #36a89e); }
+    .avatar-bull { background: linear-gradient(135deg, var(--bull), #4ec872); }
+    .avatar-bear { background: linear-gradient(135deg, var(--bear), #f07d7d); }
 
     /* === REVEAL ANIMATION === */
     .rv {
@@ -484,7 +484,7 @@
       font-size: 7rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      background: linear-gradient(135deg, var(--gold), #e8d48a, var(--gold));
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold), var(--gold-dim));
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -582,7 +582,7 @@
     }
     .roadmap-card.active-block {
       border-color: var(--gold-dim);
-      background: rgba(200,169,81,0.05);
+      background: rgba(184,137,43,0.05);
     }
     .roadmap-card.active-block::after {
       content: 'YOU ARE HERE';
@@ -596,7 +596,7 @@
     }
     .roadmap-card.finale-block {
       border-color: var(--teal-dim);
-      background: rgba(78,205,196,0.04);
+      background: rgba(15,118,110,0.04);
     }
     .roadmap-card.finale-block::after {
       content: 'FINALE';
@@ -616,7 +616,7 @@
       margin-bottom: 0.3em;
     }
     .roadmap-desc {
-      font-size: 0.78rem;
+      font-size: 1rem;
       color: var(--text-dim);
       line-height: 1.5;
     }
@@ -725,7 +725,7 @@
       margin-bottom: 0.4em;
     }
     .era-desc {
-      font-size: 0.78rem;
+      font-size: 1rem;
       color: var(--text-dim);
       line-height: 1.5;
       padding: 0 0.5em;
@@ -754,7 +754,7 @@
     .block-title-slide { justify-content: center; align-items: center; text-align: center; }
     .block-number {
       font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.92rem;
       letter-spacing: 0.4em;
       color: var(--gold);
       text-transform: uppercase;
@@ -765,7 +765,7 @@
       font-size: clamp(3rem, 8vw, 6rem);
       line-height: 0.95;
       font-weight: 500;
-      background: linear-gradient(135deg, #f4edd7 10%, var(--gold) 55%, var(--teal) 100%);
+      background: linear-gradient(135deg, #0f1419 10%, var(--gold) 55%, var(--teal) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -805,7 +805,7 @@
     .compare-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-top: 0.4em;
     }
     .compare-table th, .compare-table td {
@@ -825,7 +825,7 @@
     .compare-table tr td:first-child {
       font-family: 'Space Mono', monospace;
       color: var(--gold);
-      font-size: 0.78rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       white-space: nowrap;
@@ -863,7 +863,7 @@
       margin-bottom: 0.2em;
     }
     .quadrant p {
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       color: var(--text-dim);
       margin: 0.2em 0 0.3em;
     }
@@ -873,9 +873,9 @@
       color: var(--text-muted);
       letter-spacing: 0.05em;
     }
-    .quad-macro { border-color: rgba(78,205,196,0.35); }
+    .quad-macro { border-color: rgba(15,118,110,0.35); }
     .quad-macro .quadrant-label { color: var(--teal); }
-    .quad-micro { border-color: rgba(200,169,81,0.35); }
+    .quad-micro { border-color: rgba(184,137,43,0.35); }
 
     /* === SR DIAGRAM === */
     .sr-diagram { width: 100%; height: 220px; }
@@ -891,7 +891,7 @@
       margin-top: 1.2em;
       padding: 0.75em 1.8em;
       font-family: 'Space Mono', monospace;
-      font-size: 0.85rem;
+      font-size: 0.98rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
@@ -911,9 +911,9 @@
       max-width: 640px;
       margin: 0 auto;
       padding: 2.5em 2em;
-      border: 1px dashed rgba(200,169,81,0.35);
+      border: 1px dashed rgba(184,137,43,0.35);
       border-radius: 18px;
-      background: rgba(200,169,81,0.02);
+      background: rgba(184,137,43,0.02);
     }
     .placeholder-slate .dot {
       display: inline-block; width: 10px; height: 10px; border-radius: 50%;
@@ -922,6 +922,29 @@
       margin-right: 0.5em;
     }
     @keyframes pulse { 0%,100%{opacity:0.35} 50%{opacity:1} }
+
+    /* === CONTRIBUTOR FIGURE (colleague chart slides) === */
+    .contrib-figure {
+      margin: 0.6em auto 0;
+      max-width: min(1100px, 92vw);
+      text-align: center;
+    }
+    .contrib-figure img {
+      max-width: 100%;
+      max-height: 64vh;
+      border-radius: 12px;
+      box-shadow: 0 14px 50px rgba(15,20,25,0.10), 0 2px 8px rgba(15,20,25,0.05);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .contrib-figure figcaption {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 0.9em;
+    }
   </style>
 </head>
 <body>
@@ -938,7 +961,7 @@
     <button class="nav-arrow" id="prevBtn" aria-label="Previous slide">&#8592;</button>
     <button class="nav-arrow" id="nextBtn" aria-label="Next slide">&#8594;</button>
   </div>
-  <div class="slide-counter"><span class="current-num" id="counterCur">01</span> / <span id="counterTotal">30</span></div>
+  <div class="slide-counter"><span class="current-num" id="counterCur">01</span> / <span id="counterTotal">40</span></div>
 
   <!-- ============================================================ -->
   <!-- SLIDES                                                        -->
@@ -1323,7 +1346,7 @@
       <h2 class="rv" style="--d:1">Two Lenses on the Same Market</h2>
       <p class="slide-subtitle rv" style="--d:2">Different questions, different tools, complementary answers</p>
       <div class="two-col" style="margin-top:1em;">
-        <div class="glass rv" style="--d:3; border-color: rgba(78,205,196,0.35);">
+        <div class="glass rv" style="--d:3; border-color: rgba(15,118,110,0.35);">
           <div class="block-number" style="color:var(--teal); margin-bottom:0.5em;">Fundamental Analysis</div>
           <h3 style="color:var(--teal);">Intrinsic Value</h3>
           <p>Evaluates a security by studying financial statements, economic indicators, and industry conditions to estimate what it is <em>really</em> worth.</p>
@@ -1459,7 +1482,18 @@
     <!-- ============================================================ -->
 
     <!-- =============== SLIDE 15: BLOCK III OPENER =============== -->
-    <section class="slide block-title-slide" id="s15">
+    <!-- =============== SLIDE s100: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s100">
+      <div class="chapter-marker rv" style="--d:0">Block II &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Classic Chart Patterns &mdash; Quick Reference</h2>
+      <p class="slide-subtitle rv" style="--d:2">Reversal and continuation families you will meet throughout every market</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block2/slide-11.png" alt="From the contributor deck &mdash; Classic Chart Patterns">
+        <figcaption>From the contributor deck &mdash; Classic Chart Patterns</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide block-title-slide" id="s15">
       <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Three</div>
       <h1 class="block-title rv" style="--d:2">Reading the Market</h1>
       <div class="block-rule rv" style="--d:3"></div>
@@ -1476,7 +1510,7 @@
       <div class="three-col" style="margin-top:1em;">
         <div class="glass rv" style="--d:3">
           <div class="avatar avatar-gold">I</div>
-          <span class="year-badge" style="background:rgba(81,207,102,0.15); color:var(--bull);">The Tide</span>
+          <span class="year-badge" style="background:rgba(22,163,74,0.15); color:var(--bull);">The Tide</span>
           <h3>Primary Trend</h3>
           <p>The long-term direction, lasting <strong>months to years</strong>. Bull market or bear market. This is what defines an era.</p>
         </div>
@@ -1488,7 +1522,7 @@
         </div>
         <div class="glass rv" style="--d:7">
           <div class="avatar avatar-bear">III</div>
-          <span class="year-badge" style="background:rgba(255,107,107,0.15); color:var(--bear);">The Ripples</span>
+          <span class="year-badge" style="background:rgba(220,38,38,0.15); color:var(--bear);">The Ripples</span>
           <h3>Minor Trend</h3>
           <p>Day-to-day fluctuations &mdash; noise at the surface. Short-lived and often misleading when viewed in isolation.</p>
         </div>
@@ -1500,7 +1534,18 @@
     </section>
 
     <!-- =============== SLIDE 17: CHART TYPES =============== -->
-    <section class="slide" id="s17">
+    <!-- =============== SLIDE s101: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s101">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Trend Lines &mdash; Up, Down, Sideways</h2>
+      <p class="slide-subtitle rv" style="--d:2">The three shapes every chart takes, drawn as trend envelopes</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block3/slide-06.png" alt="From the contributor deck &mdash; Trend lines">
+        <figcaption>From the contributor deck &mdash; Trend lines</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide" id="s17">
       <div class="chapter-marker rv" style="--d:0">Block III &middot; The Tools of Sight</div>
       <h2 class="rv" style="--d:1">Three Ways to See Price Action</h2>
       <p class="slide-subtitle rv" style="--d:2">Line, Bar, Candlestick &mdash; each tells a different layer of the story</p>
@@ -1508,7 +1553,7 @@
         <div class="glass rv" style="--d:3">
           <h3>Line Chart</h3>
           <svg class="mini-chart" viewBox="0 0 300 120">
-            <polyline fill="none" stroke="#c8a951" stroke-width="2" points="10,90 40,70 70,78 100,50 130,60 160,35 190,45 220,22 250,30 290,10"/>
+            <polyline fill="none" stroke="#b8892b" stroke-width="2" points="10,90 40,70 70,78 100,50 130,60 160,35 190,45 220,22 250,30 290,10"/>
           </svg>
           <p style="margin-top:0.4em;">Plots only the <strong>closing price</strong> over time. Filters intraday noise &mdash; the day&rsquo;s final consensus of value.</p>
           <p style="font-size:0.78rem; color:var(--text-dim); margin-top:0.4em;">Best for: long-term trend visualization</p>
@@ -1516,7 +1561,7 @@
         <div class="glass rv" style="--d:5">
           <h3>Bar Chart (OHLC)</h3>
           <svg class="mini-chart" viewBox="0 0 300 120">
-            <g stroke="#c8a951" stroke-width="2" fill="none">
+            <g stroke="#b8892b" stroke-width="2" fill="none">
               <line x1="30" y1="20" x2="30" y2="95"/><line x1="25" y1="45" x2="30" y2="45"/><line x1="30" y1="65" x2="35" y2="65"/>
               <line x1="70" y1="15" x2="70" y2="80"/><line x1="65" y1="40" x2="70" y2="40"/><line x1="70" y1="55" x2="75" y2="55"/>
               <line x1="110" y1="25" x2="110" y2="90"/><line x1="105" y1="60" x2="110" y2="60"/><line x1="110" y1="35" x2="115" y2="35"/>
@@ -1533,13 +1578,13 @@
           <h3>Candlestick Chart</h3>
           <svg class="mini-chart" viewBox="0 0 300 120">
             <g stroke-width="1.5">
-              <line x1="30" y1="15" x2="30" y2="95" stroke="#51cf66"/><rect x="22" y="45" width="16" height="30" fill="#51cf66"/>
-              <line x1="70" y1="10" x2="70" y2="75" stroke="#51cf66"/><rect x="62" y="35" width="16" height="25" fill="#51cf66"/>
-              <line x1="110" y1="25" x2="110" y2="90" stroke="#ff6b6b"/><rect x="102" y="40" width="16" height="30" fill="#ff6b6b"/>
-              <line x1="150" y1="15" x2="150" y2="70" stroke="#51cf66"/><rect x="142" y="25" width="16" height="30" fill="#51cf66"/>
-              <line x1="190" y1="10" x2="190" y2="75" stroke="#ff6b6b"/><rect x="182" y="30" width="16" height="25" fill="#ff6b6b"/>
-              <line x1="230" y1="5" x2="230" y2="65" stroke="#51cf66"/><rect x="222" y="15" width="16" height="30" fill="#51cf66"/>
-              <line x1="270" y1="10" x2="270" y2="50" stroke="#51cf66"/><rect x="262" y="15" width="16" height="25" fill="#51cf66"/>
+              <line x1="30" y1="15" x2="30" y2="95" stroke="#16a34a"/><rect x="22" y="45" width="16" height="30" fill="#16a34a"/>
+              <line x1="70" y1="10" x2="70" y2="75" stroke="#16a34a"/><rect x="62" y="35" width="16" height="25" fill="#16a34a"/>
+              <line x1="110" y1="25" x2="110" y2="90" stroke="#dc2626"/><rect x="102" y="40" width="16" height="30" fill="#dc2626"/>
+              <line x1="150" y1="15" x2="150" y2="70" stroke="#16a34a"/><rect x="142" y="25" width="16" height="30" fill="#16a34a"/>
+              <line x1="190" y1="10" x2="190" y2="75" stroke="#dc2626"/><rect x="182" y="30" width="16" height="25" fill="#dc2626"/>
+              <line x1="230" y1="5" x2="230" y2="65" stroke="#16a34a"/><rect x="222" y="15" width="16" height="30" fill="#16a34a"/>
+              <line x1="270" y1="10" x2="270" y2="50" stroke="#16a34a"/><rect x="262" y="15" width="16" height="25" fill="#16a34a"/>
             </g>
           </svg>
           <p style="margin-top:0.4em;">Same OHLC data, but the <strong>body colour</strong> instantly shows who won the period &mdash; buyers (green) or sellers (red).</p>
@@ -1549,7 +1594,18 @@
     </section>
 
     <!-- =============== SLIDE 18: CANDLESTICK ANATOMY & HISTORY =============== -->
-    <section class="slide" id="s18">
+    <!-- =============== SLIDE s102: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s102">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">The Line Chart &mdash; Closing Price Only</h2>
+      <p class="slide-subtitle rv" style="--d:2">A real DJIA example showing how line charts isolate the closing-price story</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block3/slide-10.png" alt="From the contributor deck &mdash; Line chart example">
+        <figcaption>From the contributor deck &mdash; Line chart example</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide" id="s18">
       <div class="chapter-marker rv" style="--d:0">Block III &middot; Anatomy of a Candle</div>
       <h2 class="rv" style="--d:1">The Language Japanese Rice Traders Invented</h2>
       <p class="slide-subtitle rv" style="--d:2">Munehisa Homma, Dojima Rice Exchange, 1700s &mdash; brought West by Steve Nison in the 1990s</p>
@@ -1559,21 +1615,21 @@
             <svg class="candle-diagram" viewBox="0 0 260 180">
               <!-- Bullish candle -->
               <g>
-                <line x1="80" y1="15" x2="80" y2="165" stroke="#51cf66" stroke-width="2"/>
-                <rect x="55" y="55" width="50" height="75" fill="#51cf66" stroke="#51cf66" rx="2"/>
-                <text x="80" y="180" text-anchor="middle" fill="#51cf66" font-family="'Space Mono',monospace" font-size="11">BULLISH</text>
-                <text x="125" y="30" fill="#c8a951" font-family="'Space Mono',monospace" font-size="9">Upper wick</text>
-                <line x1="90" y1="25" x2="120" y2="25" stroke="#c8a951" stroke-width="0.5" stroke-dasharray="2"/>
-                <text x="125" y="95" fill="#c8a951" font-family="'Space Mono',monospace" font-size="9">Real body</text>
-                <line x1="110" y1="90" x2="120" y2="90" stroke="#c8a951" stroke-width="0.5" stroke-dasharray="2"/>
-                <text x="125" y="155" fill="#c8a951" font-family="'Space Mono',monospace" font-size="9">Lower wick</text>
-                <line x1="90" y1="150" x2="120" y2="150" stroke="#c8a951" stroke-width="0.5" stroke-dasharray="2"/>
+                <line x1="80" y1="15" x2="80" y2="165" stroke="#16a34a" stroke-width="2"/>
+                <rect x="55" y="55" width="50" height="75" fill="#16a34a" stroke="#16a34a" rx="2"/>
+                <text x="80" y="180" text-anchor="middle" fill="#16a34a" font-family="'Space Mono',monospace" font-size="11">BULLISH</text>
+                <text x="125" y="30" fill="#b8892b" font-family="'Space Mono',monospace" font-size="9">Upper wick</text>
+                <line x1="90" y1="25" x2="120" y2="25" stroke="#b8892b" stroke-width="0.5" stroke-dasharray="2"/>
+                <text x="125" y="95" fill="#b8892b" font-family="'Space Mono',monospace" font-size="9">Real body</text>
+                <line x1="110" y1="90" x2="120" y2="90" stroke="#b8892b" stroke-width="0.5" stroke-dasharray="2"/>
+                <text x="125" y="155" fill="#b8892b" font-family="'Space Mono',monospace" font-size="9">Lower wick</text>
+                <line x1="90" y1="150" x2="120" y2="150" stroke="#b8892b" stroke-width="0.5" stroke-dasharray="2"/>
               </g>
               <!-- Bearish candle -->
               <g transform="translate(120,0)">
-                <line x1="80" y1="10" x2="80" y2="170" stroke="#ff6b6b" stroke-width="2"/>
-                <rect x="55" y="40" width="50" height="90" fill="#ff6b6b" stroke="#ff6b6b" rx="2"/>
-                <text x="80" y="180" text-anchor="middle" fill="#ff6b6b" font-family="'Space Mono',monospace" font-size="11">BEARISH</text>
+                <line x1="80" y1="10" x2="80" y2="170" stroke="#dc2626" stroke-width="2"/>
+                <rect x="55" y="40" width="50" height="90" fill="#dc2626" stroke="#dc2626" rx="2"/>
+                <text x="80" y="180" text-anchor="middle" fill="#dc2626" font-family="'Space Mono',monospace" font-size="11">BEARISH</text>
               </g>
             </svg>
           </div>
@@ -1598,15 +1654,26 @@
     </section>
 
     <!-- =============== SLIDE 19: BULLISH REVERSAL PATTERNS =============== -->
-    <section class="slide" id="s19">
+    <!-- =============== SLIDE s103: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s103">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Bullish vs Bearish Candles</h2>
+      <p class="slide-subtitle rv" style="--d:2">The anatomy of a single session &mdash; who won, who lost</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block3/slide-17.png" alt="From the contributor deck &mdash; Candle anatomy">
+        <figcaption>From the contributor deck &mdash; Candle anatomy</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide" id="s19">
       <div class="chapter-marker rv" style="--d:0">Block III &middot; Bullish Reversals</div>
       <h2 class="rv" style="--d:1">When the Tide Turns Upward</h2>
       <p class="slide-subtitle rv" style="--d:2">Three candle formations that signal a downtrend is exhausting</p>
       <div class="three-col" style="margin-top:1em;">
         <div class="glass rv" style="--d:3; text-align:center;">
           <svg class="candle-diagram" viewBox="0 0 120 150">
-            <line x1="60" y1="10" x2="60" y2="140" stroke="#51cf66" stroke-width="2"/>
-            <rect x="48" y="25" width="24" height="28" fill="#51cf66" rx="2"/>
+            <line x1="60" y1="10" x2="60" y2="140" stroke="#16a34a" stroke-width="2"/>
+            <rect x="48" y="25" width="24" height="28" fill="#16a34a" rx="2"/>
           </svg>
           <div class="pattern-name">The Hammer</div>
           <p style="font-size:0.82rem;">Small body near the top with a <strong>long lower wick</strong>. Sellers drove price down but buyers fought back and won the session.</p>
@@ -1614,10 +1681,10 @@
         <div class="glass rv" style="--d:5; text-align:center;">
           <svg class="candle-diagram" viewBox="0 0 160 150">
             <g>
-              <line x1="60" y1="40" x2="60" y2="100" stroke="#ff6b6b" stroke-width="2"/>
-              <rect x="50" y="55" width="20" height="30" fill="#ff6b6b" rx="2"/>
-              <line x1="110" y1="15" x2="110" y2="130" stroke="#51cf66" stroke-width="2"/>
-              <rect x="90" y="30" width="40" height="90" fill="#51cf66" rx="2"/>
+              <line x1="60" y1="40" x2="60" y2="100" stroke="#dc2626" stroke-width="2"/>
+              <rect x="50" y="55" width="20" height="30" fill="#dc2626" rx="2"/>
+              <line x1="110" y1="15" x2="110" y2="130" stroke="#16a34a" stroke-width="2"/>
+              <rect x="90" y="30" width="40" height="90" fill="#16a34a" rx="2"/>
             </g>
           </svg>
           <div class="pattern-name">Bullish Engulfing</div>
@@ -1626,12 +1693,12 @@
         <div class="glass rv" style="--d:7; text-align:center;">
           <svg class="candle-diagram" viewBox="0 0 200 150">
             <g>
-              <line x1="40" y1="15" x2="40" y2="110" stroke="#ff6b6b" stroke-width="2"/>
-              <rect x="28" y="25" width="24" height="70" fill="#ff6b6b" rx="2"/>
+              <line x1="40" y1="15" x2="40" y2="110" stroke="#dc2626" stroke-width="2"/>
+              <rect x="28" y="25" width="24" height="70" fill="#dc2626" rx="2"/>
               <line x1="100" y1="85" x2="100" y2="125" stroke="#888" stroke-width="2"/>
               <rect x="88" y="100" width="24" height="10" fill="#888" rx="2"/>
-              <line x1="160" y1="25" x2="160" y2="115" stroke="#51cf66" stroke-width="2"/>
-              <rect x="148" y="40" width="24" height="65" fill="#51cf66" rx="2"/>
+              <line x1="160" y1="25" x2="160" y2="115" stroke="#16a34a" stroke-width="2"/>
+              <rect x="148" y="40" width="24" height="65" fill="#16a34a" rx="2"/>
             </g>
           </svg>
           <div class="pattern-name">Morning Star</div>
@@ -1648,8 +1715,8 @@
       <div class="three-col" style="margin-top:1em;">
         <div class="glass rv" style="--d:3; text-align:center;">
           <svg class="candle-diagram" viewBox="0 0 120 150">
-            <line x1="60" y1="10" x2="60" y2="140" stroke="#ff6b6b" stroke-width="2"/>
-            <rect x="48" y="25" width="24" height="28" fill="#ff6b6b" rx="2"/>
+            <line x1="60" y1="10" x2="60" y2="140" stroke="#dc2626" stroke-width="2"/>
+            <rect x="48" y="25" width="24" height="28" fill="#dc2626" rx="2"/>
           </svg>
           <div class="pattern-name">The Hanging Man</div>
           <p style="font-size:0.82rem;">Same shape as a Hammer but at the <strong>top of an uptrend</strong>. A warning: buyers are losing grip, sellers have arrived.</p>
@@ -1657,10 +1724,10 @@
         <div class="glass rv" style="--d:5; text-align:center;">
           <svg class="candle-diagram" viewBox="0 0 160 150">
             <g>
-              <line x1="60" y1="40" x2="60" y2="100" stroke="#51cf66" stroke-width="2"/>
-              <rect x="50" y="55" width="20" height="30" fill="#51cf66" rx="2"/>
-              <line x1="110" y1="15" x2="110" y2="130" stroke="#ff6b6b" stroke-width="2"/>
-              <rect x="90" y="30" width="40" height="90" fill="#ff6b6b" rx="2"/>
+              <line x1="60" y1="40" x2="60" y2="100" stroke="#16a34a" stroke-width="2"/>
+              <rect x="50" y="55" width="20" height="30" fill="#16a34a" rx="2"/>
+              <line x1="110" y1="15" x2="110" y2="130" stroke="#dc2626" stroke-width="2"/>
+              <rect x="90" y="30" width="40" height="90" fill="#dc2626" rx="2"/>
             </g>
           </svg>
           <div class="pattern-name">Bearish Engulfing</div>
@@ -1669,12 +1736,12 @@
         <div class="glass rv" style="--d:7; text-align:center;">
           <svg class="candle-diagram" viewBox="0 0 200 150">
             <g>
-              <line x1="40" y1="15" x2="40" y2="110" stroke="#51cf66" stroke-width="2"/>
-              <rect x="28" y="25" width="24" height="70" fill="#51cf66" rx="2"/>
+              <line x1="40" y1="15" x2="40" y2="110" stroke="#16a34a" stroke-width="2"/>
+              <rect x="28" y="25" width="24" height="70" fill="#16a34a" rx="2"/>
               <line x1="100" y1="85" x2="100" y2="125" stroke="#888" stroke-width="2"/>
               <rect x="88" y="100" width="24" height="10" fill="#888" rx="2"/>
-              <line x1="160" y1="25" x2="160" y2="115" stroke="#ff6b6b" stroke-width="2"/>
-              <rect x="148" y="40" width="24" height="65" fill="#ff6b6b" rx="2"/>
+              <line x1="160" y1="25" x2="160" y2="115" stroke="#dc2626" stroke-width="2"/>
+              <rect x="148" y="40" width="24" height="65" fill="#dc2626" rx="2"/>
             </g>
           </svg>
           <div class="pattern-name">Evening Star</div>
@@ -1683,8 +1750,8 @@
       </div>
       <div class="glass rv" style="--d:9; margin-top:1.2em; display:flex; gap:1.5em; align-items:center;">
         <svg viewBox="0 0 80 100" style="width:60px; flex-shrink:0;">
-          <line x1="40" y1="10" x2="40" y2="90" stroke="#c8a951" stroke-width="2"/>
-          <line x1="25" y1="50" x2="55" y2="50" stroke="#c8a951" stroke-width="3"/>
+          <line x1="40" y1="10" x2="40" y2="90" stroke="#b8892b" stroke-width="2"/>
+          <line x1="25" y1="50" x2="55" y2="50" stroke="#b8892b" stroke-width="3"/>
         </svg>
         <div>
           <h3 style="margin-bottom:0.3em;">The Doji &mdash; Market Indecision</h3>
@@ -1694,7 +1761,18 @@
     </section>
 
     <!-- =============== SLIDE 21: SUPPORT & RESISTANCE =============== -->
-    <section class="slide" id="s21">
+    <!-- =============== SLIDE s104: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s104">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Bearish Engulfing in the Wild</h2>
+      <p class="slide-subtitle rv" style="--d:2">A real-world engulfing signal marking the start of a downtrend</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block3/slide-22.png" alt="From the contributor deck &mdash; Bearish Engulfing example">
+        <figcaption>From the contributor deck &mdash; Bearish Engulfing example</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide" id="s21">
       <div class="chapter-marker rv" style="--d:0">Block III &middot; The Battlefield</div>
       <h2 class="rv" style="--d:1">Support &amp; Resistance &mdash; The Invisible Lines</h2>
       <p class="slide-subtitle rv" style="--d:2">Price levels where the war between buyers and sellers is fought, again and again</p>
@@ -1709,26 +1787,26 @@
           <svg class="sr-diagram" viewBox="0 0 340 220">
             <defs>
               <linearGradient id="srgrid" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="rgba(200,169,81,0.05)"/>
+                <stop offset="0" stop-color="rgba(184,137,43,0.05)"/>
                 <stop offset="1" stop-color="transparent"/>
               </linearGradient>
             </defs>
             <rect width="340" height="220" fill="url(#srgrid)"/>
             <!-- Resistance line -->
-            <line x1="10" y1="50" x2="330" y2="50" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="6 4"/>
-            <text x="15" y="42" fill="#ff6b6b" font-family="'Space Mono',monospace" font-size="10">RESISTANCE</text>
+            <line x1="10" y1="50" x2="330" y2="50" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="15" y="42" fill="#dc2626" font-family="'Space Mono',monospace" font-size="10">RESISTANCE</text>
             <!-- Support line -->
-            <line x1="10" y1="170" x2="330" y2="170" stroke="#51cf66" stroke-width="1.5" stroke-dasharray="6 4"/>
-            <text x="15" y="185" fill="#51cf66" font-family="'Space Mono',monospace" font-size="10">SUPPORT</text>
+            <line x1="10" y1="170" x2="330" y2="170" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="15" y="185" fill="#16a34a" font-family="'Space Mono',monospace" font-size="10">SUPPORT</text>
             <!-- Price action bouncing -->
-            <polyline fill="none" stroke="#c8a951" stroke-width="2"
+            <polyline fill="none" stroke="#b8892b" stroke-width="2"
               points="10,170 40,120 70,55 100,90 130,50 160,130 190,170 220,100 250,55 280,160 310,170 330,110"/>
             <!-- Bounce markers -->
-            <circle cx="70" cy="55" r="4" fill="#ff6b6b"/>
-            <circle cx="130" cy="50" r="4" fill="#ff6b6b"/>
-            <circle cx="250" cy="55" r="4" fill="#ff6b6b"/>
-            <circle cx="190" cy="170" r="4" fill="#51cf66"/>
-            <circle cx="310" cy="170" r="4" fill="#51cf66"/>
+            <circle cx="70" cy="55" r="4" fill="#dc2626"/>
+            <circle cx="130" cy="50" r="4" fill="#dc2626"/>
+            <circle cx="250" cy="55" r="4" fill="#dc2626"/>
+            <circle cx="190" cy="170" r="4" fill="#16a34a"/>
+            <circle cx="310" cy="170" r="4" fill="#16a34a"/>
           </svg>
           <p style="font-size:0.8rem; color:var(--text-dim); text-align:center; margin-top:0.3em;">
             Price bounces between the floor and the ceiling &mdash; each retest strengthens the level&rsquo;s significance.
@@ -1756,7 +1834,29 @@
     <!-- ============================================================ -->
 
     <!-- =============== SLIDE 22: BLOCK IV OPENER =============== -->
-    <section class="slide block-title-slide" id="s22">
+    <!-- =============== SLIDE s105: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s105">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Support &amp; Resistance on a Live Chart</h2>
+      <p class="slide-subtitle rv" style="--d:2">Horizontal levels tested repeatedly before the break</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block3/slide-26.png" alt="From the contributor deck &mdash; Support &amp; Resistance">
+        <figcaption>From the contributor deck &mdash; Support &amp; Resistance</figcaption>
+      </figure>
+    </section>
+
+    <!-- =============== SLIDE s106: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s106">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Static vs Dynamic Support &amp; Resistance</h2>
+      <p class="slide-subtitle rv" style="--d:2">Horizontal levels versus trendlines that slope with the market</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block3/slide-28.png" alt="From the contributor deck &mdash; Static vs Dynamic S/R">
+        <figcaption>From the contributor deck &mdash; Static vs Dynamic S/R</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide block-title-slide" id="s22">
       <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Four</div>
       <h1 class="block-title rv" style="--d:2">Indicators</h1>
       <div class="block-rule rv" style="--d:3"></div>
@@ -1803,7 +1903,18 @@
     </section>
 
     <!-- =============== SLIDE 24: TREND TRACKING - SMA & BOLLINGER =============== -->
-    <section class="slide" id="s24">
+    <!-- =============== SLIDE s107: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s107">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">The Four Quadrants &mdash; Contributor Diagram</h2>
+      <p class="slide-subtitle rv" style="--d:2">Trend &middot; Oscillator &middot; Sentiment &middot; Flow of Funds &mdash; laid out at a glance</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block4/slide-04.png" alt="From the contributor deck &mdash; Four Quadrants">
+        <figcaption>From the contributor deck &mdash; Four Quadrants</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide" id="s24">
       <div class="chapter-marker rv" style="--d:0">Block IV &middot; Trend Tracking</div>
       <h2 class="rv" style="--d:1">The Moving Average &amp; Bollinger Bands</h2>
       <p class="slide-subtitle rv" style="--d:2">The baseline of every trend-following system &mdash; and its 2&sigma; envelope</p>
@@ -1828,23 +1939,34 @@
       <div class="glass rv" style="--d:7; margin-top:1.2em;">
         <svg viewBox="0 0 800 200" style="width:100%; height:180px;">
           <!-- Upper band -->
-          <path d="M20,30 Q200,20 400,45 T780,35" fill="none" stroke="rgba(78,205,196,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M20,30 Q200,20 400,45 T780,35" fill="none" stroke="rgba(15,118,110,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
           <!-- Middle (SMA) -->
-          <path d="M20,90 Q200,80 400,95 T780,85" fill="none" stroke="#c8a951" stroke-width="2"/>
+          <path d="M20,90 Q200,80 400,95 T780,85" fill="none" stroke="#b8892b" stroke-width="2"/>
           <!-- Lower band -->
-          <path d="M20,160 Q200,155 400,175 T780,165" fill="none" stroke="rgba(78,205,196,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <path d="M20,160 Q200,155 400,175 T780,165" fill="none" stroke="rgba(15,118,110,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
           <!-- Price -->
           <path d="M20,100 L60,85 L100,120 L140,95 L180,60 L220,75 L260,110 L300,130 L340,100 L380,70 L420,90 L460,60 L500,40 L540,65 L580,90 L620,115 L660,95 L700,70 L740,55 L780,85"
-                fill="none" stroke="#fff" stroke-width="1.8" opacity="0.85"/>
-          <text x="20" y="25" fill="#4ecdc4" font-family="'Space Mono',monospace" font-size="10">+2&sigma;</text>
-          <text x="20" y="82" fill="#c8a951" font-family="'Space Mono',monospace" font-size="10">SMA 20</text>
-          <text x="20" y="178" fill="#4ecdc4" font-family="'Space Mono',monospace" font-size="10">&minus;2&sigma;</text>
+                fill="none" stroke="#0f1419" stroke-width="1.8" opacity="0.9"/>
+          <text x="20" y="25" fill="#0f766e" font-family="'Space Mono',monospace" font-size="10">+2&sigma;</text>
+          <text x="20" y="82" fill="#b8892b" font-family="'Space Mono',monospace" font-size="10">SMA 20</text>
+          <text x="20" y="178" fill="#0f766e" font-family="'Space Mono',monospace" font-size="10">&minus;2&sigma;</text>
         </svg>
       </div>
     </section>
 
     <!-- =============== SLIDE 25: OSCILLATORS - MOMENTUM & RSI =============== -->
-    <section class="slide" id="s25">
+    <!-- =============== SLIDE s108: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s108">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Brent Crude with Moving Averages</h2>
+      <p class="slide-subtitle rv" style="--d:2">20 / 50 / 200-day moving averages layered on a real oil chart</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block4/slide-05.png" alt="From the contributor deck &mdash; Brent Crude MA chart">
+        <figcaption>From the contributor deck &mdash; Brent Crude MA chart</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide" id="s25">
       <div class="chapter-marker rv" style="--d:0">Block IV &middot; Oscillators</div>
       <h2 class="rv" style="--d:1">Measuring Momentum &mdash; When Speed Tells the Story</h2>
       <p class="slide-subtitle rv" style="--d:2">Like a ball thrown in the air &mdash; you can tell it&rsquo;s about to fall when its rise slows</p>
@@ -1869,16 +1991,16 @@
       <div class="glass rv" style="--d:7; margin-top:1.2em;">
         <svg viewBox="0 0 800 180" style="width:100%; height:160px;">
           <!-- 70 line -->
-          <line x1="20" y1="40" x2="780" y2="40" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="4 3"/>
-          <text x="25" y="35" fill="#ff6b6b" font-family="'Space Mono',monospace" font-size="10">70 &middot; OVERBOUGHT</text>
+          <line x1="20" y1="40" x2="780" y2="40" stroke="#dc2626" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="25" y="35" fill="#dc2626" font-family="'Space Mono',monospace" font-size="10">70 &middot; OVERBOUGHT</text>
           <!-- 50 line -->
-          <line x1="20" y1="90" x2="780" y2="90" stroke="rgba(200,169,81,0.3)" stroke-width="1"/>
+          <line x1="20" y1="90" x2="780" y2="90" stroke="rgba(184,137,43,0.3)" stroke-width="1"/>
           <!-- 30 line -->
-          <line x1="20" y1="140" x2="780" y2="140" stroke="#51cf66" stroke-width="1" stroke-dasharray="4 3"/>
-          <text x="25" y="156" fill="#51cf66" font-family="'Space Mono',monospace" font-size="10">30 &middot; OVERSOLD</text>
+          <line x1="20" y1="140" x2="780" y2="140" stroke="#16a34a" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="25" y="156" fill="#16a34a" font-family="'Space Mono',monospace" font-size="10">30 &middot; OVERSOLD</text>
           <!-- RSI line -->
           <path d="M20,120 Q80,80 140,35 T260,60 T380,30 T500,140 T620,90 T740,45 L780,65"
-                fill="none" stroke="#c8a951" stroke-width="2"/>
+                fill="none" stroke="#b8892b" stroke-width="2"/>
         </svg>
       </div>
     </section>
@@ -1889,7 +2011,7 @@
       <h2 class="rv" style="--d:1">Polling the Crowd Before You Trade the Chart</h2>
       <p class="slide-subtitle rv" style="--d:2">The contrarian&rsquo;s thermometer &mdash; sentiment extremes mark market turning points</p>
       <div class="two-col" style="margin-top:1em;">
-        <div class="glass rv" style="--d:3; border-color: rgba(78,205,196,0.35);">
+        <div class="glass rv" style="--d:3; border-color: rgba(15,118,110,0.35);">
           <div class="quadrant-label" style="color:var(--teal);">Sentiment</div>
           <h3>Put/Call Ratio &middot; VIX</h3>
           <p><strong>Baseline: &lt; 1.0</strong> &mdash; investors are naturally bullish. A spike <strong>&gt; 1.0</strong> signals <em>excessive, panic-level bearishness</em> &mdash; which, contrarians argue, usually marks a market bottom.</p>
@@ -1897,7 +2019,7 @@
             Companion metrics: VIX (volatility index), consumer sentiment polls, historical P/E ratios.
           </p>
         </div>
-        <div class="glass rv" style="--d:5; border-color: rgba(78,205,196,0.35);">
+        <div class="glass rv" style="--d:5; border-color: rgba(15,118,110,0.35);">
           <div class="quadrant-label" style="color:var(--teal);">Flow of Funds</div>
           <h3>TRIN (Arms Index)</h3>
           <p><strong>Baseline: &lt; 1.0</strong> &mdash; money is aggressively flowing <em>into</em> advancing stocks. A massive spike confirms either a final surge before a reversal or a broad-based rally that&rsquo;s secretly weakening beneath the surface.</p>
@@ -1955,7 +2077,18 @@
     <!-- ============================================================ -->
 
     <!-- =============== SLIDE 28: BLOCK V PLACEHOLDER =============== -->
-    <section class="slide block-title-slide" id="s28">
+    <!-- =============== SLIDE s109: CONTRIBUTOR FIGURE =============== -->
+    <section class="slide" id="s109">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; Contributor&rsquo;s View</div>
+      <h2 class="rv" style="--d:1">Aligning the Toolkit to Your Goal</h2>
+      <p class="slide-subtitle rv" style="--d:2">Short-term swing vs trend-ride vs macro market call &mdash; different indicators lead each</p>
+      <figure class="contrib-figure rv" style="--d:3">
+        <img src="assets/block4/slide-23.png" alt="From the contributor deck &mdash; Aligning to investing goals">
+        <figcaption>From the contributor deck &mdash; Aligning to investing goals</figcaption>
+      </figure>
+    </section>
+
+        <section class="slide block-title-slide" id="s28">
       <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Five</div>
       <h1 class="block-title rv" style="--d:2">The Debate</h1>
       <div class="block-rule rv" style="--d:3"></div>
@@ -2042,7 +2175,7 @@
           if (p.y > c.height) p.y = 0;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(200,169,81,0.2)';
+          ctx.fillStyle = 'rgba(15,20,25,0.28)';
           ctx.fill();
         }
         for (let i = 0; i < pts.length; i++) {
@@ -2054,7 +2187,7 @@
               ctx.beginPath();
               ctx.moveTo(pts[i].x, pts[i].y);
               ctx.lineTo(pts[j].x, pts[j].y);
-              ctx.strokeStyle = `rgba(200,169,81,${0.07 * (1 - d / 130)})`;
+              ctx.strokeStyle = `rgba(15,20,25,${0.12 * (1 - d / 130)})`;
               ctx.lineWidth = 0.5;
               ctx.stroke();
             }
@@ -2085,7 +2218,7 @@
         const line = document.createElementNS(ns, 'line');
         line.setAttribute('x1', '0'); line.setAttribute('y1', y);
         line.setAttribute('x2', '960'); line.setAttribute('y2', y);
-        line.setAttribute('stroke', 'rgba(200,169,81,0.04)');
+        line.setAttribute('stroke', 'rgba(184,137,43,0.04)');
         line.setAttribute('stroke-width', '1');
         svg.appendChild(line);
       }
@@ -2107,7 +2240,7 @@
       const maPath = document.createElementNS(ns, 'path');
       maPath.setAttribute('d', pathD);
       maPath.setAttribute('fill', 'none');
-      maPath.setAttribute('stroke', 'rgba(78,205,196,0.3)');
+      maPath.setAttribute('stroke', 'rgba(15,118,110,0.3)');
       maPath.setAttribute('stroke-width', '2');
       maPath.classList.add('ma-line');
       svg.appendChild(maPath);
@@ -2122,7 +2255,7 @@
         const [o, c, h, l] = d;
         const x = 30 + i * gap;
         const bull = c < o;
-        const color = bull ? '#51cf66' : '#ff6b6b';
+        const color = bull ? '#16a34a' : '#dc2626';
         const bodyTop = Math.min(o, c);
         const bodyH = Math.max(Math.abs(o - c), 4);
 
@@ -2179,9 +2312,10 @@
         const dotsContainer = document.getElementById('navDots');
         const labels = [
           'Title','Definition','Ancient Roots','Candlesticks','Charles Dow','Pioneers','Evolution','TA Today','Roadmap','Begin',
-          'Block II','Two Schools','FA Pillars','Core Principles','Comparison',
-          'Block III','Three Trends','Chart Types','Candle Anatomy','Bullish Reversals','Bearish Reversals','Support & Resistance',
-          'Block IV','Four Quadrants','SMA & Bollinger','Oscillators','Macro Layer','Combining Signals',
+          'Block II','Two Schools','FA Pillars','Core Principles','Comparison','Patterns Ref',
+          'Block III','Three Trends','Trend Lines','Chart Types','Line Chart','Candle Anatomy','Candle Bull/Bear',
+          'Bullish Reversals','Bearish Reversals','Engulfing Example','Support & Resistance','S&R Live Chart','Static vs Dynamic',
+          'Block IV','Four Quadrants','Quadrants Chart','SMA & Bollinger','Brent MA','Oscillators','Macro Layer','Combining Signals','Align to Goals',
           'Block V','DALIL'
         ];
         this.slides.forEach((_, i) => {
