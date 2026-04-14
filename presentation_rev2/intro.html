@@ -749,6 +749,179 @@
       .nav-dots { display: none; }
       .stat-value { font-size: 2.2rem; }
     }
+
+    /* === BLOCK TITLE SLIDES === */
+    .block-title-slide { justify-content: center; align-items: center; text-align: center; }
+    .block-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+    }
+    .block-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.95;
+      font-weight: 500;
+      background: linear-gradient(135deg, #f4edd7 10%, var(--gold) 55%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3em;
+    }
+    .block-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dim);
+      font-style: italic;
+      max-width: 680px;
+      margin: 0.6em auto 0;
+    }
+    .block-rule {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2em auto;
+    }
+
+    /* === MINI ILLUSTRATIONS === */
+    .mini-chart {
+      width: 100%;
+      height: 140px;
+      display: block;
+      margin-top: 0.6em;
+    }
+    .candle-diagram { display: block; margin: 0 auto; height: 150px; }
+    .pattern-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-top: 0.4em;
+    }
+
+    /* === COMPARISON TABLE === */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.4em;
+    }
+    .compare-table th, .compare-table td {
+      padding: 0.55em 0.9em;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .compare-table th {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .compare-table tr td:first-child {
+      font-family: 'Space Mono', monospace;
+      color: var(--gold);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .col-fa { color: var(--teal); }
+    .col-ta { color: var(--gold); }
+
+    /* === QUADRANT GRID (Block 4) === */
+    .quadrant-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 0.5em;
+    }
+    .quadrant {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1em 1.2em;
+      position: relative;
+    }
+    .quadrant-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4em;
+    }
+    .quadrant h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.2em;
+    }
+    .quadrant p {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin: 0.2em 0 0.3em;
+    }
+    .quadrant .micro-list {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .quad-macro { border-color: rgba(78,205,196,0.35); }
+    .quad-macro .quadrant-label { color: var(--teal); }
+    .quad-micro { border-color: rgba(200,169,81,0.35); }
+
+    /* === SR DIAGRAM === */
+    .sr-diagram { width: 100%; height: 220px; }
+
+    /* === DALIL HANDOFF === */
+    .dalil-panel {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .dalil-launch {
+      display: inline-block;
+      margin-top: 1.2em;
+      padding: 0.75em 1.8em;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .dalil-launch:hover {
+      background: var(--gold-glow);
+      box-shadow: 0 0 30px var(--gold-glow);
+    }
+
+    /* === PLACEHOLDER (missing block) === */
+    .placeholder-slate {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2.5em 2em;
+      border: 1px dashed rgba(200,169,81,0.35);
+      border-radius: 18px;
+      background: rgba(200,169,81,0.02);
+    }
+    .placeholder-slate .dot {
+      display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 16px var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+      margin-right: 0.5em;
+    }
+    @keyframes pulse { 0%,100%{opacity:0.35} 50%{opacity:1} }
   </style>
 </head>
 <body>
@@ -765,7 +938,7 @@
     <button class="nav-arrow" id="prevBtn" aria-label="Previous slide">&#8592;</button>
     <button class="nav-arrow" id="nextBtn" aria-label="Next slide">&#8594;</button>
   </div>
-  <div class="slide-counter"><span class="current-num" id="counterCur">01</span> / <span id="counterTotal">10</span></div>
+  <div class="slide-counter"><span class="current-num" id="counterCur">01</span> / <span id="counterTotal">30</span></div>
 
   <!-- ============================================================ -->
   <!-- SLIDES                                                        -->
@@ -793,7 +966,7 @@
           <div class="glass def-card rv" style="--d:2">
             <p><strong>Technical Analysis</strong> is the study of past market data &mdash; primarily <em>price</em> and <em>volume</em> &mdash; to forecast future price movements.</p>
           </div>
-          <h3 class="rv" style="--d:4" style="margin-top:1.2em;">Who Uses It?</h3>
+          <h3 class="rv" style="--d:4; margin-top:1.2em;">Who Uses It?</h3>
           <div class="tag-row rv" style="--d:5">
             <span class="tag">Day Traders</span>
             <span class="tag">Hedge Funds</span>
@@ -1130,6 +1303,701 @@
       </p>
     </section>
 
+    <!-- ============================================================ -->
+    <!-- BLOCK II — FOUNDATIONS (s10 – s14)                             -->
+    <!-- ============================================================ -->
+
+    <!-- =============== SLIDE 10: BLOCK II OPENER =============== -->
+    <section class="slide block-title-slide" id="s10">
+      <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Two</div>
+      <h1 class="block-title rv" style="--d:2">Foundations</h1>
+      <div class="block-rule rv" style="--d:3"></div>
+      <p class="block-tag rv" style="--d:4">
+        Technical versus Fundamental Analysis &mdash; and the three principles every chart-reader stands on.
+      </p>
+    </section>
+
+    <!-- =============== SLIDE 11: TA vs FA DEFINITIONS =============== -->
+    <section class="slide" id="s11">
+      <div class="chapter-marker rv" style="--d:0">Block II &middot; Two Schools</div>
+      <h2 class="rv" style="--d:1">Two Lenses on the Same Market</h2>
+      <p class="slide-subtitle rv" style="--d:2">Different questions, different tools, complementary answers</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3; border-color: rgba(78,205,196,0.35);">
+          <div class="block-number" style="color:var(--teal); margin-bottom:0.5em;">Fundamental Analysis</div>
+          <h3 style="color:var(--teal);">Intrinsic Value</h3>
+          <p>Evaluates a security by studying financial statements, economic indicators, and industry conditions to estimate what it is <em>really</em> worth.</p>
+          <div style="margin-top:1em; padding-top:0.8em; border-top:1px solid var(--border);">
+            <div class="block-number" style="margin-bottom:0.4em;">Key Question</div>
+            <p style="font-style:italic; color:var(--text);">&ldquo;Is this stock undervalued or overvalued?&rdquo;</p>
+          </div>
+        </div>
+        <div class="glass glass-gold rv" style="--d:5">
+          <div class="block-number" style="margin-bottom:0.5em;">Technical Analysis</div>
+          <h3 style="color:var(--gold);">Price &amp; Volume</h3>
+          <p>Studies historical price movements, volume, and chart patterns to forecast where the market is most likely to go next.</p>
+          <div style="margin-top:1em; padding-top:0.8em; border-top:1px solid var(--border-gold);">
+            <div class="block-number" style="margin-bottom:0.4em;">Key Question</div>
+            <p style="font-style:italic; color:var(--text);">&ldquo;What will the price do next?&rdquo;</p>
+          </div>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:7">
+        <div class="insight-label">Bottom line</div>
+        Fundamental analysis asks <strong>WHAT</strong> to buy. Technical analysis answers <strong>WHEN</strong> to buy. The most disciplined investors use both.
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 12: FA PILLARS =============== -->
+    <section class="slide" id="s12">
+      <div class="chapter-marker rv" style="--d:0">Block II &middot; Fundamental Deep Dive</div>
+      <h2 class="rv" style="--d:1">The Three Pillars of Fundamental Analysis</h2>
+      <p class="slide-subtitle rv" style="--d:2">What value investors actually look at</p>
+      <div class="three-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3">
+          <span class="year-badge">Company</span>
+          <h3>Financial Statements</h3>
+          <ul>
+            <li>Income Statement</li>
+            <li>Balance Sheet</li>
+            <li>Cash Flow Statement</li>
+            <li>Key ratios (P/E, ROE, Debt/Equity)</li>
+          </ul>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <span class="year-badge">Economy</span>
+          <h3>Macro Factors</h3>
+          <ul>
+            <li>GDP growth</li>
+            <li>Interest rates</li>
+            <li>Inflation</li>
+            <li>Employment &amp; consumer data</li>
+          </ul>
+        </div>
+        <div class="glass rv" style="--d:7">
+          <span class="year-badge">Business</span>
+          <h3>Qualitative Signals</h3>
+          <ul>
+            <li>Management quality</li>
+            <li>Competitive position &amp; moat</li>
+            <li>Industry trends</li>
+            <li>Market share</li>
+          </ul>
+        </div>
+      </div>
+      <blockquote class="rv" style="--d:9; margin-top:1.6em;">
+        &ldquo;Price is what you pay. Value is what you get.&rdquo;
+        <cite>&mdash; Benjamin Graham, foundational work on Security Analysis</cite>
+      </blockquote>
+    </section>
+
+    <!-- =============== SLIDE 13: THREE CORE TA PRINCIPLES =============== -->
+    <section class="slide" id="s13">
+      <div class="chapter-marker rv" style="--d:0">Block II &middot; The Bedrock</div>
+      <h2 class="rv" style="--d:1">The Three Core Principles of Technical Analysis</h2>
+      <p class="slide-subtitle rv" style="--d:2">Every indicator, pattern, and strategy rests on these three ideas</p>
+      <div class="three-col" style="margin-top:1em;">
+        <div class="glass glass-gold rv" style="--d:3">
+          <span class="year-badge">Principle&nbsp;I</span>
+          <h3>The Market Discounts Everything</h3>
+          <p>Fundamentals, politics, psychology, earnings surprises &mdash; every known and even suspected factor is already embedded in the current price.</p>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.5em; font-style:italic;">
+            Studying price means studying the sum of all information.
+          </p>
+        </div>
+        <div class="glass glass-gold rv" style="--d:5">
+          <span class="year-badge">Principle&nbsp;II</span>
+          <h3>Prices Move in Trends</h3>
+          <p>Markets do not wander randomly &mdash; they move in identifiable uptrends, downtrends, and sideways ranges that persist until a reversal confirms.</p>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.5em; font-style:italic;">
+            &ldquo;A trend in motion tends to stay in motion.&rdquo;
+          </p>
+        </div>
+        <div class="glass glass-gold rv" style="--d:7">
+          <span class="year-badge">Principle&nbsp;III</span>
+          <h3>History Repeats Itself</h3>
+          <p>Human psychology &mdash; fear and greed &mdash; is constant. The same chart patterns recur because the emotions driving them never change.</p>
+          <p style="font-size:0.8rem; color:var(--text-dim); margin-top:0.5em; font-style:italic;">
+            Patterns work because people are consistent.
+          </p>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:9">
+        <div class="insight-label">Core Assumption</div>
+        If any one of these three fails, Technical Analysis collapses. All charting, all indicators, all pattern recognition &mdash; every tool in the toolbox &mdash; inherits these three beliefs.
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 14: DIFFERENCES TABLE =============== -->
+    <section class="slide" id="s14">
+      <div class="chapter-marker rv" style="--d:0">Block II &middot; Side by Side</div>
+      <h2 class="rv" style="--d:1">Technical vs Fundamental &mdash; The Comparison Grid</h2>
+      <div class="glass rv" style="--d:3; margin-top:1em;">
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th class="col-fa">Fundamental</th><th class="col-ta">Technical</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Focus</td><td class="col-fa">Intrinsic value</td><td class="col-ta">Price movement &amp; trend</td></tr>
+            <tr><td>Time Horizon</td><td class="col-fa">Months to years</td><td class="col-ta">Minutes to months</td></tr>
+            <tr><td>Data</td><td class="col-fa">Financial statements &amp; macro data</td><td class="col-ta">Charts, volume, indicators</td></tr>
+            <tr><td>Core Question</td><td class="col-fa">What is it worth?</td><td class="col-ta">Where is it headed?</td></tr>
+            <tr><td>Assumption</td><td class="col-fa">Markets eventually reflect value</td><td class="col-ta">Price already reflects everything</td></tr>
+            <tr><td>Best For</td><td class="col-fa">Long-term investors</td><td class="col-ta">Traders &amp; timing decisions</td></tr>
+            <tr><td>Toolkit</td><td class="col-fa">P/E, DCF, balance sheet</td><td class="col-ta">Moving averages, RSI, candlesticks</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight rv" style="--d:6">
+        <div class="insight-label">Best Practice</div>
+        Use <strong style="color:var(--teal);">Fundamentals</strong> to decide <em>which</em> asset deserves a seat in the portfolio, then use <strong style="color:var(--gold);">Technicals</strong> to decide <em>when</em> to take that seat.
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK III — READING THE MARKET (s15 – s21)                     -->
+    <!-- ============================================================ -->
+
+    <!-- =============== SLIDE 15: BLOCK III OPENER =============== -->
+    <section class="slide block-title-slide" id="s15">
+      <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Three</div>
+      <h1 class="block-title rv" style="--d:2">Reading the Market</h1>
+      <div class="block-rule rv" style="--d:3"></div>
+      <p class="block-tag rv" style="--d:4">
+        Trends, chart types, candlesticks, and the invisible lines where supply and demand collide.
+      </p>
+    </section>
+
+    <!-- =============== SLIDE 16: DOW THEORY + THREE TRENDS =============== -->
+    <section class="slide" id="s16">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Dow&rsquo;s Framework</div>
+      <h2 class="rv" style="--d:1">The Three Trends Every Market Moves In</h2>
+      <p class="slide-subtitle rv" style="--d:2">Charles Dow&rsquo;s ocean metaphor &mdash; the tide, the waves, and the ripples</p>
+      <div class="three-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3">
+          <div class="avatar avatar-gold">I</div>
+          <span class="year-badge" style="background:rgba(81,207,102,0.15); color:var(--bull);">The Tide</span>
+          <h3>Primary Trend</h3>
+          <p>The long-term direction, lasting <strong>months to years</strong>. Bull market or bear market. This is what defines an era.</p>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <div class="avatar avatar-teal">II</div>
+          <span class="year-badge">The Waves</span>
+          <h3>Secondary Trend</h3>
+          <p>Medium-term movements <strong>against the primary trend</strong>. Corrections and retracements, lasting weeks to a few months.</p>
+        </div>
+        <div class="glass rv" style="--d:7">
+          <div class="avatar avatar-bear">III</div>
+          <span class="year-badge" style="background:rgba(255,107,107,0.15); color:var(--bear);">The Ripples</span>
+          <h3>Minor Trend</h3>
+          <p>Day-to-day fluctuations &mdash; noise at the surface. Short-lived and often misleading when viewed in isolation.</p>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:9">
+        <div class="insight-label">Dow's insight (1900)</div>
+        Markets are not random. They move in <strong>identifiable, nested trends</strong> of different time scales. Trade with the tide, surf the waves, ignore the ripples.
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 17: CHART TYPES =============== -->
+    <section class="slide" id="s17">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; The Tools of Sight</div>
+      <h2 class="rv" style="--d:1">Three Ways to See Price Action</h2>
+      <p class="slide-subtitle rv" style="--d:2">Line, Bar, Candlestick &mdash; each tells a different layer of the story</p>
+      <div class="three-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3">
+          <h3>Line Chart</h3>
+          <svg class="mini-chart" viewBox="0 0 300 120">
+            <polyline fill="none" stroke="#c8a951" stroke-width="2" points="10,90 40,70 70,78 100,50 130,60 160,35 190,45 220,22 250,30 290,10"/>
+          </svg>
+          <p style="margin-top:0.4em;">Plots only the <strong>closing price</strong> over time. Filters intraday noise &mdash; the day&rsquo;s final consensus of value.</p>
+          <p style="font-size:0.78rem; color:var(--text-dim); margin-top:0.4em;">Best for: long-term trend visualization</p>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <h3>Bar Chart (OHLC)</h3>
+          <svg class="mini-chart" viewBox="0 0 300 120">
+            <g stroke="#c8a951" stroke-width="2" fill="none">
+              <line x1="30" y1="20" x2="30" y2="95"/><line x1="25" y1="45" x2="30" y2="45"/><line x1="30" y1="65" x2="35" y2="65"/>
+              <line x1="70" y1="15" x2="70" y2="80"/><line x1="65" y1="40" x2="70" y2="40"/><line x1="70" y1="55" x2="75" y2="55"/>
+              <line x1="110" y1="25" x2="110" y2="90"/><line x1="105" y1="60" x2="110" y2="60"/><line x1="110" y1="35" x2="115" y2="35"/>
+              <line x1="150" y1="10" x2="150" y2="70"/><line x1="145" y1="45" x2="150" y2="45"/><line x1="150" y1="25" x2="155" y2="25"/>
+              <line x1="190" y1="15" x2="190" y2="75"/><line x1="185" y1="55" x2="190" y2="55"/><line x1="190" y1="20" x2="195" y2="20"/>
+              <line x1="230" y1="5" x2="230" y2="65"/><line x1="225" y1="30" x2="230" y2="30"/><line x1="230" y1="15" x2="235" y2="15"/>
+              <line x1="270" y1="20" x2="270" y2="55"/><line x1="265" y1="45" x2="270" y2="45"/><line x1="270" y1="25" x2="275" y2="25"/>
+            </g>
+          </svg>
+          <p style="margin-top:0.4em;">Encodes <strong>four points per bar</strong>: Open (left tick), High (top), Low (bottom), Close (right tick). Reveals intraday volatility.</p>
+          <p style="font-size:0.78rem; color:var(--text-dim); margin-top:0.4em;">Best for: Western-style traders</p>
+        </div>
+        <div class="glass glass-gold rv" style="--d:7">
+          <h3>Candlestick Chart</h3>
+          <svg class="mini-chart" viewBox="0 0 300 120">
+            <g stroke-width="1.5">
+              <line x1="30" y1="15" x2="30" y2="95" stroke="#51cf66"/><rect x="22" y="45" width="16" height="30" fill="#51cf66"/>
+              <line x1="70" y1="10" x2="70" y2="75" stroke="#51cf66"/><rect x="62" y="35" width="16" height="25" fill="#51cf66"/>
+              <line x1="110" y1="25" x2="110" y2="90" stroke="#ff6b6b"/><rect x="102" y="40" width="16" height="30" fill="#ff6b6b"/>
+              <line x1="150" y1="15" x2="150" y2="70" stroke="#51cf66"/><rect x="142" y="25" width="16" height="30" fill="#51cf66"/>
+              <line x1="190" y1="10" x2="190" y2="75" stroke="#ff6b6b"/><rect x="182" y="30" width="16" height="25" fill="#ff6b6b"/>
+              <line x1="230" y1="5" x2="230" y2="65" stroke="#51cf66"/><rect x="222" y="15" width="16" height="30" fill="#51cf66"/>
+              <line x1="270" y1="10" x2="270" y2="50" stroke="#51cf66"/><rect x="262" y="15" width="16" height="25" fill="#51cf66"/>
+            </g>
+          </svg>
+          <p style="margin-top:0.4em;">Same OHLC data, but the <strong>body colour</strong> instantly shows who won the period &mdash; buyers (green) or sellers (red).</p>
+          <p style="font-size:0.78rem; color:var(--gold); margin-top:0.4em;">Best for: reading market psychology</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 18: CANDLESTICK ANATOMY & HISTORY =============== -->
+    <section class="slide" id="s18">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Anatomy of a Candle</div>
+      <h2 class="rv" style="--d:1">The Language Japanese Rice Traders Invented</h2>
+      <p class="slide-subtitle rv" style="--d:2">Munehisa Homma, Dojima Rice Exchange, 1700s &mdash; brought West by Steve Nison in the 1990s</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div>
+          <div class="glass rv" style="--d:3; text-align:center;">
+            <svg class="candle-diagram" viewBox="0 0 260 180">
+              <!-- Bullish candle -->
+              <g>
+                <line x1="80" y1="15" x2="80" y2="165" stroke="#51cf66" stroke-width="2"/>
+                <rect x="55" y="55" width="50" height="75" fill="#51cf66" stroke="#51cf66" rx="2"/>
+                <text x="80" y="180" text-anchor="middle" fill="#51cf66" font-family="'Space Mono',monospace" font-size="11">BULLISH</text>
+                <text x="125" y="30" fill="#c8a951" font-family="'Space Mono',monospace" font-size="9">Upper wick</text>
+                <line x1="90" y1="25" x2="120" y2="25" stroke="#c8a951" stroke-width="0.5" stroke-dasharray="2"/>
+                <text x="125" y="95" fill="#c8a951" font-family="'Space Mono',monospace" font-size="9">Real body</text>
+                <line x1="110" y1="90" x2="120" y2="90" stroke="#c8a951" stroke-width="0.5" stroke-dasharray="2"/>
+                <text x="125" y="155" fill="#c8a951" font-family="'Space Mono',monospace" font-size="9">Lower wick</text>
+                <line x1="90" y1="150" x2="120" y2="150" stroke="#c8a951" stroke-width="0.5" stroke-dasharray="2"/>
+              </g>
+              <!-- Bearish candle -->
+              <g transform="translate(120,0)">
+                <line x1="80" y1="10" x2="80" y2="170" stroke="#ff6b6b" stroke-width="2"/>
+                <rect x="55" y="40" width="50" height="90" fill="#ff6b6b" stroke="#ff6b6b" rx="2"/>
+                <text x="80" y="180" text-anchor="middle" fill="#ff6b6b" font-family="'Space Mono',monospace" font-size="11">BEARISH</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="glass rv" style="--d:5">
+            <h3>Four data points, one glance</h3>
+            <ul>
+              <li><strong>Real body</strong> &mdash; thick rectangle between open and close</li>
+              <li><strong>Upper wick</strong> &mdash; thin line showing the session high</li>
+              <li><strong>Lower wick</strong> &mdash; thin line showing the session low</li>
+              <li><strong>Green/white</strong> body &mdash; close above open &middot; buyers won</li>
+              <li><strong>Red/black</strong> body &mdash; close below open &middot; sellers won</li>
+            </ul>
+          </div>
+          <blockquote class="rv" style="--d:7; margin-top:1em;">
+            Homma realised that while supply and demand set price, the <em>emotions</em> of traders &mdash; fear and greed &mdash; drove the fluctuations. Legend credits him with 100 consecutive winning trades.
+            <cite>&mdash; Dojima Rice Exchange, Osaka</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 19: BULLISH REVERSAL PATTERNS =============== -->
+    <section class="slide" id="s19">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Bullish Reversals</div>
+      <h2 class="rv" style="--d:1">When the Tide Turns Upward</h2>
+      <p class="slide-subtitle rv" style="--d:2">Three candle formations that signal a downtrend is exhausting</p>
+      <div class="three-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3; text-align:center;">
+          <svg class="candle-diagram" viewBox="0 0 120 150">
+            <line x1="60" y1="10" x2="60" y2="140" stroke="#51cf66" stroke-width="2"/>
+            <rect x="48" y="25" width="24" height="28" fill="#51cf66" rx="2"/>
+          </svg>
+          <div class="pattern-name">The Hammer</div>
+          <p style="font-size:0.82rem;">Small body near the top with a <strong>long lower wick</strong>. Sellers drove price down but buyers fought back and won the session.</p>
+        </div>
+        <div class="glass rv" style="--d:5; text-align:center;">
+          <svg class="candle-diagram" viewBox="0 0 160 150">
+            <g>
+              <line x1="60" y1="40" x2="60" y2="100" stroke="#ff6b6b" stroke-width="2"/>
+              <rect x="50" y="55" width="20" height="30" fill="#ff6b6b" rx="2"/>
+              <line x1="110" y1="15" x2="110" y2="130" stroke="#51cf66" stroke-width="2"/>
+              <rect x="90" y="30" width="40" height="90" fill="#51cf66" rx="2"/>
+            </g>
+          </svg>
+          <div class="pattern-name">Bullish Engulfing</div>
+          <p style="font-size:0.82rem;">A large green candle <strong>completely swallows</strong> the prior red candle. Visual definition of buyers overwhelming sellers.</p>
+        </div>
+        <div class="glass rv" style="--d:7; text-align:center;">
+          <svg class="candle-diagram" viewBox="0 0 200 150">
+            <g>
+              <line x1="40" y1="15" x2="40" y2="110" stroke="#ff6b6b" stroke-width="2"/>
+              <rect x="28" y="25" width="24" height="70" fill="#ff6b6b" rx="2"/>
+              <line x1="100" y1="85" x2="100" y2="125" stroke="#888" stroke-width="2"/>
+              <rect x="88" y="100" width="24" height="10" fill="#888" rx="2"/>
+              <line x1="160" y1="25" x2="160" y2="115" stroke="#51cf66" stroke-width="2"/>
+              <rect x="148" y="40" width="24" height="65" fill="#51cf66" rx="2"/>
+            </g>
+          </svg>
+          <div class="pattern-name">Morning Star</div>
+          <p style="font-size:0.82rem;">Three candles: big red &rarr; indecision dot &rarr; big green. The classic <em>rebirth</em> pattern &mdash; the moment before dawn.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 20: BEARISH REVERSAL PATTERNS + DOJI =============== -->
+    <section class="slide" id="s20">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; Bearish Reversals</div>
+      <h2 class="rv" style="--d:1">When the Tide Turns Downward</h2>
+      <p class="slide-subtitle rv" style="--d:2">Three formations that appear at the peak &mdash; plus the great neutral pattern</p>
+      <div class="three-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3; text-align:center;">
+          <svg class="candle-diagram" viewBox="0 0 120 150">
+            <line x1="60" y1="10" x2="60" y2="140" stroke="#ff6b6b" stroke-width="2"/>
+            <rect x="48" y="25" width="24" height="28" fill="#ff6b6b" rx="2"/>
+          </svg>
+          <div class="pattern-name">The Hanging Man</div>
+          <p style="font-size:0.82rem;">Same shape as a Hammer but at the <strong>top of an uptrend</strong>. A warning: buyers are losing grip, sellers have arrived.</p>
+        </div>
+        <div class="glass rv" style="--d:5; text-align:center;">
+          <svg class="candle-diagram" viewBox="0 0 160 150">
+            <g>
+              <line x1="60" y1="40" x2="60" y2="100" stroke="#51cf66" stroke-width="2"/>
+              <rect x="50" y="55" width="20" height="30" fill="#51cf66" rx="2"/>
+              <line x1="110" y1="15" x2="110" y2="130" stroke="#ff6b6b" stroke-width="2"/>
+              <rect x="90" y="30" width="40" height="90" fill="#ff6b6b" rx="2"/>
+            </g>
+          </svg>
+          <div class="pattern-name">Bearish Engulfing</div>
+          <p style="font-size:0.82rem;">A large red candle swallows a small green one &mdash; the visual signature of <strong>panic selling</strong> taking over.</p>
+        </div>
+        <div class="glass rv" style="--d:7; text-align:center;">
+          <svg class="candle-diagram" viewBox="0 0 200 150">
+            <g>
+              <line x1="40" y1="15" x2="40" y2="110" stroke="#51cf66" stroke-width="2"/>
+              <rect x="28" y="25" width="24" height="70" fill="#51cf66" rx="2"/>
+              <line x1="100" y1="85" x2="100" y2="125" stroke="#888" stroke-width="2"/>
+              <rect x="88" y="100" width="24" height="10" fill="#888" rx="2"/>
+              <line x1="160" y1="25" x2="160" y2="115" stroke="#ff6b6b" stroke-width="2"/>
+              <rect x="148" y="40" width="24" height="65" fill="#ff6b6b" rx="2"/>
+            </g>
+          </svg>
+          <div class="pattern-name">Evening Star</div>
+          <p style="font-size:0.82rem;">Big green &rarr; indecision &rarr; big red. The sun setting on the uptrend &mdash; the bearish twin of the Morning Star.</p>
+        </div>
+      </div>
+      <div class="glass rv" style="--d:9; margin-top:1.2em; display:flex; gap:1.5em; align-items:center;">
+        <svg viewBox="0 0 80 100" style="width:60px; flex-shrink:0;">
+          <line x1="40" y1="10" x2="40" y2="90" stroke="#c8a951" stroke-width="2"/>
+          <line x1="25" y1="50" x2="55" y2="50" stroke="#c8a951" stroke-width="3"/>
+        </svg>
+        <div>
+          <h3 style="margin-bottom:0.3em;">The Doji &mdash; Market Indecision</h3>
+          <p style="font-size:0.88rem;">Open and close are virtually identical. Neither side won the session. Often a warning that the current trend is pausing &mdash; and may be about to reverse.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 21: SUPPORT & RESISTANCE =============== -->
+    <section class="slide" id="s21">
+      <div class="chapter-marker rv" style="--d:0">Block III &middot; The Battlefield</div>
+      <h2 class="rv" style="--d:1">Support &amp; Resistance &mdash; The Invisible Lines</h2>
+      <p class="slide-subtitle rv" style="--d:2">Price levels where the war between buyers and sellers is fought, again and again</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3">
+          <h3 style="color:var(--bull);">Support &mdash; the demand floor</h3>
+          <p>A price level where buying interest is strong enough to <strong>prevent further decline</strong>. As price falls, it looks cheap &mdash; demand revives, supply dries up, and the fall halts.</p>
+          <h3 style="color:var(--bear); margin-top:1em;">Resistance &mdash; the supply ceiling</h3>
+          <p>A price level where selling pressure overwhelms buyers and <strong>stops the advance</strong>. As price rises, holders take profits and new buyers hesitate.</p>
+        </div>
+        <div class="glass glass-gold rv" style="--d:5">
+          <svg class="sr-diagram" viewBox="0 0 340 220">
+            <defs>
+              <linearGradient id="srgrid" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(200,169,81,0.05)"/>
+                <stop offset="1" stop-color="transparent"/>
+              </linearGradient>
+            </defs>
+            <rect width="340" height="220" fill="url(#srgrid)"/>
+            <!-- Resistance line -->
+            <line x1="10" y1="50" x2="330" y2="50" stroke="#ff6b6b" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="15" y="42" fill="#ff6b6b" font-family="'Space Mono',monospace" font-size="10">RESISTANCE</text>
+            <!-- Support line -->
+            <line x1="10" y1="170" x2="330" y2="170" stroke="#51cf66" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="15" y="185" fill="#51cf66" font-family="'Space Mono',monospace" font-size="10">SUPPORT</text>
+            <!-- Price action bouncing -->
+            <polyline fill="none" stroke="#c8a951" stroke-width="2"
+              points="10,170 40,120 70,55 100,90 130,50 160,130 190,170 220,100 250,55 280,160 310,170 330,110"/>
+            <!-- Bounce markers -->
+            <circle cx="70" cy="55" r="4" fill="#ff6b6b"/>
+            <circle cx="130" cy="50" r="4" fill="#ff6b6b"/>
+            <circle cx="250" cy="55" r="4" fill="#ff6b6b"/>
+            <circle cx="190" cy="170" r="4" fill="#51cf66"/>
+            <circle cx="310" cy="170" r="4" fill="#51cf66"/>
+          </svg>
+          <p style="font-size:0.8rem; color:var(--text-dim); text-align:center; margin-top:0.3em;">
+            Price bounces between the floor and the ceiling &mdash; each retest strengthens the level&rsquo;s significance.
+          </p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:1.2em;">
+        <div class="glass rv" style="--d:7">
+          <div class="block-number" style="margin-bottom:0.4em;">Role Reversal</div>
+          <p style="font-size:0.88rem;">Once a key level <strong>breaks decisively</strong>, its role flips:</p>
+          <ul>
+            <li>Broken <span style="color:var(--bear);">Resistance</span> becomes the new <span style="color:var(--bull);">Support</span></li>
+            <li>Broken <span style="color:var(--bull);">Support</span> becomes the new <span style="color:var(--bear);">Resistance</span></li>
+          </ul>
+        </div>
+        <div class="glass rv" style="--d:9">
+          <div class="block-number" style="margin-bottom:0.4em;">Dynamic S&amp;R &mdash; The Channel</div>
+          <p style="font-size:0.88rem;">When support and resistance slope with the trend, drawn along the <em>higher lows</em> and <em>higher highs</em>, you get a <strong>trading channel</strong> &mdash; buy the floor, sell the ceiling.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK IV — PATTERNS & INDICATORS (s22 – s27)                   -->
+    <!-- ============================================================ -->
+
+    <!-- =============== SLIDE 22: BLOCK IV OPENER =============== -->
+    <section class="slide block-title-slide" id="s22">
+      <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Four</div>
+      <h1 class="block-title rv" style="--d:2">Indicators</h1>
+      <div class="block-rule rv" style="--d:3"></div>
+      <p class="block-tag rv" style="--d:4">
+        A disciplined, rules-based toolkit &mdash; four quadrants of signals that keep a trader out of analysis paralysis.
+      </p>
+    </section>
+
+    <!-- =============== SLIDE 23: FOUR QUADRANTS FRAMEWORK =============== -->
+    <section class="slide" id="s23">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; The Framework</div>
+      <h2 class="rv" style="--d:1">The Four Quadrants of Technical Tools</h2>
+      <p class="slide-subtitle rv" style="--d:2">Macro vs Micro &mdash; the Engine and the Steering Wheel of any trading system</p>
+      <div class="quadrant-grid rv" style="--d:3; margin-top:1em;">
+        <div class="quadrant quad-micro">
+          <div class="quadrant-label">Micro &middot; Security</div>
+          <h4>Trend Tracking</h4>
+          <p>The steering wheel. Rides the direction.</p>
+          <div class="micro-list">MA &middot; BOLLINGER &middot; LINEAR REG</div>
+        </div>
+        <div class="quadrant quad-macro">
+          <div class="quadrant-label">Macro &middot; Market</div>
+          <h4>Flow of Funds</h4>
+          <p>Where money is actually moving.</p>
+          <div class="micro-list">TRIN &middot; OBV &middot; CHAIKIN</div>
+        </div>
+        <div class="quadrant quad-micro">
+          <div class="quadrant-label">Micro &middot; Security</div>
+          <h4>Oscillators</h4>
+          <p>Momentum extremes and reversals.</p>
+          <div class="micro-list">RSI &middot; MACD &middot; STOCHASTIC</div>
+        </div>
+        <div class="quadrant quad-macro">
+          <div class="quadrant-label">Macro &middot; Market</div>
+          <h4>Sentiment</h4>
+          <p>What the crowd is feeling.</p>
+          <div class="micro-list">PUT/CALL &middot; VIX &middot; P/E</div>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:6">
+        <div class="insight-label">Diagnostic warning</div>
+        <strong>Analysis Paralysis</strong> happens when traders stack three indicators <em>from the same quadrant</em>. A robust system pulls complementary sensors from <strong>different</strong> quadrants.
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 24: TREND TRACKING - SMA & BOLLINGER =============== -->
+    <section class="slide" id="s24">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; Trend Tracking</div>
+      <h2 class="rv" style="--d:1">The Moving Average &amp; Bollinger Bands</h2>
+      <p class="slide-subtitle rv" style="--d:2">The baseline of every trend-following system &mdash; and its 2&sigma; envelope</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3">
+          <h3>Simple Moving Average</h3>
+          <p style="font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--gold); margin:0.4em 0;">
+            SMA = &Sigma; closes<sub>N</sub> / N
+          </p>
+          <p><strong>The rule:</strong> buy when price crosses above the upward-sloping SMA or bounces off it as support; sell when it breaks below.</p>
+          <p><strong>Fatal limit:</strong> <em>lag</em>. Short windows produce whipsaws; long windows react too slowly to sudden crashes.</p>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <h3>Bollinger Bands</h3>
+          <p style="font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--gold); margin:0.4em 0;">
+            Upper/Lower = SMA<sub>20</sub> &plusmn; 2&sigma;
+          </p>
+          <p><strong>The rule:</strong> 95% of historical price movement should occur <em>inside</em> the bands. When price closes back inside from below, that confirms mean reversion.</p>
+          <p><strong>Fatal limit:</strong> in strong trends price can <em>ride the band</em>, sliding along the boundary for extended stretches.</p>
+        </div>
+      </div>
+      <div class="glass rv" style="--d:7; margin-top:1.2em;">
+        <svg viewBox="0 0 800 200" style="width:100%; height:180px;">
+          <!-- Upper band -->
+          <path d="M20,30 Q200,20 400,45 T780,35" fill="none" stroke="rgba(78,205,196,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <!-- Middle (SMA) -->
+          <path d="M20,90 Q200,80 400,95 T780,85" fill="none" stroke="#c8a951" stroke-width="2"/>
+          <!-- Lower band -->
+          <path d="M20,160 Q200,155 400,175 T780,165" fill="none" stroke="rgba(78,205,196,0.6)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <!-- Price -->
+          <path d="M20,100 L60,85 L100,120 L140,95 L180,60 L220,75 L260,110 L300,130 L340,100 L380,70 L420,90 L460,60 L500,40 L540,65 L580,90 L620,115 L660,95 L700,70 L740,55 L780,85"
+                fill="none" stroke="#fff" stroke-width="1.8" opacity="0.85"/>
+          <text x="20" y="25" fill="#4ecdc4" font-family="'Space Mono',monospace" font-size="10">+2&sigma;</text>
+          <text x="20" y="82" fill="#c8a951" font-family="'Space Mono',monospace" font-size="10">SMA 20</text>
+          <text x="20" y="178" fill="#4ecdc4" font-family="'Space Mono',monospace" font-size="10">&minus;2&sigma;</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 25: OSCILLATORS - MOMENTUM & RSI =============== -->
+    <section class="slide" id="s25">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; Oscillators</div>
+      <h2 class="rv" style="--d:1">Measuring Momentum &mdash; When Speed Tells the Story</h2>
+      <p class="slide-subtitle rv" style="--d:2">Like a ball thrown in the air &mdash; you can tell it&rsquo;s about to fall when its rise slows</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3">
+          <h3>Momentum Indicator</h3>
+          <p style="font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--gold); margin:0.4em 0;">
+            M = Close<sub>t</sub> &minus; Close<sub>t&minus;N</sub>
+          </p>
+          <p><strong>The rule:</strong> enter when the indicator crosses above the zero line; exit when it crosses below.</p>
+          <p><strong>Fatal limit:</strong> <em>noise</em>. Rapid-fire signals chop across zero, leading to overtrading.</p>
+        </div>
+        <div class="glass rv" style="--d:5">
+          <h3>Relative Strength Index (RSI)</h3>
+          <p style="font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--gold); margin:0.4em 0;">
+            RSI = 100 &minus; 100 / (1 + RS)
+          </p>
+          <p><strong>The rule:</strong> &gt; 70 is overbought, &lt; 30 is oversold. The strongest signal is <em>divergence</em>: price hits a lower low but RSI hits a higher low.</p>
+          <p><strong>Fatal limit:</strong> in strong trends, RSI can stay mathematically overbought (or oversold) for long stretches before mean-reverting.</p>
+        </div>
+      </div>
+      <div class="glass rv" style="--d:7; margin-top:1.2em;">
+        <svg viewBox="0 0 800 180" style="width:100%; height:160px;">
+          <!-- 70 line -->
+          <line x1="20" y1="40" x2="780" y2="40" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="25" y="35" fill="#ff6b6b" font-family="'Space Mono',monospace" font-size="10">70 &middot; OVERBOUGHT</text>
+          <!-- 50 line -->
+          <line x1="20" y1="90" x2="780" y2="90" stroke="rgba(200,169,81,0.3)" stroke-width="1"/>
+          <!-- 30 line -->
+          <line x1="20" y1="140" x2="780" y2="140" stroke="#51cf66" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="25" y="156" fill="#51cf66" font-family="'Space Mono',monospace" font-size="10">30 &middot; OVERSOLD</text>
+          <!-- RSI line -->
+          <path d="M20,120 Q80,80 140,35 T260,60 T380,30 T500,140 T620,90 T740,45 L780,65"
+                fill="none" stroke="#c8a951" stroke-width="2"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 26: MACRO - SENTIMENT & FLOW OF FUNDS =============== -->
+    <section class="slide" id="s26">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; The Macro Layer</div>
+      <h2 class="rv" style="--d:1">Polling the Crowd Before You Trade the Chart</h2>
+      <p class="slide-subtitle rv" style="--d:2">The contrarian&rsquo;s thermometer &mdash; sentiment extremes mark market turning points</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="glass rv" style="--d:3; border-color: rgba(78,205,196,0.35);">
+          <div class="quadrant-label" style="color:var(--teal);">Sentiment</div>
+          <h3>Put/Call Ratio &middot; VIX</h3>
+          <p><strong>Baseline: &lt; 1.0</strong> &mdash; investors are naturally bullish. A spike <strong>&gt; 1.0</strong> signals <em>excessive, panic-level bearishness</em> &mdash; which, contrarians argue, usually marks a market bottom.</p>
+          <p style="font-size:0.82rem; color:var(--text-dim); margin-top:0.5em;">
+            Companion metrics: VIX (volatility index), consumer sentiment polls, historical P/E ratios.
+          </p>
+        </div>
+        <div class="glass rv" style="--d:5; border-color: rgba(78,205,196,0.35);">
+          <div class="quadrant-label" style="color:var(--teal);">Flow of Funds</div>
+          <h3>TRIN (Arms Index)</h3>
+          <p><strong>Baseline: &lt; 1.0</strong> &mdash; money is aggressively flowing <em>into</em> advancing stocks. A massive spike confirms either a final surge before a reversal or a broad-based rally that&rsquo;s secretly weakening beneath the surface.</p>
+          <p style="font-size:0.82rem; color:var(--text-dim); margin-top:0.5em;">
+            Companion metrics: On-Balance Volume, Chaikin Money Flow, Commitment of Traders report.
+          </p>
+        </div>
+      </div>
+      <div class="insight rv" style="--d:7">
+        <div class="insight-label">How to use the macro layer</div>
+        Macro indicators are <strong>not for individual stock triggers</strong>. They set the <em>backdrop</em> &mdash; confirming when a broad rally is real (volume agrees) or when the crowd is priced for disappointment (sentiment extremes).
+      </div>
+    </section>
+
+    <!-- =============== SLIDE 27: COMBINING SIGNALS + MATRIX =============== -->
+    <section class="slide" id="s27">
+      <div class="chapter-marker rv" style="--d:0">Block IV &middot; The Control Panel</div>
+      <h2 class="rv" style="--d:1">Combining Signals &mdash; The High-Conviction Trade</h2>
+      <p class="slide-subtitle rv" style="--d:2">One indicator tells a story. Two from different quadrants tell the truth.</p>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="glass glass-gold rv" style="--d:3">
+          <div class="block-number" style="margin-bottom:0.4em;">Localized trade setup</div>
+          <p style="font-size:1.1rem; font-family:'Cormorant Garamond',serif; color:var(--gold); font-style:italic; text-align:center; margin:0.7em 0;">
+            Primary Trend + Oscillator
+            <br>= High-conviction entry
+          </p>
+          <p style="font-size:0.85rem;">Establish direction with the 50-day moving average, then wait for RSI to exit an extreme zone &mdash; that&rsquo;s your trigger.</p>
+        </div>
+        <div class="glass glass-gold rv" style="--d:5">
+          <div class="block-number" style="margin-bottom:0.4em;">Broad market call</div>
+          <p style="font-size:1.1rem; font-family:'Cormorant Garamond',serif; color:var(--gold); font-style:italic; text-align:center; margin:0.7em 0;">
+            Sentiment + Flow of Funds
+            <br>= Market reversal
+          </p>
+          <p style="font-size:0.85rem;">Confirm a market bottom when a Put/Call spike (crowd panic) coincides with extreme volume leaving declining stocks (TRIN extreme).</p>
+        </div>
+      </div>
+      <div class="glass rv" style="--d:7; margin-top:1.2em;">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Category</th><th>Domain</th><th>Core Function</th><th>Actionable Rule</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trend</td><td>Micro &middot; Security</td><td>Directional baseline</td><td>Trade with the slope &middot; trigger on line cross</td></tr>
+            <tr><td>Oscillator</td><td>Micro &middot; Security</td><td>Momentum reversals</td><td>Trigger on exit from 30/70 extreme zones</td></tr>
+            <tr><td>Sentiment</td><td>Macro &middot; Market</td><td>Crowd psychology</td><td>Trade contrary to Put/Call &gt; 1.0 spikes</td></tr>
+            <tr><td>Flow of Funds</td><td>Macro &middot; Market</td><td>Supply &amp; demand</td><td>Confirm trend strength via TRIN volume flows</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK V — DEBATE & LIMITATIONS (s28) — PLACEHOLDER             -->
+    <!-- ============================================================ -->
+
+    <!-- =============== SLIDE 28: BLOCK V PLACEHOLDER =============== -->
+    <section class="slide block-title-slide" id="s28">
+      <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Five</div>
+      <h1 class="block-title rv" style="--d:2">The Debate</h1>
+      <div class="block-rule rv" style="--d:3"></div>
+      <p class="block-tag rv" style="--d:4">
+        Does Technical Analysis actually work? The Efficient Market Hypothesis, case studies, and honest limitations.
+      </p>
+      <div class="placeholder-slate rv" style="--d:6; margin-top:2em;">
+        <div style="font-family:'Space Mono',monospace; font-size:0.75rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8em;">
+          <span class="dot"></span>PENDING CONTRIBUTOR CONTENT
+        </div>
+        <p style="color:var(--text-dim); font-size:0.95rem;">
+          This block &mdash; covering the EMH debate, documented TA successes and failures, and the honest limits of chart-based forecasting &mdash; is reserved for the teammate&rsquo;s final deliverable.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK VI — AI &amp; DALIL DEMO (s29)                              -->
+    <!-- ============================================================ -->
+
+    <!-- =============== SLIDE 29: DALIL HANDOFF =============== -->
+    <section class="slide block-title-slide" id="s29">
+      <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Six</div>
+      <h1 class="block-title rv" style="--d:2">DALIL</h1>
+      <div class="block-rule rv" style="--d:3"></div>
+      <p class="block-tag rv" style="--d:4; font-family:'Cormorant Garamond',serif; font-style:italic;">
+        Dynamic Analysis of Live Investment &amp; Listings
+      </p>
+      <div class="dalil-panel rv" style="--d:6; margin-top:1.4em;">
+        <p style="color:var(--text-dim); font-size:0.95rem;">
+          A live voice-controlled Arabic interface on top of everything you have just seen &mdash; trends, candlesticks, support &amp; resistance, RSI, Bollinger, MACD. Research in 2024 showed that combining <strong>Technical Analysis with Market Sentiment</strong> via neural networks pushed S&amp;P 500 predictive accuracy to <strong style="color:var(--gold);">86.88%</strong>, with a <strong>+1.5% uplift</strong> on two-thirds of the universe.
+        </p>
+        <p style="color:var(--text); margin-top:1em;">
+          What follows is not a slide. It is a live demonstration.
+        </p>
+        <div class="dalil-launch">&rarr; Launch DALIL</div>
+      </div>
+      <p class="rv" style="--d:9; margin-top:2em; font-size:0.8rem; color:var(--text-muted); font-family:'Space Mono',monospace; letter-spacing:0.15em;">
+        THANK YOU
+      </p>
+    </section>
+
   </div>
 
   <!-- ============================================================ -->
@@ -1309,7 +2177,13 @@
       init() {
         // Build nav dots
         const dotsContainer = document.getElementById('navDots');
-        const labels = ['Title','Definition','Ancient Roots','Candlesticks','Charles Dow','Pioneers','Evolution','TA Today','Roadmap','Begin'];
+        const labels = [
+          'Title','Definition','Ancient Roots','Candlesticks','Charles Dow','Pioneers','Evolution','TA Today','Roadmap','Begin',
+          'Block II','Two Schools','FA Pillars','Core Principles','Comparison',
+          'Block III','Three Trends','Chart Types','Candle Anatomy','Bullish Reversals','Bearish Reversals','Support & Resistance',
+          'Block IV','Four Quadrants','SMA & Bollinger','Oscillators','Macro Layer','Combining Signals',
+          'Block V','DALIL'
+        ];
         this.slides.forEach((_, i) => {
           const btn = document.createElement('button');
           btn.className = 'nav-dot';
