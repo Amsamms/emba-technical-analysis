@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Analysis — Introduction | EMBA 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       TECHNICAL ANALYSIS — EPIC INTRODUCTION PRESENTATION
+       Aesthetic: Financial Noir Cinema
+       Fonts: Cormorant Garamond (display) · Outfit (body) · Space Mono (data)
+       ============================================================ */
+
+    /* === CUSTOM PROPERTIES === */
+    :root {
+      --bg: #fafaf7;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(15,20,25,0.035);
+      --bg-card-hover: rgba(15,20,25,0.06);
+      --gold: #b8892b;
+      --gold-dim: #8c6822;
+      --gold-glow: rgba(184,137,43,0.15);
+      --teal: #0f766e;
+      --teal-dim: #0b5852;
+      --bull: #16a34a;
+      --bear: #dc2626;
+      --text: #0a0d12;
+      --text-muted: #1f2937;
+      --text-dim: #374151;
+      --border: rgba(15,20,25,0.16);
+      --border-gold: rgba(184,137,43,0.55);
+      --glass-blur: 20px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-slide: 700ms;
+    }
+
+    /* === RESET === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 19px; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      -webkit-font-smoothing: antialiased;
+      cursor: default;
+    }
+
+    /* === NOISE TEXTURE OVERLAY === */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      background: repeating-conic-gradient(#000 0.00015%, transparent 0.0005%) 50% 50%/2500px 2500px;
+      pointer-events: none;
+      z-index: 10000;
+    }
+
+    /* === BACKGROUND LAYERS === */
+    #bgCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+      top: -150px; right: -100px;
+      animation: orbDrift 25s ease-in-out infinite;
+    }
+    .bg-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(15,118,110,0.08), transparent 70%);
+      bottom: -100px; left: -80px;
+      animation: orbDrift 30s ease-in-out infinite reverse;
+    }
+
+    /* === PROGRESS BAR === */
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--teal));
+      z-index: 9999;
+      transition: width 0.5s var(--ease-out);
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* === NAVIGATION DOTS === */
+    .nav-dots {
+      position: fixed;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 9998;
+    }
+    .nav-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      border: none;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-out);
+      padding: 0;
+      position: relative;
+    }
+    .nav-dot:hover { background: var(--text-muted); transform: scale(1.4); }
+    .nav-dot.active {
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold-glow);
+      transform: scale(1.5);
+    }
+    .nav-dot .dot-label {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      font-family: 'Outfit', sans-serif;
+    }
+    .nav-dot:hover .dot-label { opacity: 1; }
+
+    /* === NAV ARROWS === */
+    .nav-arrows {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      z-index: 9998;
+    }
+    .nav-arrow {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(15,20,25,0.03);
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s var(--ease-out);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-arrow:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+      background: var(--gold-glow);
+      transform: scale(1.1);
+    }
+    .nav-arrow:disabled { opacity: 0.2; pointer-events: none; }
+
+    /* === SLIDE COUNTER === */
+    .slide-counter {
+      position: fixed;
+      bottom: 40px;
+      left: 32px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      z-index: 9998;
+      letter-spacing: 0.05em;
+    }
+    .slide-counter .current-num { color: var(--gold); font-weight: 700; }
+
+    /* === SLIDE BASE === */
+    .deck {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translateX(80px);
+      transition: opacity var(--transition-slide) ease,
+                  transform var(--transition-slide) var(--ease-out);
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: none;
+      pointer-events: all;
+    }
+    /* === FIXED 1920x1080 STAGE: every slide authored on this canvas, then CSS-scaled to viewport === */
+    /* Bottom padding is larger than top to leave clearance for nav-arrows + slide counter chrome. */
+    .slide-stage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1920px;
+      height: 1080px;
+      padding: 55px 80px 105px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform-origin: center center;
+      transform: translate(-50%, -50%) scale(var(--stage-scale, 1));
+    }
+
+    /* === TYPOGRAPHY === */
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    h2 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.35em;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold-dim);
+      margin-bottom: 0.4em;
+    }
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .slide-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.3em;
+    }
+    .chapter-marker {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chapter-marker::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-gold), transparent);
+      max-width: 200px;
+    }
+    em { color: var(--gold); font-style: italic; }
+    strong { color: var(--text); font-weight: 600; }
+    blockquote {
+      border-left: 2px solid var(--gold-dim);
+      padding: 1em 1.4em;
+      background: var(--bg-card);
+      border-radius: 0 12px 12px 0;
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 0.6em;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-style: normal;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+
+    /* === GLASS CARDS === */
+    .glass {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4em 1.6em;
+      box-shadow: 0 6px 24px rgba(15,20,25,0.07), 0 2px 4px rgba(15,20,25,0.04);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .glass:hover {
+      border-color: var(--border-gold);
+      box-shadow: 0 8px 32px rgba(15,20,25,0.08), 0 2px 6px rgba(15,20,25,0.04);
+      transform: translateY(-1px);
+    }
+    .glass-gold { border-color: var(--border-gold); }
+    .glass-sm { padding: 1em 1.2em; border-radius: 12px; }
+    ul { list-style: none; padding: 0; }
+    .glass ul li {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.65;
+      padding-left: 1.3em;
+      position: relative;
+      margin-bottom: 0.45em;
+    }
+    .glass ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    ol { padding-left: 0; counter-reset: tenet; list-style: none; }
+    .glass ol li {
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.65;
+      padding-left: 2em;
+      position: relative;
+      margin-bottom: 0.6em;
+      counter-increment: tenet;
+    }
+    .glass ol li::before {
+      content: counter(tenet);
+      position: absolute;
+      left: 0;
+      width: 1.5em; height: 1.5em;
+      border-radius: 50%;
+      background: var(--gold-glow);
+      border: 1px solid var(--border-gold);
+      color: var(--gold);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0.15em;
+    }
+
+    /* === LAYOUT === */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5em; }
+    .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.2em; }
+
+    /* === TAGS === */
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.5em; }
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.35em 0.9em;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* === STATS === */
+    .stat-card {
+      text-align: center;
+      padding: 2em 1.5em;
+    }
+    .stat-value {
+      font-family: 'Space Mono', monospace;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.2em;
+    }
+    .stat-value.gold { color: var(--gold); }
+    .stat-value.teal { color: var(--teal); }
+    .stat-value.bull { color: var(--bull); }
+    .stat-label {
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* === INSIGHT CALLOUT === */
+    .insight {
+      background: linear-gradient(135deg, rgba(184,137,43,0.06), rgba(184,137,43,0.02));
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 1em 1.4em;
+      margin-top: 1.5em;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .insight-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4em;
+    }
+
+    /* === AVATAR BADGES (for historical figures) === */
+    .avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--bg);
+      flex-shrink: 0;
+      margin-bottom: 0.8em;
+    }
+    .avatar-gold { background: linear-gradient(135deg, var(--gold), #d5a43d); }
+    .avatar-teal { background: linear-gradient(135deg, var(--teal), #36a89e); }
+    .avatar-bull { background: linear-gradient(135deg, var(--bull), #4ec872); }
+    .avatar-bear { background: linear-gradient(135deg, var(--bear), #f07d7d); }
+
+    /* === REVEAL ANIMATION === */
+    .rv {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.65s ease, transform 0.65s var(--ease-out);
+      transition-delay: calc(var(--d, 0) * 80ms);
+    }
+    .slide.active .rv {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* === TITLE SLIDE SPECIFICS === */
+    #s0 .slide-stage {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-chart {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
+      opacity: 0.12;
+      z-index: 0;
+    }
+    .hero-chart .candle {
+      opacity: 0;
+      transform-origin: center bottom;
+      transform: scaleY(0);
+      animation: candleRise 0.5s var(--ease-spring) forwards;
+      animation-delay: calc(var(--i, 0) * 80ms + 800ms);
+    }
+    .hero-chart .ma-line {
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      animation: drawLine 2.5s ease forwards 1.5s;
+    }
+    .main-title {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0.1em;
+    }
+    .title-outline {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      -webkit-text-stroke: 1px var(--text-dim);
+      color: transparent;
+      line-height: 1;
+    }
+    .title-solid {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold), var(--gold-dim));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 6s ease infinite;
+      line-height: 1;
+    }
+    .title-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin: 1em 0 0.5em;
+      z-index: 2;
+      position: relative;
+    }
+    .title-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.5em 1.5em;
+      border-radius: 30px;
+      z-index: 2;
+      position: relative;
+    }
+    .title-hint {
+      position: absolute;
+      bottom: 40px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      z-index: 2;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+    .title-hint kbd {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.15em 0.5em;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+    }
+
+    /* === DEFINITION CARD GLOW === */
+    .def-card {
+      border-color: var(--border-gold);
+      position: relative;
+    }
+    .def-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, var(--gold-glow), transparent, var(--gold-glow));
+      z-index: -1;
+      opacity: 0.5;
+    }
+    .def-card p {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* === YEAR BADGE === */
+    .year-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      background: var(--gold-glow);
+      border: 1px solid var(--border-gold);
+      padding: 0.2em 0.7em;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.8em;
+    }
+
+    /* === ROADMAP CARDS === */
+    .roadmap-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .roadmap-card .card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      position: absolute;
+      top: -5px;
+      right: 10px;
+      opacity: 0.06;
+      color: var(--text);
+      line-height: 1;
+    }
+    .roadmap-card.active-block {
+      border-color: var(--gold-dim);
+      background: rgba(184,137,43,0.05);
+    }
+    .roadmap-card.active-block::after {
+      content: 'YOU ARE HERE';
+      font-family: 'Space Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+    .roadmap-card.finale-block {
+      border-color: var(--teal-dim);
+      background: rgba(15,118,110,0.04);
+    }
+    .roadmap-card.finale-block::after {
+      content: 'FINALE';
+      font-family: 'Space Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+    .roadmap-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3em;
+    }
+    .roadmap-desc {
+      font-size: 1rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* === TRANSITION SLIDE === */
+    #s9 .slide-stage {
+      text-align: center;
+      align-items: center;
+    }
+    .journey-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .journey-text em {
+      font-weight: 700;
+      font-style: italic;
+      color: var(--gold);
+    }
+    .pulse-arrow {
+      font-size: 2rem;
+      color: var(--gold);
+      animation: pulseDown 2s ease-in-out infinite;
+      margin-top: 1em;
+    }
+
+    /* === KEYFRAMES === */
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes candleRise {
+      to { opacity: 1; transform: scaleY(1); }
+    }
+    @keyframes drawLine {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes orbDrift {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(30px, -20px); }
+      66% { transform: translate(-20px, 15px); }
+    }
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes pulseDown {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(10px); opacity: 1; }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* === ERA TIMELINE === */
+    .era-timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+      position: relative;
+      margin: 1em 0;
+    }
+    .era-timeline::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--teal));
+    }
+    .era-node {
+      text-align: center;
+      position: relative;
+      padding-top: 50px;
+    }
+    .era-node::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--gold);
+      z-index: 2;
+    }
+    .era-node:last-child::before { border-color: var(--teal); }
+    .era-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5em;
+    }
+    .era-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4em;
+    }
+    .era-desc {
+      font-size: 1rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      padding: 0 0.5em;
+    }
+
+    /* === RESPONSIVE === */
+    /* Fixed 1920x1080 stage scales via JS-set --stage-scale, so layout stays identical everywhere.
+       Only the chrome (nav dots) hides on very small viewports. */
+    @media (max-width: 768px) {
+      .nav-dots { display: none; }
+    }
+
+    /* === BLOCK TITLE SLIDES === */
+    .block-title-slide .slide-stage { justify-content: center; align-items: center; text-align: center; }
+    .block-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.92rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8em;
+    }
+    .block-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.95;
+      font-weight: 500;
+      background: linear-gradient(135deg, #0f1419 10%, var(--gold) 55%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.3em;
+    }
+    .block-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      color: var(--text-dim);
+      font-style: italic;
+      max-width: 680px;
+      margin: 0.6em auto 0;
+    }
+    .block-rule {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2em auto;
+    }
+
+    /* === MINI ILLUSTRATIONS === */
+    .mini-chart {
+      width: 100%;
+      height: 140px;
+      display: block;
+      margin-top: 0.6em;
+    }
+    .candle-diagram { display: block; margin: 0 auto; height: 150px; }
+    .pattern-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-top: 0.4em;
+    }
+
+    /* === COMPARISON TABLE === */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+      margin-top: 0.4em;
+    }
+    .compare-table th, .compare-table td {
+      padding: 0.55em 0.9em;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .compare-table th {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .compare-table tr td:first-child {
+      font-family: 'Space Mono', monospace;
+      color: var(--gold);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .col-fa { color: var(--teal); }
+    .col-ta { color: var(--gold); }
+
+    /* === QUADRANT GRID (Block 4) === */
+    .quadrant-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin-top: 0.5em;
+    }
+    .quadrant {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1em 1.2em;
+      position: relative;
+    }
+    .quadrant-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4em;
+    }
+    .quadrant h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.2em;
+    }
+    .quadrant p {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin: 0.2em 0 0.3em;
+    }
+    .quadrant .micro-list {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .quad-macro { border-color: rgba(15,118,110,0.35); }
+    .quad-macro .quadrant-label { color: var(--teal); }
+    .quad-micro { border-color: rgba(184,137,43,0.35); }
+
+    /* === SR DIAGRAM === */
+    .sr-diagram { width: 100%; height: 220px; }
+
+    /* === DALIL HANDOFF === */
+    .dalil-panel {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .dalil-launch {
+      display: inline-block;
+      margin-top: 1.2em;
+      padding: 0.75em 1.8em;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.98rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .dalil-launch:hover {
+      background: var(--gold-glow);
+      box-shadow: 0 0 30px var(--gold-glow);
+    }
+
+    /* === PLACEHOLDER (missing block) === */
+    .placeholder-slate {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2.5em 2em;
+      border: 1px dashed rgba(184,137,43,0.35);
+      border-radius: 18px;
+      background: rgba(184,137,43,0.02);
+    }
+    .placeholder-slate .dot {
+      display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 16px var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+      margin-right: 0.5em;
+    }
+    @keyframes pulse { 0%,100%{opacity:0.35} 50%{opacity:1} }
+
+    /* === CONTRIBUTOR FIGURE (kept-as-image slides s102, s108 only) === */
+    .contrib-figure {
+      margin: 0.6em auto 0;
+      max-width: 1500px;
+      text-align: center;
+    }
+    .contrib-figure img {
+      max-width: 100%;
+      max-height: 720px;
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(15,20,25,0.07), 0 2px 4px rgba(15,20,25,0.04);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .contrib-figure figcaption {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 0.9em;
+    }
+
+    /* === RECREATED CONTRIBUTOR SLIDES (s100, s101, s103-s107, s109) === */
+    /* Pattern list (s100) */
+    .pattern-list { padding: 0; margin: 0.4em 0 0; }
+    .pattern-list li {
+      list-style: none;
+      padding: 0.5em 0;
+      display: flex;
+      align-items: center;
+      gap: 0.9em;
+      font-size: 1rem;
+      color: var(--text);
+      border-bottom: 1px dashed rgba(15,20,25,0.08);
+    }
+    .pattern-list li:last-child { border-bottom: none; }
+    .pattern-list li svg { flex-shrink: 0; opacity: 0.85; }
+    .pattern-cue {
+      margin-top: 0.9em;
+      font-size: 0.93rem;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Trend stack (s101) */
+    .trend-stack { display: flex; flex-direction: column; }
+    .trend-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 1.4em;
+      align-items: center;
+      padding: 0.7em 0.4em;
+      border-bottom: 1px solid var(--border);
+    }
+    .trend-row:last-child { border-bottom: none; }
+    .trend-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--gold-dim);
+      margin-bottom: 0.2em;
+    }
+    .trend-row p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.55; }
+    .trend-svg { width: 100%; height: 110px; display: block; }
+
+    /* Candle anatomy (s103) */
+    .candle-anatomy { display: block; margin: 0 auto; width: 100%; max-width: 320px; height: auto; }
+    .anat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      fill: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+    .candle-block { text-align: center; }
+    .candle-block .candle-caption { margin-top: 0.7em; }
+    .candle-block .candle-caption h3 { margin-bottom: 0.3em; }
+    .candle-block .candle-caption p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.5; }
+
+    /* Engulfing chart (s104) */
+    .engulf-svg { width: 100%; height: auto; display: block; max-height: 360px; }
+
+    /* Support/Resistance live chart (s105) */
+    .sr-live-svg { width: 100%; height: auto; display: block; max-height: 380px; }
+
+    /* Static vs dynamic mini SR (s106) */
+    .sr-mini-svg { width: 100%; height: 200px; display: block; margin: 0.4em 0; }
+
+    /* === INTRO3: HERO IMAGE-LED SLIDE LAYOUTS === */
+    .slide-stage.hero-stage {
+      padding: 0;
+      display: block;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-tint {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-tint.bottom-fade   { background: linear-gradient(180deg, rgba(250,250,247,0) 35%, rgba(250,250,247,0.55) 100%); }
+    .hero-tint.right-fade    { background: linear-gradient(90deg, rgba(250,250,247,0) 45%, rgba(250,250,247,0.78) 100%); }
+    .hero-tint.top-fade      { background: linear-gradient(180deg, rgba(250,250,247,0.7) 0%, rgba(250,250,247,0.05) 32%, rgba(250,250,247,0.05) 70%, rgba(250,250,247,0.55) 100%); }
+    .hero-tint.bottom-strong { background: linear-gradient(180deg, rgba(250,250,247,0.35) 0%, rgba(250,250,247,0.0) 28%, rgba(250,250,247,0.0) 58%, rgba(250,250,247,0.92) 100%); }
+    .hero-tint.center-strong { background: radial-gradient(ellipse at center, rgba(250,250,247,0.55) 0%, rgba(250,250,247,0.25) 45%, rgba(250,250,247,0.05) 90%); }
+
+    .hero-overlay-card {
+      position: absolute;
+      z-index: 3;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.7em 2em;
+      max-width: 700px;
+      box-shadow: 0 16px 50px rgba(15,20,25,0.13), 0 2px 6px rgba(15,20,25,0.05);
+    }
+    .hero-overlay-card.bottom-left  { left: 80px;  bottom: 130px; }
+    .hero-overlay-card.bottom-right { right: 80px; bottom: 130px; }
+    .hero-overlay-card.top-center   { left: 50%; top: 70px; transform: translateX(-50%); text-align: center; max-width: 880px; }
+    .hero-overlay-card.center       { left: 50%; top: 50%; transform: translate(-50%,-50%); text-align: center; max-width: 720px; }
+    /* The .rv reveal-animation sets `transform: none` on active state. For overlay cards
+       that rely on a transform-based centering, restore the centering transform when active. */
+    .slide.active .hero-overlay-card.top-center.rv { transform: translateX(-50%); }
+    .slide.active .hero-overlay-card.center.rv     { transform: translate(-50%, -50%); }
+    .slide.active .hero-caption                    { transform: translateX(-50%); }
+    .hero-overlay-card .chapter-marker { margin-bottom: 0.5em; }
+    .hero-overlay-card h2 { font-size: 2.6rem; line-height: 1.1; margin-bottom: 0.3em; }
+    .hero-overlay-card > p { color: var(--text-dim); font-size: 1.0rem; line-height: 1.55; }
+
+    /* Vertical stat rail anchored to right side of hero (used in Slide B) */
+    .hero-stat-rail {
+      position: absolute;
+      z-index: 3;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .hero-stat-rail .glass.stat-card {
+      padding: 1.4em 1.4em;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: center;
+    }
+    .hero-stat-rail .stat-value { font-size: 3rem; }
+    .hero-stat-rail .stat-label { font-size: 0.88rem; line-height: 1.45; }
+
+    /* Triptych captions across bottom of Slide D */
+    .hero-triptych-captions {
+      position: absolute;
+      z-index: 3;
+      left: 0; right: 0;
+      bottom: 140px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 0 100px;
+      text-align: center;
+    }
+    .trip-cap {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .trip-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      display: block;
+      margin-bottom: 0.2em;
+    }
+
+    /* Centered monospace caption pinned bottom (small) */
+
+    /* Hide Gemini watermark in bottom-right of every hero image (and add subtle vignette) */
+    .slide-stage.hero-stage::after {
+      content: '';
+      position: absolute;
+      right: 0; bottom: 0;
+      width: 200px; height: 110px;
+      background: radial-gradient(ellipse at bottom right, rgba(250,250,247,0.92) 0%, rgba(250,250,247,0.55) 45%, rgba(250,250,247,0) 80%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Middle-left card position (used for narrative-heavy slides where bottom-left feels too low) */
+    .hero-overlay-card.middle-left {
+      left: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 580px;
+    }
+    .slide.active .hero-overlay-card.middle-left.rv { transform: translateY(-50%); }
+
+    /* Talking-point bullet list inside overlay cards (compact, projector-readable) */
+    .hero-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1em 0 0 0;
+    }
+    .hero-bullets li {
+      font-size: 1.0rem;
+      line-height: 1.55;
+      color: var(--text);
+      padding: 0.45em 0 0.45em 1.4em;
+      position: relative;
+      border-top: 1px solid rgba(15,20,25,0.08);
+    }
+    .hero-bullets li:first-child { border-top: none; padding-top: 0.65em; }
+    .hero-bullets li::before {
+      content: '\2192';  /* arrow */
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .hero-bullets li:first-child::before { top: 0.65em; }
+
+    /* Decorative real Arabic word for DALIL slide */
+    .dalil-arabic {
+      position: absolute;
+      z-index: 2;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Amiri', serif;
+      font-size: 9rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.55;
+      line-height: 1;
+      letter-spacing: 0;
+      pointer-events: none;
+      direction: rtl;
+    }
+
+    .hero-caption {
+      position: absolute;
+      z-index: 3;
+      bottom: 145px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Background layers -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <!-- UI Chrome -->
+  <div class="progress" id="progress"></div>
+  <nav class="nav-dots" id="navDots"></nav>
+  <div class="nav-arrows">
+    <button class="nav-arrow" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+    <button class="nav-arrow" id="nextBtn" aria-label="Next slide">&#8594;</button>
+  </div>
+  <div class="slide-counter"><span class="current-num" id="counterCur">01</span> / <span id="counterTotal">43</span></div>
+
+  <!-- ============================================================ -->
+  <!-- SLIDES                                                        -->
+  <!-- ============================================================ -->
+  <div class="deck" id="deck">
+
+    <!-- =============== SLIDE s0 : TITLE =============== -->
+    <section class="slide" id="s0">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s0.png" alt="">
+        <div class="hero-tint center-strong"></div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 800px; background: rgba(255,255,255,0.78);">
+          <div style="font-family: 'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1em;">EMBA Investment Course &middot; 2026</div>
+          <h1 style="font-family: 'Cormorant Garamond', serif; font-size: 5.5rem; font-weight: 700; letter-spacing: 0.05em; line-height: 1; margin-bottom: 0.2em; background: linear-gradient(135deg, var(--gold-dim), var(--gold), var(--gold-dim)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">TECHNICAL<br>ANALYSIS</h1>
+          <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-dim); font-size: 1.3rem; margin: 0.7em 0 0;">Understanding Market Movements Through Price &amp; Volume</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s1 =============== -->
+    <section class="slide" id="s1">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s1.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 580px;">
+          <div class="chapter-marker">Introduction</div>
+          <h2>What is Technical Analysis?</h2>
+          <p>The study of past market data &mdash; primarily <em>price</em> and <em>volume</em> &mdash; to forecast where the market is most likely to go next.</p>
+          <ul class="hero-bullets">
+            <li>TA answers <strong>WHEN</strong> to trade. FA answers <strong>WHAT</strong>.</li>
+            <li>Used by <strong>day traders, hedge funds, retail investors, algos</strong></li>
+            <li>Works across <strong>stocks, forex, crypto, commodities</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s2 =============== -->
+    <section class="slide" id="s2">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s2.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 580px;">
+          <div class="chapter-marker">Chapter I &middot; Origins</div>
+          <h2>The Ancient Roots</h2>
+          <p>Long before charts existed, humans were already reading markets.</p>
+          <ul class="hero-bullets">
+            <li><strong>~2000 BC</strong> &mdash; Babylonian clay tablets recorded grain &amp; wool prices</li>
+            <li><strong>1636&ndash;37</strong> &mdash; Dutch Tulip Mania: bulbs <strong>20&times;</strong> then <strong>&minus;99%</strong></li>
+            <li><strong>1688</strong> &mdash; Joseph de la Vega&rsquo;s <em>Confusion de Confusiones</em></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE A =============== -->
+    <section class="slide" id="A">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/A-homma.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 580px;">
+          <div class="chapter-marker">Chapter II &middot; The Father of TA</div>
+          <h2>Munehisa Homma &amp; The Birth of Candlesticks</h2>
+          <p>Dojima Rice Exchange &middot; Osaka, Japan &middot; 1700s</p>
+          <ul class="hero-bullets">
+            <li><strong>$10B fortune</strong> in today&rsquo;s money &mdash; just from rice trading</li>
+            <li>Invented the <strong>candlestick</strong> &mdash; one mark encoding open, high, low, close</li>
+            <li>His <strong>Sakata&rsquo;s Five Methods</strong> are still on every CMT exam, 250 years later</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s4 =============== -->
+    <section class="slide" id="s4">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s4.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 600px;">
+          <div class="chapter-marker">Chapter III &middot; The Architect</div>
+          <h2>Charles Dow &amp; Modern TA</h2>
+          <p>Wall Street, 1880s&ndash;1900s &mdash; the framework that built an industry.</p>
+          <ul class="hero-bullets">
+            <li>Co-founded <strong>Dow Jones &amp; Co.</strong> (1882) and the <strong>Wall Street Journal</strong></li>
+            <li>Created the <strong>Dow Jones Industrial Average</strong> (1896, originally 12 stocks)</li>
+            <li><strong>Six tenets</strong> of Dow Theory &mdash; the DNA of every modern TA concept</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s5 =============== -->
+    <section class="slide" id="s5">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s5.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Chapter IV &middot; The Visionaries</div>
+          <h2>The Early Pioneers</h2>
+          <p>1900s&ndash;1940s &mdash; three men who shaped how we read markets.</p>
+          <ul class="hero-bullets">
+            <li><strong>Richard Wyckoff</strong> &mdash; tape reader; <em>composite operator</em>, market phases</li>
+            <li><strong>W. D. Gann</strong> &mdash; geometric mystic; angles and time-price projections</li>
+            <li><strong>R. N. Elliott</strong> &mdash; wave theorist; 5 impulse + 3 corrective, Fibonacci ratios</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s6 =============== -->
+    <section class="slide" id="s6">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s6.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 600px;">
+          <div class="chapter-marker">Chapter V &middot; The Evolution</div>
+          <h2>From Textbook to Artificial Intelligence</h2>
+          <p>1948 &rarr; Present &mdash; four eras that transformed TA forever.</p>
+          <ul class="hero-bullets">
+            <li><strong>1948</strong> &mdash; Edwards &amp; Magee publish <em>Technical Analysis of Stock Trends</em></li>
+            <li><strong>1970s&ndash;80s</strong> &mdash; computer charts and the rise of indicators</li>
+            <li><strong>2000s&ndash;present</strong> &mdash; algorithmic trading, then neural networks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE B : WHY TA MATTERS TODAY (STAT HERO) =============== -->
+    <section class="slide" id="B">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/B-trader.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 520px;">
+          <div class="chapter-marker">The Present</div>
+          <h2>Why Technical Analysis Matters Today</h2>
+          <p>From clay tablets to algorithms &mdash; the same patterns, at machine speed.</p>
+          <ul class="hero-bullets">
+            <li>The backbone of modern <strong>algorithmic trading</strong></li>
+            <li>Universal across <strong>stocks, forex, crypto, commodities</strong></li>
+            <li><strong>Self-fulfilling</strong> &mdash; millions of traders watch the same levels</li>
+          </ul>
+        </div>
+        <div class="hero-stat-rail">
+          <div class="glass stat-card rv" style="--d:3">
+            <div class="stat-value gold">70%+</div>
+            <div class="stat-label">of trading volume is <strong>algorithmic</strong>, most using TA signals</div>
+          </div>
+          <div class="glass stat-card rv" style="--d:5">
+            <div class="stat-value teal">$7T+</div>
+            <div class="stat-label">daily forex volume<br>heavily driven by technical indicators</div>
+          </div>
+          <div class="glass stat-card rv" style="--d:7">
+            <div class="stat-value bull">80M+</div>
+            <div class="stat-label">retail traders worldwide<br>using TA tools every day</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s8 =============== -->
+    <section class="slide" id="s8">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s8.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">The Journey Ahead</div>
+          <h2>What We Will Cover Today</h2>
+          <p>A complete journey from foundations to the future of trading.</p>
+          <ul class="hero-bullets">
+            <li><strong>Block II</strong> &mdash; TA vs Fundamental Analysis &amp; the three core principles</li>
+            <li><strong>Block III &amp; IV</strong> &mdash; reading charts, candlesticks, S/R, indicators</li>
+            <li><strong>Block VI</strong> &mdash; live AI demo: <em>DALIL</em>, voice-controlled in Arabic</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s9 : TRANSITION =============== -->
+    <section class="slide" id="s9">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/I-s9.png" alt="">
+        <div class="hero-tint center-strong"></div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 720px; background: rgba(255,255,255,0.75);">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; line-height: 1.15; color: var(--text); margin-bottom: 0.6em;">The journey through<br><em style="color: var(--gold); font-style: italic; font-weight: 600;">Technical Analysis</em><br>begins now.</p>
+          <p style="font-family: 'Space Mono', monospace; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase;">Next &rarr; TA vs Fundamental Analysis</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s10 =============== -->
+    <section class="slide" id="s10">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/II-s10.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 820px;">
+          <div class="chapter-marker" style="justify-content: center;">Block &middot; Two</div>
+          <h2>Foundations</h2>
+          <p>Technical versus Fundamental Analysis &mdash; and the three core principles every chart-reader stands on.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s11 : TWO LENSES =============== -->
+    <section class="slide" id="s11">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/II-s11.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 600px;">
+          <div class="chapter-marker">Block II &middot; Two Schools</div>
+          <h2>Two Lenses on the Same Market</h2>
+          <p>Different questions, different tools, complementary answers.</p>
+          <ul class="hero-bullets">
+            <li><strong>Fundamental:</strong> &ldquo;Is this stock undervalued or overvalued?&rdquo;</li>
+            <li><strong>Technical:</strong> &ldquo;What will the price do <em>next</em>?&rdquo;</li>
+            <li>The most disciplined investors use <strong>both</strong> &mdash; FA picks WHAT, TA times WHEN</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s12 =============== -->
+    <section class="slide" id="s12">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/II-s12.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block II &middot; Fundamental Deep Dive</div>
+          <h2>The Three Pillars of Fundamental Analysis</h2>
+          <p>What value investors actually look at.</p>
+          <ul class="hero-bullets">
+            <li><strong>Financial statements</strong> &mdash; income, balance sheet, cash flow</li>
+            <li><strong>Economic indicators</strong> &mdash; GDP, interest rates, inflation</li>
+            <li><strong>Industry &amp; competitive position</strong> &mdash; moat, market share, growth</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s13 =============== -->
+    <section class="slide" id="s13">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/II-s13.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 640px;">
+          <div class="chapter-marker">Block II &middot; The Bedrock</div>
+          <h2>The Three Core Principles of Technical Analysis</h2>
+          <p>Every indicator, pattern, and strategy rests on these three ideas.</p>
+          <ul class="hero-bullets">
+            <li><strong>Price discounts everything</strong> &mdash; the chart already contains all known information</li>
+            <li><strong>Prices move in trends</strong> &mdash; not random walks; trends persist until reversed</li>
+            <li><strong>History repeats</strong> &mdash; human psychology produces recurring patterns</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s14 =============== -->
+    <section class="slide" id="s14">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/II-s14.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 580px;">
+          <div class="chapter-marker">Block II &middot; Side by Side</div>
+          <h2>Technical vs Fundamental &mdash; The Comparison Grid</h2>
+          <p>The same security &mdash; two different lenses.</p>
+          <ul class="hero-bullets">
+            <li><strong>Time horizon:</strong> FA = months/years, TA = minutes/months</li>
+            <li><strong>Data:</strong> FA = financial statements, TA = price &amp; volume</li>
+            <li><strong>Best for:</strong> FA = long-term investors, TA = traders &amp; timing decisions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE C : CLASSIC CHART PATTERNS =============== -->
+    <section class="slide" id="C">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/C-patterns.png" alt="">
+        <div class="hero-tint top-fade"></div>
+        <div class="hero-overlay-card top-center rv" style="--d:2; max-width: 920px;">
+          <div class="chapter-marker" style="justify-content: center;">Block II &middot; Pattern Atlas</div>
+          <h2>Classic Chart Patterns &mdash; Quick Reference</h2>
+          <p>Six families every chart-reader meets across every market &mdash; reversal and continuation.</p>
+          <ul class="hero-bullets" style="text-align: left; max-width: 720px; margin: 1em auto 0 auto;">
+            <li><strong>Reversal:</strong> Head &amp; Shoulders, Double Top/Bottom, Cup &mdash; trend exhaustion</li>
+            <li><strong>Continuation:</strong> Triangles, Flags, Wedges &mdash; breather inside a strong move</li>
+            <li>Codified in Bulkowski&rsquo;s <em>Encyclopedia of Chart Patterns</em>, the trader&rsquo;s field guide</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s15 =============== -->
+    <section class="slide" id="s15">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s15.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 820px;">
+          <div class="chapter-marker" style="justify-content: center;">Block &middot; Three</div>
+          <h2>Reading the Market</h2>
+          <p>Trends, candlesticks, and the language of price action.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s16 =============== -->
+    <section class="slide" id="s16">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s16.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 600px;">
+          <div class="chapter-marker">Block III &middot; Dow&rsquo;s Framework</div>
+          <h2>The Three Trends Every Market Moves In</h2>
+          <p>Charles Dow&rsquo;s ocean metaphor &mdash; the tide, the waves, and the ripples.</p>
+          <ul class="hero-bullets">
+            <li><strong>Primary trend</strong> &mdash; the tide; months to years</li>
+            <li><strong>Secondary trend</strong> &mdash; the waves; weeks to months</li>
+            <li><strong>Minor trend</strong> &mdash; the ripples; days; mostly noise</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE D : TREND LINES =============== -->
+    <section class="slide" id="D">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/D-trend.png" alt="">
+        <div class="hero-tint bottom-strong"></div>
+        <div class="hero-overlay-card top-center rv" style="--d:2; max-width: 920px;">
+          <div class="chapter-marker" style="justify-content: center;">Block III &middot; The Three Shapes</div>
+          <h2>Trend Lines &mdash; Up, Down, Sideways</h2>
+          <p>Every chart, on every timeframe, eventually settles into one of three structures &mdash; identify it before you reach for any indicator.</p>
+        </div>
+        <div class="hero-triptych-captions rv" style="--d:5">
+          <div class="trip-cap"><span class="trip-name" style="color: var(--bull);">Uptrend</span>Higher highs, higher lows<br><em style="color: var(--text-dim); font-size: 0.85rem;">trendline drawn under the rising lows</em></div>
+          <div class="trip-cap"><span class="trip-name" style="color: var(--bear);">Downtrend</span>Lower highs, lower lows<br><em style="color: var(--text-dim); font-size: 0.85rem;">trendline drawn over the falling highs</em></div>
+          <div class="trip-cap"><span class="trip-name" style="color: var(--gold);">Sideways</span>Range-bound &middot; accumulation<br><em style="color: var(--text-dim); font-size: 0.85rem;">flat floor and flat ceiling</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s17 =============== -->
+    <section class="slide" id="s17">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s17.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 600px;">
+          <div class="chapter-marker">Block III &middot; The Tools of Sight</div>
+          <h2>Three Ways to See Price Action</h2>
+          <p>Line, Bar, Candlestick &mdash; each tells a different layer of the story.</p>
+          <ul class="hero-bullets">
+            <li><strong>Line chart</strong> &mdash; closing price only; the cleanest big-picture view</li>
+            <li><strong>Bar (OHLC)</strong> &mdash; adds open, high, low; the precision view</li>
+            <li><strong>Candlestick</strong> &mdash; same data, painted; instant emotional read</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s102 : LINE CHART (kept-as-image) =============== -->
+    <section class="slide" id="s102">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block III &middot; Live Market</div>
+        <h2 class="rv" style="--d:1">The Line Chart &mdash; Closing Price Only</h2>
+        <p class="slide-subtitle rv" style="--d:2">A real DJIA snapshot showing how a line chart strips everything away except the closing-price story.</p>
+        <figure class="contrib-figure rv" style="--d:3">
+          <img src="assets/block3/slide-10.png" alt="DJIA line chart">
+          <figcaption>Source &middot; TradingView &middot; DJIA daily &mdash; preserved as authentic market screenshot</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s18 =============== -->
+    <section class="slide" id="s18">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s18.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block III &middot; Anatomy of a Candle</div>
+          <h2>The Language Japanese Rice Traders Invented</h2>
+          <p>From Munehisa Homma in the 1700s to Steve Nison&rsquo;s 1991 introduction to the West.</p>
+          <ul class="hero-bullets">
+            <li>A single candle encodes <strong>open, high, low, close</strong> in one mark</li>
+            <li><strong>Body length</strong> = conviction; <strong>wick length</strong> = rejection</li>
+            <li>Standard on every modern trading platform &mdash; the universal language of price</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s103 : BULLISH vs BEARISH CANDLES (HTML/SVG) =============== -->
+    <section class="slide" id="s103">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block III &middot; Anatomy</div>
+        <h2 class="rv" style="--d:1">Bullish vs Bearish Candles</h2>
+        <p class="slide-subtitle rv" style="--d:2">A single candle compresses an entire session &mdash; who opened, who pushed, who closed.</p>
+        <div class="two-col" style="margin-top:0.4em; align-items:start;">
+          <div class="candle-block rv glass" style="--d:3;">
+            <svg viewBox="0 0 360 360" class="candle-anatomy">
+              <line x1="180" y1="40" x2="180" y2="100" stroke="var(--bull)" stroke-width="2.5"/>
+              <rect x="140" y="100" width="80" height="170" fill="var(--bull)" rx="3"/>
+              <line x1="180" y1="270" x2="180" y2="320" stroke="var(--bull)" stroke-width="2.5"/>
+              <line x1="180" y1="40" x2="270" y2="40" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="44" class="anat-label">HIGH</text>
+              <line x1="220" y1="100" x2="270" y2="100" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="104" class="anat-label">CLOSE</text>
+              <line x1="220" y1="270" x2="270" y2="270" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="274" class="anat-label">OPEN</text>
+              <line x1="180" y1="320" x2="270" y2="320" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="324" class="anat-label">LOW</text>
+            </svg>
+            <div class="candle-caption">
+              <h3 style="color:var(--bull);">Bullish Candle</h3>
+              <p>Close <strong>above</strong> the open. Buyers controlled the period.</p>
+            </div>
+          </div>
+          <div class="candle-block rv glass" style="--d:5;">
+            <svg viewBox="0 0 360 360" class="candle-anatomy">
+              <line x1="180" y1="40" x2="180" y2="100" stroke="var(--bear)" stroke-width="2.5"/>
+              <rect x="140" y="100" width="80" height="170" fill="var(--bear)" rx="3"/>
+              <line x1="180" y1="270" x2="180" y2="320" stroke="var(--bear)" stroke-width="2.5"/>
+              <line x1="180" y1="40" x2="270" y2="40" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="44" class="anat-label">HIGH</text>
+              <line x1="220" y1="100" x2="270" y2="100" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="104" class="anat-label">OPEN</text>
+              <line x1="220" y1="270" x2="270" y2="270" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="274" class="anat-label">CLOSE</text>
+              <line x1="180" y1="320" x2="270" y2="320" stroke="var(--text-dim)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+              <text x="278" y="324" class="anat-label">LOW</text>
+            </svg>
+            <div class="candle-caption">
+              <h3 style="color:var(--bear);">Bearish Candle</h3>
+              <p>Close <strong>below</strong> the open. Sellers controlled the period.</p>
+            </div>
+          </div>
+        </div>
+        <div class="insight rv" style="--d:7; margin-top:1em;">
+          <div class="insight-label">Reading a candle</div>
+          <strong>Body length</strong> = conviction of the winning side. <strong>Wick length</strong> = how far the loser pushed before being rejected.
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s19 =============== -->
+    <section class="slide" id="s19">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s19.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block III &middot; Bullish Reversals</div>
+          <h2>When the Tide Turns Upward</h2>
+          <p>Three candle formations that signal a downtrend is exhausting.</p>
+          <ul class="hero-bullets">
+            <li><strong>Hammer</strong> &mdash; long lower wick; sellers driven back, buyers won the close</li>
+            <li><strong>Bullish Engulfing</strong> &mdash; large green body completely swallows prior red</li>
+            <li><strong>Morning Star</strong> &mdash; big red &rarr; indecision &rarr; big green; the &lsquo;rebirth&rsquo; pattern</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s20 =============== -->
+    <section class="slide" id="s20">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s20.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block III &middot; Bearish Reversals</div>
+          <h2>When the Tide Turns Downward</h2>
+          <p>Three formations that appear at the peak &mdash; plus the great neutral pattern.</p>
+          <ul class="hero-bullets">
+            <li><strong>Shooting Star</strong> &mdash; long upper wick; buyers pushed up, sellers slammed it down</li>
+            <li><strong>Bearish Engulfing</strong> &mdash; large red body engulfs prior green; visual of panic selling</li>
+            <li><strong>Doji</strong> &mdash; open = close; total indecision &mdash; warning at trend extremes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s104 : BEARISH ENGULFING (HTML/SVG) =============== -->
+    <section class="slide" id="s104">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block III &middot; Reversal Signal</div>
+        <h2 class="rv" style="--d:1">The Bearish Engulfing</h2>
+        <p class="slide-subtitle rv" style="--d:2">A small green candle <em>swallowed</em> by a large red one &mdash; the visual definition of panic selling.</p>
+        <div class="two-col" style="margin-top:0.4em; gap:1.6em; grid-template-columns: 1.4fr 1fr; align-items:start;">
+          <div class="glass rv" style="--d:3;">
+            <svg viewBox="0 0 500 320" class="engulf-svg">
+              <g stroke="rgba(15,20,25,0.06)" stroke-width="1">
+                <line x1="20" y1="60" x2="480" y2="60"/>
+                <line x1="20" y1="120" x2="480" y2="120"/>
+                <line x1="20" y1="180" x2="480" y2="180"/>
+                <line x1="20" y1="240" x2="480" y2="240"/>
+              </g>
+              <text x="240" y="38" font-family="Space Mono" font-size="11" fill="var(--gold)" text-anchor="middle" letter-spacing="0.2em">PRIOR UPTREND &rarr; ENGULFING REVERSAL</text>
+              <g><line x1="80" y1="210" x2="80" y2="265" stroke="var(--bull)" stroke-width="1.5"/><rect x="68" y="220" width="24" height="35" fill="var(--bull)" rx="1"/></g>
+              <g><line x1="160" y1="170" x2="160" y2="225" stroke="var(--bull)" stroke-width="1.5"/><rect x="148" y="180" width="24" height="35" fill="var(--bull)" rx="1"/></g>
+              <g><line x1="240" y1="130" x2="240" y2="185" stroke="var(--bull)" stroke-width="1.5"/><rect x="228" y="140" width="24" height="35" fill="var(--bull)" rx="1"/></g>
+              <g><line x1="320" y1="105" x2="320" y2="145" stroke="var(--bull)" stroke-width="1.5"/><rect x="308" y="115" width="24" height="20" fill="var(--bull)" rx="1"/></g>
+              <g><line x1="400" y1="85" x2="400" y2="240" stroke="var(--bear)" stroke-width="1.6"/><rect x="386" y="100" width="28" height="125" fill="var(--bear)" rx="1.5"/></g>
+              <ellipse cx="360" cy="165" rx="68" ry="85" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.75"/>
+            </svg>
+            <div class="tag-row" style="justify-content:center; margin-top:0.8em;">
+              <span class="tag" style="border-color:var(--bear); color:var(--bear);">Reversal</span>
+              <span class="tag">Confirmed by next bar</span>
+              <span class="tag">Volume context matters</span>
+            </div>
+          </div>
+          <div>
+            <div class="glass rv" style="--d:4;">
+              <h3 style="color:var(--bear);">What you are seeing</h3>
+              <p>A small green candle is <em>fully covered</em> by a much larger red candle that follows.</p>
+            </div>
+            <div class="insight rv" style="--d:6; margin-top:1em;">
+              <div class="insight-label">Trader&rsquo;s rule</div>
+              Always wait for the <strong>next candle to confirm</strong> before acting &mdash; one bar can lie, two cannot.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s21 =============== -->
+    <section class="slide" id="s21">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/III-s21.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block III &middot; The Battlefield</div>
+          <h2>Support &amp; Resistance &mdash; The Invisible Lines</h2>
+          <p>Price levels where the war between buyers and sellers is fought, again and again.</p>
+          <ul class="hero-bullets">
+            <li><strong>Support</strong> &mdash; the floor where buyers reliably step in</li>
+            <li><strong>Resistance</strong> &mdash; the ceiling where sellers reliably take profit</li>
+            <li><strong>Role reversal</strong> &mdash; broken support becomes new resistance, and vice versa</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s105 : SR LIVE CHART (HTML/SVG) =============== -->
+    <section class="slide" id="s105">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block III &middot; Levels</div>
+        <h2 class="rv" style="--d:1">Support &amp; Resistance &mdash; Tested, Held, Broken</h2>
+        <p class="slide-subtitle rv" style="--d:2">Horizontal price levels where buyers and sellers reliably step in &mdash; until one side gives.</p>
+        <div class="two-col" style="margin-top:0.4em; grid-template-columns:1.6fr 1fr; gap:1.5em; align-items:start;">
+          <div class="glass rv" style="--d:3;">
+            <svg viewBox="0 0 700 360" class="sr-live-svg">
+              <g stroke="rgba(15,20,25,0.04)" stroke-width="1">
+                <line x1="0" y1="60" x2="700" y2="60"/><line x1="0" y1="120" x2="700" y2="120"/>
+                <line x1="0" y1="180" x2="700" y2="180"/><line x1="0" y1="240" x2="700" y2="240"/>
+                <line x1="0" y1="300" x2="700" y2="300"/>
+              </g>
+              <line x1="30" y1="80" x2="660" y2="80" stroke="var(--bear)" stroke-width="2" stroke-dasharray="8,5"/>
+              <line x1="30" y1="240" x2="660" y2="240" stroke="var(--bull)" stroke-width="2" stroke-dasharray="8,5"/>
+              <path d="M 30,200 L 80,140 L 120,82 L 160,160 L 200,80 L 240,180 L 280,82 L 320,238 L 360,160 L 400,240 L 440,180 L 480,238 L 520,140 L 560,82 L 600,40 L 660,60" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9"/>
+              <circle cx="120" cy="82" r="6" fill="none" stroke="var(--bear)" stroke-width="2"/>
+              <circle cx="200" cy="80" r="6" fill="none" stroke="var(--bear)" stroke-width="2"/>
+              <circle cx="280" cy="82" r="6" fill="none" stroke="var(--bear)" stroke-width="2"/>
+              <circle cx="320" cy="238" r="6" fill="none" stroke="var(--bull)" stroke-width="2"/>
+              <circle cx="400" cy="240" r="6" fill="none" stroke="var(--bull)" stroke-width="2"/>
+              <circle cx="480" cy="238" r="6" fill="none" stroke="var(--bull)" stroke-width="2"/>
+              <circle cx="600" cy="40" r="10" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+              <text x="660" y="74" font-family="Space Mono" font-size="11" fill="var(--bear)" text-anchor="end" letter-spacing="0.12em">RESISTANCE</text>
+              <text x="660" y="234" font-family="Space Mono" font-size="11" fill="var(--bull)" text-anchor="end" letter-spacing="0.12em">SUPPORT</text>
+              <text x="600" y="20" font-family="Space Mono" font-size="11" fill="var(--gold)" text-anchor="middle" letter-spacing="0.12em">BREAKOUT</text>
+            </svg>
+          </div>
+          <div>
+            <div class="glass rv" style="--d:4; border-color:rgba(220,38,38,0.35);">
+              <h3 style="color:var(--bear);">Resistance</h3>
+              <p>A price <strong>ceiling</strong> where sellers reliably step in.</p>
+            </div>
+            <div class="glass rv" style="--d:6; margin-top:0.8em; border-color:rgba(22,163,74,0.35);">
+              <h3 style="color:var(--bull);">Support</h3>
+              <p>A price <strong>floor</strong> where buyers reliably step in.</p>
+            </div>
+            <div class="insight rv" style="--d:8; margin-top:0.8em;">
+              <div class="insight-label">Role Reversal</div>
+              A broken resistance becomes new <strong>support</strong>. A broken support becomes new <strong>resistance</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s106 : STATIC vs DYNAMIC SR (HTML/SVG) =============== -->
+    <section class="slide" id="s106">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block III &middot; Two Flavours</div>
+        <h2 class="rv" style="--d:1">Static vs Dynamic Support &amp; Resistance</h2>
+        <p class="slide-subtitle rv" style="--d:2">Horizontal levels stay flat. Trendlines slope &mdash; they are the moving floor and ceiling of an active trend.</p>
+        <div class="two-col" style="margin-top:0.4em;">
+          <div class="glass rv" style="--d:3;">
+            <div class="block-number" style="margin-bottom:0.4em;">Static S/R</div>
+            <h3 style="color:var(--gold);">Horizontal Anchors</h3>
+            <svg viewBox="0 0 400 200" class="sr-mini-svg">
+              <line x1="20" y1="40" x2="380" y2="40" stroke="var(--bear)" stroke-width="1.8" stroke-dasharray="6,4"/>
+              <line x1="20" y1="160" x2="380" y2="160" stroke="var(--bull)" stroke-width="1.8" stroke-dasharray="6,4"/>
+              <path d="M 20,160 Q 60,40 100,160 T 180,160 T 260,160 T 340,160 L 380,90" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <p>Levels stay <strong>flat</strong> regardless of trend.</p>
+          </div>
+          <div class="glass rv" style="--d:5;">
+            <div class="block-number" style="margin-bottom:0.4em; color:var(--teal);">Dynamic S/R</div>
+            <h3 style="color:var(--teal);">Sloping Trendlines</h3>
+            <svg viewBox="0 0 400 200" class="sr-mini-svg">
+              <line x1="20" y1="160" x2="380" y2="50" stroke="var(--bear)" stroke-width="1.8" stroke-dasharray="6,4"/>
+              <line x1="20" y1="180" x2="380" y2="100" stroke="var(--bull)" stroke-width="1.8" stroke-dasharray="6,4"/>
+              <path d="M 20,170 L 50,160 L 80,150 L 110,165 L 140,135 L 170,145 L 200,120 L 230,130 L 260,105 L 290,118 L 320,85 L 350,98 L 380,70" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <p>Levels <strong>rise</strong> (or fall) with the trend.</p>
+          </div>
+        </div>
+        <div class="insight rv" style="--d:7; margin-top:1em;">
+          <div class="insight-label">The channel concept</div>
+          Pair a dynamic floor with a parallel dynamic ceiling and you have a <strong>trading channel</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s22 =============== -->
+    <section class="slide" id="s22">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/IV-s22.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 820px;">
+          <div class="chapter-marker" style="justify-content: center;">Block &middot; Four</div>
+          <h2>Indicators</h2>
+          <p>Mathematical lenses on price &mdash; trend trackers, oscillators, sentiment gauges, flow meters.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s23 =============== -->
+    <section class="slide" id="s23">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/IV-s23.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block IV &middot; The Framework</div>
+          <h2>How to Choose Among 200+ Indicators</h2>
+          <p>Match the indicator family to the question you&rsquo;re actually asking.</p>
+          <ul class="hero-bullets">
+            <li><strong>Trend trackers</strong> &mdash; map direction (Moving Avgs, Bollinger)</li>
+            <li><strong>Oscillators</strong> &mdash; time entries (RSI, Stochastic, MACD)</li>
+            <li><strong>Sentiment</strong> &mdash; read the crowd (VIX, Put/Call ratio)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s24 =============== -->
+    <section class="slide" id="s24">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/IV-s24.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block IV &middot; Trend Tracking</div>
+          <h2>The Moving Average &amp; Bollinger Bands</h2>
+          <p>The baseline of every trend-following system &mdash; and its 2&sigma; envelope.</p>
+          <ul class="hero-bullets">
+            <li><strong>Moving Average</strong> &mdash; smoothes noise; reveals direction</li>
+            <li><strong>Bollinger Bands</strong> &mdash; MA &plusmn; 2&sigma;; envelope of normal volatility</li>
+            <li>Price <em>outside</em> the bands = stretched move; expect reversion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s107 : FOUR QUADRANTS (HTML/SVG) =============== -->
+    <section class="slide" id="s107">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block IV &middot; Toolkit Map</div>
+        <h2 class="rv" style="--d:1">The Four Quadrants of Technical Tools</h2>
+        <p class="slide-subtitle rv" style="--d:2">Every indicator falls into one of four boxes &mdash; one axis is <em>what it watches</em>, the other is <em>what it tells you</em>.</p>
+        <div class="quadrant-grid rv" style="--d:3; margin-top:0.4em;">
+          <div class="quadrant quad-micro">
+            <div class="quadrant-label">Focus: Security &middot; Use: Direction</div>
+            <h4>Trend Tracking</h4>
+            <p>Map the prevailing direction.</p>
+            <div class="micro-list">Moving Averages &middot; Bollinger Bands</div>
+          </div>
+          <div class="quadrant quad-macro">
+            <div class="quadrant-label">Focus: Market &middot; Use: Capital Supply</div>
+            <h4>Flow of Funds</h4>
+            <p>Track where money is actually flowing.</p>
+            <div class="micro-list">Arms Index (TRIN) &middot; Advance / Decline</div>
+          </div>
+          <div class="quadrant quad-micro">
+            <div class="quadrant-label">Focus: Security &middot; Use: Timing</div>
+            <h4>Oscillators</h4>
+            <p>Catch reversal points by overbought/oversold.</p>
+            <div class="micro-list">Momentum &middot; RSI &middot; Stochastic</div>
+          </div>
+          <div class="quadrant quad-macro">
+            <div class="quadrant-label">Focus: Market &middot; Use: Psychology</div>
+            <h4>Sentiment</h4>
+            <p>Read the crowd &mdash; greed and fear extremes.</p>
+            <div class="micro-list">Put / Call Ratio &middot; VIX</div>
+          </div>
+        </div>
+        <div class="insight rv" style="--d:7; margin-top:1em;">
+          <div class="insight-label">Diagnostic Warning</div>
+          <strong>Analysis paralysis</strong> happens when traders stack multiple indicators from the <em>same</em> quadrant.
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s25 =============== -->
+    <section class="slide" id="s25">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/IV-s25.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 640px;">
+          <div class="chapter-marker">Block IV &middot; Oscillators</div>
+          <h2>Measuring Momentum &mdash; When Speed Tells the Story</h2>
+          <p>Like a ball thrown in the air &mdash; you can tell it&rsquo;s about to fall when its rise <em>slows</em>.</p>
+          <ul class="hero-bullets">
+            <li><strong>RSI</strong> &mdash; 14-period momentum on a 0&ndash;100 scale; &gt;70 overbought, &lt;30 oversold</li>
+            <li><strong>Stochastic</strong> &mdash; close vs recent range; spots short-term reversals</li>
+            <li><strong>MACD</strong> &mdash; momentum vs trend; the crossover signal traders watch</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s108 : BRENT CRUDE (kept-as-image) =============== -->
+    <section class="slide" id="s108">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block IV &middot; Live Market</div>
+        <h2 class="rv" style="--d:1">Brent Crude with Moving Averages</h2>
+        <p class="slide-subtitle rv" style="--d:2">20- / 50- / 200-day moving averages layered on a real Brent Crude chart &mdash; the trend-tracker&rsquo;s primary lens.</p>
+        <figure class="contrib-figure rv" style="--d:3">
+          <img src="assets/block4/slide-05.png" alt="Brent Crude with 20/50/200-day MAs">
+          <figcaption>Source &middot; TradingView &middot; Brent Crude daily &mdash; preserved as authentic market screenshot</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s26 =============== -->
+    <section class="slide" id="s26">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/IV-s26.png" alt="">
+        <div class="hero-tint right-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 620px;">
+          <div class="chapter-marker">Block IV &middot; The Macro Layer</div>
+          <h2>Polling the Crowd Before You Trade the Chart</h2>
+          <p>The contrarian&rsquo;s thermometer &mdash; sentiment extremes mark market turning points.</p>
+          <ul class="hero-bullets">
+            <li><strong>VIX</strong> &mdash; the &lsquo;fear gauge&rsquo;; spikes mark capitulation lows</li>
+            <li><strong>Put/Call ratio</strong> &mdash; extreme readings = crowd is wrong</li>
+            <li><strong>AAII survey</strong> &mdash; retail sentiment; bullish extremes precede pullbacks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s27 =============== -->
+    <section class="slide" id="s27">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/IV-s27.png" alt="">
+        <div class="hero-tint bottom-fade"></div>
+        <div class="hero-overlay-card middle-left rv" style="--d:2; max-width: 640px;">
+          <div class="chapter-marker">Block IV &middot; The Control Panel</div>
+          <h2>Combining Signals &mdash; The High-Conviction Trade</h2>
+          <p>One indicator tells a story. Two from <em>different</em> quadrants tell the truth.</p>
+          <ul class="hero-bullets">
+            <li><strong>Trend + Oscillator</strong> &mdash; classic combo: ride the trend, time the entry</li>
+            <li><strong>Sentiment + Trend</strong> &mdash; long-only bias when crowd is fearful in an uptrend</li>
+            <li><strong>Volume confirms everything</strong> &mdash; without volume, signals are suspect</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s109 : ALIGN TO GOAL (HTML/SVG) =============== -->
+    <section class="slide" id="s109">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Block IV &middot; Match Tool to Goal</div>
+        <h2 class="rv" style="--d:1">Aligning the Engine to Your Investing Goal</h2>
+        <p class="slide-subtitle rv" style="--d:2">Three holding periods, three different leading instruments.</p>
+        <div class="three-col" style="margin-top:0.4em;">
+          <div class="glass rv" style="--d:3; border-color:rgba(220,38,38,0.35);">
+            <div class="block-number" style="color:var(--bear); margin-bottom:0.4em;">Short-term Swings</div>
+            <h3 style="color:var(--bear);">Lead with Oscillators</h3>
+            <p style="margin-top:0.4em;"><strong>Goal:</strong> Capture rapid reversals via momentum shifts and overbought/oversold extremes.</p>
+            <div class="tag-row" style="margin-top:0.8em;">
+              <span class="tag" style="border-color:rgba(220,38,38,0.4); color:var(--bear);">RSI</span>
+              <span class="tag" style="border-color:rgba(220,38,38,0.4); color:var(--bear);">Stochastic</span>
+              <span class="tag" style="border-color:rgba(220,38,38,0.4); color:var(--bear);">Momentum</span>
+            </div>
+          </div>
+          <div class="glass glass-gold rv" style="--d:5;">
+            <div class="block-number" style="color:var(--gold); margin-bottom:0.4em;">System Building</div>
+            <h3 style="color:var(--gold);">Trend + Oscillators</h3>
+            <p style="margin-top:0.4em;"><strong>Goal:</strong> Ride established trends, using momentum tools strictly as <em>secondary</em> confirmations.</p>
+            <div class="tag-row" style="margin-top:0.8em;">
+              <span class="tag" style="border-color:var(--border-gold); color:var(--gold);">MAs</span>
+              <span class="tag" style="border-color:var(--border-gold); color:var(--gold);">Bollinger</span>
+              <span class="tag" style="border-color:var(--border-gold); color:var(--gold);">+ RSI</span>
+            </div>
+          </div>
+          <div class="glass rv" style="--d:7; border-color:rgba(15,118,110,0.35);">
+            <div class="block-number" style="color:var(--teal); margin-bottom:0.4em;">Long-term Investing</div>
+            <h3 style="color:var(--teal);">Sentiment + Flow</h3>
+            <p style="margin-top:0.4em;"><strong>Goal:</strong> Determine market regime, identify historic tops and bottoms.</p>
+            <div class="tag-row" style="margin-top:0.8em;">
+              <span class="tag" style="border-color:rgba(15,118,110,0.4); color:var(--teal);">VIX</span>
+              <span class="tag" style="border-color:rgba(15,118,110,0.4); color:var(--teal);">Put/Call</span>
+              <span class="tag" style="border-color:rgba(15,118,110,0.4); color:var(--teal);">TRIN</span>
+            </div>
+          </div>
+        </div>
+        <div class="insight rv" style="--d:9; margin-top:1em;">
+          <div class="insight-label">Bottom line</div>
+          Match the indicator family to the <em>holding period</em>. The same tool that rescues a swing trader can wreck a long-term investor.
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE AI-1 : THE ALGORITHMIC EDGE (paper) =============== -->
+    <section class="slide" id="AI-1">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Bridge to AI &middot; The Research</div>
+        <h2 class="rv" style="--d:1">The Algorithmic Edge: Forecasting the S&amp;P 500</h2>
+        <p class="slide-subtitle rv" style="--d:2">Computational Economics (2025) 66:1715&ndash;1745 &middot; Arauco Ballesteros &amp; Mart&iacute;nez Miranda</p>
+        <div class="glass rv" style="--d:3; margin-top:1em;">
+          <p style="font-size: 1.15rem; line-height: 1.7;">A rigorous quantitative analysis of how <strong>neural networks</strong> synthesize <em style="color:var(--gold);">Fundamentals</em>, <em style="color:var(--gold);">Technicals</em>, and <em style="color:var(--gold);">Market Sentiment</em> to achieve a <strong>systemic informational edge</strong>.</p>
+        </div>
+        <div class="three-col rv" style="--d:5; margin-top:1em;">
+          <div class="glass" style="text-align:center; border-color:rgba(15,118,110,0.4);">
+            <h3 style="color:var(--teal);">Fundamentals</h3>
+            <p style="font-family: 'Space Mono', monospace; font-size:0.85rem; color:var(--text-dim);">EPS &middot; ROE &middot; P/E Ratio</p>
+          </div>
+          <div class="glass" style="text-align:center; border-color:var(--border-gold);">
+            <h3 style="color:var(--gold);">Technicals</h3>
+            <p style="font-family: 'Space Mono', monospace; font-size:0.85rem; color:var(--text-dim);">Moving Avgs &middot; RSI &middot; Stochastic</p>
+          </div>
+          <div class="glass" style="text-align:center; border-color:rgba(220,38,38,0.4);">
+            <h3 style="color:var(--bear);">Market Sentiment</h3>
+            <p style="font-family: 'Space Mono', monospace; font-size:0.85rem; color:var(--text-dim);">Social Volume &middot; Pos/Neg Ratio</p>
+          </div>
+        </div>
+        <div class="insight rv" style="--d:7; margin-top:1em;">
+          <div class="insight-label">Headline finding</div>
+          Combining all three pillars via a <strong>Multilayer Perceptron</strong> pushed S&amp;P 500 predictive accuracy to <strong style="color:var(--gold);">86.88%</strong>, with a <strong>+1.5% return uplift</strong> on two-thirds of the universe.
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE AI-2 : MLP ARCHITECTURE (HTML/SVG diagram) =============== -->
+    <section class="slide" id="AI-2">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Bridge to AI &middot; Architecture</div>
+        <h2 class="rv" style="--d:1">The Multilayer Perceptron Input Architecture</h2>
+        <p class="slide-subtitle rv" style="--d:2">A machine-learning system engineered to ingest millions of data points across three pillars and output precise daily trading signals.</p>
+        <div class="glass rv" style="--d:3; margin-top:1em; padding: 2em 1.5em;">
+          <svg viewBox="0 0 1200 360" style="width:100%; height:auto; display:block;">
+            <!-- Input boxes (left) -->
+            <g>
+              <rect x="20" y="20" width="280" height="80" rx="8" fill="none" stroke="var(--teal)" stroke-width="1.8"/>
+              <text x="35" y="48" font-family="Cormorant Garamond" font-size="22" font-weight="600" fill="var(--teal)">Fundamental</text>
+              <text x="35" y="78" font-family="Space Mono" font-size="13" fill="var(--text)">EPS &middot; ROE &middot; P/E Ratio</text>
+            </g>
+            <g>
+              <rect x="20" y="140" width="280" height="80" rx="8" fill="none" stroke="var(--gold)" stroke-width="1.8"/>
+              <text x="35" y="168" font-family="Cormorant Garamond" font-size="22" font-weight="600" fill="var(--gold)">Technical</text>
+              <text x="35" y="198" font-family="Space Mono" font-size="13" fill="var(--text)">Moving Avgs &middot; RSI &middot; Stochastic</text>
+            </g>
+            <g>
+              <rect x="20" y="260" width="280" height="80" rx="8" fill="none" stroke="var(--bear)" stroke-width="1.8"/>
+              <text x="35" y="288" font-family="Cormorant Garamond" font-size="22" font-weight="600" fill="var(--bear)">Sentiment</text>
+              <text x="35" y="318" font-family="Space Mono" font-size="13" fill="var(--text)">Social Volume &middot; Pos/Neg Ratio</text>
+            </g>
+            <!-- Arrows from inputs to neuron -->
+            <line x1="305" y1="60" x2="555" y2="170" stroke="var(--text-dim)" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="305" y1="180" x2="555" y2="180" stroke="var(--text-dim)" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="305" y1="300" x2="555" y2="190" stroke="var(--text-dim)" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                <polygon points="0 0, 10 4, 0 8" fill="var(--text-dim)"/>
+              </marker>
+            </defs>
+            <!-- Neuron / Activation -->
+            <circle cx="640" cy="180" r="90" fill="rgba(255,255,255,0.95)" stroke="var(--text)" stroke-width="2"/>
+            <text x="595" y="180" font-family="Cormorant Garamond" font-size="48" font-weight="700" fill="var(--text)">&#931;</text>
+            <line x1="640" y1="100" x2="640" y2="260" stroke="var(--text-dim)" stroke-width="1.5"/>
+            <text x="660" y="180" font-family="Cormorant Garamond" font-size="48" font-style="italic" fill="var(--gold)">&#966;</text>
+            <text x="595" y="260" font-family="Space Mono" font-size="11" fill="var(--text-dim)" letter-spacing="0.1em">ACTIVATION</text>
+            <!-- Arrow to output -->
+            <line x1="730" y1="180" x2="900" y2="180" stroke="var(--text)" stroke-width="2" marker-end="url(#arrowhead)"/>
+            <!-- Output box -->
+            <rect x="900" y="120" width="280" height="120" rx="10" fill="rgba(255,255,255,0.95)" stroke="var(--gold)" stroke-width="2"/>
+            <text x="1040" y="155" font-family="Space Mono" font-size="14" fill="var(--text-dim)" text-anchor="middle" letter-spacing="0.15em">DAILY SIGNAL</text>
+            <text x="940" y="195" font-family="Cormorant Garamond" font-size="28" font-weight="700" fill="var(--bull)">Buy (+1)</text>
+            <text x="970" y="225" font-family="Cormorant Garamond" font-size="20" fill="var(--text-dim)">Hold (0)</text>
+            <text x="1080" y="195" font-family="Cormorant Garamond" font-size="28" font-weight="700" fill="var(--bear)">Sell (&minus;1)</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE AI-3 : ML PIPELINE FLOWCHART (HTML/SVG) =============== -->
+    <section class="slide" id="AI-3">
+      <div class="slide-stage">
+        <div class="chapter-marker rv" style="--d:0">Bridge to AI &middot; Pipeline</div>
+        <h2 class="rv" style="--d:1">Phase-by-Phase Machine-Learning Pipeline</h2>
+        <p class="slide-subtitle rv" style="--d:2">From raw data to a tradable signal &mdash; how the model in the paper was actually built.</p>
+        <div class="glass rv" style="--d:3; margin-top:0.8em; padding: 1.5em 2em;">
+          <svg viewBox="0 0 1200 380" style="width:100%; height:auto; display:block;">
+            <defs>
+              <marker id="arr2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                <polygon points="0 0, 10 4, 0 8" fill="var(--gold)"/>
+              </marker>
+            </defs>
+            <g font-family="Cormorant Garamond" font-size="15" font-weight="600">
+              <!-- Step boxes in horizontal flow -->
+              <rect x="10" y="110" width="160" height="80" rx="8" fill="rgba(255,255,255,0.95)" stroke="var(--teal)" stroke-width="1.5"/>
+              <text x="90" y="142" text-anchor="middle" fill="var(--text)">Data</text>
+              <text x="90" y="162" text-anchor="middle" fill="var(--text)">Collection</text>
+              <text x="90" y="180" text-anchor="middle" font-size="10" font-family="Space Mono" fill="var(--text-dim)">Investing.com</text>
+
+              <line x1="170" y1="150" x2="200" y2="150" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr2)"/>
+
+              <rect x="200" y="110" width="160" height="80" rx="8" fill="rgba(255,255,255,0.95)" stroke="var(--teal)" stroke-width="1.5"/>
+              <text x="280" y="142" text-anchor="middle" fill="var(--text)">Pre-processing</text>
+              <text x="280" y="162" text-anchor="middle" fill="var(--text)">&amp; Database</text>
+              <text x="280" y="180" text-anchor="middle" font-size="10" font-family="Space Mono" fill="var(--text-dim)">per company</text>
+
+              <line x1="360" y1="150" x2="390" y2="150" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr2)"/>
+
+              <rect x="390" y="110" width="160" height="80" rx="8" fill="rgba(255,255,255,0.95)" stroke="var(--gold)" stroke-width="1.5"/>
+              <text x="470" y="142" text-anchor="middle" fill="var(--text)">Input Variable</text>
+              <text x="470" y="162" text-anchor="middle" fill="var(--text)">Selection</text>
+              <text x="470" y="180" text-anchor="middle" font-size="10" font-family="Space Mono" fill="var(--text-dim)">6 combinations</text>
+
+              <line x1="550" y1="150" x2="580" y2="150" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr2)"/>
+
+              <rect x="580" y="110" width="160" height="80" rx="8" fill="rgba(255,255,255,0.95)" stroke="var(--gold)" stroke-width="1.5"/>
+              <text x="660" y="142" text-anchor="middle" fill="var(--text)">Train / Test Split</text>
+              <text x="660" y="162" text-anchor="middle" fill="var(--text)">80 / 20</text>
+
+              <line x1="740" y1="150" x2="770" y2="150" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr2)"/>
+
+              <rect x="770" y="110" width="160" height="80" rx="8" fill="rgba(255,255,255,0.95)" stroke="var(--bear)" stroke-width="1.5"/>
+              <text x="850" y="142" text-anchor="middle" fill="var(--text)">MLP Model</text>
+              <text x="850" y="162" text-anchor="middle" fill="var(--text)">Training</text>
+
+              <line x1="930" y1="150" x2="960" y2="150" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr2)"/>
+
+              <rect x="960" y="110" width="160" height="80" rx="8" fill="rgba(255,255,255,0.95)" stroke="var(--bear)" stroke-width="1.5"/>
+              <text x="1040" y="142" text-anchor="middle" fill="var(--text)">Evaluation</text>
+              <text x="1040" y="162" text-anchor="middle" fill="var(--text)">Error &amp; R&sup2;</text>
+            </g>
+
+            <!-- Final results bar at bottom -->
+            <line x1="600" y1="200" x2="600" y2="240" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr2)"/>
+            <rect x="380" y="250" width="440" height="60" rx="8" fill="var(--gold-glow)" stroke="var(--gold)" stroke-width="2"/>
+            <text x="600" y="280" text-anchor="middle" font-family="Cormorant Garamond" font-size="20" font-weight="600" fill="var(--text)">Results comparison &mdash; heat-map across 6 combinations</text>
+            <text x="600" y="300" text-anchor="middle" font-family="Space Mono" font-size="11" fill="var(--gold)" letter-spacing="0.1em">BEST: ALL THREE PILLARS COMBINED</text>
+          </svg>
+        </div>
+        <div class="insight rv" style="--d:5; margin-top:0.7em;">
+          <div class="insight-label">Why this matters for DALIL</div>
+          DALIL is the practical application of this pipeline &mdash; the same fundamentals + technicals + sentiment, wrapped in a voice-controlled Arabic interface.
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE s28 =============== -->
+    <section class="slide" id="s28">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/V-s28.png" alt="">
+        <div class="hero-tint center-strong"></div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 820px;">
+          <div class="chapter-marker" style="justify-content: center;">Block &middot; Five</div>
+          <h2>The Debate</h2>
+          <p>Does Technical Analysis actually work? The Efficient Market Hypothesis, case studies, and honest limitations.</p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== SLIDE E : DALIL HANDOFF =============== -->
+    <section class="slide" id="E">
+      <div class="slide-stage hero-stage">
+        <img class="hero-bg" src="assets/intro3/generated/E-dalil.png" alt="">
+        <div class="hero-tint center-strong"></div>
+        <div class="dalil-arabic">دليل</div>
+        <div class="hero-overlay-card center rv" style="--d:2; max-width: 760px;">
+          <div class="block-number" style="color: var(--gold); margin-bottom: 0.6em; font-family: 'Space Mono', monospace; font-size: 0.92rem; letter-spacing: 0.4em;">Block &middot; Six</div>
+          <h1 class="block-title" style="font-size: 5rem; margin-bottom: 0.15em;">DALIL</h1>
+          <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-dim); font-size: 1.2rem; margin-bottom: 1em;">Dynamic Analysis of Live Investment &amp; Listings</p>
+          <p style="font-size: 1rem; color: var(--text); margin-bottom: 1em; line-height: 1.6;">A live voice-controlled <strong>Arabic</strong> interface combining everything we have just covered &mdash; trends, candlesticks, support &amp; resistance, RSI, Bollinger, MACD &mdash; with neural-network market sentiment.</p>
+          <p style="font-size: 0.95rem; color: var(--text-dim); margin-bottom: 1.4em; font-style: italic;">What follows is not a slide. It is a live demonstration.</p>
+          <a href="http://localhost:8000" class="dalil-launch" target="_blank">&rarr; Launch DALIL</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT                                                     -->
+  <!-- ============================================================ -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ======== PARTICLE CONSTELLATION ======== */
+    class Particles {
+      constructor(canvas) {
+        this.c = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.pts = [];
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        for (let i = 0; i < 65; i++) {
+          this.pts.push({
+            x: Math.random() * this.c.width,
+            y: Math.random() * this.c.height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: Math.random() * 1.5 + 0.5
+          });
+        }
+        this.loop();
+      }
+      resize() {
+        this.c.width = innerWidth;
+        this.c.height = innerHeight;
+      }
+      loop() {
+        const { ctx, pts, c } = this;
+        ctx.clearRect(0, 0, c.width, c.height);
+        for (const p of pts) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = c.width;
+          if (p.x > c.width) p.x = 0;
+          if (p.y < 0) p.y = c.height;
+          if (p.y > c.height) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(15,20,25,0.28)';
+          ctx.fill();
+        }
+        for (let i = 0; i < pts.length; i++) {
+          for (let j = i + 1; j < pts.length; j++) {
+            const dx = pts[i].x - pts[j].x;
+            const dy = pts[i].y - pts[j].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 130) {
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.strokeStyle = `rgba(15,20,25,${0.12 * (1 - d / 130)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(() => this.loop());
+      }
+    }
+
+    /* ======== HERO CANDLESTICK CHART ======== */
+    function buildHeroChart() {
+      const svg = document.getElementById('heroChart');
+      if (!svg) return;
+      const ns = 'http://www.w3.org/2000/svg';
+      // Candle data: [openY, closeY, highY, lowY] (SVG coords, lower = higher price)
+      const data = [
+        [280, 240, 220, 300], [240, 210, 190, 260], [210, 250, 200, 270],
+        [250, 200, 180, 270], [200, 180, 155, 225], [180, 215, 170, 235],
+        [215, 255, 205, 275], [255, 285, 240, 305], [285, 245, 225, 305],
+        [245, 195, 175, 265], [195, 155, 135, 215], [155, 125, 105, 180],
+        [125, 95, 75, 150],   [95, 115, 80, 135],   [115, 80, 55, 135],
+        [80, 65, 45, 100]
+      ];
+      const w = 32, gap = 58;
+
+      // Grid lines
+      for (let y = 80; y <= 300; y += 55) {
+        const line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', '0'); line.setAttribute('y1', y);
+        line.setAttribute('x2', '960'); line.setAttribute('y2', y);
+        line.setAttribute('stroke', 'rgba(184,137,43,0.04)');
+        line.setAttribute('stroke-width', '1');
+        svg.appendChild(line);
+      }
+
+      // Moving average path
+      const closes = data.map(d => d[1]);
+      const maVals = closes.map((_, i) => {
+        const s = Math.max(0, i - 3);
+        const sl = closes.slice(s, i + 1);
+        return sl.reduce((a, b) => a + b, 0) / sl.length;
+      });
+      let pathD = `M ${30 + 0 * gap},${maVals[0]}`;
+      for (let i = 1; i < maVals.length; i++) {
+        const x = 30 + i * gap;
+        const px = 30 + (i - 1) * gap;
+        const cpx = (px + x) / 2;
+        pathD += ` C ${cpx},${maVals[i-1]} ${cpx},${maVals[i]} ${x},${maVals[i]}`;
+      }
+      const maPath = document.createElementNS(ns, 'path');
+      maPath.setAttribute('d', pathD);
+      maPath.setAttribute('fill', 'none');
+      maPath.setAttribute('stroke', 'rgba(15,118,110,0.3)');
+      maPath.setAttribute('stroke-width', '2');
+      maPath.classList.add('ma-line');
+      svg.appendChild(maPath);
+      // Set dasharray after it's in the DOM
+      const len = maPath.getTotalLength ? maPath.getTotalLength() : 1400;
+      maPath.style.strokeDasharray = len;
+      maPath.style.strokeDashoffset = len;
+      maPath.style.animation = `drawLine 2.5s ease forwards 1.5s`;
+
+      // Candles
+      data.forEach((d, i) => {
+        const [o, c, h, l] = d;
+        const x = 30 + i * gap;
+        const bull = c < o;
+        const color = bull ? '#16a34a' : '#dc2626';
+        const bodyTop = Math.min(o, c);
+        const bodyH = Math.max(Math.abs(o - c), 4);
+
+        const g = document.createElementNS(ns, 'g');
+        g.classList.add('candle');
+        g.style.setProperty('--i', i);
+
+        const wick = document.createElementNS(ns, 'line');
+        wick.setAttribute('x1', x); wick.setAttribute('y1', h);
+        wick.setAttribute('x2', x); wick.setAttribute('y2', l);
+        wick.setAttribute('stroke', color); wick.setAttribute('stroke-width', '2');
+
+        const body = document.createElementNS(ns, 'rect');
+        body.setAttribute('x', x - w / 2); body.setAttribute('y', bodyTop);
+        body.setAttribute('width', w); body.setAttribute('height', bodyH);
+        body.setAttribute('rx', '3'); body.setAttribute('fill', color);
+
+        g.appendChild(wick);
+        g.appendChild(body);
+        svg.appendChild(g);
+      });
+    }
+
+    /* ======== COUNTER ANIMATION ======== */
+    function animateCounters(slide) {
+      slide.querySelectorAll('.stat-value').forEach(el => {
+        const target = parseInt(el.dataset.target) || 0;
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const duration = 2000;
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = prefix + Math.floor(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+
+    /* ======== SLIDE DECK ENGINE ======== */
+    class Deck {
+      constructor() {
+        this.slides = [...document.querySelectorAll('.slide')];
+        this.total = this.slides.length;
+        this.cur = 0;
+        this.locked = false;
+        this.init();
+      }
+
+      init() {
+        // Build nav dots
+        const dotsContainer = document.getElementById('navDots');
+        const labels = [
+          'Title','Definition','Ancient Roots','Candlesticks','Charles Dow','Pioneers','Evolution','TA Today','Roadmap','Begin',
+          'Block II','Two Schools','FA Pillars','Core Principles','Comparison','Patterns Ref',
+          'Block III','Three Trends','Trend Lines','Chart Types','Line Chart','Candle Anatomy','Candle Bull/Bear',
+          'Bullish Reversals','Bearish Reversals','Engulfing Example','Support & Resistance','S&R Live Chart','Static vs Dynamic',
+          'Block IV','Four Quadrants','Quadrants Chart','SMA & Bollinger','Brent MA','Oscillators','Macro Layer','Combining Signals','Align to Goals',
+          'Block V','DALIL'
+        ];
+        this.slides.forEach((_, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.innerHTML = `<span class="dot-label">${labels[i] || ''}</span>`;
+          btn.addEventListener('click', () => this.goto(i));
+          dotsContainer.appendChild(btn);
+        });
+        this.dots = [...dotsContainer.querySelectorAll('.nav-dot')];
+
+        // Activate first slide
+        this.slides[0].classList.add('active');
+        this.updateChrome();
+        buildHeroChart();
+
+        // Keyboard
+        document.addEventListener('keydown', e => {
+          if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+            e.preventDefault(); this.next();
+          }
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault(); this.prev();
+          }
+          // Number keys for direct jump
+          const num = parseInt(e.key);
+          if (!isNaN(num) && num >= 0 && num < this.total) this.goto(num);
+        });
+
+        // Buttons
+        document.getElementById('prevBtn').addEventListener('click', () => this.prev());
+        document.getElementById('nextBtn').addEventListener('click', () => this.next());
+
+        // Touch swipe
+        let sx = 0;
+        document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+        document.addEventListener('touchend', e => {
+          const dx = e.changedTouches[0].clientX - sx;
+          if (Math.abs(dx) > 50) dx > 0 ? this.prev() : this.next();
+        });
+      }
+
+      goto(n) {
+        if (this.locked || n === this.cur || n < 0 || n >= this.total) return;
+        this.locked = true;
+        const fwd = n > this.cur;
+        const leaving = this.slides[this.cur];
+        const entering = this.slides[n];
+
+        // Position entering slide off-screen
+        entering.style.transition = 'none';
+        entering.style.transform = `translateX(${fwd ? 80 : -80}px)`;
+        entering.style.opacity = '0';
+        entering.classList.add('active');
+        entering.offsetHeight; // reflow
+
+        // Animate
+        entering.style.transition = '';
+        entering.style.transform = '';
+        entering.style.opacity = '';
+
+        leaving.style.transform = `translateX(${fwd ? -80 : 80}px)`;
+        leaving.style.opacity = '0';
+
+        setTimeout(() => {
+          leaving.classList.remove('active');
+          leaving.style.transition = 'none';
+          leaving.style.transform = '';
+          leaving.style.opacity = '';
+          leaving.offsetHeight;
+          leaving.style.transition = '';
+
+          this.cur = n;
+          this.locked = false;
+          this.updateChrome();
+          this.onEnter(n);
+        }, 700);
+      }
+
+      next() { this.goto(this.cur + 1); }
+      prev() { this.goto(this.cur - 1); }
+
+      updateChrome() {
+        // Progress bar
+        document.getElementById('progress').style.width =
+          ((this.cur / (this.total - 1)) * 100) + '%';
+        // Counter
+        document.getElementById('counterCur').textContent =
+          String(this.cur + 1).padStart(2, '0');
+        // Dots
+        this.dots.forEach((d, i) => d.classList.toggle('active', i === this.cur));
+        // Arrows
+        document.getElementById('prevBtn').disabled = this.cur === 0;
+        document.getElementById('nextBtn').disabled = this.cur === this.total - 1;
+      }
+
+      onEnter(n) {
+        // Trigger counter animations on the stats slide
+        if (this.slides[n].id === 's7') {
+          animateCounters(this.slides[n]);
+        }
+      }
+    }
+
+    /* ======== STAGE FIT (1920x1080 -> any viewport) ======== */
+    function fitStage() {
+      const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      document.documentElement.style.setProperty('--stage-scale', s);
+    }
+    window.addEventListener('resize', fitStage);
+    fitStage();
+
+    /* ======== INIT ======== */
+    new Particles(document.getElementById('bgCanvas'));
+    new Deck();
+
+  })();
+  </script>
+</body>
+</html>
