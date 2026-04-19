@@ -155,6 +155,13 @@
       z-index: 0;
     }
 
+    #floatingSpace {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     .bg-orb {
       position: fixed;
       border-radius: 50%;
@@ -681,6 +688,44 @@
       z-index: 0;
       opacity: 0.07;
       transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* === FLOATING ICONS SPACE === */
+    .floating-space {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floating-icon-wrap {
+      position: absolute;
+      z-index: 0;
+      /* removed fixed transition to handle boost in JS loop */
+      pointer-events: none;
+      overflow: hidden;
+      /* for shape variety */
+    }
+
+    .floating-icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      filter: grayscale(0.1) brightness(1.1);
+      animation: floatDrift 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatDrift {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+
+      100% {
+        transform: translate3d(20px, 35px, 0) rotate(5deg);
+      }
     }
 
     /* === TITLE SLIDE SPECIFICS === */
@@ -1517,7 +1562,9 @@
         <h2 class="rv" style="--d:1">What is Technical Analysis?</h2>
         <div style="max-width:1100px;margin:0 auto;width:100%;">
           <div class="glass def-card rv" style="--d:2; padding:2.2em 2.4em; font-size:1.25em;">
-            <p style="font-size:1.5rem; line-height:1.55;"><strong>Technical Analysis</strong> is the study of past market data &mdash; primarily <em>price</em> and <em>volume</em> &mdash; to forecast future price movements.</p>
+            <p style="font-size:1.5rem; line-height:1.55;"><strong>Technical Analysis</strong> is the study of past
+              market data &mdash; primarily <em>price</em> and <em>volume</em> &mdash; to forecast future price
+              movements.</p>
           </div>
           <h3 class="rv" style="--d:4; margin-top:1.8em; font-size:1.4rem;">Who Uses It?</h3>
           <div class="tag-row rv" style="--d:5; margin-top:.8em;">
@@ -1529,7 +1576,8 @@
           </div>
           <div class="glass rv" style="--d:7; margin-top:1.8em; padding:2em 2.4em;">
             <h3 style="font-size:1.4rem;">The Key Distinction</h3>
-            <p style="font-size:1.25rem; line-height:1.7;">TA answers <strong>WHEN</strong> to trade &mdash; timing entries and exits.<br>
+            <p style="font-size:1.25rem; line-height:1.7;">TA answers <strong>WHEN</strong> to trade &mdash; timing
+              entries and exits.<br>
               FA answers <strong>WHAT</strong> to trade &mdash; finding undervalued assets.<br>
               <em>The best traders use both together.</em>
             </p>
@@ -1546,7 +1594,9 @@
         <p class="slide-subtitle rv" style="--d:2">Before charts existed, humans were already reading markets</p>
         <div class="three-col">
           <div class="glass rv" style="--d:3">
-            <span class="year-badge" style="font-size:1.25rem; font-weight:700; padding:.5em 1.2em; letter-spacing:.1em; margin-bottom:.7em; display:inline-block;">~2000 BC</span>
+            <span class="year-badge"
+              style="font-size:1.25rem; font-weight:700; padding:.5em 1.2em; letter-spacing:.1em; margin-bottom:.7em; display:inline-block;">~2000
+              BC</span>
             <div class="avatar avatar-gold">B</div>
             <h3>Babylonian Traders</h3>
             <p>Clay tablets from ancient Mesopotamia record <strong>commodity prices</strong> for grain, wool, and
@@ -1554,7 +1604,8 @@
               data analysis.</p>
           </div>
           <div class="glass rv" style="--d:5">
-            <span class="year-badge" style="font-size:1.25rem; font-weight:700; padding:.5em 1.2em; letter-spacing:.1em; margin-bottom:.7em; display:inline-block;">1636&ndash;37</span>
+            <span class="year-badge"
+              style="font-size:1.25rem; font-weight:700; padding:.5em 1.2em; letter-spacing:.1em; margin-bottom:.7em; display:inline-block;">1636&ndash;37</span>
             <div class="avatar avatar-bear">T</div>
             <h3>Dutch Tulip Mania</h3>
             <p>The first documented <strong>speculative bubble</strong>. Tulip bulb prices rose
@@ -1563,7 +1614,8 @@
             </p>
           </div>
           <div class="glass rv" style="--d:7">
-            <span class="year-badge" style="font-size:1.25rem; font-weight:700; padding:.5em 1.2em; letter-spacing:.1em; margin-bottom:.7em; display:inline-block;">1688</span>
+            <span class="year-badge"
+              style="font-size:1.25rem; font-weight:700; padding:.5em 1.2em; letter-spacing:.1em; margin-bottom:.7em; display:inline-block;">1688</span>
             <div class="avatar avatar-teal">V</div>
             <h3>Joseph de la Vega</h3>
             <p>Wrote <strong>&ldquo;Confusion de Confusiones&rdquo;</strong> &mdash; the first book describing stock
@@ -1585,13 +1637,15 @@
           <!-- LEFT · HOMMA -->
           <div class="glass glass-gold rv" style="--d:3; display:flex; flex-direction:column; gap:1em; padding:1.6em;">
             <div style="display:flex; gap:1.1em; align-items:center;">
-              <img src="assets/intro3/generated/A-homma.png"
-                   alt="Munehisa Homma"
-                   style="width:105px; height:140px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,.18); flex-shrink:0;">
+              <img src="assets/intro3/generated/A-homma.png" alt="Munehisa Homma"
+                style="width:105px; height:140px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,.18); flex-shrink:0;">
               <div>
-                <div style="font-family:'Space Mono',monospace; font-size:.85rem; letter-spacing:.15em; color:var(--gold); font-weight:700;">~1755 &middot; OSAKA</div>
+                <div
+                  style="font-family:'Space Mono',monospace; font-size:.85rem; letter-spacing:.15em; color:var(--gold); font-weight:700;">
+                  ~1755 &middot; OSAKA</div>
                 <h3 style="font-size:1.7rem; margin-top:.25em; line-height:1.15;">Munehisa Homma</h3>
-                <p style="font-size:.88rem; color:var(--text-dim); margin-top:.25em;">1724 &mdash; 1803 &middot; Dojima Rice Exchange</p>
+                <p style="font-size:.88rem; color:var(--text-dim); margin-top:.25em;">1724 &mdash; 1803 &middot; Dojima
+                  Rice Exchange</p>
               </div>
             </div>
             <p style="font-size:1.05rem; line-height:1.6;">
@@ -1599,22 +1653,27 @@
               (open, high, low, close) into a single glyph. Still the default chart on every trading platform,
               270 years later.
             </p>
-            <blockquote style="border-left:3px solid var(--gold); padding:.4em 0 .4em 1em; margin:auto 0 0; font-style:italic; font-size:1rem;">
+            <blockquote
+              style="border-left:3px solid var(--gold); padding:.4em 0 .4em 1em; margin:auto 0 0; font-style:italic; font-size:1rem;">
               &ldquo;When all are bearish, there is cause for prices to rise.&rdquo;
-              <cite style="display:block; font-size:.78rem; color:var(--text-dim); margin-top:.5em; font-style:normal;">&mdash; The Fountain of Gold, c. 1755</cite>
+              <cite
+                style="display:block; font-size:.78rem; color:var(--text-dim); margin-top:.5em; font-style:normal;">&mdash;
+                The Fountain of Gold, c. 1755</cite>
             </blockquote>
           </div>
 
           <!-- RIGHT · DOW -->
           <div class="glass rv" style="--d:5; display:flex; flex-direction:column; gap:1em; padding:1.6em;">
             <div style="display:flex; gap:1.1em; align-items:center;">
-              <img src="assets/intro3/dow.jpg"
-                   alt="Charles Dow"
-                   style="width:105px; height:140px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,.18); flex-shrink:0;">
+              <img src="assets/intro3/dow.jpg" alt="Charles Dow"
+                style="width:105px; height:140px; object-fit:cover; border-radius:8px; border:1px solid rgba(255,255,255,.18); flex-shrink:0;">
               <div>
-                <div style="font-family:'Space Mono',monospace; font-size:.85rem; letter-spacing:.15em; color:var(--gold); font-weight:700;">1900 &middot; WALL STREET</div>
+                <div
+                  style="font-family:'Space Mono',monospace; font-size:.85rem; letter-spacing:.15em; color:var(--gold); font-weight:700;">
+                  1900 &middot; WALL STREET</div>
                 <h3 style="font-size:1.7rem; margin-top:.25em; line-height:1.15;">Charles Dow</h3>
-                <p style="font-size:.88rem; color:var(--text-dim); margin-top:.25em;">1851 &mdash; 1902 &middot; WSJ &middot; DJIA &middot; Dow Theory</p>
+                <p style="font-size:.88rem; color:var(--text-dim); margin-top:.25em;">1851 &mdash; 1902 &middot; WSJ
+                  &middot; DJIA &middot; Dow Theory</p>
               </div>
             </div>
             <p style="font-size:1.05rem; line-height:1.6;">
@@ -1622,9 +1681,12 @@
               the DJIA. Never wrote a book &mdash; his theory was assembled from editorials after his death.
               The DNA of modern TA.
             </p>
-            <blockquote style="border-left:3px solid var(--gold); padding:.4em 0 .4em 1em; margin:auto 0 0; font-style:italic; font-size:1rem;">
+            <blockquote
+              style="border-left:3px solid var(--gold); padding:.4em 0 .4em 1em; margin:auto 0 0; font-style:italic; font-size:1rem;">
               &ldquo;The market is a barometer, not a thermometer.&rdquo;
-              <cite style="display:block; font-size:.78rem; color:var(--text-dim); margin-top:.5em; font-style:normal;">&mdash; Charles Dow, WSJ editorial</cite>
+              <cite
+                style="display:block; font-size:.78rem; color:var(--text-dim); margin-top:.5em; font-style:normal;">&mdash;
+                Charles Dow, WSJ editorial</cite>
             </blockquote>
           </div>
 
@@ -1658,9 +1720,12 @@
               <div style="font-size:3.4rem; line-height:1; margin-bottom:.3em;">📘</div>
               <div style="width:18px; height:18px; border-radius:50%; background:var(--gold);
                           margin:0 auto 1em; border:4px solid var(--bg); box-shadow:0 0 0 2px var(--gold);"></div>
-              <div style="font-family:'Space Mono',monospace; font-size:1.8rem; color:var(--gold); font-weight:700; letter-spacing:.05em;">1948</div>
+              <div
+                style="font-family:'Space Mono',monospace; font-size:1.8rem; color:var(--gold); font-weight:700; letter-spacing:.05em;">
+                1948</div>
               <div style="font-size:1.15rem; font-weight:600; margin-top:.4em;">The Bible</div>
-              <div style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
+              <div
+                style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
                 Edwards &amp; Magee's textbook &mdash; still in its 11th edition.
               </div>
             </div>
@@ -1670,9 +1735,12 @@
               <div style="font-size:3.4rem; line-height:1; margin-bottom:.3em;">📊</div>
               <div style="width:18px; height:18px; border-radius:50%; background:var(--gold);
                           margin:0 auto 1em; border:4px solid var(--bg); box-shadow:0 0 0 2px var(--gold);"></div>
-              <div style="font-family:'Space Mono',monospace; font-size:1.8rem; color:var(--gold); font-weight:700; letter-spacing:.05em;">1978</div>
+              <div
+                style="font-family:'Space Mono',monospace; font-size:1.8rem; color:var(--gold); font-weight:700; letter-spacing:.05em;">
+                1978</div>
               <div style="font-size:1.15rem; font-weight:600; margin-top:.4em;">Indicators</div>
-              <div style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
+              <div
+                style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
                 Wilder invents RSI, ATR, ADX. MACD and Bollinger Bands follow.
               </div>
             </div>
@@ -1682,9 +1750,12 @@
               <div style="font-size:3.4rem; line-height:1; margin-bottom:.3em;">🌐</div>
               <div style="width:18px; height:18px; border-radius:50%; background:var(--gold);
                           margin:0 auto 1em; border:4px solid var(--bg); box-shadow:0 0 0 2px var(--gold);"></div>
-              <div style="font-family:'Space Mono',monospace; font-size:1.8rem; color:var(--gold); font-weight:700; letter-spacing:.05em;">1991</div>
+              <div
+                style="font-family:'Space Mono',monospace; font-size:1.8rem; color:var(--gold); font-weight:700; letter-spacing:.05em;">
+                1991</div>
               <div style="font-size:1.15rem; font-weight:600; margin-top:.4em;">Candles Go West</div>
-              <div style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
+              <div
+                style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
                 Nison translates Homma. Online brokers open the door to millions.
               </div>
             </div>
@@ -1695,9 +1766,12 @@
               <div style="width:22px; height:22px; border-radius:50%; background:var(--bull);
                           margin:-2px auto calc(1em - 2px); border:4px solid var(--bg);
                           box-shadow:0 0 0 3px var(--bull), 0 0 24px rgba(22,163,74,.55);"></div>
-              <div style="font-family:'Space Mono',monospace; font-size:1.9rem; color:var(--bull); font-weight:700; letter-spacing:.05em;">2026</div>
+              <div
+                style="font-family:'Space Mono',monospace; font-size:1.9rem; color:var(--bull); font-weight:700; letter-spacing:.05em;">
+                2026</div>
               <div style="font-size:1.15rem; font-weight:600; margin-top:.4em;">AI Era</div>
-              <div style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
+              <div
+                style="font-size:.92rem; color:var(--text-dim); margin-top:.5em; line-height:1.55; max-width:22ch; margin-left:auto; margin-right:auto;">
                 70% of trading is algorithmic. ML finds patterns beyond human perception.
               </div>
             </div>
@@ -1716,15 +1790,18 @@
         <div class="three-col" style="margin-top:3em;">
           <div class="glass stat-card rv" style="--d:3; padding:2.5em 1.5em;">
             <div class="stat-value gold" data-target="70" data-suffix="%+">0</div>
-            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;">of all trading volume is<br><strong>algorithmic</strong>, most using TA signals</div>
+            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;">of all trading volume
+              is<br><strong>algorithmic</strong>, most using TA signals</div>
           </div>
           <div class="glass stat-card rv" style="--d:5; padding:2.5em 1.5em;">
             <div class="stat-value teal" data-target="10" data-prefix="$" data-suffix="T+">0</div>
-            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;"><strong>daily forex volume</strong><br>heavily driven by technical indicators</div>
+            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;"><strong>daily forex
+                volume</strong><br>heavily driven by technical indicators</div>
           </div>
           <div class="glass stat-card rv" style="--d:7; padding:2.5em 1.5em;">
             <div class="stat-value bull" data-target="100" data-suffix="M+">0</div>
-            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;"><strong>retail traders worldwide</strong><br>using TA tools every day</div>
+            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;"><strong>retail traders
+                worldwide</strong><br>using TA tools every day</div>
           </div>
         </div>
       </div>
@@ -1993,14 +2070,14 @@
 
     <!-- =============== SLIDE 15: BLOCK III OPENER =============== -->
     <section class="slide block-title-slide" id="s15">
-    <div class="slide-stage">
-      <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Three</div>
-      <h1 class="block-title rv" style="--d:2">Reading the Market</h1>
-      <div class="block-rule rv" style="--d:3"></div>
-      <p class="block-tag rv" style="--d:4">
-        Trends, chart types, candlesticks, and the invisible lines where supply and demand collide.
-      </p>
-    </div>
+      <div class="slide-stage">
+        <div class="block-number rv" style="--d:1">Block&nbsp;&middot;&nbsp;Three</div>
+        <h1 class="block-title rv" style="--d:2">Reading the Market</h1>
+        <div class="block-rule rv" style="--d:3"></div>
+        <p class="block-tag rv" style="--d:4">
+          Trends, chart types, candlesticks, and the invisible lines where supply and demand collide.
+        </p>
+      </div>
     </section>
 
     <!-- =============== SLIDE 16: DOW THEORY + THREE TRENDS =============== -->
@@ -3077,6 +3154,8 @@
 
   </div>
 
+  <div id="floatingSpace" class="floating-space"></div>
+
   <!-- ============================================================ -->
   <!-- JAVASCRIPT                                                     -->
   <!-- ============================================================ -->
@@ -3141,7 +3220,7 @@
             // Apply drift + transition pan
             let renderX = (p.x + this.panX) % c.width;
             if (renderX < 0) renderX += c.width;
-            
+
             p.x += p.vx * speed;
             p.y += p.vy * speed;
 
@@ -3180,10 +3259,10 @@
             if (pts[i].type === 'symbol') continue;
             for (let j = i + 1; j < pts.length; j++) {
               if (pts[j].type === 'symbol') continue;
-              
+
               let ix = (pts[i].x + this.panX) % c.width; if (ix < 0) ix += c.width;
               let jx = (pts[j].x + this.panX) % c.width; if (jx < 0) jx += c.width;
-              
+
               const dx = ix - jx;
               const dy = pts[i].y - pts[j].y;
               const d = Math.sqrt(dx * dx + dy * dy);
@@ -3197,6 +3276,101 @@
           }
           ctx.lineWidth = 0.4;
           ctx.stroke();
+          requestAnimationFrame(() => this.loop());
+        }
+      }
+
+      /* ======== FLOATING ASSETS (Space Effect) ======== */
+      class FloatingSpace {
+        constructor(container) {
+          this.container = container;
+          this.icons = [];
+          this.sources = [
+            'https://s.wsj.net/public/resources/images/IF-AC504_DOW_8U_20160502113628.jpg',
+            'https://matamalaysia.org/wp-content/uploads/2025/08/6138586741318206955-779x1024.jpg',
+            'https://abovethegreenline.com/wp-content/uploads/2020/06/technical-analysis.png',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Crowd_outside_nyse.jpg/330px-Crowd_outside_nyse.jpg',
+            'https://static.vecteezy.com/system/resources/thumbnails/009/347/983/small/big-pile-of-us-dollar-notes-a-lot-of-money-over-transparent-background-3d-rendering-of-bundles-of-cash-png.png',
+            'https://m.media-amazon.com/images/I/51DNHRGWHFL._AC_UF1000,1000_QL80_.jpg',
+            'https://therobusttrader.com/wp-content/uploads/img_624ef1b8dd08c.png',
+            'https://cf-images.us-east-1.prod.boltdns.net/v1/static/854081161001/8573e091-2cd8-4089-9738-640735a5738f/ea29b617-bcd2-4d56-a4be-63c2321f9fe6/1280x720/match/image.jpg',
+            'https://www.pngall.com/wp-content/uploads/4/Falling-Money-PNG-Free-Image.png',
+            'https://www.investopedia.com/thmb/8pqpGnIOpFFsTPN85IrMyw_7fqY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2259635811-52799710179e425c8584f8bc0b3711d1.jpg',
+            'https://www.brimco.io/wp-content/uploads/2025/10/Traders-React-to-Market-Turmoil-During-the-2008-Financial-Crisis.webp',
+            'https://www.investopedia.com/thmb/c8Nm2-aZTMxN_9iCOlPeij4xSSc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/wall-street-crash-78075346-08e95275110a4afd80681699e5d72bcb.jpg',
+            'https://png.pngtree.com/png-clipart/20230124/original/pngtree-breaking-news-background-stock-png-image_8928593.png',
+          ];
+          this.curX = 0;
+          this.targetX = 0;
+          this.lerpSpeed = 0.3; // Base slow glide
+          this.drift = 0;
+          this.init();
+          this.loop();
+        }
+
+        init() {
+          const count = 45;
+          for (let i = 0; i < count; i++) {
+            const wrap = document.createElement('div');
+            wrap.className = 'floating-icon-wrap';
+
+            const img = document.createElement('img');
+            img.src = this.sources[i % this.sources.length];
+            img.className = 'floating-icon';
+
+            const depth = Math.random();
+            const size = 100 + depth * 200;
+            const y = Math.random() * 100;
+            const xBase = (Math.random() - 0.2) * 850;
+            const rotate = (Math.random() - 0.5) * 40;
+
+            // SHAPE VARIETIES
+            const borderRadius = Math.random() > 0.7 ? '0%' : (Math.random() > 0.4 ? '0px' : '0');
+            const aspectRatio = 1 + Math.random() * 1;
+
+            wrap.style.width = `${size}px`;
+            wrap.style.height = `${size / aspectRatio}px`;
+            wrap.style.top = `${y}%`;
+            wrap.style.left = `${xBase}%`;
+            wrap.style.borderRadius = borderRadius;
+            wrap.style.transform = `rotate(${rotate}deg)`;
+
+            img.style.opacity = 0.05 + (depth * 0.15);
+            img.style.animationDuration = `${12 + Math.random() * 25}s`;
+            img.style.animationDelay = `${-Math.random() * 25}s`;
+
+            wrap.dataset.depth = depth;
+            wrap.dataset.xBase = xBase;
+            wrap.dataset.baseRot = rotate;
+
+            wrap.appendChild(img);
+            this.container.appendChild(wrap);
+            this.icons.push(wrap);
+          }
+        }
+
+        update(slideIndex) {
+          this.targetX = slideIndex * -350;
+          // Temporarily increase lerp speed for the "burst" then let it settle
+          this.lerpSpeed = 0.08;
+          setTimeout(() => {
+            this.lerpSpeed = 0.02;
+          }, 1500);
+        }
+
+        loop() {
+          // Continuous drift
+          this.drift -= 0.15;
+          // Smooth follow target
+          this.curX += (this.targetX - this.curX) * this.lerpSpeed;
+
+          this.icons.forEach(wrap => {
+            const depth = parseFloat(wrap.dataset.depth);
+            const baseRot = wrap.dataset.baseRot;
+            const movement = (this.curX + this.drift) * (0.1 + depth * 0.9);
+            wrap.style.transform = `translate3d(${movement}px, 0, 0) rotate(${baseRot}deg)`;
+          });
+
           requestAnimationFrame(() => this.loop());
         }
       }
@@ -3411,6 +3585,10 @@
             window.marketParticles.setTransition(n);
           }
 
+          if (window.floatingSpace) {
+            window.floatingSpace.update(n);
+          }
+
           // Move grid
           const gridShift = n * -80;
           this.grid.style.backgroundPosition = `0 ${gridShift}px`;
@@ -3481,6 +3659,7 @@
 
       /* ======== INIT ======== */
       window.marketParticles = new MarketParticles(document.getElementById('bgCanvas'));
+      window.floatingSpace = new FloatingSpace(document.getElementById('floatingSpace'));
       new Deck();
 
     })();
