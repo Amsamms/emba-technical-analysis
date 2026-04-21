@@ -2915,82 +2915,15 @@
         <h2 class="rv" style="--d:1">Levels in Action</h2>
         <p class="slide-subtitle rv" style="--d:2">Market memory: Patterns of price rejection create history that traders use to predict future moves.</p>
         
-        <div style="margin-top:1em; position:relative; padding:1.5em; overflow:hidden;" class="rv glass" style="--d:3;">
-            <svg viewBox="0 0 1000 550" style="width:100%; height:auto; background:rgba(0,0,0,0.2); border-radius:12px;">
-              <defs>
-                <pattern id="gridLarge" width="100" height="100" patternUnits="userSpaceOnUse">
-                  <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
-                </pattern>
-                <marker id="arrowPoint" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--gold)" />
-                </marker>
-              </defs>
-              <rect width="1000" height="550" fill="url(#gridLarge)" />
-              
-              <!-- Price Scale -->
-              <g fill="var(--text-dim)" font-family="monospace" font-size="11" text-anchor="end" opacity="0.6">
-                <text x="980" y="55">32.00</text>
-                <text x="980" y="155">30.00</text>
-                <text x="980" y="255">28.00</text>
-                <text x="980" y="355">26.00</text>
-                <text x="980" y="455">24.00</text>
-              </g>
-
-              <!-- Resistance at ~31.30 -->
-              <line x1="80" y1="90" x2="450" y2="90" stroke="var(--teal)" stroke-width="2.5" opacity="0.8" />
-              <text x="460" y="94" fill="var(--teal)" font-family="'Space Mono',monospace" font-size="14" font-weight="bold">Resistance</text>
-
-              <!-- Support at ~28.50 -->
-              <line x1="80" y1="230" x2="420" y2="230" stroke="#f87171" stroke-width="2.5" opacity="0.8" />
-              <text x="80" y="255" fill="#f87171" font-family="'Space Mono',monospace" font-size="14" font-weight="bold">Support</text>
-              
-              <!-- Break-out Annotation at the point of failure -->
-              <text x="440" y="350" fill="var(--gold)" font-family="'Space Mono',monospace" font-size="13" font-weight="bold">Breakout Phase</text>
-              <path d="M 430,240 L 440,330" stroke="var(--gold)" stroke-width="1" fill="none" stroke-dasharray="2,2" marker-end="url(#arrowPoint)" />
-
-              <!-- Complex Candlestick Path -->
-              <g>
-                  <!-- Path Movement (Schematic line for reference) -->
-                  <path d="M 50,220 L 100,100 L 150,150 L 220,90 L 280,210 L 320,95 L 380,225 L 430,230 L 480,480 L 520,380 L 600,280 L 680,380 L 760,250 L 840,150 L 920,80" 
-                        fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
-                  
-                  <!-- Candlesticks mimicking the chart clusters -->
-                  <!-- Rally to Resistance -->
-                  <rect x="215" y="85" width="10" height="20" fill="var(--bear)" /> <!-- Top touch -->
-                  <line x1="220" y1="75" x2="220" y2="115" stroke="var(--bear)" />
-                  
-                  <rect x="315" y="90" width="10" height="25" fill="var(--bear)" /> <!-- Second top touch -->
-                  <line x1="320" y1="80" x2="320" y2="125" stroke="var(--bear)" />
-                  
-                  <!-- Support Consolidation -->
-                  <rect x="380" y="220" width="12" height="10" fill="var(--bull)" />
-                  <rect x="420" y="225" width="12" height="15" fill="var(--bear)" /> 
-                  
-                  <!-- THE CRASH (Large Red Candles) -->
-                  <rect x="440" y="250" width="15" height="100" fill="#dc2626" />
-                  <rect x="460" y="360" width="15" height="120" fill="#dc2626" />
-                  
-                  <!-- Recovery Rallies -->
-                  <rect x="520" y="320" width="8" height="60" fill="var(--bull)" />
-                  <rect x="600" y="220" width="8" height="80" fill="var(--bull)" />
-                  <rect x="760" y="160" width="8" height="90" fill="var(--bull)" />
-                  <rect x="910" y="70" width="10" height="40" fill="var(--bull)" />
-              </g>
-
-              <!-- Improved Volume Profile -->
-              <g transform="translate(0, 545) scale(1, -0.6)">
-                <rect x="50" y="0" width="5" height="40" fill="var(--bear)" opacity="0.3" />
-                <rect x="150" y="0" width="5" height="120" fill="var(--bull)" opacity="0.3" />
-                <rect x="300" y="0" width="5" height="60" fill="var(--bear)" opacity="0.3" />
-                <rect x="440" y="0" width="15" height="250" fill="#dc2626" /> <!-- CRASH VOLUME -->
-                <rect x="460" y="0" width="15" height="280" fill="#dc2626" /> <!-- PEAK PANIC -->
-                <rect x="800" y="0" width="5" height="150" fill="var(--bull)" opacity="0.3" />
-                <rect x="910" y="0" width="8" height="220" fill="var(--bull)" opacity="0.5" />
-              </g>
-            </svg>
-            <div style="position:absolute; bottom:2em; right:4em; text-align:right;">
-                <span class="tag" style="border-color:var(--gold); color:var(--gold);">MOPCO 1D Chart Analysis</span>
-            </div>
+        <div class="rv" style="--d:3; margin-top:2em;">
+          <div class="glass" style="padding:1em; border-color:var(--gold); overflow:hidden; background:rgba(0,0,0,0.3);">
+            <figure class="contrib-figure" style="margin:0;">
+              <img src="assets/chart.png" alt="MOPCO Technical Analysis Chart" style="width:100%; height:auto; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+              <figcaption style="margin-top:1em; font-family:'Space Mono',monospace; opacity:0.8;">
+                Real-World Snapshot &middot; Identifying key S&amp;R structural levels on the MOPCO daily chart.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
