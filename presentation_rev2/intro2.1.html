@@ -123,7 +123,8 @@
     }
 
     html {
-      font-size: 19px;
+      font-size: 23px;
+      text-align: left;
     }
 
     body {
@@ -358,38 +359,38 @@
     }
 
     h2 {
-      font-size: 3.2rem;
+      font-size: 4.2rem;
       font-weight: 600;
       color: var(--text);
-      line-height: 1.15;
-      margin-bottom: 0.35em;
-      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 0.4em;
+      letter-spacing: -0.02em;
     }
 
     h3 {
-      font-size: 1.35rem;
+      font-size: 1.8rem;
       font-weight: 700;
       color: var(--gold-dim);
-      margin-bottom: 0.4em;
+      margin-bottom: 0.5em;
     }
 
     p {
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1.15rem;
+      line-height: 1.6;
       color: var(--text);
     }
 
     .slide-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.4rem;
       color: var(--text-muted);
       font-weight: 400;
       letter-spacing: 0.01em;
-      margin-bottom: 1.3em;
+      margin-bottom: 1.5em;
     }
 
     .chapter-marker {
       font-family: 'Space Mono', monospace;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--gold);
@@ -1562,11 +1563,11 @@
         <h2 class="rv" style="--d:1">What is Technical Analysis?</h2>
         <div style="max-width:1100px;margin:0 auto;width:100%;">
           <div class="glass def-card rv" style="--d:2; padding:2.2em 2.4em; font-size:1.25em;">
-            <p style="font-size:1.5rem; line-height:1.55;"><strong>Technical Analysis</strong> is the study of past
+            <p style="font-size:2rem; line-height:1.55;"><strong>Technical Analysis</strong> is the study of past
               market data &mdash; primarily <em>price</em> and <em>volume</em> &mdash; to forecast future price
               movements.</p>
           </div>
-          <h3 class="rv" style="--d:4; margin-top:1.8em; font-size:1.4rem;">Who Uses It?</h3>
+          <h3 class="rv" style="--d:4; margin-top:1.8em; font-size:1.8rem;">Who Uses It?</h3>
           <div class="tag-row rv" style="--d:5; margin-top:.8em;">
             <span class="tag" style="font-size:1.05rem; padding:.55em 1.1em;">Day Traders</span>
             <span class="tag" style="font-size:1.05rem; padding:.55em 1.1em;">Hedge Funds</span>
@@ -1575,7 +1576,7 @@
             <span class="tag" style="font-size:1.05rem; padding:.55em 1.1em;">Investment Banks</span>
           </div>
           <div class="glass rv" style="--d:7; margin-top:1.8em; padding:2em 2.4em;">
-            <h3 style="font-size:1.4rem;">The Key Distinction</h3>
+            <h3 style="font-size:1.8rem;">The Key Distinction</h3>
             <p style="font-size:1.25rem; line-height:1.7;">TA answers <strong>WHEN</strong> to trade &mdash; timing
               entries and exits.<br>
               FA answers <strong>WHAT</strong> to trade &mdash; finding undervalued assets.<br>
@@ -1790,17 +1791,17 @@
         <div class="three-col" style="margin-top:3em;">
           <div class="glass stat-card rv" style="--d:3; padding:2.5em 1.5em;">
             <div class="stat-value gold" data-target="70" data-suffix="%+">0</div>
-            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;">of all trading volume
+            <div class="stat-label" style="font-size:1.4rem; margin-top:.8em;">of all trading volume
               is<br><strong>algorithmic</strong>, most using TA signals</div>
           </div>
           <div class="glass stat-card rv" style="--d:5; padding:2.5em 1.5em;">
             <div class="stat-value teal" data-target="10" data-prefix="$" data-suffix="T+">0</div>
-            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;"><strong>daily forex
+            <div class="stat-label" style="font-size:1.4rem; margin-top:.8em;"><strong>daily forex
                 volume</strong><br>heavily driven by technical indicators</div>
           </div>
           <div class="glass stat-card rv" style="--d:7; padding:2.5em 1.5em;">
             <div class="stat-value bull" data-target="100" data-suffix="M+">0</div>
-            <div class="stat-label" style="font-size:1.1rem; margin-top:.8em;"><strong>retail traders
+            <div class="stat-label" style="font-size:1.4rem; margin-top:.8em;"><strong>retail traders
                 worldwide</strong><br>using TA tools every day</div>
           </div>
         </div>
@@ -2087,22 +2088,26 @@
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Foundations</div>
         <h2 class="rv" style="--d:1">The 3 Pillars of Forecasting</h2>
         <p class="slide-subtitle rv" style="--d:2">The core assumptions that make technical analysis possible</p>
-        
+
         <div class="three-col" style="margin-top:2em;">
           <div class="glass rv" style="--d:3">
             <div class="avatar avatar-gold">1</div>
             <h3>The Market Discounts Everything</h3>
-            <p>Every known factor &mdash; fundamental, political, or psychological &mdash; is already reflected in the price. We study the <strong>effect</strong>, not the cause.</p>
+            <p>Every known factor &mdash; fundamental, political, or psychological &mdash; is already reflected in the
+              price. We study the <strong>effect</strong>, not the cause.</p>
           </div>
           <div class="glass rv" style="--d:5">
             <div class="avatar avatar-teal">2</div>
             <h3>Price Moves in Trends</h3>
-            <p>Price movements are not random. They follow trends that persist over time. An asset is more likely to <strong>continue its direction</strong> than to reverse it.</p>
+            <p>Price movements are not random. They follow trends that persist over time. An asset is more likely to
+              <strong>continue its direction</strong> than to reverse it.
+            </p>
           </div>
           <div class="glass rv" style="--d:7">
             <div class="avatar avatar-bull">3</div>
             <h3>History Repeats Itself</h3>
-            <p>Human psychology is constant. Fear and greed create <strong>identifiable patterns</strong> on charts that have reliably signaled market turns for centuries.</p>
+            <p>Human psychology is constant. Fear and greed create <strong>identifiable patterns</strong> on charts that
+              have reliably signaled market turns for centuries.</p>
           </div>
         </div>
       </div>
@@ -2115,20 +2120,25 @@
         <div class="two-col" style="align-items: center; gap: 4em;">
           <div class="rv" style="--d:2">
             <h2 style="margin-bottom:0.1em;">Charles H. Dow</h2>
-            <h3 style="color:var(--text-muted); font-size:1.5rem; margin-bottom:1.5em;">1851 &ndash; 1902</h3>
-            <div class="glass" style="padding:2.5em; border-left:4px solid var(--gold);">
-              <p style="font-size:1.4rem; line-height:1.6; margin-bottom:1.2em;">
-                The "Father of Technical Analysis" and the man who taught the world how to read the heartbeat of the economy.
+            <h3 style="color:var(--text-muted); font-size:2rem; margin-bottom:1.5em;">1851 &ndash; 1902</h3>
+            <div class="glass" style="padding-left:2.5em; border-left:4px solid var(--gold);">
+              <p style="font-size:1.8rem; line-height:1.6; margin-bottom:1.2em;">
+                The "Father of Technical Analysis" and the man who taught the world how to read the heartbeat of the
+                economy.
               </p>
               <ul class="pattern-list">
-                <li style="font-size:1.1rem;">Co-founded <strong>Dow Jones & Company</strong> (1882)</li>
-                <li style="font-size:1.1rem;">First Editor of <strong>The Wall Street Journal</strong></li>
-                <li style="font-size:1.1rem;">Pioneered the use of <strong>Market Averages</strong></li>
+                <li style="font-size:1.4rem; text-align: left;">Co-founded <strong>Dow Jones & Company</strong>
+                  (1882)</li>
+                <li style="font-size:1.4rem; text-align: left;">First Editor of <strong>The Wall Street
+                    Journal</strong></li>
+                <li style="font-size:1.4rem; text-align: left;">Pioneered the use of <strong>Market Averages</strong>
+                </li>
               </ul>
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:4">
-            <img src="assets/block3/charles_dow.png" alt="Charles Dow" style="max-height:650px; border:2px solid var(--border-gold);">
+            <img src="assets/block3/charles_dow.png" alt="Charles Dow"
+              style="max-height:650px; border:2px solid var(--border-gold);">
             <figcaption>The Prophet of Price Action</figcaption>
           </div>
         </div>
@@ -2141,22 +2151,28 @@
         <div class="chapter-marker rv" style="--d:0">Block III &middot; The Benchmark</div>
         <h2 class="rv" style="--d:1">Measuring the Pulse: The DJIA</h2>
         <p class="slide-subtitle rv" style="--d:2">How Charles Dow and Edward Jones changed investment history</p>
-        
+
         <div class="two-col" style="margin-top:1em;">
           <div class="glass rv" style="--d:3">
             <div class="avatar avatar-gold">J</div>
             <h3>Edward Jones</h3>
-            <p>The "Jones" in Dow Jones. A brilliant statistician who realized that individual stocks are noise, but an <strong>average</strong> of stocks reveals the truth of the economy.</p>
+            <p>The "Jones" in Dow Jones. A brilliant statistician who realized that individual stocks are noise, but an
+              <strong>average</strong> of stocks reveals the truth of the economy.
+            </p>
             <div class="insight-label" style="margin-top:1.5em;">The Partnership</div>
-            <p style="font-size:0.95rem; font-style:italic;">While Dow was the voice (WSJ), Jones was the engine, refining the calculations that would become the world's most famous index.</p>
+            <p style="font-size:1.2rem; font-style:italic;">While Dow was the voice (WSJ), Jones was the engine,
+              refining the calculations that would become the world's most famous index.</p>
           </div>
-          
+
           <div class="glass rv" style="--d:5">
             <div class="avatar avatar-teal">A</div>
             <h3>The Industrial Average</h3>
-            <p>Launched in 1896 with just 12 companies. It was the first "thermometer" for the U.S. industrial might, allowing investors to see the <strong>market as a single entity</strong>.</p>
-            <div class="insight" style="margin-top:1.5em; background:rgba(15,118,110,0.05); border-color:var(--teal-dim);">
-              <p style="font-size:1rem; color:var(--text);">"The market is not a collection of stocks, but a single tide that carries all boats." &mdash; Edward Jones</p>
+            <p>Launched in 1896 with just 12 companies. It was the first "thermometer" for the U.S. industrial might,
+              allowing investors to see the <strong>market as a single entity</strong>.</p>
+            <div class="insight"
+              style="margin-top:1.5em; background:rgba(15,118,110,0.05); border-color:var(--teal-dim);">
+              <p style="font-size:1rem; color:var(--text);">"The market is not a collection of stocks, but a single tide
+                that carries all boats." &mdash; Edward Jones</p>
             </div>
           </div>
         </div>
@@ -2170,46 +2186,62 @@
         <div class="two-col" style="align-items: center; gap: 4em; margin-top: 1em;">
           <div class="rv" style="--d:1">
             <h2 style="margin-bottom:0.1em;">The Three Trends</h2>
-            <p class="slide-subtitle" style="margin-bottom:1.5em;">Charles Dow&rsquo;s ocean metaphor &mdash; the tide, the waves, and the ripples</p>
-            
+            <p class="slide-subtitle" style="margin-bottom:1.5em;">Charles Dow&rsquo;s ocean metaphor &mdash; the tide,
+              the waves, and the ripples</p>
+
             <div style="display: flex; flex-direction: column; gap: 1em;">
               <div class="glass glass-sm rv" style="--d:3">
                 <div style="display: flex; gap: 1.2em; align-items: center;">
-                  <div class="avatar avatar-gold" style="width: 44px; height: 44px; font-size: 1.1rem; margin-bottom:0;">I</div>
+                  <div class="avatar avatar-gold"
+                    style="width: 44px; height: 44px; font-size: 1.1rem; margin-bottom:0;">I</div>
                   <div>
                     <h3 style="margin-bottom: 0; font-size: 1.2rem;">Primary Trend</h3>
-                    <span class="year-badge" style="background:rgba(22,163,74,0.15); color:var(--bull); font-size: 0.65rem; padding: 0.1em 0.6em; margin-bottom:0;">The Tide</span>
+                    <span class="year-badge"
+                      style="background:rgba(22,163,74,0.15); color:var(--bull); font-size: 0.65rem; padding: 0.1em 0.6em; margin-bottom:0;">The
+                      Tide</span>
                   </div>
                 </div>
-                <p style="font-size: 0.95rem; margin-top: 0.6em; line-height: 1.5; color: var(--text-muted);">The long-term direction, lasting <strong>months to years</strong>. Bull market or bear market. This is what defines an era.</p>
+                <p style="font-size: 0.95rem; margin-top: 0.6em; line-height: 1.5; color: var(--text-muted);">The
+                  long-term direction, lasting <strong>months to years</strong>. Bull market or bear market. This is
+                  what defines an era.</p>
               </div>
 
               <div class="glass glass-sm rv" style="--d:5">
                 <div style="display: flex; gap: 1.2em; align-items: center;">
-                  <div class="avatar avatar-teal" style="width: 44px; height: 44px; font-size: 1.1rem; margin-bottom:0;">II</div>
+                  <div class="avatar avatar-teal"
+                    style="width: 44px; height: 44px; font-size: 1.1rem; margin-bottom:0;">II</div>
                   <div>
                     <h3 style="margin-bottom: 0; font-size: 1.2rem;">Secondary Trend</h3>
-                    <span class="year-badge" style="font-size: 0.65rem; padding: 0.1em 0.6em; margin-bottom:0;">The Waves</span>
+                    <span class="year-badge" style="font-size: 0.65rem; padding: 0.1em 0.6em; margin-bottom:0;">The
+                      Waves</span>
                   </div>
                 </div>
-                <p style="font-size: 0.95rem; margin-top: 0.6em; line-height: 1.5; color: var(--text-muted);">Medium-term movements <strong>against the primary trend</strong>. Corrections and retracements, lasting weeks to months.</p>
+                <p style="font-size: 0.95rem; margin-top: 0.6em; line-height: 1.5; color: var(--text-muted);">
+                  Medium-term movements <strong>against the primary trend</strong>. Corrections and retracements,
+                  lasting weeks to months.</p>
               </div>
 
               <div class="glass glass-sm rv" style="--d:7">
                 <div style="display: flex; gap: 1.2em; align-items: center;">
-                  <div class="avatar avatar-bear" style="width: 44px; height: 44px; font-size: 1.1rem; margin-bottom:0;">III</div>
+                  <div class="avatar avatar-bear"
+                    style="width: 44px; height: 44px; font-size: 1.1rem; margin-bottom:0;">III</div>
                   <div>
                     <h3 style="margin-bottom: 0; font-size: 1.2rem;">Minor Trend</h3>
-                    <span class="year-badge" style="background:rgba(220,38,38,0.15); color:var(--bear); font-size: 0.65rem; padding: 0.1em 0.6em; margin-bottom:0;">The Ripples</span>
+                    <span class="year-badge"
+                      style="background:rgba(220,38,38,0.15); color:var(--bear); font-size: 0.65rem; padding: 0.1em 0.6em; margin-bottom:0;">The
+                      Ripples</span>
                   </div>
                 </div>
-                <p style="font-size: 0.95rem; margin-top: 0.6em; line-height: 1.5; color: var(--text-muted);">Day-to-day fluctuations &mdash; noise at the surface. Short-lived and often misleading when viewed in isolation.</p>
+                <p style="font-size: 0.95rem; margin-top: 0.6em; line-height: 1.5; color: var(--text-muted);">Day-to-day
+                  fluctuations &mdash; noise at the surface. Short-lived and often misleading when viewed in isolation.
+                </p>
               </div>
             </div>
           </div>
 
           <div class="contrib-figure rv" style="--d:9">
-            <img src="assets/block3/dow_trends.png" alt="Dow Trends Diagram" style="max-height: 680px; border: 2px solid var(--border-gold); border-radius: 12px; box-shadow: 0 15px 45px rgba(0,0,0,0.3); background: #fff;">
+            <img src="assets/block3/dow_trends.png" alt="Dow Trends Diagram"
+              style="max-height: 680px; border: 2px solid var(--border-gold); border-radius: 12px; box-shadow: 0 15px 45px rgba(0,0,0,0.3); background: #fff;">
             <figcaption>Nested Market Structures: Tide, Wave, and Ripple</figcaption>
           </div>
         </div>
@@ -2466,7 +2498,8 @@
               </svg>
             </div>
             <div class="contrib-figure rv" style="--d:4; margin-top: 1.2em;">
-              <img src="assets/intro3/generated/III-s18.png" alt="Candlestick anatomy detail" style="width:100%; border:1px solid var(--border-gold); background:#fff;">
+              <img src="assets/intro3/generated/III-s18.png" alt="Candlestick anatomy detail"
+                style="width:100%; border:1px solid var(--border-gold); background:#fff;">
               <figcaption>Evidence &middot; Japanese Rice Trader Framework</figcaption>
             </div>
           </div>
@@ -2580,17 +2613,19 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bullish Reversals</div>
         <h2 class="rv" style="--d:1">Top 3 Bullish Reversal Examples</h2>
-        <p class="slide-subtitle rv" style="--d:2">These signals appear at the bottom of a downtrend and suggest the &quot;tide&quot; is turning upward.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">These signals appear at the bottom of a downtrend and suggest the
+          &quot;tide&quot; is turning upward.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
             <h3 style="color:var(--bull);">1. The Hammer</h3>
             <div class="glass glass-gold" style="padding:2.5em;">
-              <p style="font-size:1.3rem; line-height:1.6; margin-bottom:1em;">
+              <p style="font-size:1.6rem; line-height:1.6; margin-bottom:1em;">
                 A small body at the top with a very long lower wick.
               </p>
               <div class="insight" style="margin-top:1.5em; background:rgba(22,163,74,0.05); border-color:var(--bull);">
-                <p style="font-size:1.1rem;">It shows that even though sellers tried to crash the price, buyers fought back and won the session.</p>
+                <p style="font-size:1.4rem;">It shows that even though sellers tried to crash the price, buyers fought
+                  back and won the session.</p>
               </div>
             </div>
           </div>
@@ -2598,17 +2633,20 @@
             <svg viewBox="0 0 400 400" style="width:100%; max-height:550px;">
               <defs>
                 <pattern id="gridPatternSmall" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(184,137,43,0.05)" stroke-width="0.5"/>
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(184,137,43,0.05)" stroke-width="0.5" />
                 </pattern>
               </defs>
               <rect width="400" height="400" fill="url(#gridPatternSmall)" />
-              <path d="M 50,50 L 100,100 L 80,120 L 160,200 L 140,220" fill="none" stroke="var(--bear)" stroke-width="2" stroke-dasharray="6,4" opacity="0.3" />
+              <path d="M 50,50 L 100,100 L 80,120 L 160,200 L 140,220" fill="none" stroke="var(--bear)" stroke-width="2"
+                stroke-dasharray="6,4" opacity="0.3" />
               <g transform="translate(140, 220)">
                 <line x1="20" y1="0" x2="20" y2="140" stroke="var(--bull)" stroke-width="4" />
                 <rect x="0" y="0" width="40" height="35" fill="var(--bull)" rx="3" />
-                <circle cx="20" cy="70" r="90" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.4" />
+                <circle cx="20" cy="70" r="90" fill="none" stroke="var(--gold)" stroke-width="1.5"
+                  stroke-dasharray="8,4" opacity="0.4" />
               </g>
-              <path d="M 200,240 L 250,190 L 230,170 L 320,80 L 350,110" fill="none" stroke="var(--bull)" stroke-width="2" stroke-dasharray="6,4" opacity="0.3" />
+              <path d="M 200,240 L 250,190 L 230,170 L 320,80 L 350,110" fill="none" stroke="var(--bull)"
+                stroke-width="2" stroke-dasharray="6,4" opacity="0.3" />
             </svg>
             <figcaption>The Rejection of Value &middot; Bullish Hammer</figcaption>
           </div>
@@ -2621,16 +2659,18 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bullish Reversals</div>
         <h2 class="rv" style="--d:1">2. Bullish Engulfing</h2>
-        <p class="slide-subtitle rv" style="--d:2">A decisive shift in control where buyers completely &quot;swallow&quot; the previous bearish narrative.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">A decisive shift in control where buyers completely
+          &quot;swallow&quot; the previous bearish narrative.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
             <div class="glass glass-gold" style="padding:2.5em;">
-              <p style="font-size:1.3rem; line-height:1.6; margin-bottom:1em;">
+              <p style="font-size:1.6rem; line-height:1.6; margin-bottom:1em;">
                 A small red (bearish) candle is followed by a much larger green (bullish) candle.
               </p>
               <div class="insight" style="margin-top:1.5em; background:rgba(22,163,74,0.05); border-color:var(--bull);">
-                <p style="font-size:1.1rem;">The body of the green candle <strong>completely covers</strong> the body of the red one. It represents the visual definition of buyers overwhelming sellers.</p>
+                <p style="font-size:1.4rem;">The body of the green candle <strong>completely covers</strong> the body of
+                  the red one. It represents the visual definition of buyers overwhelming sellers.</p>
               </div>
             </div>
           </div>
@@ -2642,7 +2682,8 @@
                 <line x1="40" y1="70" x2="40" y2="150" stroke="var(--bear)" stroke-width="2" opacity="0.4" />
                 <rect x="100" y="20" width="65" height="180" fill="var(--bull)" rx="4" />
                 <line x1="132" y1="10" x2="132" y2="210" stroke="var(--bull)" stroke-width="4" />
-                <ellipse cx="85" cy="110" rx="110" ry="130" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.6" />
+                <ellipse cx="85" cy="110" rx="110" ry="130" fill="none" stroke="var(--gold)" stroke-width="1.5"
+                  stroke-dasharray="5,3" opacity="0.6" />
               </g>
             </svg>
             <figcaption>Momentum Surge &middot; The Bullish Engulfing</figcaption>
@@ -2656,22 +2697,26 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bullish Reversals</div>
         <h2 class="rv" style="--d:1">3. Morning Star</h2>
-        <p class="slide-subtitle rv" style="--d:2">The classic &quot;rebirth&quot; pattern &mdash; the moment of total market indecision before a new dawn.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">The classic &quot;rebirth&quot; pattern &mdash; the moment of total
+          market indecision before a new dawn.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
             <div class="glass glass-gold" style="padding:2.5em;">
-              <h3 style="margin-bottom:0.8em; font-family:'Space Mono',monospace; font-size:1.1rem;">A 3-CANDLE SETUP</h3>
-              <p style="font-size:1.2rem; line-height:1.7;">
-                <strong>Long Red</strong> &rarr; <strong>Small &quot;Star&quot;</strong> &rarr; <strong>Long Green</strong>.
+              <h3 style="margin-bottom:0.8em; font-family:'Space Mono',monospace; font-size:1.4rem;">A 3-CANDLE SETUP
+              </h3>
+              <p style="font-size:1.5rem; line-height:1.7;">
+                <strong>Long Red</strong> &rarr; <strong>Small &quot;Star&quot;</strong> &rarr; <strong>Long
+                  Green</strong>.
               </p>
               <div class="insight" style="margin-top:2em; background:rgba(22,163,74,0.05); border-color:var(--bull);">
-                <p style="font-size:1.1rem;">The middle star shows that the downtrend has lost its power. Buyers and sellers are in a temporary truce before the bull run starts.</p>
+                <p style="font-size:1.4rem;">The middle star shows that the downtrend has lost its power. Buyers and
+                  sellers are in a temporary truce before the bull run starts.</p>
               </div>
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:5">
-             <svg viewBox="0 0 400 400" style="width:100%; max-height:550px;">
+            <svg viewBox="0 0 400 400" style="width:100%; max-height:550px;">
               <rect width="400" height="400" fill="url(#gridPatternSmall)" />
               <g transform="translate(50, 100)">
                 <rect x="20" y="20" width="45" height="140" fill="var(--bear)" rx="2" />
@@ -2701,35 +2746,40 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bearish Reversals</div>
         <h2 class="rv" style="--d:1">Top 3 Bearish Reversal Examples</h2>
-        <p class="slide-subtitle rv" style="--d:2">These appear at the peak of an up trend and suggest the market is about to drop.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">These appear at the peak of an up trend and suggest the market is
+          about to drop.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
             <h3 style="color:var(--bear);">1. The Hanging Man</h3>
             <div class="glass" style="padding:2.5em; border-color:var(--bear);">
-              <p style="font-size:1.2rem; line-height:1.6; margin-bottom:1em;">
+              <p style="font-size:1.5rem; line-height:1.6; margin-bottom:1em;">
                 A bearish reversal pattern at the apex of an uptrend.
               </p>
               <div class="insight" style="margin-top:1.5em; background:rgba(220,38,38,0.05); border-color:var(--bear);">
-                <p style="font-size:1.1rem;">Features a short lower shadow and a small real body, indicating that buyers have lost control and sellers are entering the market.</p>
+                <p style="font-size:1.4rem;">Features a short lower shadow and a small real body, indicating that buyers
+                  have lost control and sellers are entering the market.</p>
               </div>
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:5">
             <svg viewBox="0 0 400 400" style="width:100%; max-height:550px;">
               <rect width="400" height="400" fill="url(#gridPatternSmall)" />
-               <!-- Uptrend line -->
-              <path d="M 50,350 L 100,280 L 80,260 L 150,150 L 130,130" fill="none" stroke="var(--bull)" stroke-width="2" stroke-dasharray="6,4" opacity="0.3" />
-              
+              <!-- Uptrend line -->
+              <path d="M 50,350 L 100,280 L 80,260 L 150,150 L 130,130" fill="none" stroke="var(--bull)"
+                stroke-width="2" stroke-dasharray="6,4" opacity="0.3" />
+
               <!-- The Hanging Man -->
               <g transform="translate(150, 80)">
                 <line x1="20" y1="0" x2="20" y2="160" stroke="var(--bear)" stroke-width="4" />
                 <rect x="0" y="0" width="40" height="35" fill="var(--bear)" rx="3" />
-                <circle cx="20" cy="17" r="90" fill="none" stroke="var(--bear)" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.4" />
+                <circle cx="20" cy="17" r="90" fill="none" stroke="var(--bear)" stroke-width="1.5"
+                  stroke-dasharray="8,4" opacity="0.4" />
               </g>
-              
+
               <!-- Downtrend line -->
-              <path d="M 220,150 L 300,280 L 280,300 L 350,380" fill="none" stroke="var(--bear)" stroke-width="2" stroke-dasharray="6,4" opacity="0.3" />
+              <path d="M 220,150 L 300,280 L 280,300 L 350,380" fill="none" stroke="var(--bear)" stroke-width="2"
+                stroke-dasharray="6,4" opacity="0.3" />
             </svg>
             <figcaption>The Peak of Greed &middot; The Hanging Man</figcaption>
           </div>
@@ -2744,16 +2794,18 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bearish Reversals</div>
         <h2 class="rv" style="--d:1">2. Bearish Engulfing</h2>
-        <p class="slide-subtitle rv" style="--d:2">A small green candle swallowed by a massive red candle &mdash; the definition of &quot;panic selling&quot;.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">A small green candle swallowed by a massive red candle &mdash; the
+          definition of &quot;panic selling&quot;.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
-             <div class="glass" style="padding:2.5em; border-color:var(--bear);">
-              <p style="font-size:1.3rem; line-height:1.6; margin-bottom:1em;">
+            <div class="glass" style="padding:2.5em; border-color:var(--bear);">
+              <p style="font-size:1.6rem; line-height:1.6; margin-bottom:1em;">
                 The market&apos;s visual signature of a total rejection of the previous uptrend.
               </p>
               <div class="insight" style="margin-top:1.5em; background:rgba(220,38,38,0.05); border-color:var(--bear);">
-                <p style="font-size:1.1rem;">It indicates that supply has completely overwhelmed demand. The bears didn&apos;t just stop the move; they liquidated it entirely.</p>
+                <p style="font-size:1.4rem;">It indicates that supply has completely overwhelmed demand. The bears
+                  didn&apos;t just stop the move; they liquidated it entirely.</p>
               </div>
             </div>
           </div>
@@ -2761,16 +2813,17 @@
             <svg viewBox="0 0 400 400" style="width:100%; max-height:550px;">
               <rect width="400" height="400" fill="url(#gridPatternSmall)" />
               <g transform="translate(100, 100)">
-                 <!-- Previous small green candle -->
+                <!-- Previous small green candle -->
                 <rect x="20" y="50" width="40" height="60" fill="var(--bull)" opacity="0.4" rx="2" />
                 <line x1="40" y1="40" x2="40" y2="120" stroke="var(--bull)" opacity="0.4" stroke-width="2" />
-                
+
                 <!-- Large red engulfing candle -->
                 <rect x="100" y="10" width="70" height="240" fill="var(--bear)" rx="4" />
                 <line x1="135" y1="0" x2="135" y2="260" stroke="var(--bear)" stroke-width="4" />
-                
+
                 <!-- High-Alert Ring -->
-                <ellipse cx="85" cy="120" rx="110" ry="150" fill="none" stroke="var(--bear)" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7" />
+                <ellipse cx="85" cy="120" rx="110" ry="150" fill="none" stroke="var(--bear)" stroke-width="1.5"
+                  stroke-dasharray="5,3" opacity="0.7" />
               </g>
             </svg>
             <figcaption>Surrender of Control &middot; Bearish Engulfing</figcaption>
@@ -2784,17 +2837,21 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bearish Reversals</div>
         <h2 class="rv" style="--d:1">3. Evening Star</h2>
-        <p class="slide-subtitle rv" style="--d:2">The sun sets on the uptrend &mdash; the bearish twin of the Morning Star.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">The sun sets on the uptrend &mdash; the bearish twin of the Morning
+          Star.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
-             <div class="glass" style="padding:2.5em; border-color:var(--bear);">
-              <h3 style="margin-bottom:0.8em; font-family:'Space Mono',monospace; font-size:1.1rem;">A 3-CANDLE SETUP</h3>
-              <p style="font-size:1.2rem; line-height:1.7;">
-                <strong>Long Green</strong> &rarr; <strong>Small &quot;Star&quot;</strong> &rarr; <strong>Long Red</strong>.
+            <div class="glass" style="padding:2.5em; border-color:var(--bear);">
+              <h3 style="margin-bottom:0.8em; font-family:'Space Mono',monospace; font-size:1.4rem;">A 3-CANDLE SETUP
+              </h3>
+              <p style="font-size:1.5rem; line-height:1.7;">
+                <strong>Long Green</strong> &rarr; <strong>Small &quot;Star&quot;</strong> &rarr; <strong>Long
+                  Red</strong>.
               </p>
               <div class="insight" style="margin-top:2em; background:rgba(220,38,38,0.05); border-color:var(--bear);">
-                <p style="font-size:1.1rem;">The final push higher fails, creating a small indecision candle at the top. The following long red candle confirms the crash.</p>
+                <p style="font-size:1.4rem;">The final push higher fails, creating a small indecision candle at the top.
+                  The following long red candle confirms the crash.</p>
               </div>
             </div>
           </div>
@@ -2805,11 +2862,11 @@
                 <!-- Candle 1: Big Green -->
                 <rect x="20" y="40" width="45" height="130" fill="var(--bull)" rx="2" />
                 <line x1="42.5" y1="30" x2="42.5" y2="180" stroke="var(--bull)" stroke-width="2" />
-                
+
                 <!-- Candle 2: Small star -->
                 <rect x="105" y="20" width="45" height="25" fill="var(--gold-dim)" rx="2" />
                 <line x1="127.5" y1="10" x2="127.5" y2="55" stroke="var(--gold-dim)" stroke-width="2" />
-                
+
                 <!-- Candle 3: Big Red -->
                 <rect x="190" y="50" width="45" height="140" fill="var(--bear)" rx="2" />
                 <line x1="212.5" y1="40" x2="212.5" y2="200" stroke="var(--bear)" stroke-width="2" />
@@ -2820,22 +2877,25 @@
         </div>
       </div>
     </section>
-    
+
     <!-- =============== SLIDE 20_3: THE DOJI (Neutral Pattern) =============== -->
     <section class="slide" id="s20_3">
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Neutral Signals</div>
         <h2 class="rv" style="--d:1">The Doji</h2>
-        <p class="slide-subtitle rv" style="--d:2">A state of total market equilibrium &mdash; where buyers and sellers are perfectly matched.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">A state of total market equilibrium &mdash; where buyers and sellers
+          are perfectly matched.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
-             <div class="glass" style="padding:2.5em; border-color:var(--gold);">
-              <p style="font-size:1.3rem; line-height:1.6; margin-bottom:1em;">
+            <div class="glass" style="padding:2.5em; border-color:var(--gold);">
+              <p style="font-size:1.6rem; line-height:1.6; margin-bottom:1em;">
                 Forms when the <strong>opening and closing prices</strong> are the same or very close.
               </p>
-              <div class="insight" style="margin-top:1.5em; background:rgba(184,137,43,0.05); border-color:var(--gold);">
-                <p style="font-size:1.1rem;">It signals <strong style="color:var(--gold);">indecision</strong>. After a long trend, it often warns of a <strong>potential reversal</strong> as momentum stalls.</p>
+              <div class="insight"
+                style="margin-top:1.5em; background:rgba(184,137,43,0.05); border-color:var(--gold);">
+                <p style="font-size:1.4rem;">It signals <strong style="color:var(--gold);">indecision</strong>. After a
+                  long trend, it often warns of a <strong>potential reversal</strong> as momentum stalls.</p>
               </div>
             </div>
           </div>
@@ -2875,28 +2935,35 @@
         <div class="chapter-marker rv" style="--d:0">Block III &middot; The Battlefield</div>
         <h2 class="rv" style="--d:1">Support &amp; Resistance Levels</h2>
         <p class="slide-subtitle rv" style="--d:2">The psychological floor and ceiling of every market.</p>
-        
+
         <div class="two-col" style="margin-top:1em;">
           <div class="rv" style="--d:3">
             <div class="glass" style="padding:2em; border-color:var(--bull); margin-bottom:1em;">
               <h3 style="color:var(--bull); font-family:'Space Mono',monospace;">SUPPORT (The Floor)</h3>
-              <p style="margin-top:0.5em;">The price level at which demand is thought to be <strong>strong enough</strong> to prevent the price from declining further.</p>
-              <p style="font-size:0.9rem; margin-top:0.8em; color:var(--text-dim);">Logic: As price drops, it gets "cheaper" &mdash; buyers become more inclined to buy, sellers less inclined to sell.</p>
+              <p style="margin-top:0.5em;">The price level at which demand is thought to be <strong>strong
+                  enough</strong> to prevent the price from declining further.</p>
+              <p style="font-size:1.2rem; margin-top:0.8em; color:var(--text-dim);">Logic: As price drops, it gets
+                "cheaper" &mdash; buyers become more inclined to buy, sellers less inclined to sell.</p>
             </div>
             <div class="glass" style="padding:2em; border-color:var(--bear);">
               <h3 style="color:var(--bear); font-family:'Space Mono',monospace;">RESISTANCE (The Ceiling)</h3>
-              <p style="margin-top:0.5em;">The price level at which selling pressure is thought to be <strong>strong enough</strong> to prevent the price from rising further.</p>
-              <p style="font-size:0.9rem; margin-top:0.8em; color:var(--text-dim);">Logic: As price rises, holders want to "lock in" profits &mdash; sellers become more inclined to sell, buyers less inclined to buy.</p>
+              <p style="margin-top:0.5em;">The price level at which selling pressure is thought to be <strong>strong
+                  enough</strong> to prevent the price from rising further.</p>
+              <p style="font-size:1.2rem; margin-top:0.8em; color:var(--text-dim);">Logic: As price rises, holders want
+                to "lock in" profits &mdash; sellers become more inclined to sell, buyers less inclined to buy.</p>
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:5">
-             <svg viewBox="0 0 400 400" style="width:100%; max-height:450px;">
+            <svg viewBox="0 0 400 400" style="width:100%; max-height:450px;">
               <rect width="400" height="400" fill="url(#gridPatternSmall)" />
               <line x1="20" y1="100" x2="380" y2="100" stroke="var(--bear)" stroke-width="2" stroke-dasharray="8,4" />
-              <text x="380" y="90" text-anchor="end" fill="var(--bear)" font-family="'Space Mono',monospace" font-size="10">RESISTANCE</text>
+              <text x="380" y="90" text-anchor="end" fill="var(--bear)" font-family="'Space Mono',monospace"
+                font-size="10">RESISTANCE</text>
               <line x1="20" y1="300" x2="380" y2="300" stroke="var(--bull)" stroke-width="2" stroke-dasharray="8,4" />
-              <text x="380" y="315" text-anchor="end" fill="var(--bull)" font-family="'Space Mono',monospace" font-size="10">SUPPORT</text>
-              <polyline points="20,250 80,110 140,290 200,105 260,305 320,120 380,260" fill="none" stroke="var(--text)" stroke-width="2.5" />
+              <text x="380" y="315" text-anchor="end" fill="var(--bull)" font-family="'Space Mono',monospace"
+                font-size="10">SUPPORT</text>
+              <polyline points="20,250 80,110 140,290 200,105 260,305 320,120 380,260" fill="none" stroke="var(--text)"
+                stroke-width="2.5" />
               <circle cx="80" cy="110" r="6" fill="var(--bear)" opacity="0.6" />
               <circle cx="200" cy="105" r="6" fill="var(--bear)" opacity="0.6" />
               <circle cx="140" cy="290" r="6" fill="var(--bull)" opacity="0.6" />
@@ -2913,12 +2980,15 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Real-World Application</div>
         <h2 class="rv" style="--d:1">Levels in Action</h2>
-        <p class="slide-subtitle rv" style="--d:2">Market memory: Patterns of price rejection create history that traders use to predict future moves.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">Market memory: Patterns of price rejection create history that
+          traders use to predict future moves.</p>
+
         <div class="rv" style="--d:3; margin-top:2em;">
-          <div class="glass" style="padding:1em; border-color:var(--gold); overflow:hidden; background:rgba(0,0,0,0.3);">
+          <div class="glass"
+            style="padding:1em; border-color:var(--gold); overflow:hidden; background:rgba(0,0,0,0.3);">
             <figure class="contrib-figure" style="margin:0;">
-              <img src="assets/chart.png" alt="MOPCO Technical Analysis Chart" style="width:100%; height:auto; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+              <img src="assets/chart.png" alt="MOPCO Technical Analysis Chart"
+                style="width:100%; height:auto; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
               <figcaption style="margin-top:1em; font-family:'Space Mono',monospace; opacity:0.8;">
                 Real-World Snapshot &middot; Identifying key S&amp;R structural levels on the MOPCO daily chart.
               </figcaption>
@@ -2933,32 +3003,36 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Dynamic Evolution</div>
         <h2 class="rv" style="--d:1">Role Reversal Concept</h2>
-        <p class="slide-subtitle rv" style="--d:2">The market never forgets: once a wall is broken, it becomes the new foundation.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">The market never forgets: once a wall is broken, it becomes the new
+          foundation.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
-             <div class="glass" style="padding:2.5em; border-color:var(--gold);">
+            <div class="glass" style="padding:2.5em; border-color:var(--gold);">
               <ul style="list-style:none; padding:0;">
-                <li style="margin-bottom:1.5em; font-size:1.2rem;">
-                    <span style="color:var(--bear); font-weight:bold;">Broken Resistance</span> <br> 
-                    <span style="font-size:1rem; color:var(--text-dim)">&rarr; becomes the new</span> <br>
-                    <strong style="color:var(--bull);">Support</strong> (Strong Buy Signal)
+                <li style="margin-bottom:1.5em; font-size:1.5rem;">
+                  <span style="color:var(--bear); font-weight:bold;">Broken Resistance</span> <br>
+                  <span style="font-size:1rem; color:var(--text-dim)">&rarr; becomes the new</span> <br>
+                  <strong style="color:var(--bull);">Support</strong> (Strong Buy Signal)
                 </li>
-                <li style="font-size:1.2rem;">
-                    <span style="color:var(--bull); font-weight:bold;">Broken Support</span> <br> 
-                    <span style="font-size:1rem; color:var(--text-dim)">&rarr; becomes the new</span> <br>
-                    <strong style="color:var(--bear);">Resistance</strong> (Strong Sell Signal)
+                <li style="font-size:1.5rem;">
+                  <span style="color:var(--bull); font-weight:bold;">Broken Support</span> <br>
+                  <span style="font-size:1rem; color:var(--text-dim)">&rarr; becomes the new</span> <br>
+                  <strong style="color:var(--bear);">Resistance</strong> (Strong Sell Signal)
                 </li>
               </ul>
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:5">
-             <svg viewBox="0 0 500 400" style="width:100%; max-height:500px;">
+            <svg viewBox="0 0 500 400" style="width:100%; max-height:500px;">
               <rect width="500" height="400" fill="url(#gridPatternSmall)" />
               <line x1="50" y1="200" x2="450" y2="200" stroke="var(--gold)" stroke-width="2.5" />
-              <text x="60" y="190" fill="var(--bear)" font-family="'Space Mono',monospace" font-size="12">RESISTANCE</text>
-              <text x="440" y="215" text-anchor="end" fill="var(--bull)" font-family="'Space Mono',monospace" font-size="12">SUPPORT</text>
-              <path d="M 50,350 L 100,280 L 150,205 L 180,240 L 250,195 L 300,100 L 350,180 L 400,198 L 450,120" fill="none" stroke="var(--text)" stroke-width="3" />
+              <text x="60" y="190" fill="var(--bear)" font-family="'Space Mono',monospace"
+                font-size="12">RESISTANCE</text>
+              <text x="440" y="215" text-anchor="end" fill="var(--bull)" font-family="'Space Mono',monospace"
+                font-size="12">SUPPORT</text>
+              <path d="M 50,350 L 100,280 L 150,205 L 180,240 L 250,195 L 300,100 L 350,180 L 400,198 L 450,120"
+                fill="none" stroke="var(--text)" stroke-width="3" />
               <circle cx="350" cy="198" r="15" fill="var(--gold)" opacity="0.2">
                 <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" />
               </circle>
@@ -2974,13 +3048,17 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Moving Levels</div>
         <h2 class="rv" style="--d:1">Dynamic Support &amp; Resistance</h2>
-        <p class="slide-subtitle rv" style="--d:2">Beyond horizontal lines: some levels slope with the trend, acting as moving floors and targets.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">Beyond horizontal lines: some levels slope with the trend, acting as
+          moving floors and targets.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
-             <div class="glass" style="padding:2.5em; border-color:var(--gold);">
-              <h3 style="color:var(--gold); margin-bottom:1em; font-family:'Space Mono',monospace;">The "Channel" Concept</h3>
-              <p style="margin-bottom:1em;">When you have both <strong>Dynamic Support</strong> (floor) and <strong>Dynamic Resistance</strong> (ceiling), you have a <strong>Trading Channel</strong>.</p>
+            <div class="glass" style="padding:2.5em; border-color:var(--gold);">
+              <h3 style="color:var(--gold); margin-bottom:1em; font-family:'Space Mono',monospace;">The "Channel"
+                Concept</h3>
+              <p style="margin-bottom:1em;">When you have both <strong>Dynamic Support</strong> (floor) and
+                <strong>Dynamic Resistance</strong> (ceiling), you have a <strong>Trading Channel</strong>.
+              </p>
               <div class="insight" style="background:rgba(20,184,166,0.05); border-color:var(--teal);">
                 <p><strong>Floor:</strong> Drawn along "Higher Lows" &middot; Buy the Dip.</p>
                 <p><strong>Ceiling:</strong> Drawn along "Higher Highs" &middot; Take Profit Target.</p>
@@ -2988,18 +3066,23 @@
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:5">
-             <svg viewBox="0 0 500 400" style="width:100%; max-height:500px;">
+            <svg viewBox="0 0 500 400" style="width:100%; max-height:500px;">
               <rect width="500" height="400" fill="url(#gridPatternSmall)" />
               <g opacity="0.4">
-                  <line x1="30" y1="100" x2="200" y2="100" stroke="var(--bear)" stroke-width="1.5" stroke-dasharray="4,2" />
-                  <line x1="30" y1="300" x2="200" y2="300" stroke="var(--bull)" stroke-width="1.5" stroke-dasharray="4,2" />
-                  <text x="30" y="80" fill="var(--text-dim)" font-size="10">STATIC (Horizontal)</text>
+                <line x1="30" y1="100" x2="200" y2="100" stroke="var(--bear)" stroke-width="1.5"
+                  stroke-dasharray="4,2" />
+                <line x1="30" y1="300" x2="200" y2="300" stroke="var(--bull)" stroke-width="1.5"
+                  stroke-dasharray="4,2" />
+                <text x="30" y="80" fill="var(--text-dim)" font-size="10">STATIC (Horizontal)</text>
               </g>
               <line x1="250" y1="350" x2="480" y2="150" stroke="#16a34a" stroke-width="3" />
-              <text x="480" y="140" text-anchor="end" fill="#16a34a" font-family="'Space Mono',monospace" font-size="12">DYNAMIC SUPPORT</text>
+              <text x="480" y="140" text-anchor="end" fill="#16a34a" font-family="'Space Mono',monospace"
+                font-size="12">DYNAMIC SUPPORT</text>
               <line x1="220" y1="280" x2="450" y2="80" stroke="#dc2626" stroke-width="3" />
-              <text x="450" y="70" text-anchor="end" fill="#dc2626" font-family="'Space Mono',monospace" font-size="12">DYNAMIC RESISTANCE</text>
-              <path d="M 250,340 L 300,240 L 350,300 L 400,180 L 450,220" fill="none" stroke="var(--text)" stroke-width="3" />
+              <text x="450" y="70" text-anchor="end" fill="#dc2626" font-family="'Space Mono',monospace"
+                font-size="12">DYNAMIC RESISTANCE</text>
+              <path d="M 250,340 L 300,240 L 350,300 L 400,180 L 450,220" fill="none" stroke="var(--text)"
+                stroke-width="3" />
               <rect x="420" y="90" width="60" height="25" fill="#dc2626" rx="4" opacity="0.2" />
               <text x="450" y="108" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="10">TARGET</text>
             </svg>
@@ -3014,36 +3097,45 @@
       <div class="slide-stage">
         <div class="chapter-marker rv" style="--d:0">Block III &middot; Bearish Channels</div>
         <h2 class="rv" style="--d:1">Dynamic S/R in a Downtrend</h2>
-        <p class="slide-subtitle rv" style="--d:2">The moving architecture of a falling market &mdash; identifying the ceiling and the target.</p>
-        
+        <p class="slide-subtitle rv" style="--d:2">The moving architecture of a falling market &mdash; identifying the
+          ceiling and the target.</p>
+
         <div class="two-col" style="margin-top:1em; align-items:center;">
           <div class="rv" style="--d:3">
-             <div class="glass" style="padding:2.5em; border-color:var(--gold);">
-              <h3 style="color:var(--bear); margin-bottom:1em; font-family:'Space Mono',monospace;">The Downtrend Ceiling</h3>
-              <p style="margin-bottom:1em;">Drawn above <strong>"Lower Highs"</strong>. It acts as a barrier where sellers reliably step back in.</p>
-              
-              <h3 style="color:var(--teal); margin-bottom:1em; font-family:'Space Mono',monospace;">The Price Target</h3>
-              <p style="margin-bottom:1em;">Drawn below <strong>"Lower Lows"</strong>. It helps traders find "Take Profit" opportunities on short positions.</p>
-              
+            <div class="glass" style="padding:2.5em; border-color:var(--gold);">
+              <h3 style="color:var(--bear); margin-bottom:1em; font-family:'Space Mono',monospace;">The Downtrend
+                Ceiling</h3>
+              <p style="margin-bottom:1em;">Drawn above <strong>"Lower Highs"</strong>. It acts as a barrier where
+                sellers reliably step back in.</p>
+
+              <h3 style="color:var(--teal); margin-bottom:1em; font-family:'Space Mono',monospace;">The Price Target
+              </h3>
+              <p style="margin-bottom:1em;">Drawn below <strong>"Lower Lows"</strong>. It helps traders find "Take
+                Profit" opportunities on short positions.</p>
+
               <div class="insight" style="margin-top:1.5em; background:rgba(220,38,38,0.05); border-color:var(--bear);">
-                <p>In a downtrend, <strong>Dynamic Resistance</strong> is the dominant level. Breaking above it is the first sign of a trend reversal.</p>
+                <p>In a downtrend, <strong>Dynamic Resistance</strong> is the dominant level. Breaking above it is the
+                  first sign of a trend reversal.</p>
               </div>
             </div>
           </div>
           <div class="contrib-figure rv" style="--d:5">
-             <svg viewBox="0 0 500 400" style="width:100%; max-height:500px;">
+            <svg viewBox="0 0 500 400" style="width:100%; max-height:500px;">
               <rect width="500" height="400" fill="url(#gridPatternSmall)" />
-              
+
               <!-- Downtrend Channel Lines -->
               <line x1="50" y1="50" x2="450" y2="250" stroke="#dc2626" stroke-width="3" />
-              <text x="450" y="270" text-anchor="end" fill="#dc2626" font-family="'Space Mono',monospace" font-size="12">DYNAMIC RESISTANCE</text>
-              
+              <text x="450" y="270" text-anchor="end" fill="#dc2626" font-family="'Space Mono',monospace"
+                font-size="12">DYNAMIC RESISTANCE</text>
+
               <line x1="80" y1="180" x2="480" y2="380" stroke="#16a34a" stroke-width="3" opacity="0.6" />
-              <text x="450" y="395" text-anchor="end" fill="#16a34a" font-family="'Space Mono',monospace" font-size="12">DYNAMIC SUPPORT (TARGET)</text>
-              
+              <text x="450" y="395" text-anchor="end" fill="#16a34a" font-family="'Space Mono',monospace"
+                font-size="12">DYNAMIC SUPPORT (TARGET)</text>
+
               <!-- Price Action in Downtrend -->
-              <path d="M 50,70 L 120,160 L 180,105 L 250,210 L 320,165 L 400,280 L 450,230" fill="none" stroke="var(--text)" stroke-width="3" />
-              
+              <path d="M 50,70 L 120,160 L 180,105 L 250,210 L 320,165 L 400,280 L 450,230" fill="none"
+                stroke="var(--text)" stroke-width="3" />
+
               <!-- Signal Indicators -->
               <circle cx="180" cy="105" r="8" fill="var(--bear)" opacity="0.6" />
               <circle cx="320" cy="165" r="8" fill="var(--bear)" opacity="0.6" />
@@ -3243,299 +3335,13 @@
 
     <!-- =============== SLIDE: THE MISSING FUEL — VOLUME =============== -->
     <section class="slide" id="s_volume">
-      <div class="slide-stage">
-        <div class="chapter-marker rv" style="--d:0">Block IV &middot; Momentum Confirmation</div>
-        <h2 class="rv" style="--d:1">The Missing Fuel &mdash; Volume</h2>
-        <p class="slide-subtitle rv" style="--d:2">Moving average crossovers indicate a direction shift but do not
-          confirm sustainability.</p>
-        <div class="three-col" style="margin-top:1.5em;">
-          <div class="glass rv" style="--d:3">
-            <h3 style="color:var(--gold);">Institutional Momentum</h3>
-            <p>Volume acts as the <strong>fuel</strong> that drives the market trend engine. A price breakout on low
-              volume is highly likely to be a <strong>trap or a whipsaw</strong>.</p>
-          </div>
-          <div class="glass rv" style="--d:5; border-color: rgba(15,118,110,0.35);">
-            <h3 style="color:var(--teal);">On-Balance Volume (OBV)</h3>
-            <p>OBV measures true buying and selling pressure by adding volume on up-days and subtracting it on
-              down-days.</p>
-          </div>
-          <div class="glass rv" style="--d:7; border-color: rgba(220,38,38,0.35);">
-            <h3 style="color:var(--bear);">The Abort Signal</h3>
-            <p>If a stock crosses a moving average but the <strong>OBV line remains flat or drops</strong>, the breakout
-              is unconfirmed and the trade should be aborted.</p>
-          </div>
+      <div class="slide-stage" style="display: flex; justify-content: center; align-items: center;">
+        <div class="rv" style="--d:1;">
+          <img src="assets/WhatsApp Image 2026-04-19 at 9.45.53 AM.jpeg" alt="Volume Analysis"
+            style="width: 100%; height: 100%; object-fit: fill; border-radius: 2px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); border: 1px solid rgba(0,0,0,0.2);">
         </div>
       </div>
     </section>
-
-    <!-- =============== SLIDE: FINANCIAL NEURAL NETWORK ANALYSIS PIPELINE =============== -->
-    <section class="slide" id="s_neural">
-      <div class="slide-stage">
-        <div class="chapter-marker rv" style="--d:0">Block IV &middot; The Neural Engine</div>
-        <h2 class="rv" style="--d:1">Financial Neural Network Analysis Pipeline</h2>
-        <p class="slide-subtitle rv" style="--d:2">From raw market data to high-precision predictive heat maps.</p>
-        
-        <!-- Pipeline Flow Grid -->
-        <div class="two-col" style="margin-top:1.5em; gap:2em;">
-          <!-- Column 1: Preparation -->
-          <div class="glass rv" style="--d:3; padding:1.5em;">
-             <h3 style="color:var(--gold); font-size:1rem; margin-bottom:1.2em; letter-spacing:0.1em; font-family:'Space Mono',monospace;">PHASE I: DATA ARCHITECTURE</h3>
-             
-             <div class="pipeline-step" style="margin-bottom:1.5em;">
-                <h4 style="font-size:0.9rem; color:var(--text); margin-bottom:0.4em;">1. Centralized Pre-processing</h4>
-                <p style="font-size:0.85rem; color:var(--text-dim); line-height:1.6;">Ingesting real-time indices from global sources hybridized with company-specific listings and operational metadata.</p>
-             </div>
-             
-             <div class="pipeline-step">
-                <h4 style="font-size:0.9rem; color:var(--text); margin-bottom:0.4em;">2. Variable Selection Matrix</h4>
-                <p style="font-size:0.85rem; color:var(--text-dim); line-height:1.6;">Automated optimization across <strong>6 distinct feature combinations</strong> to identify dominant predictive variables.</p>
-                <div style="margin-top:1em; opacity:0.4;">
-                   <svg viewBox="0 0 200 60" style="width:100%; height:40px;">
-                      <circle cx="20" cy="30" r="4" fill="var(--gold)" />
-                      <circle cx="60" cy="30" r="4" fill="var(--gold)" />
-                      <circle cx="100" cy="30" r="4" fill="var(--gold)" />
-                      <g stroke="var(--gold)" stroke-width="0.5">
-                        <path d="M 20,30 L 180,10" />
-                        <path d="M 20,30 L 180,30" />
-                        <path d="M 20,30 L 180,50" />
-                      </g>
-                   </svg>
-                </div>
-             </div>
-          </div>
-          
-          <!-- Column 2: Training & Analysis -->
-          <div class="glass rv" style="--d:5; padding:1.5em;">
-             <h3 style="color:var(--teal); font-size:1rem; margin-bottom:1.2em; letter-spacing:0.1em; font-family:'Space Mono',monospace;">PHASE II: TRAINING & EVALUATION</h3>
-             
-             <div style="display:flex; gap:1.5em; align-items:center;">
-                <!-- 80/20 Split SVG -->
-                <div style="width:80px; height:80px; flex-shrink:0;">
-                   <svg viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(20,184,166,0.1)" stroke-width="15" />
-                      <path d="M 50,10 A 40,40 0 1,1 10,50" fill="none" stroke="var(--teal)" stroke-width="15" stroke-dasharray="251" stroke-dashoffset="60" />
-                      <text x="50" y="58" text-anchor="middle" fill="var(--teal)" font-family="'Space Mono',monospace" font-size="14" font-weight="bold">80/20</text>
-                   </svg>
-                </div>
-                <div style="flex:1;">
-                   <h4 style="font-size:0.9rem; color:var(--text); margin-bottom:0.3em;">80/20 Data Segmentation</h4>
-                   <p style="font-size:0.85rem; color:var(--text-dim); line-height:1.5;">Strict training/test partitioning to prevent algorithmic overfitting and ensure out-of-sample robustness.</p>
-                </div>
-             </div>
-             
-             <div class="pipeline-step" style="margin-top:2em;">
-                <h4 style="font-size:0.9rem; color:var(--text); margin-bottom:0.4em;">Multilayer Perceptron Neural Network</h4>
-                <p style="font-size:0.85rem; color:var(--text-dim); line-height:1.5;">Deep mapping architecture utilizing non-linear regression to capture complex hidden market correlations.</p>
-                <!-- Neural Net schematic -->
-                <div style="margin-top:1em; opacity:0.6; text-align:center;">
-                   <svg viewBox="0 0 200 60" style="width:100%; height:50px;">
-                      <g fill="var(--gold)">
-                         <circle cx="20" cy="15" r="3" /><circle cx="20" cy="30" r="3" /><circle cx="20" cy="45" r="3" />
-                         <circle cx="60" cy="10" r="3" /><circle cx="60" cy="20" r="3" /><circle cx="60" cy="30" r="3" /><circle cx="60" cy="40" r="3" /><circle cx="60" cy="50" r="3" />
-                         <circle cx="100" cy="20" r="3" /><circle cx="100" cy="40" r="3" />
-                      </g>
-                      <g stroke="var(--gold)" stroke-width="0.3" opacity="0.3">
-                         <path d="M 20,15 L 60,10 L 100,20" /><path d="M 20,30 L 60,30 L 100,40" /><path d="M 20,45 L 60,50 L 100,40" />
-                         <path d="M 20,15 L 60,30" /><path d="M 20,45 L 60,30" />
-                      </g>
-                   </svg>
-                </div>
-             </div>
-          </div>
-        </div>
-        
-        <!-- Evaluation Bar -->
-        <div class="glass rv" style="--d:7; margin-top:2em; padding:1.2em; display:flex; align-items:center; gap:2em; border-color:var(--gold);">
-           <div style="width:120px; height:60px; background: linear-gradient(45deg, #1e3a8a, #b91c1c, #f59e0b); border-radius:4px; opacity:0.8; flex-shrink:0;">
-              <!-- Mini representation of a heat map -->
-              <svg width="100%" height="100%">
-                 <rect x="0" y="0" width="30" height="30" fill="rgba(255,255,255,0.1)" />
-                 <rect x="30" y="30" width="30" height="30" fill="rgba(255,0,0,0.2)" />
-                 <rect x="60" y="0" width="60" height="60" fill="rgba(0,255,255,0.1)" />
-              </svg>
-           </div>
-           <div>
-              <h4 style="font-size:0.9rem; color:var(--gold); font-family:'Space Mono',monospace;">EVALUATION VIA PREDICTIVE HEAT MAP</h4>
-              <p style="font-size:0.85rem; color:var(--text-dim); margin-top:0.3em;">Final model results are compared using multidimensional heat map diagrams and optimized error coefficients.</p>
-           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =============== SLIDE: THE THREE-PILLAR AI FORECASTING ENGINE =============== -->
-    <section class="slide" id="s_pillars">
-      <div class="slide-stage">
-        <div class="chapter-marker rv" style="--d:0">Block IV &middot; Strategic Modeling</div>
-        <h2 class="rv" style="--d:1">The Three-Pillar AI Forecasting Engine</h2>
-        <p class="slide-subtitle rv" style="--d:2">Strategic Predictive Modeling for the S&P 500 Universe.</p>
-        
-        <!-- Phase 1: Inputs -->
-        <div class="glass rv" style="--d:3; margin-top:1em; padding:1.2em;">
-          <h3 style="color:var(--gold); font-size:0.9rem; margin-bottom:1.2em; letter-spacing:0.1em; font-family:'Space Mono',monospace;">PHASE 1: THE THREE-PILLAR INPUTS</h3>
-          <div class="three-col" style="gap:1em;">
-             <div class="pillar-box" style="text-align:center; padding:1em; border:1px solid rgba(184,137,43,0.15); border-radius:8px; background:rgba(0,0,0,0.2);">
-                <h4 style="color:var(--text); font-size:0.85rem; margin-bottom:0.4em;">PILLAR 1: FUNDAMENTAL</h4>
-                <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.4;">Evaluates company health via indicators like Earnings Per Share (EPS) and ROE.</p>
-             </div>
-             <div class="pillar-box" style="text-align:center; padding:1em; border:1px solid rgba(220,38,38,0.15); border-radius:8px; background:rgba(0,0,0,0.2);">
-                <h4 style="color:var(--text); font-size:0.85rem; margin-bottom:0.4em;">PILLAR 2: TECHNICAL</h4>
-                <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.4;">Tracks market speed and trends using Moving Averages and RSI.</p>
-             </div>
-             <div class="pillar-box" style="text-align:center; padding:1em; border:1px solid rgba(20,184,166,0.15); border-radius:8px; background:rgba(0,0,0,0.2);">
-                <h4 style="color:var(--text); font-size:0.85rem; margin-bottom:0.4em;">PILLAR 3: SENTIMENT</h4>
-                <p style="font-size:0.75rem; color:var(--text-dim); line-height:1.4;">Captures crowd emotion through a positive-negative ratio of social mentions.</p>
-             </div>
-          </div>
-        </div>
-        
-        <!-- Phase 2: Neural Engine -->
-        <div class="glass rv" style="--d:5; margin-top:0.8em; padding:1.2em; background:rgba(0,0,0,0.4); border-color:var(--gold);">
-          <div class="two-col" style="align-items:center; gap:2em;">
-             <div style="flex:1;">
-                <h3 style="color:var(--gold); font-size:0.9rem; margin-bottom:0.8em; letter-spacing:0.1em; font-family:'Space Mono',monospace;">PHASE 2: THE NEURAL PROCESSING ENGINE</h3>
-                <h4 style="font-size:1rem; margin-bottom:0.5em; font-family:'Space Mono',monospace;">Multilayer Perceptron (MLP) Neural Network</h4>
-                <p style="font-size:0.8rem; color:var(--text-dim); line-height:1.5;">A deep learning architecture utilizing <strong>100 hidden nodes</strong> and ~45,000 data points per company to find non-linear market patterns and minimize the loss function.</p>
-             </div>
-             <div style="width:200px; opacity:0.6; flex-shrink:0;">
-                <svg viewBox="0 0 200 80">
-                   <g fill="var(--gold)" opacity="0.8">
-                      <circle cx="20" cy="20" r="3" /><circle cx="20" cy="40" r="3" /><circle cx="20" cy="60" r="3" />
-                      <circle cx="60" cy="15" r="3" /><circle cx="60" cy="30" r="3" /><circle cx="60" cy="45" r="3" /><circle cx="60" cy="65" r="3" />
-                      <circle cx="100" cy="20" r="3" /><circle cx="100" cy="40" r="3" /><circle cx="100" cy="60" r="3" />
-                      <circle cx="140" cy="40" r="5" fill="var(--gold)" />
-                   </g>
-                   <g stroke="var(--gold)" stroke-width="0.3" opacity="0.3">
-                      <path d="M 20,40 L 60,30 L 100,40 L 140,40" fill="none" />
-                      <path d="M 20,20 L 60,15 L 100,20 L 140,40" fill="none" />
-                      <path d="M 20,60 L 60,65 L 100,60 L 140,40" fill="none" />
-                   </g>
-                </svg>
-             </div>
-          </div>
-        </div>
-        
-        <!-- Phase 3: Optimized Outputs -->
-        <div class="glass rv" style="--d:7; margin-top:0.8em; padding:1.2em;">
-          <h3 style="color:var(--gold); font-size:0.9rem; margin-bottom:1.5em; letter-spacing:0.1em; font-family:'Space Mono',monospace;">PHASE 3: OPTIMIZED OUTPUTS & SECTOR RULES</h3>
-          <div class="three-col" style="align-items:center; gap:1.5em;">
-             <div style="text-align:center;">
-                <div style="font-size:0.65rem; color:var(--text-dim); margin-bottom:0.6em; letter-spacing:0.05em;">THE 'SENTIMENT RULE' (TECH)</div>
-                <div style="font-family:'Space Mono',monospace; font-size:2.2rem; color:var(--bull); line-height:1;">89.05<span style="font-size:1rem;">%</span></div>
-                <p style="font-size:0.75rem; color:var(--text-dim); margin-top:0.6em;">Prioritizing crowd emotion metrics for high-volume sectors.</p>
-             </div>
-             <div>
-                <!-- Weighted Accuracy Donut -->
-                <div style="text-align:center; position:relative;">
-                   <svg width="90" height="90" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10" />
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" stroke-width="10" stroke-dasharray="251" stroke-dashoffset="33" />
-                      <text x="50" y="58" text-anchor="middle" fill="var(--gold)" font-family="'Space Mono',monospace" font-size="12" font-weight="bold">86.88%</text>
-                   </svg>
-                   <div style="font-size:0.65rem; color:var(--text-dim); margin-top:1em; letter-spacing:0.05em;">S&P 500 WEIGHTED ACCURACY</div>
-                </div>
-             </div>
-             <div style="text-align:center;">
-                <div style="font-size:0.65rem; color:var(--text-dim); margin-bottom:0.6em; letter-spacing:0.05em;">THE 'QUIET SECTOR' WARNING</div>
-                <div style="font-family:'Space Mono',monospace; font-size:2rem; color:var(--bear); line-height:1;">69.16<span style="font-size:0.9rem;">%</span></div>
-                <p style="font-size:0.75rem; color:var(--bear); margin-top:0.6em;">Utilities: Sentiment is noise; including it crashes accuracy.</p>
-             </div>
-          </div>
-          
-          <!-- Accuracy Table -->
-          <table style="width:100%; margin-top:1.8em; font-size:0.75rem; border-collapse:collapse; border:1px solid rgba(255,255,255,0.05); border-radius:6px; overflow:hidden;">
-             <thead style="background:rgba(255,255,255,0.03);">
-                <tr>
-                   <th style="padding:1em; text-align:left; color:var(--text-dim); letter-spacing:0.05em;">Market Segment</th>
-                   <th style="padding:1em; text-align:center; color:var(--bull);">Accuracy WITH Sentiment</th>
-                   <th style="padding:1em; text-align:center; color:var(--text-dim);">Accuracy WITHOUT Sentiment</th>
-                </tr>
-             </thead>
-             <tbody>
-                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                   <td style="padding:0.8em 1em; font-weight:bold;">Technology Sector</td>
-                   <td style="text-align:center; font-weight:bold; color:var(--bull); background:rgba(22,163,74,0.05);">89.05%</td>
-                   <td style="text-align:center; opacity:0.6;">88.74%</td>
-                </tr>
-                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                   <td style="padding:0.8em 1em; font-weight:bold;">Utilities Sector</td>
-                   <td style="text-align:center; font-weight:bold; color:var(--bear); background:rgba(220,38,38,0.05);">69.16%</td>
-                   <td style="text-align:center; color:var(--bull); font-weight:bold;">81.59%</td>
-                </tr>
-                <tr style="background:rgba(184,137,43,0.05);">
-                   <td style="padding:1em; font-weight:bold; color:var(--gold);">S&P 500 (Weighted Average)</td>
-                   <td style="text-align:center; font-weight:bold; color:var(--gold);">86.88%</td>
-                   <td style="text-align:center; opacity:0.6; font-weight:bold;">86.16%</td>
-                </tr>
-             </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- =============== SLIDE: BRENT CRUDE CONTRARIAN CASE STUDY =============== -->
-    <section class="slide" id="s_brent">
-      <div class="slide-stage">
-        <div class="chapter-marker rv" style="--d:0">Block IV &middot; Institutional Alpha</div>
-        <h2 class="rv" style="--d:1">Case Study: Brent Crude Contrarian Strategies</h2>
-        <p class="slide-subtitle rv" style="--d:2">Exploiting psychology-driven price deviations in volatile commodities.</p>
-        
-        <div class="three-col" style="margin-top:1.2em; gap:1em;">
-          <!-- Section 1: RSI vs SOI -->
-          <div class="glass rv" style="--d:3; padding:1.5em; display:flex; flex-direction:column; justify-content:space-between;">
-            <div>
-              <h4 style="color:var(--gold); margin-bottom:0.8em; font-family:'Space Mono',monospace; font-size:0.9rem;">NOISE FILTERING</h4>
-              <p style="font-size:0.85rem; line-height:1.6;">RSI (Relative Strength Index) provides significantly smoother signals and superior momentum filtering compared to traditional SOI in oil markets.</p>
-            </div>
-            <div style="margin-top:1em; height:60px; opacity:0.3;">
-               <svg viewBox="0 0 200 60" style="width:100%; height:100%;">
-                 <path d="M 0,40 L 10,20 L 20,50 L 30,10 L 40,55 L 50,30 L 60,45 L 70,5 L 80,50 L 90,20 L 100,55 L 110,10 L 120,40 L 130,5 L 140,50 L 150,20 L 160,45 L 170,10 L 180,45 L 190,20 L 200,40" fill="none" stroke="var(--text-dim)" stroke-width="1" />
-                 <path d="M 0,30 C 50,10 150,50 200,30" fill="none" stroke="var(--gold)" stroke-width="2.5" />
-               </svg>
-            </div>
-          </div>
-          
-          <!-- Section 2: Alpha Returns -->
-          <div class="glass glass-gold rv" style="--d:5; padding:2em; text-align:center;">
-            <h4 style="color:var(--gold); margin-bottom:1.5em; font-family:'Space Mono',monospace; font-size:0.9rem;">THE Q2 ALPHA</h4>
-            <div style="font-family:'Space Mono',monospace; font-size:3.5rem; color:var(--gold); line-height:1;">45.6<span style="font-size:1.5rem;">%</span></div>
-            <p style="font-size:0.85rem; margin-top:1.5em; opacity:0.8;">Utilizing a strategic <strong>RSI 25 Oversold</strong> entry point yielded the highest annualized returns for executives.</p>
-          </div>
-          
-          <!-- Section 3: Optimization -->
-          <div class="glass rv" style="--d:7; padding:1.5em; display:flex; flex-direction:column; justify-content:space-between;">
-            <div>
-              <h4 style="color:var(--teal); margin-bottom:0.8em; font-family:'Space Mono',monospace; font-size:0.9rem;">STRATEGIC PARAMETER ALPHA</h4>
-              <p style="font-size:0.85rem; line-height:1.6;">Shifting thresholds from traditional 30/70 to <strong>25/75</strong> significantly enhances signal accuracy and profitability in overshoot scenarios.</p>
-            </div>
-            <div style="display:flex; justify-content:space-around; margin-top:1em; opacity:0.6;">
-                <div style="text-align:center;">
-                   <div style="font-size:0.6rem; color:var(--text-dim);">TRADITIONAL</div>
-                   <div style="font-family:'Space Mono',monospace; font-size:0.8rem;">30/70</div>
-                </div>
-                <div style="text-align:center;">
-                   <div style="font-size:0.6rem; color:var(--teal);">STRATEGIC</div>
-                   <div style="font-family:'Space Mono',monospace; font-size:0.9rem; color:var(--teal); font-weight:bold;">25/75</div>
-                </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="two-col" style="margin-top:1em; gap:1em;">
-           <div class="glass rv" style="--d:9; border-color:var(--bear); background:rgba(220,38,38,0.03); display:flex; align-items:center; gap:1.5em; padding:1.5em;">
-              <div style="font-size:2rem;">⚠️</div>
-              <div>
-                <h4 style="color:var(--bear); margin-bottom:0.3em; font-size:1rem;">BEWARE: THE SHORT-SELLING TRAP</h4>
-                <p style="font-size:0.85rem; opacity:0.8;">Momentum in oil markets often extends overbought rallies. Early short positions are highly vulnerable due to "Investor Imitation".</p>
-              </div>
-           </div>
-           <div class="glass rv" style="--d:11; padding:1.5em; border-color:var(--teal);">
-              <h4 style="color:var(--teal); margin-bottom:0.3em; font-size:1rem;">THE BEHAVIORAL 'WHY'</h4>
-              <p style="font-size:0.85rem; opacity:0.8;">Algorithms have limits. Understanding <strong>social influence</strong> and crowd imitation is vital for modern risk management in high-volatility sectors.</p>
-           </div>
-        </div>
-      </div>
-    </section>
-
     <!-- =============== MOVED SLIDE: INTERACTIVE PATTERN ANALYSIS (Formerly Slide 17) =============== -->
     <section class="slide" id="s100b">
       <div class="slide-stage">
@@ -3606,7 +3412,7 @@
           Dynamic Analysis of Live Investment &amp; Listings
         </p>
         <div class="dalil-panel rv" style="--d:6; margin-top:1.4em;">
-          <p style="color:var(--text-dim); font-size:0.95rem;">
+          <p style="color:var(--text-dim); font-size:1.2rem;">
             A live voice-controlled Arabic interface on top of everything you have just seen &mdash; trends,
             candlesticks, support &amp; resistance, RSI, Bollinger, MACD. Research in 2024 showed that combining
             <strong>Technical Analysis with Market Sentiment</strong> via neural networks pushed S&amp;P 500 predictive
@@ -4126,7 +3932,7 @@
 
       /* ======== STAGE FIT (1920x1080 -> any viewport) ======== */
       function fitStage() {
-        const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+        const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080) * 0.8;
         document.documentElement.style.setProperty('--stage-scale', s);
       }
       window.addEventListener('resize', fitStage);
